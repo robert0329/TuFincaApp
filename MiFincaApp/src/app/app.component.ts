@@ -4,8 +4,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+//import { ListPage } from '../pages/list/list';
 import { FincasPage } from '../pages/fincas/fincas';
+import { CosechaPage } from '../pages/cosecha/cosecha';
+import { GastosPage } from '../pages/gastos/gastos';
+import { HerramientasPage } from '../pages/herramientas/herramientas';
+import { MaquinariaPage } from '../pages/maquinaria/maquinaria';
+import { PagosPage } from '../pages/pagos/pagos';
+import { ParcelaPage } from '../pages/parcela/parcela';
+import { ProductosPage } from '../pages/productos/productos';
+import { SiembraPage } from '../pages/siembra/siembra';
+import { SuplidorPage } from '../pages/suplidor/suplidor';
+import { TareasPage } from '../pages/tareas/tareas';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,12 +34,21 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Fincas', component: FincasPage }
+      { title: 'Fincas', component: FincasPage },
+      { title: 'Cosecha', component: CosechaPage },
+      { title: 'Gastos', component: GastosPage },
+      { title: 'Herramientas', component: HerramientasPage },
+      { title: 'Maquinaria', component: MaquinariaPage },
+      { title: 'Pagos', component: PagosPage },
+      { title: 'Parcela', component: ParcelaPage },
+      { title: 'Productos', component: ProductosPage },
+      { title: 'Siembra', component: SiembraPage },
+      { title: 'Tareas', component: TareasPage },
+      {title:'Suplidor', component:SuplidorPage}
     ];
 
   }
-
+  
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

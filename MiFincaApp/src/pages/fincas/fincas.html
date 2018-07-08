@@ -4,10 +4,10 @@
       Agregar fincas
     </ion-title>
     <ion-buttons>
-        <button ion-button icon-only (click)="OnGoBack()">
-          <ion-icon name="md-arrow-back"></ion-icon>
-        </button>
-      </ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,14 +15,6 @@
   <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="guardarFinca()" novalidate>
       <ion-list>
-          <ion-item>
-              <ion-label color="primary" floating>Foto</ion-label>
-              <ion-img formControlName="foto"></ion-img>
-            </ion-item>
-            <ion-item *ngIf="form.get('foto').errors && form.get('foto').touched">
-              <p *ngIf="form.get('foto').hasError('required')">Es requerido</p>
-            </ion-item>
-
         <ion-item>
           <ion-label color="primary" floating>Id</ion-label>
           <ion-input formControlName="id"></ion-input>
