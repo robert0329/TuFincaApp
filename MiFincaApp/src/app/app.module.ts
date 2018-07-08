@@ -27,7 +27,6 @@ import { TareasPage } from '../pages/tareas/tareas';
     MyApp,
     HomePage,
     
-    ListPage,
     FincasPage,
     CosechaPage,
     GastosPage,
@@ -38,7 +37,9 @@ import { TareasPage } from '../pages/tareas/tareas';
     ProductosPage,
     SiembraPage,
     SuplidorPage,
-    TareasPage
+    TareasPage,
+    ListPage,
+    
 
   ],
   imports: [
