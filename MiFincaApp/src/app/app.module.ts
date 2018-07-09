@@ -21,6 +21,7 @@ import { ProductosPage } from '../pages/productos/productos';
 import { SiembraPage } from '../pages/siembra/siembra';
 import { SuplidorPage } from '../pages/suplidor/suplidor';
 import { TareasPage } from '../pages/tareas/tareas';
+import { LoginPage } from './../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TareasPage } from '../pages/tareas/tareas';
     SiembraPage,
     SuplidorPage,
     TareasPage,
-    ListPage,EmpleadosPage
+    ListPage,EmpleadosPage,
+    LoginPage
     
 
   ],
@@ -59,7 +61,8 @@ import { TareasPage } from '../pages/tareas/tareas';
     ProductosPage,
     SiembraPage,
     SuplidorPage,
-    TareasPage,EmpleadosPage
+    TareasPage,EmpleadosPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
