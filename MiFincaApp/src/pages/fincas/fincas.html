@@ -16,14 +16,6 @@
     <form [formGroup]="form" (ngSubmit)="guardarFinca()" novalidate>
       <ion-list>
         <ion-item>
-          <ion-label color="primary" floating>Id</ion-label>
-          <ion-input formControlName="id"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="form.get('id').errors && form.get('id').touched">
-          <p *ngIf="form.get('id').hasError('required')">Es requerido</p>
-        </ion-item>
-
-        <ion-item>
           <ion-label color="primary" floating>Nombre</ion-label>
           <ion-input formControlName="nombre"></ion-input>
         </ion-item>
