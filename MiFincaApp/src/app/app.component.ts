@@ -1,3 +1,4 @@
+import { EmpleadosPage } from './../pages/empleados/empleados';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -34,17 +35,18 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Fincas', component: FincasPage },
-      { title: 'Cosecha', component: CosechaPage },
+      { title: 'Registro Fincas', component: FincasPage },
+      { title: 'Registro Cosecha', component: CosechaPage },
       { title: 'Gastos', component: GastosPage },
-      { title: 'Herramientas', component: HerramientasPage },
-      { title: 'Maquinaria', component: MaquinariaPage },
+      { title: 'Registro Herramientas', component: HerramientasPage },
+      { title: 'Registro Maquinaria', component: MaquinariaPage },
       { title: 'Pagos', component: PagosPage },
       { title: 'Parcela', component: ParcelaPage },
       { title: 'Productos', component: ProductosPage },
       { title: 'Siembra', component: SiembraPage },
-      { title: 'Tareas', component: TareasPage },
-      {title:'Suplidor', component:SuplidorPage}
+      { title: 'Registro Tareas', component: TareasPage },
+      {title:'Suplidor', component:SuplidorPage},
+      {title:'Registro Empleados', component:EmpleadosPage}
     ];
 
   }

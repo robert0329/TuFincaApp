@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Agregar empleado
+    </ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('nombre').errors && form.get('nombre').touched">
+          <p *ngIf="form.get('nombre').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Apellido</ion-label>
+          <ion-input formControlName="apellido"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('apellido').errors && form.get('apellido').touched">
+          <p *ngIf="form.get('apellido').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Direccion</ion-label>
+          <ion-input formControlName="direccion"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('direccion').errors && form.get('direccion').touched">
+          <p *ngIf="form.get('direccion').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Ciudad</ion-label>
+          <ion-input formControlName="ciudad"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('ciudad').errors && form.get('ciudad').touched">
+          <p *ngIf="form.get('ciudad').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Sector</ion-label>
+          <ion-input formControlName="sector"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('sector').errors && form.get('sector').touched">
+          <p *ngIf="form.get('sector').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Cedula</ion-label>
+          <ion-input formControlName="cedula"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('cedula').errors && form.get('cedula').touched">
+          <p *ngIf="form.get('cedula').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Telefono</ion-label>
+          <ion-input formControlName="telefono"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('telefono').errors && form.get('telefono').touched">
+          <p *ngIf="form.get('telefono').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Celular</ion-label>
+          <ion-input formControlName="celular"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('celular').errors && form.get('celular').touched">
+          <p *ngIf="form.get('celular').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Cargo</ion-label>
+          <ion-select formControlName="cargo"></ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('cargo').errors && form.get('cargo').touched">
+          <p *ngIf="form.get('cargo').hasError('required')">Es requerido</p>
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-label color="primary" floating>Salario</ion-label>
+        <ion-input formControlName="salario"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="form.get('salario').errors && form.get('salario').touched">
+        <p *ngIf="form.get('salario').hasError('required')">Es requerido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="form.get('email').errors && form.get('email').touched">
+        <p *ngIf="form.get('email').hasError('required')">Es requerido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" floating>Contraseña</ion-label>
+        <ion-input formControlName="contraseña"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="form.get('contraseña').errors && form.get('contraseña').touched">
+        <p *ngIf="form.get('contraseña').hasError('required')">Es requerido</p>
+      </ion-item>
+      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+    </form>
+  </ion-card-content>
+</ion-content>

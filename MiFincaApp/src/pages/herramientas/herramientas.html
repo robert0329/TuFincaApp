@@ -1,18 +1,46 @@
-<!--
-  Generated template for the HerramientasPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Herramientas</ion-title>
+    <ion-title>
+      Agregar Herramientas
+    </ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>  
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Herramienta</ion-label>
+          <ion-input formControlName="herramientas"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('herramientas').errors && form.get('herramientas').touched">
+          <p *ngIf="form.get('herramientas').hasError('required')">Es requerido</p>
+        </ion-item>
 
-<ion-content padding>
+        <ion-item>
+          <ion-label color="primary" floating>Cantidad</ion-label>
+          <ion-select formControlName="cantidad"></ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('cantidad').errors && form.get('cantidad').touched">
+          <p *ngIf="form.get('cantidad').hasError('required')">Es requerido</p>
+        </ion-item>
 
+        <ion-item>
+          <ion-label color="primary" floating>Suplidor</ion-label>
+          <ion-select formControlName="suplidor"></ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('suplidor').errors && form.get('suplidor').touched">
+          <p *ngIf="form.get('suplidor').hasError('required')">Es requerido</p>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+    </form>
+  </ion-card-content>
 </ion-content>

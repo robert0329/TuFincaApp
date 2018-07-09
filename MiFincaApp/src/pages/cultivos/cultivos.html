@@ -1,18 +1,40 @@
-<!--
-  Generated template for the CultivosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Cultivos</ion-title>
+    <ion-title>
+      Agregar cultivos
+    </ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Tipo</ion-label>
+          <ion-select formControlName="tipo"></ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('tipo').errors && form.get('tipo').touched">
+          <p *ngIf="form.get('tipo').hasError('required')">Es requerido</p>
+        </ion-item>
 
-<ion-content padding>
+        <ion-item>
+          <ion-label color="primary" floating>Descripcion</ion-label>
+          <ion-textarea formControlName="descripcion"></ion-textarea>
+        </ion-item>
+        <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
+          <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
+        </ion-item>
 
+        
+
+      </ion-list>
+      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+    </form>
+  </ion-card-content>
 </ion-content>

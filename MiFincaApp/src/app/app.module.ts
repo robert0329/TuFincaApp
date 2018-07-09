@@ -1,4 +1,4 @@
-
+import { EmpleadosPage } from './../pages/empleados/empleados';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -38,7 +38,7 @@ import { TareasPage } from '../pages/tareas/tareas';
     SiembraPage,
     SuplidorPage,
     TareasPage,
-    ListPage,
+    ListPage,EmpleadosPage
     
 
   ],
@@ -59,7 +59,7 @@ import { TareasPage } from '../pages/tareas/tareas';
     ProductosPage,
     SiembraPage,
     SuplidorPage,
-    TareasPage
+    TareasPage,EmpleadosPage
   ],
   providers: [
     StatusBar,
