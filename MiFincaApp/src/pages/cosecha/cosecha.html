@@ -1,18 +1,63 @@
-<!--
-  Generated template for the CosechaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Cosecha</ion-title>
+    <ion-title>
+      Agregar Cosechas
+    </ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardarCosecha()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Id</ion-label>
+          <ion-input formControlName="id"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('id').errors && form.get('id').touched">
+          <p *ngIf="form.get('id').hasError('required')">Es requerido</p>
+        </ion-item>
 
-<ion-content padding>
+        <ion-item>
+          <ion-label color="primary" floating>Descripcion</ion-label>
+          <ion-input formControlName="descripcion"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
+          <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
+        </ion-item>
 
+        <ion-item>
+          <ion-label color="primary" floating>Fecha</ion-label>
+          <ion-input formControlName="fecha"></ion-input>
+          <ion-item class=“listItem item-input” id=“dateSight”></ion-item>
+        </ion-item>
+        <ion-item *ngIf="form.get('fecha').errors && form.get('fecha').touched">
+          <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Id Siembra</ion-label>
+          <ion-textarea formControlName="idsiembra"></ion-textarea>
+        </ion-item>
+        <ion-item *ngIf="form.get('idsiembra').errors && form.get('idsiembra').touched">
+          <p *ngIf="form.get('idsiembra').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Cantidad</ion-label>
+          <ion-textarea formControlName="cantidad"></ion-textarea>
+        </ion-item>
+        <ion-item *ngIf="form.get('cantidad').errors && form.get('cantidad').touched">
+          <p *ngIf="form.get('cantidad').hasError('required')">Es requerido</p>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+    </form>
+  </ion-card-content>
 </ion-content>

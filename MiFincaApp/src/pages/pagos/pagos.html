@@ -1,18 +1,54 @@
-<!--
-  Generated template for the PagosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Pagos</ion-title>
+    <ion-title>
+      Agregar Pagos
+    </ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardarPagos()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Id</ion-label>
+          <ion-input formControlName="id"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('id').errors && form.get('id').touched">
+          <p *ngIf="form.get('id').hasError('required')">Es requerido</p>
+        </ion-item>
+<!--
+        <ion-item>
+          <ion-label color="primary" floating>Descripcion</ion-label>
+          <ion-input formControlName="descripcion"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
+          <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
+        </ion-item>
+      -->
+        <ion-item>
+          <ion-label color="primary" floating>Monto</ion-label>
+          <ion-textarea formControlName="monto"></ion-textarea>
+        </ion-item>
+        <ion-item *ngIf="form.get('monto').errors && form.get('monto').touched">
+          <p *ngIf="form.get('monto').hasError('required')">Es requerido</p>
+        </ion-item>
 
-<ion-content padding>
+        <ion-item>
+          <ion-label color="primary" floating>Id Empleado</ion-label>
+          <ion-textarea formControlName="idempleado"></ion-textarea>
+        </ion-item>
+        <ion-item *ngIf="form.get('idempleado').errors && form.get('idempleado').touched">
+          <p *ngIf="form.get('idempleado').hasError('required')">Es requerido</p>
+        </ion-item>
 
+      </ion-list>
+      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+    </form>
+  </ion-card-content>
 </ion-content>

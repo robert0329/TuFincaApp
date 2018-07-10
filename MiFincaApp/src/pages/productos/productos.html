@@ -1,18 +1,64 @@
-<!--
-  Generated template for the ProductosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Productos</ion-title>
+    <ion-title>
+      Agregar Productos
+    </ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="guardarProductos()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Id</ion-label>
+          <ion-input formControlName="id"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('id').errors && form.get('id').touched">
+          <p *ngIf="form.get('id').hasError('required')">Es requerido</p>
+        </ion-item>.
 
-<ion-content padding>
+        <ion-item>
+          <ion-label color="primary" floating>Producto</ion-label>
+          <ion-input formControlName="producto"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('producto').errors && form.get('producto').touched">
+          <p *ngIf="form.get('producto').hasError('required')">Es requerido</p>
+        </ion-item>
+        
+      <ion-item>
+        <ion-label color="primary" floating>Descripcion</ion-label>
+        <ion-input formControlName="descripcion"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
+        <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
+      </ion-item>
 
+<!--
+        <ion-item>
+          <ion-label color="primary" floating>Descripcion</ion-label>
+          <ion-input formControlName="descripcion"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
+          <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
+        </ion-item>
+      -->
+      
+        <ion-item>
+          <ion-label color="primary" floating>Id Suplidor</ion-label>
+          <ion-textarea formControlName="idsuplidor"></ion-textarea>
+        </ion-item>
+        <ion-item *ngIf="form.get('idsuplidor').errors && form.get('idsuplidor').touched">
+          <p *ngIf="form.get('idsuplidor').hasError('required')">Es requerido</p>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+    </form>
+  </ion-card-content>
 </ion-content>
