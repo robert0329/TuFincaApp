@@ -1,3 +1,4 @@
+import { ListFincasPage } from './../pages/Finca-Component/list-fincas/list-fincas';
 import { EmpleadosPage } from './../pages/empleados/empleados';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { FincasPage } from '../pages/fincas/fincas';
+import { FincasPage } from '../pages/Finca-Component/Add-fincas/fincas';
 import { CosechaPage } from '../pages/cosecha/cosecha';
 import { GastosPage } from '../pages/gastos/gastos';
 import { HerramientasPage } from '../pages/herramientas/herramientas';
@@ -22,12 +23,13 @@ import { SiembraPage } from '../pages/siembra/siembra';
 import { SuplidorPage } from '../pages/suplidor/suplidor';
 import { TareasPage } from '../pages/tareas/tareas';
 import { LoginPage } from './../pages/login/login';
+import { DbProvider } from '../providers/db/db';
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    
+    HomePage,   
     FincasPage,
     CosechaPage,
     GastosPage,
@@ -40,7 +42,7 @@ import { LoginPage } from './../pages/login/login';
     SuplidorPage,
     TareasPage,
     ListPage,EmpleadosPage,
-    LoginPage
+    LoginPage,ListFincasPage
     
 
   ],
@@ -62,12 +64,15 @@ import { LoginPage } from './../pages/login/login';
     SiembraPage,
     SuplidorPage,
     TareasPage,EmpleadosPage,
-    LoginPage
+    LoginPage,
+    ListFincasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DbProvider,
+    SQLite
   ]
 })
 export class AppModule {}

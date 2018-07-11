@@ -1,13 +1,14 @@
+import { ListFincasPage } from './../pages/Finca-Component/list-fincas/list-fincas';
 import { LoginPage } from './../pages/login/login';
 import { EmpleadosPage } from './../pages/empleados/empleados';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { DbProvider } from '../providers/db/db';
 import { HomePage } from '../pages/home/home';
 //import { ListPage } from '../pages/list/list';
-import { FincasPage } from '../pages/fincas/fincas';
+import { FincasPage } from '../pages/Finca-Component/Add-fincas/fincas';
 import { CosechaPage } from '../pages/cosecha/cosecha';
 import { GastosPage } from '../pages/gastos/gastos';
 import { HerramientasPage } from '../pages/herramientas/herramientas';
@@ -30,9 +31,19 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public db: DbProvider,public platform: Platform, 
+    public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      statusBar.styleDefault();
+      splashScreen.hide();
+        this.db.openDb()
+       .then(() => this.db.createTableSitios())
 
+    });
+  
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
@@ -47,7 +58,8 @@ export class MyApp {
       { title: 'Siembra', component: SiembraPage },
       { title: 'Registro Tareas', component: TareasPage },
       {title:'Suplidor', component:SuplidorPage},
-      {title:'Registro Empleados', component:EmpleadosPage}
+      {title:'Registro Empleados', component:EmpleadosPage},
+      {title:'Listado', component:ListFincasPage}
     ];
 
   }
