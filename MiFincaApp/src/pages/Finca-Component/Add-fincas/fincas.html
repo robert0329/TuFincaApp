@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header Access-Control-Allow-Origin>
   <ion-navbar>
     <ion-title>
       Agregar fincas
@@ -13,11 +13,11 @@
 
 <ion-content>
   <ion-card-content>
-    <form [formGroup]="form" (ngSubmit)="guardarFinca()" novalidate>
+    <form [formGroup]="form" (ngSubmit)="addFinca()" novalidate>
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>Nombre</ion-label>
-          <ion-input formControlName="nombre"></ion-input>
+          <ion-input name="nombreinput" id="nombreinput" formControlName="nombre"></ion-input>
         </ion-item>
         <ion-item *ngIf="form.get('nombre').errors && form.get('nombre').touched">
           <p *ngIf="form.get('nombre').hasError('required')">Es requerido</p>
@@ -25,14 +25,14 @@
 
         <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
-          <ion-textarea formControlName="descripcion"></ion-textarea>
+          <ion-input name="descripcioninput" id="descripcioninput" formControlName="descripcion"></ion-input>
         </ion-item>
         <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
           <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
         </ion-item>
 
       </ion-list>
-      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+      <button ion-button block type="submit">Guardar</button>
     </form>
   </ion-card-content>
 </ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Listado Fincas</ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="OnGoBack()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addFinca()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<!-- [formControl]="searchControl" -->
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchTerm"  (ionInput)="onSearchInput()"></ion-searchbar>
+ 
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+  <ion-list>
+    <ion-item-sliding *ngFor="let grocery of FincaArray">
+      <ion-item> {{grocery.nombre}}</ion-item>
+
+      <ion-item-options>
+        <button ion-button icon-only (click)="editNote(grocery.id)" light>
+          <ion-icon name="paper"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="deleteNote(grocery.id)" danger>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>

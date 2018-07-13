@@ -1,4 +1,4 @@
-import { ListFincasPage } from './../pages/Finca-Component/list-fincas/list-fincas';
+
 import { EmpleadosPage } from './../pages/empleados/empleados';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FincasPage } from '../pages/Finca-Component/Add-fincas/fincas';
 import { CosechaPage } from '../pages/cosecha/cosecha';
 import { GastosPage } from '../pages/gastos/gastos';
+import { ListaFincasPage } from '../pages/Finca-Component/lista-fincas/lista-fincas';
 import { HerramientasPage } from '../pages/herramientas/herramientas';
 import { MaquinariaPage } from '../pages/maquinaria/maquinaria';
 import { PagosPage } from '../pages/pagos/pagos';
@@ -23,9 +24,9 @@ import { SiembraPage } from '../pages/siembra/siembra';
 import { SuplidorPage } from '../pages/suplidor/suplidor';
 import { TareasPage } from '../pages/tareas/tareas';
 import { LoginPage } from './../pages/login/login';
-import { DbProvider } from '../providers/db/db';
 import { SQLite } from '@ionic-native/sqlite';
-
+import {FincaService} from '../Service/Finca-Service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     MyApp,
@@ -42,13 +43,14 @@ import { SQLite } from '@ionic-native/sqlite';
     SuplidorPage,
     TareasPage,
     ListPage,EmpleadosPage,
-    LoginPage,ListFincasPage
+    LoginPage,ListaFincasPage
     
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,14 +66,14 @@ import { SQLite } from '@ionic-native/sqlite';
     SiembraPage,
     SuplidorPage,
     TareasPage,EmpleadosPage,
-    LoginPage,
-    ListFincasPage
+    LoginPage,ListaFincasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    FincaService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DbProvider,
+    
     SQLite
   ]
 })
