@@ -1,9 +1,8 @@
 <ion-header Access-Control-Allow-Origin>
   <ion-navbar>
-    <ion-title>
-      Agregar fincas
-    </ion-title>
-    <ion-buttons>
+      <ion-title>ModalPage</ion-title>
+   
+     <ion-buttons>
       <button ion-button icon-only (click)="OnGoBack()">
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
@@ -23,7 +22,7 @@
           <p *ngIf="form.get('nombre').hasError('required')">Es requerido</p>
         </ion-item>
 
-        <ion-item>
+          <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-input name="descripcioninput" id="descripcioninput" formControlName="descripcion"></ion-input>
         </ion-item>

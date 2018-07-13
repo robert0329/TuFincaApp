@@ -1,3 +1,4 @@
+import { EditFincaPage } from './../pages/Finca-Component/edit-finca/edit-finca';
 
 import { EmpleadosPage } from './../pages/empleados/empleados';
 
@@ -27,6 +28,8 @@ import { LoginPage } from './../pages/login/login';
 import { SQLite } from '@ionic-native/sqlite';
 import {FincaService} from '../Service/Finca-Service';
 import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     SuplidorPage,
     TareasPage,
     ListPage,EmpleadosPage,
-    LoginPage,ListaFincasPage
+    LoginPage,ListaFincasPage,EditFincaPage
     
 
   ],
@@ -66,7 +69,7 @@ import { HttpClientModule } from '@angular/common/http';
     SiembraPage,
     SuplidorPage,
     TareasPage,EmpleadosPage,
-    LoginPage,ListaFincasPage
+    LoginPage,ListaFincasPage,EditFincaPage
   ],
   providers: [
     StatusBar,

@@ -50,13 +50,9 @@ export class FincasPage {
   }
 
   addFinca() {
-    console.log(this.form.value);
      this.FincaServicio.addFinca(this.form.value).subscribe(res => {
        console.log(res);
-       //this.finca.id = res.data.insertId;
      });
-
-     alert("Registrado");
     this.limpiar();
   }
   getVecino(id:number) {

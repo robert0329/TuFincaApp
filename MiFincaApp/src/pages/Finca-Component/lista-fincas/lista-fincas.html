@@ -26,10 +26,10 @@
       <ion-item> {{grocery.nombre}}</ion-item>
 
       <ion-item-options>
-        <button ion-button icon-only (click)="editNote(grocery.id)" light>
+        <button ion-button icon-only (click)="openModal(grocery.id,grocery.nombre,grocery.descripcion)" light>
           <ion-icon name="paper"></ion-icon>
         </button>
-        <button ion-button icon-only (click)="deleteNote(grocery.id)" danger>
+        <button ion-button icon-only danger (click)="deleteNote(grocery.id)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>

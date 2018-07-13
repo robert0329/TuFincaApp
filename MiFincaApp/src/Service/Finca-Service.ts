@@ -1,12 +1,12 @@
+import { Headers } from '@angular/http';
+import { Finca } from './../app/Clases/Finca';
 import { Injectable } from '@angular/core';
 import { catchError, tap } from "rxjs/operators";
-
-import { Observable } from "rxjs/observable";
-
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-
+import {Observable} from "rxjs/Rx";
 import {of} from "rxjs/observable/of";
-import { Finca } from "../../src/app/Clases/Finca";
+import { Http, Response, RequestOptions, URLSearchParams } 
+from '@angular/http';
 
 const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
@@ -15,8 +15,9 @@ const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/jso
 export class FincaService {
 
   private FincaUrl="http://localhost:8000/finca";
+  private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http:  HttpClient) { }
-
+  
   getFinca(): Observable<Finca[]> {
 
     return this.http.get<Finca[]>(this.FincaUrl)
@@ -49,8 +50,13 @@ export class FincaService {
     );
   }
 
+AddUpdate (finca: Finca): Observable<any> {
+  return this.http.put<Finca>(this.FincaUrl, finca, httpOptions).pipe(
+    tap((finca: Finca) => this.log(`added Finca w/ id=${finca.id}`)),
+    catchError(this.handleError<Finca>('finca'))
+  );
+}
   getDelete(id): Observable<Finca> {
-    console.log(id);
     const url = `${this.FincaUrl}/${id}`;
     return this.http.delete<Finca>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),

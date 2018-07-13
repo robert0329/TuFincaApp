@@ -1,0 +1,36 @@
+<ion-header>
+<ion-navbar>
+  <ion-title>ModalPage</ion-title>
+  <ion-buttons end>
+    <button ion-button (click)="closeModal()">Close</button>
+  </ion-buttons>
+</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card-content>
+    <form [formGroup]="form" (ngSubmit)="Modificar()" novalidate>
+      <ion-list>
+
+        <ion-item>
+          <ion-label color="primary" floating>Id</ion-label>
+          <ion-input [(ngModel)]="id" formControlName="id"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Nombre</ion-label>
+          <ion-input [(ngModel)]="nombre" formControlName="nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Descripcion</ion-label>
+          <ion-input [(ngModel)]="descripcion"formControlName="descripcion"></ion-input>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button block type="submit">Modificar</button>
+    </form>
+  </ion-card-content>
+</ion-content>

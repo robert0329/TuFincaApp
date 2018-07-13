@@ -1,9 +1,11 @@
+import { EditFincaPage } from './../../Finca-Component/edit-finca/edit-finca';
+import { FincasPage } from './../Add-fincas/fincas';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../../home/home';
 import { Finca } from "../../../app/Clases/Finca";
 import { FincaService } from '../../../Service/Finca-Service';
-import { FincasPage } from '../Add-fincas/fincas';
+import { ModalController } from 'ionic-angular';
 /**
  * Generated class for the ListaFincasPage page.
  *
@@ -24,10 +26,16 @@ export class ListaFincasPage {
   items: any;
   searching: any = false;
 
-  constructor(public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
     this.buscarSolicitud();
     
   }
+ 
+  public openModal(id,nombre,descripcion){
+    var data = { id,nombre,descripcion };
+    var modalPage = this.modalCtrl.create(EditFincaPage,data);
+    modalPage.present();
+}
 
   getVecino(id: number) {
     this.FincaServicio.getFincas(1).subscribe(res => {
@@ -42,34 +50,7 @@ export class ListaFincasPage {
     });
   }
 
-  editNote(note) {
-console.log(note.id);
-    let prompt = this.alertCtrl.create({
-      title: 'Edit Note',
-      inputs: [{
-        name: 'title'
-      }],
-      
-      buttons: [
-        {
-          text: 'Cancel'
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            let index = this.notes.indexOf(note);
 
-            if (index > -1) {
-              this.notes[index] = data;
-            }
-          }
-        }
-      ]
-    });
-
-    prompt.present();
-
-  }
 
   
   deleteNote(id) {
@@ -81,6 +62,7 @@ console.log(note.id);
   }
   ionViewDidLoad() {
     this.setFilteredItems();
+    this.buscarSolicitud();
   }
 
   onSearchInput() {
