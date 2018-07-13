@@ -54,6 +54,7 @@ export class FincasPage {
        console.log(res);
      });
     this.limpiar();
+    this.navCtrl.setRoot(ListaFincasPage);
   }
   getVecino(id:number) {
     this.FincaServicio.getFincas(1).subscribe(res => {

@@ -1290,6 +1290,7 @@ var FincasPage = /** @class */ (function () {
             console.log(res);
         });
         this.limpiar();
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
     };
     FincasPage.prototype.getVecino = function (id) {
         this.FincaServicio.getFincas(1).subscribe(function (res) {
