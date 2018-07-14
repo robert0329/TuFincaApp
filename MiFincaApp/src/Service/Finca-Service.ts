@@ -1,13 +1,10 @@
-import { Headers } from '@angular/http';
+
 import { Finca } from './../app/Clases/Finca';
 import { Injectable } from '@angular/core';
 import { catchError, tap } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {Observable} from "rxjs/Rx";
 import {of} from "rxjs/observable/of";
-import { Http, Response, RequestOptions, URLSearchParams } 
-from '@angular/http';
-
 const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
 
@@ -15,7 +12,6 @@ const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/jso
 export class FincaService {
 
   private FincaUrl="http://localhost:8000/finca";
-  private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http:  HttpClient) { }
   
   getFinca(): Observable<Finca[]> {

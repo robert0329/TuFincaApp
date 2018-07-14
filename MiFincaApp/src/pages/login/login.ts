@@ -1,26 +1,37 @@
-import { FincasPage } from './../Finca-Component/Add-fincas/fincas';
+import { UsuarioService } from './../../Service/Usuario-Service';
+import { Usuarios } from './../../app/Clases/Usuarios';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
-
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  loading: Loading;
-  registerCredentials = { email: '', password: '' };
+ 
+  usuario: Usuarios;
+   loading: Loading;
+   form: FormGroup;
 
-  constructor(public navCtrl: NavController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
-
+  constructor(private fb: FormBuilder,public navCtrl: NavController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { 
+    this.createMyForm();
+  }
+  private createMyForm() {
+    return this.form = this.fb.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required]
+    });
+  }
   public createAccount() {
     this.nav.push('RegisterPage');
   }
+  users: any[] = [];
   public login() {
-    
-    this.auth.login(this.registerCredentials.email, this.registerCredentials.password).subscribe((value) => 
+   
+    this.auth.login(this.form.value).subscribe((value) => 
     {
       if (value) {    
         this.showLoading();   
@@ -48,6 +59,6 @@ export class LoginPage {
       subTitle: text,
       buttons: ['OK']
     });
-
+    alert.present();
   }
 }

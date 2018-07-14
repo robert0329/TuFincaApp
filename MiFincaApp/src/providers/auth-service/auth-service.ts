@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -19,31 +18,45 @@ export class AuthService {
 
   }
   currentUser: User;
-  public login(email, password) {
 
-    if (email === null || password === null) {
+  public login(credentials) {
+    return Observable.create(observer => {
+      this.Usuarios.getEmail(credentials.email).subscribe((value) => {
+        if (value <= 0) {
+          return Observable.throw("Please insert email");
+        } else {
+          if (credentials.email == value[0].email) {
+            this.Usuarios.getPassword(credentials.password).subscribe((value) => {
+              if (value <= 0) {
+                return Observable.throw("Please insert password");
+              } else {
+                if (credentials.password == value[0].password) {
+                  let access = (credentials.email && credentials.password);
+                  this.currentUser = new User("Robert", credentials.email);
+                  observer.next(access);
+                  observer.complete();
+                }
+              }
+            })
+          }
+        }
+      })
+    });
+  }
+  public loginn(credentials) {
+    if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
-        this.Usuarios.getEmail(email).subscribe((value) => {
-          if (email == value[0].email) {
-            this.Usuarios.getPassword(password).subscribe((value) => {
-
-              if (password == value[0].password) {
-                let access = (email && password);
-                this.currentUser = new User("Robert", email);
-                observer.next(access);
-                observer.complete();
-              }
-
-            })
-          }
-
-        })
+        // At this point make a request to your backend to make a real check!
+        let access = (credentials.password === "pass" && credentials.email === "email");
+        this.currentUser = new User('Simon', 'saimon@devdactic.com');
+        observer.next(access);
+        observer.complete();
       });
     }
-
   }
+
   public register(credentials) {
     if (credentials.email === null || credentials.password === null || credentials.nombre === null || credentials.apellido === null
       || credentials.ciudad === null || credentials.cedula === null || credentials.telefono === null || credentials.direccion === null) {

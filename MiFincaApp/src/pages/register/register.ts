@@ -1,7 +1,6 @@
-import { Usuarios } from './../../app/Clases/Usuarios';
+
 import { Component } from '@angular/core';
 import { NavController, AlertController, IonicPage } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service/auth-service';
 import { UsuarioService } from '../../Service/Usuario-Service';
 @IonicPage()
 @Component({
@@ -12,7 +11,7 @@ export class RegisterPage {
   createSuccess = false;
   registerCredentials = { email: '', password: '' ,nombre: '' ,apellido: '' ,direccion: '' ,ciudad: '' ,cedula: '' ,telefono: '' };
  
-  constructor(private Usuarios: UsuarioService,private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
+  constructor(private Usuarios: UsuarioService,private nav: NavController, private alertCtrl: AlertController) { }
   // this.auth.register(this.registerCredentials)
   public register() {
     this.Usuarios.addEmpleado(this.registerCredentials)
