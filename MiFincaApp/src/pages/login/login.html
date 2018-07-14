@@ -1,34 +1,36 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Logueate a tu fincaApp
-    </ion-title>
-    
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
-  <ion-card-content>
-    <form [formGroup]="form" (ngSubmit)="Login()" novalidate>
-      <ion-list>
-        <ion-item>
-          <ion-label color="primary" floating>Usuario</ion-label>
-          <ion-textarea formControlName="usuario"></ion-textarea>
-        </ion-item>
-        <ion-item *ngIf="form.get('usuario').errors && form.get('usuario').touched">
-          <p *ngIf="form.get('usuario').hasError('required')">Es requerido</p>
-        </ion-item>
-
-        <ion-item>
-          <ion-label color="primary" floating>Contraseña</ion-label>
-          <ion-input formControlName="contraseña"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="form.get('contraseña').errors && form.get('contraseña').touched">
-          <p *ngIf="form.get('contraseña').hasError('required')">Es requerido</p>
-        </ion-item>
-
-      </ion-list>
-      <button ion-button block type="submit" [disabled]="form.invalid">Login</button>
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="http://placehold.it/300x200"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+    <form (ngSubmit)="login()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
+        </ion-col>
+      </ion-row>
+      
     </form>
-  </ion-card-content>
+  </div>
 </ion-content>

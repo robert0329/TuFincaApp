@@ -1,13 +1,8 @@
+import { FincasPage } from './../Finca-Component/Add-fincas/fincas';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
+import { AuthService } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -15,32 +10,44 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  loading: Loading;
+  registerCredentials = { email: '', password: '' };
 
-  form: FormGroup;q
-  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
-    this.crearFormulario();
-    
-    
+  constructor(public navCtrl: NavController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
+
+  public createAccount() {
+    this.nav.push('RegisterPage');
   }
-  
-  crearFormulario() {
-    this.form = this.fb.group({
-      usuario: ['',Validators.required],
-      contraseña: ['', Validators.required]
+  public login() {
+    
+    this.auth.login(this.registerCredentials.email, this.registerCredentials.password).subscribe((value) => 
+    {
+      if (value) {    
+        this.showLoading();   
+        this.nav.setRoot(HomePage);
+      } else {
+        this.showError("Access Denied");
+      }
+    },
+      error => {
+        this.showError(error);
+      });
+    }
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
     });
-  }
- 
-  Login() {
-    this.navCtrl.setRoot(HomePage);
-    //this.navCtrl.popToRoot();
-  }
-  OnGoBack(){
-    this.navCtrl.setRoot(HomePage);
-    //this.navCtrl.popToRoot();
+    this.loading.present();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+  showError(text) {
+    this.loading.dismiss();
+    let alert = this.alertCtrl.create({
+      title: 'Fail',
+      subTitle: text,
+      buttons: ['OK']
+    });
 
+  }
 }

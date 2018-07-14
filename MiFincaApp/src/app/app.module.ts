@@ -1,3 +1,5 @@
+import { UsuarioService } from './../Service/Usuario-Service';
+
 import { EditFincaPage } from './../pages/Finca-Component/edit-finca/edit-finca';
 
 import { EmpleadosPage } from './../pages/empleados/empleados';
@@ -28,6 +30,7 @@ import { LoginPage } from './../pages/login/login';
 import { SQLite } from '@ionic-native/sqlite';
 import {FincaService} from '../Service/Finca-Service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService  } from '../providers/auth-service/auth-service';
 
 
 @NgModule({
@@ -75,8 +78,9 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     FincaService,
+    UsuarioService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    
+    AuthService,
     SQLite
   ]
 })
