@@ -42,13 +42,13 @@ var AuthService = /** @class */ (function () {
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
             _this.Usuarios.getEmail(credentials.email).subscribe(function (value) {
                 if (value <= 0) {
-                    return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw("Please insert email");
+                    return 0;
                 }
                 else {
                     if (credentials.email == value[0].email) {
-                        _this.Usuarios.getPassword(credentials.password).subscribe(function (value) {
+                        _this.Usuarios.getPassword(credentials.email).subscribe(function (value) {
                             if (value <= 0) {
-                                return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw("Please insert password");
+                                return 0;
                             }
                             else {
                                 if (credentials.password == value[0].password) {
@@ -164,8 +164,8 @@ var UsuarioService = /** @class */ (function () {
     UsuarioService.prototype.getUsers = function (email) {
         return this.http.get(this.Urlget + "/" + email);
     };
-    UsuarioService.prototype.getPassword = function (password) {
-        var url = this.Urlgetp + "/" + password;
+    UsuarioService.prototype.getPassword = function (email) {
+        var url = this.Urlgetp + "/" + email;
         return this.http.get(url).pipe();
     };
     UsuarioService.prototype.addEmpleado = function (finca) {
@@ -1575,11 +1575,10 @@ var FincaService = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1589,7 +1588,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1607,8 +1605,8 @@ var LoginPage = /** @class */ (function () {
     }
     LoginPage.prototype.createMyForm = function () {
         return this.form = this.fb.group({
-            email: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].required],
-            password: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].required]
+            email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            password: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required]
         });
     };
     LoginPage.prototype.createAccount = function () {
@@ -1616,13 +1614,14 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.login = function () {
         var _this = this;
-        this.auth.login(this.form.value).subscribe(function (value) {
-            if (value) {
-                _this.showLoading();
-                _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+        this.auth.login(this.form.value).subscribe(function (allowed) {
+            if (allowed) {
+                // this.showLoading();
+                // this.nav.setRoot(HomePage);
+                _this.showError("Access Denied");
             }
             else {
-                _this.showError("Access Denied");
+                _this.showError("Access ok");
             }
         }, function (error) {
             _this.showError(error);
@@ -1636,19 +1635,18 @@ var LoginPage = /** @class */ (function () {
         this.loading.present();
     };
     LoginPage.prototype.showError = function (text) {
-        this.loading.dismiss();
         var alert = this.alertCtrl.create({
-            title: 'Fail',
+            title: 'error',
             subTitle: text,
             buttons: ['OK']
         });
         alert.present();
     };
     LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img src="http://placehold.it/300x200"/>\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n      <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n          <ion-list>\n\n            <ion-item>\n\n              <ion-label color="primary" floating>Email</ion-label>\n\n              <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n            </ion-item>\n\n    \n\n              <ion-item>\n\n              <ion-label color="primary" floating>Password</ion-label>\n\n              <ion-input name="passwordinput" id="passwordinput" formControlName="password"></ion-input>\n\n            </ion-item>\n\n    \n\n          </ion-list>\n\n          <ion-row>\n\n              <ion-col class="signup-col">\n\n                <button ion-button class="submit-btn" full type="submit">Login</button>\n\n                <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>\n\n              </ion-col>\n\n            </ion-row>\n\n        </form>\n\n  </div>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _f || Object])
     ], LoginPage);
     return LoginPage;
     var _a, _b, _c, _d, _e, _f;

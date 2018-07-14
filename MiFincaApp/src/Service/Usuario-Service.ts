@@ -36,8 +36,8 @@ export class UsuarioService {
     return this.http.get(this.Urlget+"/"+email);
   }
   
-  getPassword(password: string): Observable<Usuarios> {
-    const url = `${this.Urlgetp}/${password}`;
+  getPassword(email: string): Observable<Usuarios> {
+    const url = `${this.Urlgetp}/${email}`;
     return this.http.get<Usuarios>(url).pipe();
   }
   addEmpleado(finca: Usuarios): Observable<any> {

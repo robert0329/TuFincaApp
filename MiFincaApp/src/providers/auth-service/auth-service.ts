@@ -23,12 +23,12 @@ export class AuthService {
     return Observable.create(observer => {
       this.Usuarios.getEmail(credentials.email).subscribe((value) => {
         if (value <= 0) {
-          return Observable.throw("Please insert email");
+          return 0;
         } else {
           if (credentials.email == value[0].email) {
-            this.Usuarios.getPassword(credentials.password).subscribe((value) => {
+            this.Usuarios.getPassword(credentials.email).subscribe((value) => {
               if (value <= 0) {
-                return Observable.throw("Please insert password");
+                return 0;
               } else {
                 if (credentials.password == value[0].password) {
                   let access = (credentials.email && credentials.password);
