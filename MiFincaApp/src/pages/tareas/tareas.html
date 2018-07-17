@@ -13,42 +13,37 @@
 
 <ion-content>
   <ion-card-content>
-    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+    <form [formGroup]="form" (ngSubmit)="guardar()">
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-textarea formControlName="descripcion"></ion-textarea>
         </ion-item>
-        <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
-          <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
-        </ion-item>
 
+       
         <ion-item>
-          <ion-label color="primary" floating>Empleado</ion-label>
-          <ion-select formControlName="empleado"></ion-select>
-        </ion-item>
-        <ion-item *ngIf="form.get('empleado').errors && form.get('empleado').touched">
-          <p *ngIf="form.get('empleado').hasError('required')">Es requerido</p>
-        </ion-item>
-
-        <ion-item>
-          <ion-label color="primary" floating>Finca</ion-label>
-          <ion-select formControlName="finca"></ion-select>
-        </ion-item>
-        <ion-item *ngIf="form.get('finca').errors && form.get('finca').touched">
-          <p *ngIf="form.get('finca').hasError('required')">Es requerido</p>
+          <ion-label>Fincas</ion-label>
+          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">
+            <ion-option #item *ngFor="let finca of ArrayTareas"  selected="false" 
+            >{{finca.nombre}}</ion-option>
+          </ion-select>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary" floating>Fecha</ion-label>
           <ion-datetime formControlName="fecha"></ion-datetime>
         </ion-item>
-        <ion-item *ngIf="form.get('fecha').errors && form.get('fecha').touched">
-          <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
+
+        <ion-item>
+          <ion-label>empleados</ion-label>
+          <ion-select multiple="true" cancelText="cancel" okText="ok">
+            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" 
+            (ionSelect)="friendFun(sitio, form)">{{sitio.nombre}} (@{{sitio.idpersona}})</ion-option>
+          </ion-select>
         </ion-item>
 
       </ion-list>
-      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
+      <button ion-button block type="submit">Asignar</button>
     </form>
   </ion-card-content>
 </ion-content>

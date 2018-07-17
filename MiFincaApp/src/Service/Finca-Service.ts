@@ -12,6 +12,7 @@ const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/jso
 export class FincaService {
 
   private FincaUrl="http://localhost:8000/finca";
+  private FincaUrlapi="http://localhost:8000/finca/api";
   constructor(private http:  HttpClient) { }
   
   getFinca(): Observable<Finca[]> {
@@ -22,8 +23,8 @@ export class FincaService {
         catchError(this.handleError('getFinca', []))
       );
   }
-  getFincas(id: number): Observable<Finca> {
-    const url = `${this.FincaUrl}/${id}`;
+  getFincas(id: string): Observable<Finca> {
+    const url = `${this.FincaUrlapi}/${id}`;
 
     return this.http.get<Finca>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),

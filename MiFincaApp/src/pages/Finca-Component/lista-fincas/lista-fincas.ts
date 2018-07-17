@@ -1,11 +1,12 @@
+import { FincaService } from './../../../Service/Finca-Service';
 import { EditFincaPage } from './../../Finca-Component/edit-finca/edit-finca';
 import { FincasPage } from './../Add-fincas/fincas';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../../home/home';
 import { Finca } from "../../../app/Clases/Finca";
-import { FincaService } from '../../../Service/Finca-Service';
 import { ModalController } from 'ionic-angular';
+import { AuthService } from '../../../providers/auth-service/auth-service';
 /**
  * Generated class for the ListaFincasPage page.
  *
@@ -19,16 +20,22 @@ import { ModalController } from 'ionic-angular';
   templateUrl: 'lista-fincas.html',
 })
 export class ListaFincasPage {
+  username = '';
+  email = '';
+  idpersona='';
+  
+
   notes: any = [];
   FincaArray: Array<Finca> = [];
 
-  searchTerm: string = '';
-  items: any;
-  searching: any = false;
 
-  constructor(public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
+  constructor( private auth: AuthService,public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
     this.buscarSolicitud();
-    
+
+    let info = this.auth.getUserInfo();
+    this.username = info['name'];
+    this.email = info['email'];
+    this.idpersona = info['idpersona'];
   }
  
   public openModal(id,nombre,descripcion){
@@ -38,39 +45,32 @@ export class ListaFincasPage {
 }
 
   getVecino(id: number) {
-    this.FincaServicio.getFincas(1).subscribe(res => {
-      console.log(res.nombre);
+    // this.FincaServicio.getFincas().subscribe(res => {
+    //   console.log(res.nombre);
 
-    });
+    // });
 
   }
   buscarSolicitud() {
-    this.FincaServicio.getFinca().subscribe(res => {
-      this.FincaArray = res;
+    this.FincaServicio.getFincas(this.idpersona).subscribe(res => {
+      this.notes = res;
     });
+    // this.FincaServicio.getFinca().subscribe(res => {
+    //   this.FincaArray = res;
+    // });
   }
 
-
-
-  
   deleteNote(id) {
-    console.log(id);
      this.FincaServicio.getDelete(id).subscribe(res => {
       this.navCtrl.setRoot(ListaFincasPage);
     });
     
   }
   ionViewDidLoad() {
-    this.setFilteredItems();
-    this.buscarSolicitud();
-  }
+    this.FincaServicio.getFincas(this.idpersona).subscribe(res => {
+      this.notes = res;
+    })
 
-  onSearchInput() {
-    this.searching = true;
-  }
-
-  setFilteredItems() {
-    this.items = this.FincaServicio.getFinc(this.searchTerm);
   }
 
   OnGoBack() {

@@ -6,10 +6,14 @@ export class User {
   password: string;
   name: string;
   email: string;
+  idpersona: string;
+  tipo: string;
 
-  constructor(name: string, email: string) {
+  constructor(name: string, email: string, idpersona:string,tipo:string) {
     this.email = email;
     this.name = name;
+    this.idpersona = idpersona;
+    this.tipo = tipo;
   }
 }
 @Injectable()
@@ -32,7 +36,8 @@ export class AuthService {
               } else {
                 if (credentials.password == value[0].password) {
                   let access = (credentials.email && credentials.password);
-                  this.currentUser = new User("Robert", credentials.email);
+                  
+                  this.currentUser = new User(value[0].nombre, credentials.email, value[0].idpersona,value[0].tipo);
                   observer.next(access);
                   observer.complete();
                 }
@@ -43,27 +48,17 @@ export class AuthService {
       })
     });
   }
-  public loginn(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      return Observable.create(observer => {
-        // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('Simon', 'saimon@devdactic.com');
-        observer.next(access);
-        observer.complete();
-      });
-    }
-  }
 
   public register(credentials) {
-    if (credentials.email === null || credentials.password === null || credentials.nombre === null || credentials.apellido === null
-      || credentials.ciudad === null || credentials.cedula === null || credentials.telefono === null || credentials.direccion === null) {
+    console.log(credentials);
+    if (credentials.email == null || credentials.password == null || credentials.nombre == null || credentials.apellido == null
+      || credentials.ciudad == null || credentials.cedula == null || credentials.telefono == null || credentials.direccion == null) {
       return Observable.throw("Por Favor introducir todos los datos");
     } else {
+      this.Usuarios.addEmpleado(credentials);
       // At this point store the credentials to your backend!
       return Observable.create(observer => {
+        
         observer.next(true);
         observer.complete();
       });
@@ -71,6 +66,7 @@ export class AuthService {
   }
 
   public getUserInfo(): User {
+    
     return this.currentUser;
   }
 

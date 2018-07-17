@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Finca } from "../../../app/Clases/Finca";
 import { FincaService } from '../../../Service/Finca-Service';
 import { ListaFincasPage } from '../lista-fincas/lista-fincas';
+import { AuthService } from '../../../providers/auth-service/auth-service';
 /**
  * Generated class for the FincasPage page.
  *
@@ -24,22 +25,33 @@ export class FincasPage {
   //arreglos
   FincaArray: Array<Finca> = [];
   FincaFilter: Array<Finca> = [];
-  nombre: string = '';
-  dess: string = '';
 
-  constructor(private FincaServicio: FincaService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  username = '';
+  email = '';
+  idpersona = '';
+
+  id = '';
+  nombre = '';
+  descripcion = '';
+
+  constructor(private auth: AuthService, private FincaServicio: FincaService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
     this.createMyForm();
     this.finca = new Finca();
 
+
+
   }
   private createMyForm() {
+    let info = this.auth.getUserInfo();
+    this.idpersona = info['idpersona'];
+
     return this.form = this.fb.group({
       id: ['0', Validators.required],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required]
     });
   }
-  
+
   OnGoBack() {
     this.navCtrl.setRoot(ListaFincasPage);
   }
@@ -49,43 +61,44 @@ export class FincasPage {
   }
 
   addFinca() {
-     this.FincaServicio.addFinca(this.form.value).subscribe(res => {
-       console.log(res);
+    this.finca.id = null;
+    this.finca.nombre = this.form.value.nombre;
+    this.finca.descripcion = this.form.value.descripcion;
+    this.finca.idpersona = this.idpersona;
+
+     this.FincaServicio.addFinca(this.finca).subscribe(res => {
+      this.navCtrl.setRoot(ListaFincasPage);
      });
-    this.limpiar();
-    this.navCtrl.setRoot(ListaFincasPage);
   }
-  getVecino(id:number) {
-    this.FincaServicio.getFincas(1).subscribe(res => {
-       console.log(res.nombre);
-       
-     });    
-     
-   }
- 
-   buscarSolicitud()
-   {
-     this.FincaServicio.getFinca().subscribe(find=>{
-       this.FincaArray=find;
-       this.FincaFilter=this.FincaArray;
-     });
-   }
- 
-   filtrar()
-   {
-     this.FincaFilter = this.FincaArray.filter((veci:Finca)=>veci.nombre.includes(this.nombre));
-     console.log(this.FincaArray);
- 
-   }
- 
-   limpiar()
-   {
+  // getVecino(id:number) {
+  //   this.FincaServicio.getFincas(1).subscribe(res => {
+  //      console.log(res.nombre);
+
+  //    });    
+
+  //  }
+
+  buscarSolicitud() {
+    // this.FincaServicio.getFinca().subscribe(find => {
+    //   this.FincaArray = find;
+    //   this.FincaFilter = this.FincaArray;
+    // });
+  }
+
+  //  filtrar()
+  //  {
+  //    this.FincaFilter = this.FincaArray.filter((veci:Finca)=>veci.nombre.includes(this.nombre));
+  //    console.log(this.FincaArray);
+
+  //  }
+
+  limpiar() {
     return this.form = this.fb.group({
       id: ['0', Validators.required],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required]
     });
-    
-   }
+
+  }
 
 }

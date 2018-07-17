@@ -29,6 +29,7 @@ import { TareasPage } from '../pages/tareas/tareas';
 import { LoginPage } from './../pages/login/login';
 import { SQLite } from '@ionic-native/sqlite';
 import {FincaService} from '../Service/Finca-Service';
+import {TareasServices} from '../Service/Tareas-Services';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService  } from '../providers/auth-service/auth-service';
 
@@ -79,6 +80,7 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     SplashScreen,
     FincaService,
     UsuarioService,
+    TareasServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SQLite

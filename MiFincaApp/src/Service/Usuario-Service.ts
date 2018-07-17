@@ -9,24 +9,22 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 
 @Injectable()
 export class UsuarioService {
-  private Url = "http://localhost:8000/empleados";
-  private Urlget = "http://localhost:8000/empleados/api";
-  private Urlgetp = "http://localhost:8000/empleados/apip";
+  private Url = "http://localhost:8000/personas";
+  private Urlget = "http://localhost:8000/personas/api";
+  private UrlTareas = "http://localhost:8000/personas/tareas";
+  private Urlgetp = "http://localhost:8000/personas/apip";
   constructor(private http: HttpClient) { }
 
-  getFinca(): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(this.Url)
-      .pipe(
-        tap(heroes => this.log('fetched Finca')),
-        catchError(this.handleError('getFinca', []))
-      );
+  getempleado(): Observable<Usuarios[]> {
+    return this.http.get<Usuarios[]>(this.Url).pipe();
+  }
+  getempleadoTareas(tipo: string): Observable<Usuarios[]> {
+    const url = `${this.UrlTareas}/${tipo}`;
+    return this.http.get<Usuarios[]>(url).pipe();
   }
   getFincas(id: number): Observable<Usuarios> {
     const url = `${this.Url}/${id}`;
-    return this.http.get<Usuarios>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Usuarios>(''))
-    );
+    return this.http.get<Usuarios>(url).pipe();
   }
   getEmail(email: string): Observable<Usuarios> {
     const url = `${this.Urlget}/${email}`;
@@ -40,24 +38,16 @@ export class UsuarioService {
     const url = `${this.Urlgetp}/${email}`;
     return this.http.get<Usuarios>(url).pipe();
   }
-  addEmpleado(finca: Usuarios): Observable<any> {
-    return this.http.post<Usuarios>(this.Url, finca, httpOptions).pipe(
-      tap((finca: Usuarios) => this.log(`added Empleado w/ id=${finca.id}`)),
-      catchError(this.handleError<Usuarios>('finca'))
-    );
+  addEmpleado(persona: Usuarios): Observable<any> {
+    console.log(persona);
+    return this.http.post<Usuarios>(this.Url, persona, httpOptions).pipe();
   }
   AddUpdate(finca: Usuarios): Observable<any> {
-    return this.http.put<Usuarios>(this.Url, finca, httpOptions).pipe(
-      tap((finca: Usuarios) => this.log(`added Finca w/ id=${finca.id}`)),
-      catchError(this.handleError<Usuarios>('finca'))
-    );
+    return this.http.put<Usuarios>(this.Url, finca, httpOptions).pipe();
   }
   getDelete(id): Observable<Usuarios> {
     const url = `${this.Url}/${id}`;
-    return this.http.delete<Usuarios>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Usuarios>(`Delete id=${id}`))
-    );
+    return this.http.delete<Usuarios>(url).pipe();
   }
   private handleError<T>(operation = 'operation', result?: T) {
 

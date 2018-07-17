@@ -3,45 +3,41 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  createSuccess = false;
   usuario: Usuarios;
   loading: Loading;
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, public navCtrl: NavController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
-    this.createMyForm();
-  }
-  private createMyForm() {
-    return this.form = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+  constructor(public navCtrl: NavController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+    this.form = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl(),
     });
   }
+
   public createAccount() {
     this.nav.push('RegisterPage');
   }
-  users: any[] = [];
 
   public login() {
-    
+
     this.auth.login(this.form.value).subscribe(allowed => {
-      if (allowed) {        
-        // this.showLoading();
-        // this.nav.setRoot(HomePage);
-        this.showError("Access Denied");
+      if (allowed) {
+        this.createSuccess = true;
+        this.nav.setRoot(HomePage);
       } else {
-        this.showError("Access ok");
+        this.showPopup("Error", "Problem creating account.");
       }
     },
       error => {
-        this.showError(error);
+        this.showPopup("Error", error);
       });
   }
   showLoading() {
@@ -52,11 +48,20 @@ export class LoginPage {
     this.loading.present();
   }
 
-  showError(text) {
+  showPopup(title, text) {
     let alert = this.alertCtrl.create({
-      title: 'error',
+      title: title,
       subTitle: text,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            if (this.createSuccess) {
+              this.nav.popToRoot();
+            }
+          }
+        }
+      ]
     });
     alert.present();
   }

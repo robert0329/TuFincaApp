@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 431:
+/***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(436);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(437);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +38,16 @@ var RegisterPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 436:
+/***/ 437:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,19 +60,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var RegisterPage = /** @class */ (function () {
-    function RegisterPage(Usuarios, nav, alertCtrl) {
+    function RegisterPage(auth, Usuarios, nav, alertCtrl) {
+        this.auth = auth;
         this.Usuarios = Usuarios;
         this.nav = nav;
         this.alertCtrl = alertCtrl;
         this.createSuccess = false;
-        this.registerCredentials = { email: '', password: '', nombre: '', apellido: '', direccion: '', ciudad: '', cedula: '', telefono: '' };
+        this.form = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormGroup */]({
+            idpersona: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            email: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            password: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            nombre: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            apellido: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            direccion: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            ciudad: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            cedula: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */](),
+            telefono: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]()
+        });
     }
-    // this.auth.register(this.registerCredentials)
     RegisterPage.prototype.register = function () {
         var _this = this;
-        this.Usuarios.addEmpleado(this.registerCredentials)
-            .subscribe(function (success) {
+        this.auth.register(this.form.value).subscribe(function (success) {
+            //  this.Usuarios.addEmpleado(this.form.value).subscribe(success => {
             if (success) {
                 _this.createSuccess = true;
                 _this.showPopup("Success", "Account created.");
@@ -102,9 +116,9 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\register\register.html"*/'<ion-header>\n  <ion-navbar color="dark">\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="login-content" padding>\n  <div class="login-box">\n    <form (ngSubmit)="register()" #registerForm="ngForm">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            <ion-item>\n              <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Nombre" name="nombre" [(ngModel)]="registerCredentials.nombre" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Apellido" name="apellido" [(ngModel)]="registerCredentials.apellido" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Direccion" name="direccion" [(ngModel)]="registerCredentials.direccion" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Ciudad" name="ciudad" [(ngModel)]="registerCredentials.ciudad" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Cedula" name="cedula" [(ngModel)]="registerCredentials.cedula" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Telefono" name="telefono" [(ngModel)]="registerCredentials.telefono" required></ion-input>\n            </ion-item>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>\n        </ion-col>\n      </ion-row>\n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\register\register.html"*/'<ion-header>\n  <ion-navbar color="dark">\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="login-content" padding>\n  <div class="login-box">\n    <form [formGroup]="form" (ngSubmit)="register()" #registerForm="ngForm">\n      <ion-row>\n        <ion-col>\n          <ion-list inset>\n            <ion-item>\n              <ion-input type="email" placeholder="Email" name="email" formControlName="email" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" formControlName="password" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Nombre" name="nombre" formControlName="nombre" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Apellido" name="apellido" formControlName="apellido" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Direccion" name="direccion" formControlName="direccion" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Ciudad" name="ciudad" formControlName="ciudad" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Cedula" name="cedula" formControlName="cedula" required></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-input type="text" placeholder="Telefono" name="telefono" formControlName="telefono" required></ion-input>\n            </ion-item>\n          </ion-list>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n        <ion-col class="signup-col">\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>\n        </ion-col>\n      </ion-row>\n    </form>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], RegisterPage);
     return RegisterPage;
 }());

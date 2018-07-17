@@ -1,7 +1,7 @@
 export class Usuarios{
 
     constructor(
-        public id?:number,  
+        public idpersona?:number,  
         public email?:String,
         public password?: string,
         public nombre?: string,
@@ -11,7 +11,7 @@ export class Usuarios{
         public cedula?: string,
         public telefono?: string,
     ){
-        this.id= (id) ? id : 0;
+        this.idpersona= (idpersona) ? idpersona : 0;
         this.nombre =  nombre;
         this.email = email;
         this.password = password;

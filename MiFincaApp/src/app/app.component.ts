@@ -1,3 +1,4 @@
+
 import { ListaFincasPage } from './../pages/Finca-Component/lista-fincas/lista-fincas';
 
 import { LoginPage } from './../pages/login/login';
@@ -8,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-//import { ListPage } from '../pages/list/list';
+import { ListPage } from '../pages/list/list';
 import { FincasPage } from '../pages/Finca-Component/Add-fincas/fincas';
 import { CosechaPage } from '../pages/cosecha/cosecha';
 import { GastosPage } from '../pages/gastos/gastos';
@@ -20,6 +21,7 @@ import { ProductosPage } from '../pages/productos/productos';
 import { SiembraPage } from '../pages/siembra/siembra';
 import { SuplidorPage } from '../pages/suplidor/suplidor';
 import { TareasPage } from '../pages/tareas/tareas';
+import { AuthService } from '../../src/providers/auth-service/auth-service';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,38 +30,95 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
-  
-
+  tipo = '';
   pages: Array<{title: string, component: any}>;
-
+  private auth: AuthService;
   constructor(public platform: Platform, 
     public statusBar: StatusBar, public splashScreen: SplashScreen) {
+      
     this.initializeApp();
-    
-  
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Registro Fincas', component: FincasPage },
-      { title: 'Registro Cosecha', component: CosechaPage },
-      { title: 'Gastos', component: GastosPage },
-      { title: 'Registro Herramientas', component: HerramientasPage },
-      { title: 'Registro Maquinaria', component: MaquinariaPage },
-      { title: 'Pagos', component: PagosPage },
-      { title: 'Parcela', component: ParcelaPage },
-      { title: 'Productos', component: ProductosPage },
-      { title: 'Siembra', component: SiembraPage },
-      { title: 'Registro Tareas', component: TareasPage },
-      {title:'Suplidor', component:SuplidorPage},
-      {title:'Registro Empleados', component:EmpleadosPage},
-      {title:'Listado', component:ListaFincasPage}
-     
-    ];
 
   }
+  public administrador(){
+    this.pages = [
+      { title: 'Home', component: HomePage },
+      {title:'Listado', component:ListaFincasPage}  ,
+      { title: 'Registro Fincas', component: FincasPage },
+       { title: 'Registro Cosecha', component: CosechaPage },
+       { title: 'Gastos', component: GastosPage },
+       { title: 'Registro Herramientas', component: HerramientasPage },
+       { title: 'Registro Maquinaria', component: MaquinariaPage },
+       { title: 'Pagos', component: PagosPage },
+       { title: 'Parcela', component: ParcelaPage },
+       { title: 'Productos', component: ProductosPage },
+       { title: 'Siembra', component: SiembraPage },
+       { title: 'Registro Tareas', component: TareasPage },
+       {title:'Suplidor', component:SuplidorPage},
+        {title:'Registro Empleados', component:EmpleadosPage}  
+    ];
+  }
+  public supervisor(){
+    this.pages = [
+      { title: 'Home', component: HomePage },
+       { title: 'Tareas', component: TareasPage },
+      // { title: 'Registro Fincas', component: FincasPage },
+       { title: 'Registro Cosecha', component: CosechaPage },
+      // { title: 'Gastos', component: GastosPage },
+       { title: 'Registro Herramientas', component: HerramientasPage },
+       { title: 'Registro Maquinaria', component: MaquinariaPage },
+      // { title: 'Pagos', component: PagosPage },
+      // { title: 'Parcela', component: ParcelaPage },
+       { title: 'Productos', component: ProductosPage },
+       { title: 'Siembra', component: SiembraPage },
+       { title: 'Registro Tareas', component: TareasPage },
+      // {title:'Suplidor', component:SuplidorPage},
+      //  {title:'Registro Empleados', component:EmpleadosPage},
+      // {title:'Listado', component:ListaFincasPage}  
+    ];
+  }
   
+  public empleado(){
+    this.pages = [
+      { title: 'Home', component: HomePage },
+       { title: 'Tareas', component: TareasPage },
+      // { title: 'Registro Fincas', component: FincasPage },
+      // { title: 'Registro Cosecha', component: CosechaPage },
+      // { title: 'Gastos', component: GastosPage },
+      // { title: 'Registro Herramientas', component: HerramientasPage },
+      // { title: 'Registro Maquinaria', component: MaquinariaPage },
+      // { title: 'Pagos', component: PagosPage },
+      // { title: 'Parcela', component: ParcelaPage },
+      // { title: 'Productos', component: ProductosPage },
+      // { title: 'Siembra', component: SiembraPage },
+      // { title: 'Registro Tareas', component: TareasPage },
+      // {title:'Suplidor', component:SuplidorPage},
+      //  {title:'Registro Empleados', component:EmpleadosPage},
+      // {title:'Listado', component:ListaFincasPage}   
+    ];
+  }
+  public suplidor(){
+    this.pages = [
+      { title: 'Home', component: HomePage },
+      //  { title: 'Tareas', component: TareasPage },
+      // { title: 'Registro Fincas', component: FincasPage },
+      //  { title: 'Registro Cosecha', component: CosechaPage },
+      // // { title: 'Gastos', component: GastosPage },
+      //  { title: 'Registro Herramientas', component: HerramientasPage },
+      //  { title: 'Registro Maquinaria', component: MaquinariaPage },
+      // { title: 'Pagos', component: PagosPage },
+      // { title: 'Parcela', component: ParcelaPage },
+      //  { title: 'Productos', component: ProductosPage },
+      //  { title: 'Siembra', component: SiembraPage },
+      //  { title: 'Registro Tareas', component: TareasPage },
+      {title:'Suplidor', component:SuplidorPage},
+      //  {title:'Registro Empleados', component:EmpleadosPage},
+      // {title:'Listado', component:ListaFincasPage}   
+    ];
+  }
   initializeApp() {
+    
     this.platform.ready().then(() => {
+      
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
@@ -70,6 +129,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+    
     this.nav.setRoot(page.component);
   }
 }

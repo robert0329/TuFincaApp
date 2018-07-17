@@ -2,6 +2,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, IonicPage } from 'ionic-angular';
 import { UsuarioService } from '../../Service/Usuario-Service';
+import { FormGroup,FormControl} from '@angular/forms';
+import { AuthService } from '../../providers/auth-service/auth-service'
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -9,23 +11,35 @@ import { UsuarioService } from '../../Service/Usuario-Service';
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { email: '', password: '' ,nombre: '' ,apellido: '' ,direccion: '' ,ciudad: '' ,cedula: '' ,telefono: '' };
+  form: FormGroup;
  
-  constructor(private Usuarios: UsuarioService,private nav: NavController, private alertCtrl: AlertController) { }
-  // this.auth.register(this.registerCredentials)
+ 
+  constructor(private auth: AuthService,private Usuarios: UsuarioService,private nav: NavController, private alertCtrl: AlertController) {
+     this.form = new FormGroup({
+       idpersona:new FormControl(),
+       email: new FormControl(),
+       password: new FormControl(),
+       nombre:   new FormControl(),
+       apellido: new FormControl(),
+       direccion:new FormControl(),
+       ciudad:  new FormControl(),
+       cedula: new FormControl(),
+       telefono:new FormControl()
+    });
+   }
   public register() {
-    this.Usuarios.addEmpleado(this.registerCredentials)
-    .subscribe(success => {
-      if (success) {
-        this.createSuccess = true;
-        this.showPopup("Success", "Account created.");
-      } else {
-        this.showPopup("Error", "Problem creating account.");
-      }
-    },
-      error => {
-        this.showPopup("Error", error);
-      });
+    this.auth.register(this.form.value).subscribe(success => {
+    //  this.Usuarios.addEmpleado(this.form.value).subscribe(success => {
+       if (success) {
+         this.createSuccess = true;
+         this.showPopup("Success", "Account created.");
+       } else {
+         this.showPopup("Error", "Problem creating account.");
+       }
+     },
+       error => {
+         this.showPopup("Error", error);
+       });
   }
  
   showPopup(title, text) {
