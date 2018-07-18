@@ -41,7 +41,7 @@ export class TareasEmpleadosPage {
   public openModal(idtarea,finca,fecha,descripcion,idpersona){
     var data = { idtarea:idtarea, finca:finca,descripcion:descripcion,fecha:fecha,idpersona:this.idpersona, activa:"false" };
     this.Tareas.Update(data).subscribe(res => {
-     
+      this.navCtrl.setRoot(TareasEmpleadosPage);
     });
 }
   OnGoBack() {

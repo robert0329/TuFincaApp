@@ -69,7 +69,7 @@ export class TareasPage {
   friendFun(value, form, i) {
    
     let array1 = {idtarea: null,idpersona: value.idpersona, descripcion: form.value.descripcion,fecha: form.value.fecha, 
-      finca:form.value.finca};
+      finca:form.value.finca, activa:"true"};
     this.Arrayguardar.push(array1);
     
   }
