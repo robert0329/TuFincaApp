@@ -9,6 +9,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 @Injectable()
 export class TareasServices {
   private Url = "http://localhost:8000/tareas";
+  private UrlTareasid = "http://localhost:8000/tareasempleado";
   constructor(private http: HttpClient) { }
 
   getFincaTareasId(idpersona: string): Observable<Finca[]> {
@@ -17,5 +18,12 @@ export class TareasServices {
   }
   addTareas(tarea: Tareas): Observable<any> {
     return this.http.post<Tareas>(this.Url, tarea, httpOptions).pipe();
+  }
+  getTareasId(idpersona: string): Observable<Tareas[]> {
+    const url = `${this.UrlTareasid}/${idpersona}`;
+    return this.http.get<Tareas[]>(url).pipe();
+  }
+  Update (tarea: Tareas): Observable<any> {
+    return this.http.put<Tareas>(this.Url, tarea, httpOptions).pipe();
   }
 }

@@ -17,10 +17,16 @@ export class HomePage {
 
   constructor(private nav: NavController, private auth: AuthService, public app: MyApp) {
     let info = this.auth.getUserInfo();
+    
     this.username = info['name'];
     this.email = info['email'];
     this.idpersona = info['idpersona'];
     this.tipo = info['tipo'];
+
+    if(this.tipo == "administrador"){
+      
+    }
+    
     this.Metodos();
   }
 

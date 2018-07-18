@@ -1,3 +1,4 @@
+import { TareasEmpleadosPage } from './../pages/tareas/tareas-empleados/tareas-empleados';
 
 import { ListaFincasPage } from './../pages/Finca-Component/lista-fincas/lista-fincas';
 
@@ -80,7 +81,7 @@ export class MyApp {
   public empleado(){
     this.pages = [
       { title: 'Home', component: HomePage },
-       { title: 'Tareas', component: TareasPage },
+       { title: 'Tareas', component: TareasEmpleadosPage },
       // { title: 'Registro Fincas', component: FincasPage },
       // { title: 'Registro Cosecha', component: CosechaPage },
       // { title: 'Gastos', component: GastosPage },

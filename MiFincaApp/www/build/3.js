@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 434:
+/***/ 436:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SuplidorPageModule", function() { return SuplidorPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TareasEmpleadosPageModule", function() { return TareasEmpleadosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__suplidor__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tareas_empleados__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SuplidorPageModule = /** @class */ (function () {
-    function SuplidorPageModule() {
+var TareasEmpleadosPageModule = /** @class */ (function () {
+    function TareasEmpleadosPageModule() {
     }
-    SuplidorPageModule = __decorate([
+    TareasEmpleadosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__suplidor__["a" /* SuplidorPage */],
+                __WEBPACK_IMPORTED_MODULE_2__tareas_empleados__["a" /* TareasEmpleadosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__suplidor__["a" /* SuplidorPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tareas_empleados__["a" /* TareasEmpleadosPage */]),
             ],
         })
-    ], SuplidorPageModule);
-    return SuplidorPageModule;
+    ], TareasEmpleadosPageModule);
+    return TareasEmpleadosPageModule;
 }());
 
-//# sourceMappingURL=suplidor.module.js.map
+//# sourceMappingURL=tareas-empleados.module.js.map
 
 /***/ })
 

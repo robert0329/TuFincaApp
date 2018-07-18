@@ -1,3 +1,4 @@
+import { TareasEmpleadosPage } from './../pages/tareas/tareas-empleados/tareas-empleados';
 import { UsuarioService } from './../Service/Usuario-Service';
 
 import { EditFincaPage } from './../pages/Finca-Component/edit-finca/edit-finca';
@@ -50,7 +51,7 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     SuplidorPage,
     TareasPage,
     ListPage,EmpleadosPage,
-    LoginPage,ListaFincasPage,EditFincaPage
+    LoginPage,ListaFincasPage,EditFincaPage,TareasEmpleadosPage
     
 
   ],
@@ -73,7 +74,7 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     SiembraPage,
     SuplidorPage,
     TareasPage,EmpleadosPage,
-    LoginPage,ListaFincasPage,EditFincaPage
+    LoginPage,ListaFincasPage,EditFincaPage,TareasEmpleadosPage
   ],
   providers: [
     StatusBar,

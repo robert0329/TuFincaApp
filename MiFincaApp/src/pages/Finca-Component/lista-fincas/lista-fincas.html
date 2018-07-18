@@ -16,9 +16,9 @@
 </ion-header>
 <!-- [formControl]="searchControl" -->
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchTerm"  (ionInput)="onSearchInput()"></ion-searchbar>
+  <ion-searchbar></ion-searchbar>
  
-    <div *ngIf="searching" class="spinner-container">
+    <div class="spinner-container">
       <ion-spinner></ion-spinner>
     </div>
   <ion-list>

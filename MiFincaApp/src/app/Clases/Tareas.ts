@@ -7,12 +7,14 @@ export class Tareas{
         public finca?:String,
         public descripcion?: string,
         public fecha?: string,
-        public idpersona?: string
+        public idpersona?: string,
+        public activa?: string
     ){
         this.idtarea= (idtarea) ? idtarea : 0;
         this.finca =  finca;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.idpersona = idpersona;
+        this.activa = activa;
     }
 }
