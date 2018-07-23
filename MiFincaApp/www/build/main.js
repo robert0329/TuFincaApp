@@ -101,12 +101,9 @@ var TareasEmpleadosPage = /** @class */ (function () {
             });
         });
     }
-    TareasEmpleadosPage_1 = TareasEmpleadosPage;
     TareasEmpleadosPage.prototype.openModal = function (idtarea, finca, fecha, descripcion, idpersona) {
-        var _this = this;
         var data = { idtarea: idtarea, finca: finca, descripcion: descripcion, fecha: fecha, idpersona: this.idpersona, activa: "false" };
         this.Tareas.Update(data).subscribe(function (res) {
-            _this.navCtrl.setRoot(TareasEmpleadosPage_1);
         });
     };
     TareasEmpleadosPage.prototype.OnGoBack = function () {
@@ -115,14 +112,18 @@ var TareasEmpleadosPage = /** @class */ (function () {
     TareasEmpleadosPage.prototype.ionViewDidLoad = function () {
         // console.log('ionViewDidLoad TareasEmpleadosPage');
     };
-    TareasEmpleadosPage = TareasEmpleadosPage_1 = __decorate([
+    TareasEmpleadosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-tareas-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/'<!--\n  Generated template for the TareasEmpleadosPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Tareas a realizar</ion-title>\n    <ion-buttons>\n        <button ion-button icon-only (click)="OnGoBack()">\n          <ion-icon name="md-arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-item-sliding *ngFor="let grocery of Array">\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item>\n\n      <ion-item-options>\n        <button ion-button icon-only light (click)="openModal(grocery.idtarea,grocery.finca, grocery.descripcion,grocery.fecha\n        ,grocery.activa)">\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/,
+            selector: 'page-tareas-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/'<!--\n  Generated template for the TareasEmpleadosPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Tareas a realizar</ion-title>\n    <ion-buttons>\n        <button ion-button icon-only (click)="OnGoBack()">\n          <ion-icon name="md-arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-item-sliding *ngFor="let grocery of Array">\n      <ion-item> {{grocery.descripcion}}</ion-item>\n\n      <ion-item-options>\n        <button ion-button icon-only light (click)="openModal(grocery.idtarea,grocery.finca, grocery.descripcion,grocery.fecha\n        ,grocery.activa)">\n          <ion-icon name="paper"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__Service_Tareas_Services__["a" /* TareasServices */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], TareasEmpleadosPage);
     return TareasEmpleadosPage;
+<<<<<<< HEAD
     var TareasEmpleadosPage_1;
+=======
+    var _a, _b, _c, _d;
+>>>>>>> parent of 20ec660... cambios
 }());
 
 //# sourceMappingURL=tareas-empleados.js.map
@@ -832,7 +833,7 @@ var TareasPage = /** @class */ (function () {
     };
     TareasPage.prototype.friendFun = function (value, form, i) {
         var array1 = { idtarea: null, idpersona: value.idpersona, descripcion: form.value.descripcion, fecha: form.value.fecha,
-            finca: form.value.finca, activa: "true" };
+            finca: form.value.finca };
         this.Arrayguardar.push(array1);
     };
     TareasPage = __decorate([
