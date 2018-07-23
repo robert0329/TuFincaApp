@@ -1360,8 +1360,6 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1371,7 +1369,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1389,17 +1386,7 @@ var User = /** @class */ (function () {
 var AuthService = /** @class */ (function () {
     function AuthService(Usuarios) {
         this.Usuarios = Usuarios;
-        this.loggedIn = new __WEBPACK_IMPORTED_MODULE_4_rxjs__["BehaviorSubject"](false);
-        this.loggedIn.next(true);
     }
-    Object.defineProperty(AuthService.prototype, "isLoggedIn", {
-        get: function () {
-            this.loggedIn.next(true);
-            return this.loggedIn.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
     AuthService.prototype.login = function (credentials) {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
@@ -1445,14 +1432,6 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getUserInfo = function () {
         return this.currentUser;
     };
-    AuthService.prototype.cargartrue = function () {
-        this.loggedIn.next(true);
-    };
-    // logout() {
-    //   // remove user from local storage to log user out
-    //   this.loggedIn.next(false);
-    //   localStorage.removeItem('currentUser');
-    // }
     AuthService.prototype.logout = function () {
         var _this = this;
         return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].create(function (observer) {
@@ -1463,9 +1442,10 @@ var AuthService = /** @class */ (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__["a" /* UsuarioService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object])
     ], AuthService);
     return AuthService;
+    var _a;
 }());
 
 //# sourceMappingURL=auth-service.js.map
@@ -1770,7 +1750,6 @@ var LoginPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.loadingCtrl = loadingCtrl;
         this.createSuccess = false;
-        this.model = {};
         this.form = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormGroup */]({
             email: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */](),
             password: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */](),
@@ -1822,12 +1801,10 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img src="http://placehold.it/300x200"/>\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n      <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n          <ion-list>\n\n            <ion-item>\n\n              <ion-label color="primary" floating>Email</ion-label>\n\n              <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n            </ion-item>\n\n    \n\n              <ion-item>\n\n              <ion-label color="primary" floating>Password</ion-label>\n\n              <ion-input name="passwordinput" id="passwordinput" formControlName="password"></ion-input>\n\n            </ion-item>\n\n    \n\n          </ion-list>\n\n          <ion-row>\n\n              <ion-col class="signup-col">\n\n                <button ion-button class="submit-btn" full type="submit">Login</button>\n\n                <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>\n\n              </ion-col>\n\n            </ion-row>\n\n        </form>\n\n  </div> \n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* LoadingController */]) === "function" && _e || Object])
     ], LoginPage);
     return LoginPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=login.js.map
