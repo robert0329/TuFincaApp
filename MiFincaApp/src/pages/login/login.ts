@@ -14,8 +14,13 @@ export class LoginPage {
   usuario: Usuarios;
   loading: Loading;
   form: FormGroup;
+  model: any = {};
+  returnUrl: string;
 
-  constructor(public navCtrl: NavController, private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, 
+    private nav: NavController, private auth: AuthService, 
+    private alertCtrl: AlertController, 
+    private loadingCtrl: LoadingController) {
     this.form = new FormGroup({
       email: new FormControl(),
       password: new FormControl(),
