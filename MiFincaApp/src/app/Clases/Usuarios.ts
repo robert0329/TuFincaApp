@@ -10,6 +10,7 @@ export class Usuarios{
         public ciudad?: string,
         public cedula?: string,
         public telefono?: string,
+        public tipo?: string
     ){
         this.idpersona= (idpersona) ? idpersona : 0;
         this.nombre =  nombre;
@@ -21,5 +22,6 @@ export class Usuarios{
         this.ciudad = ciudad;
         this.cedula = cedula;
         this.telefono = telefono;
+        this.tipo = tipo;
     }
 }

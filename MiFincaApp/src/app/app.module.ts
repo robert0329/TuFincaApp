@@ -4,7 +4,7 @@ import { UsuarioService } from './../Service/Usuario-Service';
 import { EditFincaPage } from './../pages/Finca-Component/edit-finca/edit-finca';
 
 import { EmpleadosPage } from './../pages/empleados/empleados';
-
+import { Http, Headers } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -34,7 +34,6 @@ import {TareasServices} from '../Service/Tareas-Services';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService  } from '../providers/auth-service/auth-service';
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -58,7 +57,8 @@ import { AuthService  } from '../providers/auth-service/auth-service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { UsuarioService } from '../../Service/Usuario-Service';
 import { TareasServices } from '../../Service/Tareas-Services';
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the TareasPage page.
  *
@@ -27,8 +28,12 @@ export class TareasPage {
   Arrayguardar: Array<any> = [];
   idpersona = '';
   constructor(private Tareas: TareasServices,private auth: AuthService,private Usuarios: UsuarioService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+    if(!localStorage.getItem("token")) {
+      navCtrl.setRoot(LoginPage);
+    }
     this.crearFormulario();
     let info = this.auth.getUserInfo();
+    console.log(info);
     this.idpersona = info['idpersona'];
     this.Usuarios.getempleadoTareas("empleado").subscribe(value => {
       this.Array = value;

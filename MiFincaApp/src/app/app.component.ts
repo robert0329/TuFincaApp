@@ -30,7 +30,7 @@ import { AuthService } from '../../src/providers/auth-service/auth-service';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
   tipo = '';
   pages: Array<{title: string, component: any}>;
   private auth: AuthService;

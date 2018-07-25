@@ -1,9 +1,11 @@
+import { UsuarioService } from './../../Service/Usuario-Service';
 
 import { Component } from '@angular/core';
-import { NavController, AlertController, IonicPage } from 'ionic-angular';
-import { UsuarioService } from '../../Service/Usuario-Service';
-import { FormGroup,FormControl} from '@angular/forms';
+import { AlertController, IonicPage } from 'ionic-angular';
+import { FormGroup, FormControl } from '@angular/forms';
+import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service'
+
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -12,51 +14,57 @@ import { AuthService } from '../../providers/auth-service/auth-service'
 export class RegisterPage {
   createSuccess = false;
   form: FormGroup;
- 
- 
-  constructor(private auth: AuthService,private Usuarios: UsuarioService,private nav: NavController, private alertCtrl: AlertController) {
-     this.form = new FormGroup({
-       idpersona:new FormControl(),
-       email: new FormControl(),
-       password: new FormControl(),
-       nombre:   new FormControl(),
-       apellido: new FormControl(),
-       direccion:new FormControl(),
-       ciudad:  new FormControl(),
-       cedula: new FormControl(),
-       telefono:new FormControl()
+  loading: any;
+
+  constructor(public loadingCtrl: LoadingController, private toastCtrl: ToastController, private auth: AuthService, private Usuarios: UsuarioService, private nav: NavController, private alertCtrl: AlertController) {
+    this.form = new FormGroup({
+      idpersona: new FormControl(),
+      email: new FormControl(),
+      password: new FormControl(),
+      nombre: new FormControl(),
+      apellido: new FormControl(),
+      direccion: new FormControl(),
+      ciudad: new FormControl(),
+      cedula: new FormControl(),
+      telefono: new FormControl(),
+      tipo: new FormControl()
     });
-   }
-  public register() {
-    this.auth.register(this.form.value).subscribe(success => {
-    //  this.Usuarios.addEmpleado(this.form.value).subscribe(success => {
-       if (success) {
-         this.createSuccess = true;
-         this.showPopup("Success", "Account created.");
-       } else {
-         this.showPopup("Error", "Problem creating account.");
-       }
-     },
-       error => {
-         this.showPopup("Error", error);
-       });
   }
- 
-  showPopup(title, text) {
-    let alert = this.alertCtrl.create({
-      title: title,
-      subTitle: text,
-      buttons: [
-        {
-          text: 'OK',
-          handler: data => {
-            if (this.createSuccess) {
-              this.nav.popToRoot();
-            }
-          }
-        }
-      ]
+  public register() {
+    this.Usuarios.getIdentity().subscribe((result) => {
+      let datos = {idpersona: result[0]}
+
+      this.Usuarios.addEmpleado(this.form.value,datos.idpersona).then((result) => {
+        this.loading.dismiss();
+      }, (err) => {
+        this.loading.dismiss();
+        this.presentToast(err);
+      });
+    }, (err) => {
+
     });
-    alert.present();
+  }
+
+  showLoader() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Authenticating...'
+    });
+
+    this.loading.present();
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 }
