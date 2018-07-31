@@ -1,12 +1,9 @@
-import { postlogin } from './../../app/Clases/postlogin';
-import { Usuarios } from './../../app/Clases/Usuarios';
 
 
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { UsuarioService } from '../../Service/Usuario-Service';
 
-let Url = "http://localhost:8000/";
 export class User {
   password: string;
   name: string;

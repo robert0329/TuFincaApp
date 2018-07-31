@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 451:
+/***/ 447:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TareasPageModule", function() { return TareasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SiembraPageModule", function() { return SiembraPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tareas__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__siembra__ = __webpack_require__(145);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TareasPageModule = /** @class */ (function () {
-    function TareasPageModule() {
+var SiembraPageModule = /** @class */ (function () {
+    function SiembraPageModule() {
     }
-    TareasPageModule = __decorate([
+    SiembraPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__tareas__["a" /* TareasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__siembra__["a" /* SiembraPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tareas__["a" /* TareasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__siembra__["a" /* SiembraPage */]),
             ],
         })
-    ], TareasPageModule);
-    return TareasPageModule;
+    ], SiembraPageModule);
+    return SiembraPageModule;
 }());
 
-//# sourceMappingURL=tareas.module.js.map
+//# sourceMappingURL=siembra.module.js.map
 
 /***/ })
 

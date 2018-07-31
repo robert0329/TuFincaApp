@@ -3,7 +3,6 @@ import { Usuarios } from './../app/Clases/Usuarios';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/Rx";
-import { of } from "rxjs/observable/of";
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
 @Injectable()

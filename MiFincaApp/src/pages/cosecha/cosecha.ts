@@ -23,10 +23,9 @@ export class CosechaPage {
 
   crearFormulario() {
     this.form = this.fb.group({
-      id: ['',Validators.required],
       descripcion: ['',Validators.required],
       fecha: ['',Validators.required],
-      idsiembra: ['',Validators.required],
+      siembra: ['',Validators.required],
       cantidad: ['',Validators.required]
     })
   }

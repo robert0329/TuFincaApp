@@ -19,13 +19,10 @@ export class CultivosPage {
   form: FormGroup;q
   constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
-    
-    
   }
   
   crearFormulario() {
     this.form = this.fb.group({
-      tipo: ['',Validators.required],
       descripcion: ['', Validators.required]
     });
   }

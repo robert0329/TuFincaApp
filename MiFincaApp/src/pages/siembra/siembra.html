@@ -8,6 +8,11 @@
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -16,53 +21,36 @@
     <form [formGroup]="form" (ngSubmit)="guardarSiembra()" novalidate>
       <ion-list>
         <ion-item>
-          <ion-label color="primary" floating>Id</ion-label>
-          <ion-input formControlName="id"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="form.get('id').errors && form.get('id').touched">
-          <p *ngIf="form.get('id').hasError('required')">Es requerido</p>
-        </ion-item>.
-
-        <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-input formControlName="descripcion"></ion-input>
         </ion-item>
         <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
           <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
         </ion-item>
-        
-      <ion-item>
-        <ion-label color="primary" floating>Id Parcela</ion-label>
-        <ion-input formControlName="idparcela"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="form.get('idparcela').errors && form.get('idparcela').touched">
-        <p *ngIf="form.get('idparcela').hasError('required')">Es requerido</p>
-      </ion-item>
 
-      <ion-item>
-        <ion-label color="primary" floating>Fecha</ion-label>
-        <ion-input formControlName="fecha"></ion-input>
-        <ion-item class=“listItem item-input” id=“dateSight”></ion-item>
-      </ion-item>
-      <ion-item *ngIf="form.get('fecha').errors && form.get('fecha').touched">
-        <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
-      </ion-item>
-
-      
         <ion-item>
-          <ion-label color="primary" floating>Id Cultivo</ion-label>
-          <ion-textarea formControlName="idcultivo"></ion-textarea>
+          <ion-label color="primary" floating>Fecha</ion-label>
+          <ion-datetime formControlName="fecha"></ion-datetime>
         </ion-item>
-        <ion-item *ngIf="form.get('idcultivo').errors && form.get('idcultivo').touched">
-          <p *ngIf="form.get('idcultivo').hasError('required')">Es requerido</p>
+        <ion-item *ngIf="form.get('fecha').errors && form.get('fecha').touched">
+          <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label color="primary" floating>Frutos</ion-label>
+          <ion-select formControlName="frutos"></ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('frutos').errors && form.get('frutos').touched">
+          <p *ngIf="form.get('frutos').hasError('required')">Es requerido</p>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" floating>Cantidad</ion-label>
-          <ion-textarea formControlName="cantidad"></ion-textarea>
+          <ion-label color="primary" floating>Frutos</ion-label>
+          <ion-select formControlName="parcela"></ion-select>
         </ion-item>
-        <ion-item *ngIf="form.get('cantidad').errors && form.get('cantidad').touched">
-          <p *ngIf="form.get('cantidad').hasError('required')">Es requerido</p>
+        <ion-item *ngIf="form.get('parcela').errors && form.get('parcela').touched">
+          <p *ngIf="form.get('parcela').hasError('required')">Es requerido</p>
         </ion-item>
 
       </ion-list>

@@ -21,7 +21,6 @@ import { GastosPage } from '../pages/gastos/gastos';
 import { ListaFincasPage } from '../pages/Finca-Component/lista-fincas/lista-fincas';
 import { HerramientasPage } from '../pages/herramientas/herramientas';
 import { MaquinariaPage } from '../pages/maquinaria/maquinaria';
-import { PagosPage } from '../pages/pagos/pagos';
 import { ParcelaPage } from '../pages/parcela/parcela';
 import { ProductosPage } from '../pages/productos/productos';
 import { SiembraPage } from '../pages/siembra/siembra';
@@ -33,6 +32,7 @@ import {FincaService} from '../Service/Finca-Service';
 import {TareasServices} from '../Service/Tareas-Services';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService  } from '../providers/auth-service/auth-service';
+import { CultivosPage } from '../pages/cultivos/cultivos';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     GastosPage,
     HerramientasPage,
     MaquinariaPage,
-    PagosPage,
     ParcelaPage,
     ProductosPage,
     SiembraPage,
@@ -55,7 +54,8 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     ListaFincasPage,
     EditFincaPage,
     TareasEmpleadosPage,
-    ConsultarCosechasPage
+    ConsultarCosechasPage,
+    CultivosPage
 
   ],
   imports: [
@@ -72,7 +72,6 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     GastosPage,
     HerramientasPage,
     MaquinariaPage,
-    PagosPage,
     ParcelaPage,
     ProductosPage,
     SiembraPage,
@@ -83,7 +82,7 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     ListaFincasPage,
     EditFincaPage,
     TareasEmpleadosPage,
-    ConsultarCosechasPage
+    ConsultarCosechasPage,CultivosPage,
   ],
   providers: [
     StatusBar,

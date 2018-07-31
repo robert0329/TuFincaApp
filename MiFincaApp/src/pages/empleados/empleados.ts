@@ -29,12 +29,9 @@ export class EmpleadosPage {
       apellido: ['', Validators.required],
       direccion: ['', Validators.required],
       ciudad: ['', Validators.required],
-      sector: ['', Validators.required],
       cedula: ['', Validators.required],
-      telefono: ['', Validators.required],
       celular: ['', Validators.required],
       cargo: ['', Validators.required],
-      salario: ['', Validators.required],
       email: ['', Validators.required],
       contraseña: ['', Validators.required],
     });

@@ -8,6 +8,11 @@
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -16,22 +21,12 @@
     <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
       <ion-list>
         <ion-item>
-          <ion-label color="primary" floating>Tipo</ion-label>
-          <ion-select formControlName="tipo"></ion-select>
-        </ion-item>
-        <ion-item *ngIf="form.get('tipo').errors && form.get('tipo').touched">
-          <p *ngIf="form.get('tipo').hasError('required')">Es requerido</p>
-        </ion-item>
-
-        <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-textarea formControlName="descripcion"></ion-textarea>
         </ion-item>
         <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
           <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
         </ion-item>
-
-        
 
       </ion-list>
       <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>

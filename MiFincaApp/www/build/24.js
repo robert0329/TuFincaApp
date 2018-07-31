@@ -1,14 +1,14 @@
 webpackJsonp([24],{
 
-/***/ 434:
+/***/ 423:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CosechaPageModule", function() { return CosechaPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsultarCosechasPageModule", function() { return ConsultarCosechasPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cosecha__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__consultar_cosechas__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CosechaPageModule = /** @class */ (function () {
-    function CosechaPageModule() {
+var ConsultarCosechasPageModule = /** @class */ (function () {
+    function ConsultarCosechasPageModule() {
     }
-    CosechaPageModule = __decorate([
+    ConsultarCosechasPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__cosecha__["a" /* CosechaPage */],
+                __WEBPACK_IMPORTED_MODULE_2__consultar_cosechas__["a" /* ConsultarCosechasPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__cosecha__["a" /* CosechaPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__consultar_cosechas__["a" /* ConsultarCosechasPage */]),
             ],
         })
-    ], CosechaPageModule);
-    return CosechaPageModule;
+    ], ConsultarCosechasPageModule);
+    return ConsultarCosechasPageModule;
 }());
 
-//# sourceMappingURL=cosecha.module.js.map
+//# sourceMappingURL=consultar-cosechas.module.js.map
 
 /***/ })
 

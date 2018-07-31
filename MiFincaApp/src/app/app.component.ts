@@ -19,13 +19,13 @@ import { CosechaPage } from '../pages/cosecha/cosecha';
 import { GastosPage } from '../pages/gastos/gastos';
 import { HerramientasPage } from '../pages/herramientas/herramientas';
 import { MaquinariaPage } from '../pages/maquinaria/maquinaria';
-import { PagosPage } from '../pages/pagos/pagos';
 import { ParcelaPage } from '../pages/parcela/parcela';
 import { ProductosPage } from '../pages/productos/productos';
 import { SiembraPage } from '../pages/siembra/siembra';
 import { SuplidorPage } from '../pages/suplidor/suplidor';
 import { TareasPage } from '../pages/tareas/tareas';
 import { AuthService } from '../../src/providers/auth-service/auth-service';
+import { CultivosPage } from '../pages/cultivos/cultivos';
 
 @Component({
   templateUrl: 'app.html'
@@ -47,12 +47,12 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       {title:'Listado', component:ListaFincasPage}  ,
+      { title: 'Registro Frutos', component: CultivosPage },
       { title: 'Registro Fincas', component: FincasPage },
        { title: 'Registro Cosecha', component: CosechaPage },
        { title: 'Gastos', component: GastosPage },
        { title: 'Registro Herramientas', component: HerramientasPage },
        { title: 'Registro Maquinaria', component: MaquinariaPage },
-       { title: 'Pagos', component: PagosPage },
        { title: 'Parcela', component: ParcelaPage },
        { title: 'Productos', component: ProductosPage },
        { title: 'Siembra', component: SiembraPage },
@@ -74,7 +74,6 @@ export class MyApp {
       // { title: 'Gastos', component: GastosPage },
        { title: 'Registro Herramientas', component: HerramientasPage },
        { title: 'Registro Maquinaria', component: MaquinariaPage },
-      // { title: 'Pagos', component: PagosPage },
       // { title: 'Parcela', component: ParcelaPage },
        { title: 'Productos', component: ProductosPage },
        { title: 'Siembra', component: SiembraPage },
@@ -94,7 +93,6 @@ export class MyApp {
       // { title: 'Gastos', component: GastosPage },
       // { title: 'Registro Herramientas', component: HerramientasPage },
       // { title: 'Registro Maquinaria', component: MaquinariaPage },
-      // { title: 'Pagos', component: PagosPage },
       // { title: 'Parcela', component: ParcelaPage },
       // { title: 'Productos', component: ProductosPage },
       // { title: 'Siembra', component: SiembraPage },
@@ -113,7 +111,6 @@ export class MyApp {
       // // { title: 'Gastos', component: GastosPage },
       //  { title: 'Registro Herramientas', component: HerramientasPage },
       //  { title: 'Registro Maquinaria', component: MaquinariaPage },
-      // { title: 'Pagos', component: PagosPage },
       // { title: 'Parcela', component: ParcelaPage },
       //  { title: 'Productos', component: ProductosPage },
       //  { title: 'Siembra', component: SiembraPage },

@@ -1,4 +1,4 @@
-webpackJsonp([31],{
+webpackJsonp([28],{
 
 /***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -56,10 +56,10 @@ var TareasServices = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarCosechasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -117,10 +117,10 @@ var ConsultarCosechasPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CosechaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -149,10 +149,9 @@ var CosechaPage = /** @class */ (function () {
     }
     CosechaPage.prototype.crearFormulario = function () {
         this.form = this.fb.group({
-            id: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             descripcion: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             fecha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
-            idsiembra: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            siembra: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             cantidad: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required]
         });
     };
@@ -166,11 +165,12 @@ var CosechaPage = /** @class */ (function () {
     };
     CosechaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-cosecha',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cosecha\cosecha.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Cosechas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarCosecha()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-input formControlName="fecha"></ion-input>\n\n          <ion-item class=“listItem item-input” id=“dateSight”></ion-item>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Siembra</ion-label>\n\n          <ion-textarea formControlName="idsiembra"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idsiembra\').errors && form.get(\'idsiembra\').touched">\n\n          <p *ngIf="form.get(\'idsiembra\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-textarea formControlName="cantidad"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cosecha\cosecha.html"*/,
+            selector: 'page-cosecha',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cosecha\cosecha.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Cosechas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarCosecha()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-input formControlName="fecha"></ion-input>\n\n          <ion-item class=“listItem item-input id="dateSight"></ion-item>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-textarea formControlName="cantidad"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Siembra</ion-label>\n\n          <ion-select formControlName="siembra"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'siembra\').errors && form.get(\'siembra\').touched">\n\n          <p *ngIf="form.get(\'siembra\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cosecha\cosecha.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object])
     ], CosechaPage);
     return CosechaPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=cosecha.js.map
@@ -182,10 +182,10 @@ var CosechaPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpleadosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -218,12 +218,9 @@ var EmpleadosPage = /** @class */ (function () {
             apellido: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             direccion: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             ciudad: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
-            sector: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             cedula: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
-            telefono: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             celular: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             cargo: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
-            salario: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             contraseña: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
         });
@@ -239,7 +236,7 @@ var EmpleadosPage = /** @class */ (function () {
     };
     EmpleadosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar empleado\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Apellido</ion-label>\n\n          <ion-input formControlName="apellido"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'apellido\').errors && form.get(\'apellido\').touched">\n\n          <p *ngIf="form.get(\'apellido\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Direccion</ion-label>\n\n          <ion-input formControlName="direccion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'direccion\').errors && form.get(\'direccion\').touched">\n\n          <p *ngIf="form.get(\'direccion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Ciudad</ion-label>\n\n          <ion-input formControlName="ciudad"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'ciudad\').errors && form.get(\'ciudad\').touched">\n\n          <p *ngIf="form.get(\'ciudad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Sector</ion-label>\n\n          <ion-input formControlName="sector"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'sector\').errors && form.get(\'sector\').touched">\n\n          <p *ngIf="form.get(\'sector\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cedula</ion-label>\n\n          <ion-input formControlName="cedula"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cedula\').errors && form.get(\'cedula\').touched">\n\n          <p *ngIf="form.get(\'cedula\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Telefono</ion-label>\n\n          <ion-input formControlName="telefono"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'telefono\').errors && form.get(\'telefono\').touched">\n\n          <p *ngIf="form.get(\'telefono\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Celular</ion-label>\n\n          <ion-input formControlName="celular"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'celular\').errors && form.get(\'celular\').touched">\n\n          <p *ngIf="form.get(\'celular\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cargo</ion-label>\n\n          <ion-select formControlName="cargo"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cargo\').errors && form.get(\'cargo\').touched">\n\n          <p *ngIf="form.get(\'cargo\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      </ion-list>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Salario</ion-label>\n\n        <ion-input formControlName="salario"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'salario\').errors && form.get(\'salario\').touched">\n\n        <p *ngIf="form.get(\'salario\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Email</ion-label>\n\n        <ion-input formControlName="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'email\').errors && form.get(\'email\').touched">\n\n        <p *ngIf="form.get(\'email\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Contraseña</ion-label>\n\n        <ion-input formControlName="contraseña"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'contraseña\').errors && form.get(\'contraseña\').touched">\n\n        <p *ngIf="form.get(\'contraseña\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/,
+            selector: 'page-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar empleado\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Apellido</ion-label>\n\n          <ion-input formControlName="apellido"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'apellido\').errors && form.get(\'apellido\').touched">\n\n          <p *ngIf="form.get(\'apellido\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Direccion</ion-label>\n\n          <ion-input formControlName="direccion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'direccion\').errors && form.get(\'direccion\').touched">\n\n          <p *ngIf="form.get(\'direccion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Celular</ion-label>\n\n          <ion-input formControlName="celular"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'celular\').errors && form.get(\'celular\').touched">\n\n          <p *ngIf="form.get(\'celular\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Ciudad</ion-label>\n\n          <ion-input formControlName="ciudad"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'ciudad\').errors && form.get(\'ciudad\').touched">\n\n          <p *ngIf="form.get(\'ciudad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cargo</ion-label>\n\n          <ion-select formControlName="cargo"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cargo\').errors && form.get(\'cargo\').touched">\n\n          <p *ngIf="form.get(\'cargo\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n     \n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cedula</ion-label>\n\n          <ion-input formControlName="cedula"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cedula\').errors && form.get(\'cedula\').touched">\n\n          <p *ngIf="form.get(\'cedula\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Email</ion-label>\n\n        <ion-input formControlName="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'email\').errors && form.get(\'email\').touched">\n\n        <p *ngIf="form.get(\'email\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Contraseña</ion-label>\n\n        <ion-input formControlName="contraseña"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'contraseña\').errors && form.get(\'contraseña\').touched">\n\n        <p *ngIf="form.get(\'contraseña\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n    </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], EmpleadosPage);
@@ -256,8 +253,8 @@ var EmpleadosPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditFincaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -328,13 +325,17 @@ var EditFincaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 140:
+/***/ 14:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GastosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__ = __webpack_require__(258);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -346,6 +347,103 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(Usuarios, nav, auth, app, loadingCtrl) {
+        var _this = this;
+        this.Usuarios = Usuarios;
+        this.nav = nav;
+        this.auth = auth;
+        this.app = app;
+        this.loadingCtrl = loadingCtrl;
+        this.username = '';
+        this.email = '';
+        this.idpersona = '';
+        this.tipo = '';
+        this.isLoggedIn = false;
+        if (!localStorage.getItem("token")) {
+            nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__login_login__["a" /* LoginPage */]);
+        }
+        else {
+            this.auth.getUserInfo();
+            this.Usuarios.getPostLogin().subscribe(function (value) {
+                _this.Usuarios.auth(value[0]).subscribe(function (result) {
+                    _this.email = result[0].email;
+                    _this.idpersona = result[0].idpersona;
+                    _this.tipo = result[0].tipo;
+                    _this.Metodos();
+                });
+                _this.Metodos();
+            });
+        }
+    }
+    HomePage.prototype.Metodos = function () {
+        if (this.tipo == "administrador") {
+            this.app.administrador();
+        }
+        else if (this.tipo == "supervisor") {
+            this.app.supervisor();
+        }
+        else if (this.tipo == "empleado") {
+            this.app.empleado();
+        }
+        else if (this.tipo == "suplidor") {
+            this.app.suplidor();
+        }
+    };
+    HomePage.prototype.logout = function () {
+        var _this = this;
+        this.Usuarios.getPostLoginDelete(this.idpersona).subscribe(function (result) {
+            _this.showLoader();
+            localStorage.clear();
+            _this.loading.dismiss();
+            _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__login_login__["a" /* LoginPage */]);
+        });
+    };
+    HomePage.prototype.showLoader = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Authenticating...'
+        });
+        this.loading.present();
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home" padding>\n\n  <!-- <h3>Welcome inside, {{email}}!</h3> -->\n\n  <!-- Your Email is: {{email}} -->\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 140:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GastosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
 /**
  * Generated class for the GastosPage page.
  *
@@ -353,18 +451,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var GastosPage = /** @class */ (function () {
-    function GastosPage(navCtrl, navParams) {
+    function GastosPage(fb, navCtrl, navParams) {
+        this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.crearFormulario();
     }
+    GastosPage.prototype.crearFormulario = function () {
+        this.form = this.fb.group({
+            nombre: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            apellido: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            direccion: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            ciudad: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            sector: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            cedula: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            telefono: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            celular: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            cargo: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            salario: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            contraseña: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+        });
+    };
+    GastosPage.prototype.guardarGastos = function () {
+    };
+    GastosPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+        //this.navCtrl.popToRoot();
+    };
     GastosPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad GastosPage');
     };
     GastosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-gastos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\gastos\gastos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Gastos\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarGastos()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n<!--(aqui va select item)\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-input formControlName="fecha"></ion-input>\n\n          <ion-item class=“listItem item-input” id=“dateSight”></ion-item>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      -->\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Finca</ion-label>\n\n          <ion-textarea formControlName="idsiembra"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idfinca\').errors && form.get(\'idfinca\').touched">\n\n          <p *ngIf="form.get(\'idfinca\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\gastos\gastos.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-gastos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\gastos\gastos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Gastos\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarGastos()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n<!--(aqui va select item)\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-input formControlName="fecha"></ion-input>\n\n          <ion-item class=“listItem item-input” id=“dateSight”></ion-item>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      -->\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Finca</ion-label>\n\n          <ion-textarea formControlName="idsiembra"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idfinca\').errors && form.get(\'idfinca\').touched">\n\n          <p *ngIf="form.get(\'idfinca\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\gastos\gastos.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], GastosPage);
     return GastosPage;
 }());
@@ -378,10 +500,10 @@ var GastosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HerramientasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -426,7 +548,7 @@ var HerramientasPage = /** @class */ (function () {
     };
     HerramientasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-herramientas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\herramientas\herramientas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Herramientas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>  \n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Herramienta</ion-label>\n\n          <ion-input formControlName="herramientas"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'herramientas\').errors && form.get(\'herramientas\').touched">\n\n          <p *ngIf="form.get(\'herramientas\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-select formControlName="cantidad"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Suplidor</ion-label>\n\n          <ion-select formControlName="suplidor"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'suplidor\').errors && form.get(\'suplidor\').touched">\n\n          <p *ngIf="form.get(\'suplidor\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\herramientas\herramientas.html"*/,
+            selector: 'page-herramientas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\herramientas\herramientas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Herramientas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>  \n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Herramienta</ion-label>\n\n          <ion-input formControlName="herramientas"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'herramientas\').errors && form.get(\'herramientas\').touched">\n\n          <p *ngIf="form.get(\'herramientas\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-input formControlName="cantidad"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n        <ion-item>\n\n          <ion-label color="primary" floating>Inventario</ion-label>\n\n          <ion-select formControlName="inventario"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'inventario\').errors && form.get(\'inventario\').touched">\n\n          <p *ngIf="form.get(\'inventario\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\herramientas\herramientas.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], HerramientasPage);
@@ -442,10 +564,10 @@ var HerramientasPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaquinariaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -493,7 +615,7 @@ var MaquinariaPage = /** @class */ (function () {
     };
     MaquinariaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-maquinaria',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\maquinaria\maquinaria.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <ion-title>\n\n        Agregar Maquinaria\n\n      </ion-title>\n\n      <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  <ion-content>\n\n    <ion-card-content>\n\n      <form [formGroup]="form" (ngSubmit)="Maquinaria()" novalidate>\n\n        <ion-list>\n\n          <ion-item>\n\n            <ion-label color="primary" floating>Descripcion</ion-label>\n\n            <ion-input formControlName="descripcion"></ion-input>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n            <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n  \n\n          <ion-item>\n\n            <ion-label color="primary" floating>Tipo</ion-label>\n\n            <ion-select formControlName="tipo"></ion-select>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'tipo\').errors && form.get(\'tipo\').touched">\n\n            <p *ngIf="form.get(\'tipo\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n  \n\n          <ion-item>\n\n            <ion-label color="primary" floating>Modelo</ion-label>\n\n            <ion-input formControlName="modelo"></ion-input>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'modelo\').errors && form.get(\'modelo\').touched">\n\n            <p *ngIf="form.get(\'modelo\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label color="primary" floating>Marca</ion-label>\n\n            <ion-select formControlName="marca"></ion-select>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'marca\').errors && form.get(\'marca\').touched">\n\n            <p *ngIf="form.get(\'marca\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n          <ion-item>\n\n            <ion-label color="primary" floating>Finca</ion-label>\n\n            <ion-select formControlName="finca"></ion-select>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'finca\').errors && form.get(\'finca\').touched">\n\n            <p *ngIf="form.get(\'finca\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n          <ion-item>\n\n            <ion-label color="primary" floating>Suplidor</ion-label>\n\n            <ion-select formControlName="suplidor"></ion-select>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'suplidor\').errors && form.get(\'suplidor\').touched">\n\n            <p *ngIf="form.get(\'suplidor\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n\n\n        </ion-list>\n\n        <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n      </form>\n\n    </ion-card-content>\n\n  </ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\maquinaria\maquinaria.html"*/,
+            selector: 'page-maquinaria',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\maquinaria\maquinaria.html"*/'<ion-header>\n\n    <ion-navbar>\n\n      <ion-title>\n\n        Agregar Maquinaria\n\n      </ion-title>\n\n      <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-buttons end>\n\n        <button ion-button icon-only>\n\n          <ion-icon name="search"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  <ion-content>\n\n    <ion-card-content>\n\n      <form [formGroup]="form" (ngSubmit)="Maquinaria()" novalidate>\n\n        <ion-list>\n\n          <ion-item>\n\n            <ion-label color="primary" floating>Descripcion</ion-label>\n\n            <ion-input formControlName="descripcion"></ion-input>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n            <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n  \n\n          <ion-item>\n\n            <ion-label color="primary" floating>Modelo</ion-label>\n\n            <ion-input formControlName="modelo"></ion-input>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'modelo\').errors && form.get(\'modelo\').touched">\n\n            <p *ngIf="form.get(\'modelo\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label color="primary" floating>Marca</ion-label>\n\n            <ion-select formControlName="marca"></ion-select>\n\n          </ion-item>\n\n          <ion-item *ngIf="form.get(\'marca\').errors && form.get(\'marca\').touched">\n\n            <p *ngIf="form.get(\'marca\').hasError(\'required\')">Es requerido</p>\n\n          </ion-item>\n\n\n\n        </ion-list>\n\n        <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n      </form>\n\n    </ion-card-content>\n\n  </ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\maquinaria\maquinaria.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], MaquinariaPage);
@@ -508,54 +630,11 @@ var MaquinariaPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PagosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the PagosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var PagosPage = /** @class */ (function () {
-    function PagosPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    PagosPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PagosPage');
-    };
-    PagosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pagos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\pagos\pagos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Pagos\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarPagos()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n<!--\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      -->\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Monto</ion-label>\n\n          <ion-textarea formControlName="monto"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'monto\').errors && form.get(\'monto\').touched">\n\n          <p *ngIf="form.get(\'monto\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Empleado</ion-label>\n\n          <ion-textarea formControlName="idempleado"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idempleado\').errors && form.get(\'idempleado\').touched">\n\n          <p *ngIf="form.get(\'idempleado\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\pagos\pagos.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], PagosPage);
-    return PagosPage;
-}());
-
-//# sourceMappingURL=pagos.js.map
-
-/***/ }),
-
-/***/ 144:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParcelaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -565,6 +644,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 /**
@@ -574,18 +655,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ParcelaPage = /** @class */ (function () {
-    function ParcelaPage(navCtrl, navParams) {
+    function ParcelaPage(fb, navCtrl, navParams) {
+        this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.crearFormulario();
     }
+    ParcelaPage.prototype.crearFormulario = function () {
+        this.form = this.fb.group({
+            nombre: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            apellido: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            direccion: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            ciudad: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            sector: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            cedula: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            telefono: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            celular: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            cargo: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            salario: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            contraseña: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+        });
+    };
+    ParcelaPage.prototype.guardarParcela = function () {
+    };
+    ParcelaPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+        //this.navCtrl.popToRoot();
+    };
     ParcelaPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ParcelaPage');
     };
     ParcelaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-parcela',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\parcela\parcela.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Parcela\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarParcela()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Localizacion</ion-label>\n\n          <ion-textarea formControlName="localizacion"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'localizacion\').errors && form.get(\'localizacion\').touched">\n\n          <p *ngIf="form.get(\'localizacion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Finca</ion-label>\n\n          <ion-textarea formControlName="idfinca"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idfinca\').errors && form.get(\'idfinca\').touched">\n\n          <p *ngIf="form.get(\'idfinca\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\parcela\parcela.html"*/,
+            selector: 'page-parcela',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\parcela\parcela.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Parcela\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarParcela()" novalidate>\n\n      <ion-list>\n\n        \n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Finca</ion-label>\n\n          <ion-select formControlName="finca"></ion-select>\n\n        </ion-item>\n\n\n\n        <ion-item *ngIf="form.get(\'finca\').errors && form.get(\'finca\').touched">\n\n          <p *ngIf="form.get(\'finca\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\parcela\parcela.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], ParcelaPage);
     return ParcelaPage;
 }());
@@ -594,13 +699,15 @@ var ParcelaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 145:
+/***/ 144:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -610,6 +717,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 /**
@@ -619,18 +728,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ProductosPage = /** @class */ (function () {
-    function ProductosPage(navCtrl, navParams) {
+    function ProductosPage(fb, navCtrl, navParams) {
+        this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.crearFormulario();
     }
+    ProductosPage.prototype.crearFormulario = function () {
+        this.form = this.fb.group({
+            nombre: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            apellido: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            direccion: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            ciudad: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            sector: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            cedula: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            telefono: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            celular: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            cargo: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            salario: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            contraseña: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+        });
+    };
+    ProductosPage.prototype.guardarProductos = function () {
+    };
+    ProductosPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+        //this.navCtrl.popToRoot();
+    };
     ProductosPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProductosPage');
     };
     ProductosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-productos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\productos\productos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Productos\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarProductos()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>.\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Producto</ion-label>\n\n          <ion-input formControlName="producto"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'producto\').errors && form.get(\'producto\').touched">\n\n          <p *ngIf="form.get(\'producto\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n      <ion-item>\n\n        <ion-label color="primary" floating>Descripcion</ion-label>\n\n        <ion-input formControlName="descripcion"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n        <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n\n\n<!--\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      -->\n\n      \n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Suplidor</ion-label>\n\n          <ion-textarea formControlName="idsuplidor"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idsuplidor\').errors && form.get(\'idsuplidor\').touched">\n\n          <p *ngIf="form.get(\'idsuplidor\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\productos\productos.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-productos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\productos\productos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Productos\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarProductos()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Producto</ion-label>\n\n          <ion-input formControlName="producto"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'producto\').errors && form.get(\'producto\').touched">\n\n          <p *ngIf="form.get(\'producto\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n      <ion-item>\n\n        <ion-label color="primary" floating>Descripcion</ion-label>\n\n        <ion-input formControlName="descripcion"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n        <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Inventario</ion-label>\n\n        <ion-select formControlName="inventario"></ion-select>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'inventario\').errors && form.get(\'inventario\').touched">\n\n        <p *ngIf="form.get(\'inventario\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\productos\productos.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], ProductosPage);
     return ProductosPage;
 }());
@@ -639,13 +772,15 @@ var ProductosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 146:
+/***/ 145:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SiembraPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -655,6 +790,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 /**
@@ -664,33 +801,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SiembraPage = /** @class */ (function () {
-    function SiembraPage(navCtrl, navParams) {
+    function SiembraPage(fb, navCtrl, navParams) {
+        this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.crearFormulario();
     }
+    SiembraPage.prototype.crearFormulario = function () {
+        this.form = this.fb.group({
+            fecha: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            frutos: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            parcela: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            descripcion: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required]
+        });
+    };
+    SiembraPage.prototype.guardarSiembra = function () {
+    };
+    SiembraPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+        //this.navCtrl.popToRoot();
+    };
     SiembraPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SiembraPage');
     };
     SiembraPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-siembra',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Siembra\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarSiembra()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>.\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n      <ion-item>\n\n        <ion-label color="primary" floating>Id Parcela</ion-label>\n\n        <ion-input formControlName="idparcela"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'idparcela\').errors && form.get(\'idparcela\').touched">\n\n        <p *ngIf="form.get(\'idparcela\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Fecha</ion-label>\n\n        <ion-input formControlName="fecha"></ion-input>\n\n        <ion-item class=“listItem item-input” id=“dateSight”></ion-item>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n        <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n\n\n      \n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id Cultivo</ion-label>\n\n          <ion-textarea formControlName="idcultivo"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idcultivo\').errors && form.get(\'idcultivo\').touched">\n\n          <p *ngIf="form.get(\'idcultivo\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-textarea formControlName="cantidad"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/,
+            selector: 'page-siembra',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Siembra\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarSiembra()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Frutos</ion-label>\n\n          <ion-select formControlName="frutos"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'frutos\').errors && form.get(\'frutos\').touched">\n\n          <p *ngIf="form.get(\'frutos\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Frutos</ion-label>\n\n          <ion-select formControlName="parcela"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'parcela\').errors && form.get(\'parcela\').touched">\n\n          <p *ngIf="form.get(\'parcela\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object])
     ], SiembraPage);
     return SiembraPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=siembra.js.map
 
 /***/ }),
 
-/***/ 147:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuplidorPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -702,6 +858,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
  * Generated class for the SuplidorPage page.
  *
@@ -709,18 +867,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var SuplidorPage = /** @class */ (function () {
-    function SuplidorPage(navCtrl, navParams) {
+    function SuplidorPage(fb, navCtrl, navParams) {
+        this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.crearFormulario();
     }
+    SuplidorPage.prototype.crearFormulario = function () {
+        this.form = this.fb.group({
+            nombre: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            apellido: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            direccion: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            ciudad: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            sector: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            cedula: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            telefono: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            celular: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            cargo: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            salario: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            contraseña: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+        });
+    };
+    SuplidorPage.prototype.guardarSuplidor = function () {
+    };
+    SuplidorPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+        //this.navCtrl.popToRoot();
+    };
     SuplidorPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SuplidorPage');
     };
     SuplidorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-suplidor',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\suplidor\suplidor.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Suplidor\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarSuplidor()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>.\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n      <ion-item>\n\n        <ion-label color="primary" floating>Telefono</ion-label>\n\n        <ion-input formControlName="telefono"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'telefono\').errors && form.get(\'telefono\').touched">\n\n        <p *ngIf="form.get(\'telefono\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      \n\n        <ion-item>\n\n          <ion-label color="primary" floating>Direccion</ion-label>\n\n          <ion-textarea formControlName="direccion"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'direccion\').errors && form.get(\'direccion\').touched">\n\n          <p *ngIf="form.get(\'direccion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Celular</ion-label>\n\n          <ion-textarea formControlName="celular"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'celular\').errors && form.get(\'celular\').touched">\n\n          <p *ngIf="form.get(\'celular\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\suplidor\suplidor.html"*/,
+            selector: 'page-suplidor',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\suplidor\suplidor.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Suplidor\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarSuplidor()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input formControlName="id"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'id\').errors && form.get(\'id\').touched">\n\n          <p *ngIf="form.get(\'id\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>.\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n      <ion-item>\n\n        <ion-label color="primary" floating>Telefono</ion-label>\n\n        <ion-input formControlName="telefono"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'telefono\').errors && form.get(\'telefono\').touched">\n\n        <p *ngIf="form.get(\'telefono\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      \n\n        <ion-item>\n\n          <ion-label color="primary" floating>Direccion</ion-label>\n\n          <ion-textarea formControlName="direccion"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'direccion\').errors && form.get(\'direccion\').touched">\n\n          <p *ngIf="form.get(\'direccion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Celular</ion-label>\n\n          <ion-textarea formControlName="celular"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'celular\').errors && form.get(\'celular\').touched">\n\n          <p *ngIf="form.get(\'celular\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\suplidor\suplidor.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], SuplidorPage);
     return SuplidorPage;
 }());
@@ -729,14 +911,14 @@ var SuplidorPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 148:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasEmpleadosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Tareas_Services__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -804,15 +986,15 @@ var TareasEmpleadosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 149:
+/***/ 148:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Service_Usuario_Service__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Service_Tareas_Services__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(36);
@@ -901,7 +1083,7 @@ var TareasPage = /** @class */ (function () {
     };
     TareasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-tareas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar tareas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()">\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-textarea formControlName="descripcion"></ion-textarea>\n\n        </ion-item>\n\n\n\n       \n\n        <ion-item>\n\n          <ion-label>Fincas</ion-label>\n\n          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">\n\n            <ion-option #item *ngFor="let finca of ArrayTareas"  selected="false" \n\n            >{{finca.nombre}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label>empleados</ion-label>\n\n          <ion-select multiple="true" cancelText="cancel" okText="ok">\n\n            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" \n\n            (ionSelect)="friendFun(sitio, form)">{{sitio.nombre}} (@{{sitio.idpersona}})</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Asignar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas.html"*/,
+            selector: 'page-tareas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar tareas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()">\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-textarea formControlName="descripcion"></ion-textarea>\n\n        </ion-item>\n\n\n\n       \n\n        <ion-item>\n\n          <ion-label>Fincas</ion-label>\n\n          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">\n\n            <ion-option #item *ngFor="let finca of ArrayTareas"  selected="false" \n\n            >{{finca.nombre}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label>empleados</ion-label>\n\n          <ion-select multiple="true" cancelText="cancel" okText="ok">\n\n            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" \n\n            (ionSelect)="friendFun(sitio, form)">{{sitio.nombre}} (@{{sitio.idpersona}})</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Asignar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__Service_Tareas_Services__["a" /* TareasServices */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], TareasPage);
@@ -912,7 +1094,7 @@ var TareasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 159:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -925,129 +1107,129 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 160;
+webpackEmptyAsyncContext.id = 159;
 
 /***/ }),
 
-/***/ 219:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/Finca-Component/Add-fincas/fincas.module": [
 		437,
-		28
+		58
 	],
 	"../pages/Finca-Component/edit-finca/edit-finca.module": [
 		438,
-		27
+		57
 	],
 	"../pages/Finca-Component/lista-fincas/lista-fincas.module": [
 		439,
-		26
+		56
 	],
 	"../pages/consultar-cosechas/consultar-cosechas.module": [
-		421,
-		25
+		423,
+		55
 	],
 	"../pages/consultar-cultivos/consultar-cultivos.module": [
-		422,
-		11
+		424,
+		54
 	],
 	"../pages/consultar-empleados/consultar-empleados.module": [
-		423,
-		10
+		425,
+		53
 	],
 	"../pages/consultar-fincas/consultar-fincas.module": [
-		424,
-		9
+		426,
+		52
 	],
 	"../pages/consultar-gastos/consultar-gastos.module": [
-		425,
-		8
+		427,
+		39
 	],
 	"../pages/consultar-herramientas/consultar-herramientas.module": [
-		426,
-		7
+		428,
+		38
 	],
 	"../pages/consultar-maquinaria/consultar-maquinaria.module": [
-		427,
-		6
+		429,
+		37
 	],
 	"../pages/consultar-parcelas/consultar-parcelas.module": [
-		429,
-		5
+		430,
+		36
+	],
+	"../pages/consultar-productos/consultar-productos.module": [
+		460,
+		35
 	],
 	"../pages/consultar-siembras/consultar-siembras.module": [
 		431,
-		4
+		34
 	],
 	"../pages/consultar-suplidor/consultar-suplidor.module": [
 		432,
-		3
+		33
 	],
 	"../pages/consultar-tareas/consultar-tareas.module": [
 		433,
-		2
+		32
 	],
 	"../pages/cosecha/cosecha.module": [
 		434,
-		24
+		51
 	],
 	"../pages/cultivos/cultivos.module": [
 		435,
-		1
+		31
 	],
 	"../pages/empleados/empleados.module": [
 		436,
-		23
+		50
 	],
 	"../pages/gastos/gastos.module": [
 		440,
-		22
+		49
 	],
 	"../pages/herramientas/herramientas.module": [
 		441,
-		21
+		48
 	],
 	"../pages/login/login.module": [
 		442,
-		20
+		47
 	],
 	"../pages/maquinaria/maquinaria.module": [
 		443,
-		19
-	],
-	"../pages/pagos/pagos.module": [
-		444,
-		18
+		46
 	],
 	"../pages/parcela/parcela.module": [
-		445,
-		17
+		444,
+		45
 	],
 	"../pages/productos/productos.module": [
-		446,
-		16
+		445,
+		44
 	],
 	"../pages/register/register.module": [
-		447,
-		0
+		446,
+		30
 	],
 	"../pages/siembra/siembra.module": [
-		448,
-		15
+		447,
+		43
 	],
 	"../pages/suplidor/suplidor.module": [
-		449,
-		14
+		448,
+		42
 	],
 	"../pages/tareas/tareas-empleados/tareas-empleados.module": [
-		450,
-		13
+		449,
+		41
 	],
 	"../pages/tareas/tareas.module": [
-		451,
-		12
+		450,
+		40
 	]
 };
 function webpackAsyncContext(req) {
@@ -1061,133 +1243,38 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 219;
+webpackAsyncContext.id = 218;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 23:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__ = __webpack_require__(259);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var HomePage = /** @class */ (function () {
-    function HomePage(Usuarios, nav, auth, app, loadingCtrl) {
-        var _this = this;
-        this.Usuarios = Usuarios;
-        this.nav = nav;
-        this.auth = auth;
-        this.app = app;
-        this.loadingCtrl = loadingCtrl;
-        this.username = '';
-        this.email = '';
-        this.idpersona = '';
-        this.tipo = '';
-        this.isLoggedIn = false;
-        if (!localStorage.getItem("token")) {
-            nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__login_login__["a" /* LoginPage */]);
-        }
-        else {
-            this.auth.getUserInfo();
-            this.Usuarios.getPostLogin().subscribe(function (value) {
-                _this.Usuarios.auth(value[0]).subscribe(function (result) {
-                    _this.email = result[0].email;
-                    _this.idpersona = result[0].idpersona;
-                    _this.tipo = result[0].tipo;
-                    _this.Metodos();
-                });
-                _this.Metodos();
-            });
-        }
-    }
-    HomePage.prototype.Metodos = function () {
-        if (this.tipo == "administrador") {
-            this.app.administrador();
-        }
-        else if (this.tipo == "supervisor") {
-            this.app.supervisor();
-        }
-        else if (this.tipo == "empleado") {
-            this.app.empleado();
-        }
-        else if (this.tipo == "suplidor") {
-            this.app.suplidor();
-        }
-    };
-    HomePage.prototype.logout = function () {
-        var _this = this;
-        this.Usuarios.getPostLoginDelete(this.idpersona).subscribe(function (result) {
-            _this.showLoader();
-            localStorage.clear();
-            _this.loading.dismiss();
-            _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__login_login__["a" /* LoginPage */]);
-        });
-    };
-    HomePage.prototype.showLoader = function () {
-        this.loading = this.loadingCtrl.create({
-            content: 'Authenticating...'
-        });
-        this.loading.present();
-    };
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home" padding>\n\n  <!-- <h3>Welcome inside, {{email}}!</h3> -->\n\n  <!-- Your Email is: {{email}} -->\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]])
-    ], HomePage);
-    return HomePage;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 259:
+/***/ 258:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_cosecha_cosecha__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_gastos_gastos__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_herramientas_herramientas__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_maquinaria_maquinaria__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_pagos_pagos__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_parcela_parcela__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_productos_productos__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_siembra_siembra__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_suplidor_suplidor__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_consultar_fincas_consultar_fincas__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_consultar_empleados_consultar_empleados__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_consultar_cultivos_consultar_cultivos__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_empleados_empleados__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_cosecha_cosecha__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_gastos_gastos__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_herramientas_herramientas__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_maquinaria_maquinaria__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_parcela_parcela__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_productos_productos__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_siembra_siembra__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_suplidor_suplidor__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_tareas_tareas__ = __webpack_require__(148);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1197,6 +1284,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -1222,66 +1311,66 @@ var MyApp = /** @class */ (function () {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */];
         this.tipo = '';
         this.initializeApp();
     }
     MyApp.prototype.administrador = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
-            { title: 'Listado', component: __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */] },
-            { title: 'Registro Fincas', component: __WEBPACK_IMPORTED_MODULE_9__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */] },
-            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_10__pages_cosecha_cosecha__["a" /* CosechaPage */] },
-            { title: 'Gastos', component: __WEBPACK_IMPORTED_MODULE_11__pages_gastos_gastos__["a" /* GastosPage */] },
-            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_12__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
-            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_13__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
-            { title: 'Pagos', component: __WEBPACK_IMPORTED_MODULE_14__pages_pagos_pagos__["a" /* PagosPage */] },
-            { title: 'Parcela', component: __WEBPACK_IMPORTED_MODULE_15__pages_parcela_parcela__["a" /* ParcelaPage */] },
-            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_16__pages_productos_productos__["a" /* ProductosPage */] },
-            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_17__pages_siembra_siembra__["a" /* SiembraPage */] },
-            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__["a" /* TareasPage */] },
-            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_18__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
-            { title: 'Registro Empleados', component: __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__["a" /* EmpleadosPage */] },
-            { title: 'ConsultarCosechas', component: __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */] },
+            { title: 'Listado', component: __WEBPACK_IMPORTED_MODULE_5__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */] },
+            { title: 'Registro Fincas', component: __WEBPACK_IMPORTED_MODULE_12__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */] },
+            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_13__pages_cosecha_cosecha__["a" /* CosechaPage */] },
+            { title: 'Gastos', component: __WEBPACK_IMPORTED_MODULE_14__pages_gastos_gastos__["a" /* GastosPage */] },
+            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_15__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
+            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_16__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
+            { title: 'Parcela', component: __WEBPACK_IMPORTED_MODULE_17__pages_parcela_parcela__["a" /* ParcelaPage */] },
+            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_18__pages_productos_productos__["a" /* ProductosPage */] },
+            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_19__pages_siembra_siembra__["a" /* SiembraPage */] },
+            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_21__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_20__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
+            { title: 'Registro Empleados', component: __WEBPACK_IMPORTED_MODULE_6__pages_empleados_empleados__["a" /* EmpleadosPage */] },
+            { title: 'ConsultarCosechas', component: __WEBPACK_IMPORTED_MODULE_3__pages_consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */] },
+            { title: 'ConsultarCultivos', component: __WEBPACK_IMPORTED_MODULE_2__pages_consultar_cultivos_consultar_cultivos__["a" /* ConsultarCultivosPage */] },
+            { title: 'ConsultarEmpleados', component: __WEBPACK_IMPORTED_MODULE_1__pages_consultar_empleados_consultar_empleados__["a" /* ConsultarEmpleadosPage */] },
+            { title: 'ConsultarFincas', component: __WEBPACK_IMPORTED_MODULE_0__pages_consultar_fincas_consultar_fincas__["a" /* ConsultarFincasPage */] },
         ];
     };
     MyApp.prototype.supervisor = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
-            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */] },
+            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_21__pages_tareas_tareas__["a" /* TareasPage */] },
             // { title: 'Registro Fincas', component: FincasPage },
-            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_10__pages_cosecha_cosecha__["a" /* CosechaPage */] },
+            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_13__pages_cosecha_cosecha__["a" /* CosechaPage */] },
             // { title: 'Gastos', component: GastosPage },
-            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_12__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
-            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_13__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
-            // { title: 'Pagos', component: PagosPage },
+            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_15__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
+            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_16__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
             // { title: 'Parcela', component: ParcelaPage },
-            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_16__pages_productos_productos__["a" /* ProductosPage */] },
-            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_17__pages_siembra_siembra__["a" /* SiembraPage */] },
-            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_18__pages_productos_productos__["a" /* ProductosPage */] },
+            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_19__pages_siembra_siembra__["a" /* SiembraPage */] },
+            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_21__pages_tareas_tareas__["a" /* TareasPage */] },
         ];
     };
     MyApp.prototype.empleado = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
-            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */] },
+            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_4__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */] },
         ];
     };
     MyApp.prototype.suplidor = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_11__pages_home_home__["a" /* HomePage */] },
             //  { title: 'Tareas', component: TareasPage },
             // { title: 'Registro Fincas', component: FincasPage },
             //  { title: 'Registro Cosecha', component: CosechaPage },
             // // { title: 'Gastos', component: GastosPage },
             //  { title: 'Registro Herramientas', component: HerramientasPage },
             //  { title: 'Registro Maquinaria', component: MaquinariaPage },
-            // { title: 'Pagos', component: PagosPage },
             // { title: 'Parcela', component: ParcelaPage },
             //  { title: 'Productos', component: ProductosPage },
             //  { title: 'Siembra', component: SiembraPage },
             //  { title: 'Registro Tareas', component: TareasPage },
-            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_18__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
+            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_20__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
         ];
     };
     MyApp.prototype.initializeApp = function () {
@@ -1299,14 +1388,14 @@ var MyApp = /** @class */ (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_7__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_8_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_7__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_8_ionic_angular__["k" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());
@@ -1315,13 +1404,190 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 262:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarCultivosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ConsultarCultivosPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ConsultarCultivosPage = /** @class */ (function () {
+    function ConsultarCultivosPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.Array = [];
+        this.searchTerm = '';
+        this.items = [];
+        this.searching = false;
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
+    }
+    ConsultarCultivosPage.prototype.openModal = function () {
+    };
+    ConsultarCultivosPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+    };
+    ConsultarCultivosPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ConsultarCultivosPage');
+    };
+    ConsultarCultivosPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-consultar-cultivos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-cultivos\consultar-cultivos.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Consultar los frutos</ion-title>\n    <ion-buttons>\n        <button ion-button icon-only (click)="OnGoBack()">\n          <ion-icon name="md-arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n    <div *ngIf="searching" class="spinner-container">\n      <ion-spinner></ion-spinner>\n    </div>\n  <ion-list>\n    <ion-item-sliding  *ngFor="let grocery of Array">\n      <!-- <ion-item> {{grocery.descripcion}}</ion-item>\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->\n\n      <ion-item-options>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="paper"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="delete"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n  \n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-cultivos\consultar-cultivos.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
+    ], ConsultarCultivosPage);
+    return ConsultarCultivosPage;
+}());
+
+//# sourceMappingURL=consultar-cultivos.js.map
+
+/***/ }),
+
 /***/ 263:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarEmpleadosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ConsultarEmpleadosPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ConsultarEmpleadosPage = /** @class */ (function () {
+    function ConsultarEmpleadosPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.Array = [];
+        this.searchTerm = '';
+        this.items = [];
+        this.searching = false;
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
+    }
+    ConsultarEmpleadosPage.prototype.openModal = function () {
+    };
+    ConsultarEmpleadosPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+    };
+    ConsultarEmpleadosPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ConsultarEmpleadosPage');
+    };
+    ConsultarEmpleadosPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-consultar-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-empleados\consultar-empleados.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Consultar los frutos</ion-title>\n    <ion-buttons>\n        <button ion-button icon-only (click)="OnGoBack()">\n          <ion-icon name="md-arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n    <div *ngIf="searching" class="spinner-container">\n      <ion-spinner></ion-spinner>\n    </div>\n  <ion-list>\n    <ion-item-sliding  *ngFor="let grocery of Array">\n      <!-- <ion-item> {{grocery.descripcion}}</ion-item>\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->\n\n      <ion-item-options>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="paper"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="delete"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n  \n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-empleados\consultar-empleados.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
+    ], ConsultarEmpleadosPage);
+    return ConsultarEmpleadosPage;
+}());
+
+//# sourceMappingURL=consultar-empleados.js.map
+
+/***/ }),
+
+/***/ 264:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarFincasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ConsultarFincasPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ConsultarFincasPage = /** @class */ (function () {
+    function ConsultarFincasPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.Array = [];
+        this.searchTerm = '';
+        this.items = [];
+        this.searching = false;
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
+    }
+    ConsultarFincasPage.prototype.openModal = function () {
+    };
+    ConsultarFincasPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+    };
+    ConsultarFincasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ConsultarFincasPage');
+    };
+    ConsultarFincasPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-consultar-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-fincas\consultar-fincas.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Consultar los frutos</ion-title>\n    <ion-buttons>\n        <button ion-button icon-only (click)="OnGoBack()">\n          <ion-icon name="md-arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n    <div *ngIf="searching" class="spinner-container">\n      <ion-spinner></ion-spinner>\n    </div>\n  <ion-list>\n    <ion-item-sliding  *ngFor="let grocery of Array">\n      <!-- <ion-item> {{grocery.descripcion}}</ion-item>\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->\n\n      <ion-item-options>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="paper"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="delete"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n  \n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-fincas\consultar-fincas.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
+    ], ConsultarFincasPage);
+    return ConsultarFincasPage;
+}());
+
+//# sourceMappingURL=consultar-fincas.js.map
+
+/***/ }),
+
+/***/ 265:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(273);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1329,49 +1595,47 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 271:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Finca_Component_edit_finca_edit_finca__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_empleados_empleados__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_list_list__ = __webpack_require__(419);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_list_list__ = __webpack_require__(421);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(261);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_cosecha_cosecha__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_gastos_gastos__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_herramientas_herramientas__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_maquinaria_maquinaria__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_pagos_pagos__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_parcela_parcela__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_productos_productos__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_siembra_siembra__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_suplidor_suplidor__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_tareas_tareas__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_login_login__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_sqlite__ = __webpack_require__(420);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Service_Finca_Service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Service_Tareas_Services__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_common_http__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_auth_service_auth_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_parcela_parcela__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_productos_productos__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_siembra_siembra__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_suplidor_suplidor__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_tareas_tareas__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_login_login__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_sqlite__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Service_Finca_Service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Service_Tareas_Services__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_common_http__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_auth_service_auth_service__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -1415,15 +1679,14 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_gastos_gastos__["a" /* GastosPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_herramientas_herramientas__["a" /* HerramientasPage */],
                 __WEBPACK_IMPORTED_MODULE_18__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_pagos_pagos__["a" /* PagosPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_parcela_parcela__["a" /* ParcelaPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_productos_productos__["a" /* ProductosPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_siembra_siembra__["a" /* SiembraPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_suplidor_suplidor__["a" /* SuplidorPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_tareas_tareas__["a" /* TareasPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_parcela_parcela__["a" /* ParcelaPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_productos_productos__["a" /* ProductosPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_siembra_siembra__["a" /* SiembraPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_suplidor_suplidor__["a" /* SuplidorPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_tareas_tareas__["a" /* TareasPage */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_empleados_empleados__["a" /* EmpleadosPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */],
                 __WEBPACK_IMPORTED_MODULE_3__pages_Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */],
                 __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */],
@@ -1440,9 +1703,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/consultar-gastos/consultar-gastos.module#ConsultarGastosPageModule', name: 'ConsultarGastosPage', segment: 'consultar-gastos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/consultar-herramientas/consultar-herramientas.module#ConsultarHerramientasPageModule', name: 'ConsultarHerramientasPage', segment: 'consultar-herramientas', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/consultar-maquinaria/consultar-maquinaria.module#ConsultarMaquinariaPageModule', name: 'ConsultarMaquinariaPage', segment: 'consultar-maquinaria', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/consultar-pagos/consultar-pagos.module#ConsultarPagosPageModule', name: 'ConsultarPagosPage', segment: 'consultar-pagos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/consultar-parcelas/consultar-parcelas.module#ConsultarParcelasPageModule', name: 'ConsultarParcelasPage', segment: 'consultar-parcelas', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/consultar-siembra/consultar-siembra.module#ConsultarSiembraPageModule', name: 'ConsultarSiembraPage', segment: 'consultar-siembra', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/consultar-siembras/consultar-siembras.module#ConsultarSiembrasPageModule', name: 'ConsultarSiembrasPage', segment: 'consultar-siembras', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/consultar-suplidor/consultar-suplidor.module#ConsultarSuplidorPageModule', name: 'ConsultarSuplidorPage', segment: 'consultar-suplidor', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/consultar-tareas/consultar-tareas.module#ConsultarTareasPageModule', name: 'ConsultarTareasPage', segment: 'consultar-tareas', priority: 'low', defaultHistory: [] },
@@ -1456,7 +1717,6 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/herramientas/herramientas.module#HerramientasPageModule', name: 'HerramientasPage', segment: 'herramientas', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/maquinaria/maquinaria.module#MaquinariaPageModule', name: 'MaquinariaPage', segment: 'maquinaria', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pagos/pagos.module#PagosPageModule', name: 'PagosPage', segment: 'pagos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/parcela/parcela.module#ParcelaPageModule', name: 'ParcelaPage', segment: 'parcela', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/productos/productos.module#ProductosPageModule', name: 'ProductosPage', segment: 'productos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
@@ -1466,7 +1726,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/tareas/tareas.module#TareasPageModule', name: 'TareasPage', segment: 'tareas', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_29__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_28__angular_common_http__["b" /* HttpClientModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_7_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
@@ -1476,14 +1736,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_gastos_gastos__["a" /* GastosPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_herramientas_herramientas__["a" /* HerramientasPage */],
                 __WEBPACK_IMPORTED_MODULE_18__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_pagos_pagos__["a" /* PagosPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_parcela_parcela__["a" /* ParcelaPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_productos_productos__["a" /* ProductosPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_siembra_siembra__["a" /* SiembraPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_suplidor_suplidor__["a" /* SuplidorPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_tareas_tareas__["a" /* TareasPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_parcela_parcela__["a" /* ParcelaPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_productos_productos__["a" /* ProductosPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_siembra_siembra__["a" /* SiembraPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_suplidor_suplidor__["a" /* SuplidorPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_tareas_tareas__["a" /* TareasPage */],
                 __WEBPACK_IMPORTED_MODULE_4__pages_empleados_empleados__["a" /* EmpleadosPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */],
                 __WEBPACK_IMPORTED_MODULE_3__pages_Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */],
                 __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */],
@@ -1492,12 +1751,12 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_27__Service_Finca_Service__["a" /* FincaService */],
+                __WEBPACK_IMPORTED_MODULE_26__Service_Finca_Service__["a" /* FincaService */],
                 __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */],
-                __WEBPACK_IMPORTED_MODULE_28__Service_Tareas_Services__["a" /* TareasServices */],
+                __WEBPACK_IMPORTED_MODULE_27__Service_Tareas_Services__["a" /* TareasServices */],
                 { provide: __WEBPACK_IMPORTED_MODULE_6__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_30__providers_auth_service_auth_service__["a" /* AuthService */],
-                __WEBPACK_IMPORTED_MODULE_26__ionic_native_sqlite__["a" /* SQLite */]
+                __WEBPACK_IMPORTED_MODULE_29__providers_auth_service_auth_service__["a" /* AuthService */],
+                __WEBPACK_IMPORTED_MODULE_25__ionic_native_sqlite__["a" /* SQLite */]
             ]
         })
     ], AppModule);
@@ -1516,7 +1775,7 @@ var AppModule = /** @class */ (function () {
 /* unused harmony export Postloginn */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(396);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1592,7 +1851,7 @@ var AuthService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 393:
+/***/ 395:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1615,13 +1874,13 @@ var Finca = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 419:
+/***/ 421:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1779,7 +2038,7 @@ var UsuarioService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FincaService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__ = __webpack_require__(83);
@@ -1862,8 +2121,8 @@ var FincaService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Finca_Component_edit_finca_edit_finca__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Add_fincas_fincas__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1965,11 +2224,11 @@ var ListaFincasPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2075,9 +2334,9 @@ var LoginPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FincasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_Clases_Finca__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_Clases_Finca__ = __webpack_require__(395);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Service_Finca_Service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lista_fincas_lista_fincas__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(36);
@@ -2183,5 +2442,5 @@ var FincasPage = /** @class */ (function () {
 
 /***/ })
 
-},[263]);
+},[265]);
 //# sourceMappingURL=main.js.map

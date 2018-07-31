@@ -27,7 +27,7 @@ export class HerramientasPage {
     this.form = this.fb.group({
       herramientas: ['',Validators.required],
       cantidad: ['', Validators.required],
-      suplidor: ['', Validators.required]
+      inventario: ['', Validators.required]
     });
   }
  

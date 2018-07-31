@@ -8,6 +8,11 @@
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,13 +20,6 @@
   <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="guardarCosecha()" novalidate>
       <ion-list>
-        <ion-item>
-          <ion-label color="primary" floating>Id</ion-label>
-          <ion-input formControlName="id"></ion-input>
-        </ion-item>
-        <ion-item *ngIf="form.get('id').errors && form.get('id').touched">
-          <p *ngIf="form.get('id').hasError('required')">Es requerido</p>
-        </ion-item>
 
         <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
@@ -34,18 +32,10 @@
         <ion-item>
           <ion-label color="primary" floating>Fecha</ion-label>
           <ion-input formControlName="fecha"></ion-input>
-          <ion-item class=“listItem item-input” id=“dateSight”></ion-item>
+          <ion-item class=“listItem item-input id="dateSight"></ion-item>
         </ion-item>
         <ion-item *ngIf="form.get('fecha').errors && form.get('fecha').touched">
           <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
-        </ion-item>
-
-        <ion-item>
-          <ion-label color="primary" floating>Id Siembra</ion-label>
-          <ion-textarea formControlName="idsiembra"></ion-textarea>
-        </ion-item>
-        <ion-item *ngIf="form.get('idsiembra').errors && form.get('idsiembra').touched">
-          <p *ngIf="form.get('idsiembra').hasError('required')">Es requerido</p>
         </ion-item>
 
         <ion-item>
@@ -54,6 +44,14 @@
         </ion-item>
         <ion-item *ngIf="form.get('cantidad').errors && form.get('cantidad').touched">
           <p *ngIf="form.get('cantidad').hasError('required')">Es requerido</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" floating>Siembra</ion-label>
+          <ion-select formControlName="siembra"></ion-select>
+        </ion-item>
+        <ion-item *ngIf="form.get('siembra').errors && form.get('siembra').touched">
+          <p *ngIf="form.get('siembra').hasError('required')">Es requerido</p>
         </ion-item>
 
       </ion-list>

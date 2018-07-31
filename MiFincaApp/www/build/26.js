@@ -1,14 +1,14 @@
 webpackJsonp([26],{
 
-/***/ 439:
+/***/ 438:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListaFincasPageModule", function() { return ListaFincasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditFincaPageModule", function() { return EditFincaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lista_fincas__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_finca__ = __webpack_require__(139);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ListaFincasPageModule = /** @class */ (function () {
-    function ListaFincasPageModule() {
+var EditFincaPageModule = /** @class */ (function () {
+    function EditFincaPageModule() {
     }
-    ListaFincasPageModule = __decorate([
+    EditFincaPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__lista_fincas__["a" /* ListaFincasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_finca__["a" /* EditFincaPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lista_fincas__["a" /* ListaFincasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_finca__["a" /* EditFincaPage */]),
             ],
         })
-    ], ListaFincasPageModule);
-    return ListaFincasPageModule;
+    ], EditFincaPageModule);
+    return EditFincaPageModule;
 }());
 
-//# sourceMappingURL=lista-fincas.module.js.map
+//# sourceMappingURL=edit-finca.module.js.map
 
 /***/ })
 
