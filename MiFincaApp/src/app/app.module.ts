@@ -1,10 +1,10 @@
+import { ConsultarCosechasPage } from './../pages/consultar-cosechas/consultar-cosechas';
 import { TareasEmpleadosPage } from './../pages/tareas/tareas-empleados/tareas-empleados';
 import { UsuarioService } from './../Service/Usuario-Service';
 
 import { EditFincaPage } from './../pages/Finca-Component/edit-finca/edit-finca';
 
 import { EmpleadosPage } from './../pages/empleados/empleados';
-import { Http, Headers } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -49,9 +49,13 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     SiembraPage,
     SuplidorPage,
     TareasPage,
-    ListPage,EmpleadosPage,
-    LoginPage,ListaFincasPage,EditFincaPage,TareasEmpleadosPage
-    
+    ListPage,
+    EmpleadosPage,
+    LoginPage,
+    ListaFincasPage,
+    EditFincaPage,
+    TareasEmpleadosPage,
+    ConsultarCosechasPage
 
   ],
   imports: [
@@ -73,8 +77,13 @@ import { AuthService  } from '../providers/auth-service/auth-service';
     ProductosPage,
     SiembraPage,
     SuplidorPage,
-    TareasPage,EmpleadosPage,
-    LoginPage,ListaFincasPage,EditFincaPage,TareasEmpleadosPage
+    TareasPage,
+    EmpleadosPage,
+    LoginPage,
+    ListaFincasPage,
+    EditFincaPage,
+    TareasEmpleadosPage,
+    ConsultarCosechasPage
   ],
   providers: [
     StatusBar,

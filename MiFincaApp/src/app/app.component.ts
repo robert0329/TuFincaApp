@@ -1,3 +1,7 @@
+import { ConsultarFincasPage } from './../pages/consultar-fincas/consultar-fincas';
+import { ConsultarEmpleadosPage } from './../pages/consultar-empleados/consultar-empleados';
+import { ConsultarCultivosPage } from './../pages/consultar-cultivos/consultar-cultivos';
+import { ConsultarCosechasPage } from './../pages/consultar-cosechas/consultar-cosechas';
 import { TareasEmpleadosPage } from './../pages/tareas/tareas-empleados/tareas-empleados';
 
 import { ListaFincasPage } from './../pages/Finca-Component/lista-fincas/lista-fincas';
@@ -10,7 +14,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { FincasPage } from '../pages/Finca-Component/Add-fincas/fincas';
 import { CosechaPage } from '../pages/cosecha/cosecha';
 import { GastosPage } from '../pages/gastos/gastos';
@@ -55,7 +58,11 @@ export class MyApp {
        { title: 'Siembra', component: SiembraPage },
        { title: 'Registro Tareas', component: TareasPage },
        {title:'Suplidor', component:SuplidorPage},
-        {title:'Registro Empleados', component:EmpleadosPage}  
+        {title:'Registro Empleados', component:EmpleadosPage},
+        {title:'ConsultarCosechas', component:ConsultarCosechasPage},
+        {title:'ConsultarCultivos', component:ConsultarCultivosPage},
+        {title:'ConsultarEmpleados', component:ConsultarEmpleadosPage},
+        {title:'ConsultarFincas', component:ConsultarFincasPage},
     ];
   }
   public supervisor(){

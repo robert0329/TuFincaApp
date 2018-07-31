@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Consultar los frutos</ion-title>
+    <ion-buttons>
+        <button ion-button icon-only (click)="OnGoBack()">
+          <ion-icon name="md-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+  <ion-list>
+    <ion-item-sliding  *ngFor="let grocery of array">
+      <!-- <ion-item> {{grocery.descripcion}}</ion-item>
+      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->
+
+      <ion-item-options>
+        <button ion-button icon-only light (click)="openModal()">
+          <ion-icon name="paper"></ion-icon>
+          <ion-icon name="md-done-all"></ion-icon>
+        </button>
+        <button ion-button icon-only light (click)="openModal()">
+          <ion-icon name="delete"></ion-icon>
+          <ion-icon name="md-done-all"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+  
+</ion-content>

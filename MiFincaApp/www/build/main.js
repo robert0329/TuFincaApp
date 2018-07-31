@@ -1,4 +1,4 @@
-webpackJsonp([18],{
+webpackJsonp([31],{
 
 /***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([18],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasServices; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,10 +41,9 @@ var TareasServices = /** @class */ (function () {
     };
     TareasServices = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], TareasServices);
     return TareasServices;
-    var _a;
 }());
 
 //# sourceMappingURL=Tareas-Services.js.map
@@ -55,12 +54,12 @@ var TareasServices = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasEmpleadosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Tareas_Services__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarCosechasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -76,53 +75,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the TareasEmpleadosPage page.
+ * Generated class for the ConsultarCosechasPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var TareasEmpleadosPage = /** @class */ (function () {
-    function TareasEmpleadosPage(Tareas, auth, navCtrl, navParams) {
-        var _this = this;
-        this.Tareas = Tareas;
-        this.auth = auth;
+var ConsultarCosechasPage = /** @class */ (function () {
+    function ConsultarCosechasPage(navCtrl, navParams, FincaService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.FincaService = FincaService;
         this.Array = [];
-        this.idpersona = '';
-        var info = this.auth.getUserInfo();
-        this.idpersona = info['idpersona'];
-        this.Tareas.getTareasId(this.idpersona).subscribe(function (value) {
-            value.forEach(function (element) {
-                if (element.activa == "true") {
-                    _this.Array.push(element);
-                }
-                else {
-                }
-            });
-        });
+        this.searchTerm = '';
+        this.items = [];
+        this.searching = false;
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */]();
     }
-    TareasEmpleadosPage.prototype.openModal = function (idtarea, finca, fecha, descripcion, idpersona) {
-        var data = { idtarea: idtarea, finca: finca, descripcion: descripcion, fecha: fecha, idpersona: this.idpersona, activa: "false" };
-        this.Tareas.Update(data).subscribe(function (res) {
-        });
+    ConsultarCosechasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ConsultarCosechasPage');
     };
-    TareasEmpleadosPage.prototype.OnGoBack = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+    ConsultarCosechasPage.prototype.openModal = function () {
     };
-    TareasEmpleadosPage.prototype.ionViewDidLoad = function () {
-        // console.log('ionViewDidLoad TareasEmpleadosPage');
+    ConsultarCosechasPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
     };
-    TareasEmpleadosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-tareas-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/'<!--\n\n  Generated template for the TareasEmpleadosPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Tareas a realizar</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let grocery of Array">\n\n      <ion-item> {{grocery.descripcion}}</ion-item>\n\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item>\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="openModal(grocery.idtarea,grocery.finca, grocery.descripcion,grocery.fecha\n\n        ,grocery.activa)">\n\n          <ion-icon name="paper"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/,
+    ConsultarCosechasPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-consultar-cosechas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-cosechas\consultar-cosechas.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Consultar las cosechas</ion-title>\n    <ion-buttons>\n        <button ion-button icon-only (click)="OnGoBack()">\n          <ion-icon name="md-arrow-back"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n    <div *ngIf="searching" class="spinner-container">\n      <ion-spinner></ion-spinner>\n    </div>\n  <ion-list>\n    <ion-item-sliding  *ngFor="let grocery of Array">\n      <!-- <ion-item> {{grocery.descripcion}}</ion-item>\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->\n\n      <ion-item-options>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="paper"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n        <button ion-button icon-only light (click)="openModal()">\n          <ion-icon name="delete"></ion-icon>\n          <ion-icon name="md-done-all"></ion-icon>\n        </button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n  \n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-cosechas\consultar-cosechas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__Service_Tareas_Services__["a" /* TareasServices */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
-    ], TareasEmpleadosPage);
-    return TareasEmpleadosPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */]])
+    ], ConsultarCosechasPage);
+    return ConsultarCosechasPage;
 }());
 
-//# sourceMappingURL=tareas-empleados.js.map
+//# sourceMappingURL=consultar-cosechas.js.map
 
 /***/ }),
 
@@ -131,10 +117,10 @@ var TareasEmpleadosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CosechaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -196,10 +182,10 @@ var CosechaPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpleadosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -270,9 +256,9 @@ var EmpleadosPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditFincaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__ = __webpack_require__(55);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -348,7 +334,7 @@ var EditFincaPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GastosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -392,10 +378,10 @@ var GastosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HerramientasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -456,10 +442,10 @@ var HerramientasPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaquinariaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -524,7 +510,7 @@ var MaquinariaPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PagosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -569,7 +555,7 @@ var PagosPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParcelaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -614,7 +600,7 @@ var ParcelaPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -659,7 +645,7 @@ var ProductosPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SiembraPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -704,7 +690,7 @@ var SiembraPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuplidorPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -747,15 +733,90 @@ var SuplidorPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(25);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasEmpleadosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Tareas_Services__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the TareasEmpleadosPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var TareasEmpleadosPage = /** @class */ (function () {
+    function TareasEmpleadosPage(Tareas, auth, navCtrl, navParams) {
+        var _this = this;
+        this.Tareas = Tareas;
+        this.auth = auth;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.Array = [];
+        this.idpersona = '';
+        var info = this.auth.getUserInfo();
+        this.idpersona = info['idpersona'];
+        this.Tareas.getTareasId(this.idpersona).subscribe(function (value) {
+            value.forEach(function (element) {
+                if (element.activa == "true") {
+                    _this.Array.push(element);
+                }
+                else {
+                }
+            });
+        });
+    }
+    TareasEmpleadosPage.prototype.openModal = function (idtarea, finca, fecha, descripcion, idpersona) {
+        var data = { idtarea: idtarea, finca: finca, descripcion: descripcion, fecha: fecha, idpersona: this.idpersona, activa: "false" };
+        this.Tareas.Update(data).subscribe(function (res) {
+        });
+    };
+    TareasEmpleadosPage.prototype.OnGoBack = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+    };
+    TareasEmpleadosPage.prototype.ionViewDidLoad = function () {
+        // console.log('ionViewDidLoad TareasEmpleadosPage');
+    };
+    TareasEmpleadosPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-tareas-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/'<!--\n\n  Generated template for the TareasEmpleadosPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Tareas a realizar</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let grocery of Array">\n\n      <ion-item> {{grocery.descripcion}}</ion-item>\n\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item>\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="openModal(grocery.idtarea,grocery.finca, grocery.descripcion,grocery.fecha\n\n        ,grocery.activa)">\n\n          <ion-icon name="paper"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas-empleados\tareas-empleados.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__Service_Tareas_Services__["a" /* TareasServices */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
+    ], TareasEmpleadosPage);
+    return TareasEmpleadosPage;
+}());
+
+//# sourceMappingURL=tareas-empleados.js.map
+
+/***/ }),
+
+/***/ 149:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TareasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Service_Usuario_Service__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Service_Tareas_Services__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_login__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_login__ = __webpack_require__(72);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -842,17 +903,16 @@ var TareasPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-tareas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar tareas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()">\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-textarea formControlName="descripcion"></ion-textarea>\n\n        </ion-item>\n\n\n\n       \n\n        <ion-item>\n\n          <ion-label>Fincas</ion-label>\n\n          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">\n\n            <ion-option #item *ngFor="let finca of ArrayTareas"  selected="false" \n\n            >{{finca.nombre}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label>empleados</ion-label>\n\n          <ion-select multiple="true" cancelText="cancel" okText="ok">\n\n            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" \n\n            (ionSelect)="friendFun(sitio, form)">{{sitio.nombre}} (@{{sitio.idpersona}})</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Asignar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\tareas\tareas.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__Service_Tareas_Services__["a" /* TareasServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__Service_Tareas_Services__["a" /* TareasServices */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__Service_Tareas_Services__["a" /* TareasServices */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */]])
     ], TareasPage);
     return TareasPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=tareas.js.map
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -865,85 +925,129 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 159;
+webpackEmptyAsyncContext.id = 160;
 
 /***/ }),
 
-/***/ 202:
+/***/ 219:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/Finca-Component/Add-fincas/fincas.module": [
-		423,
-		17
+		437,
+		28
 	],
 	"../pages/Finca-Component/edit-finca/edit-finca.module": [
-		424,
-		16
+		438,
+		27
 	],
 	"../pages/Finca-Component/lista-fincas/lista-fincas.module": [
+		439,
+		26
+	],
+	"../pages/consultar-cosechas/consultar-cosechas.module": [
+		421,
+		25
+	],
+	"../pages/consultar-cultivos/consultar-cultivos.module": [
+		422,
+		11
+	],
+	"../pages/consultar-empleados/consultar-empleados.module": [
+		423,
+		10
+	],
+	"../pages/consultar-fincas/consultar-fincas.module": [
+		424,
+		9
+	],
+	"../pages/consultar-gastos/consultar-gastos.module": [
 		425,
-		15
+		8
+	],
+	"../pages/consultar-herramientas/consultar-herramientas.module": [
+		426,
+		7
+	],
+	"../pages/consultar-maquinaria/consultar-maquinaria.module": [
+		427,
+		6
+	],
+	"../pages/consultar-parcelas/consultar-parcelas.module": [
+		429,
+		5
+	],
+	"../pages/consultar-siembras/consultar-siembras.module": [
+		431,
+		4
+	],
+	"../pages/consultar-suplidor/consultar-suplidor.module": [
+		432,
+		3
+	],
+	"../pages/consultar-tareas/consultar-tareas.module": [
+		433,
+		2
 	],
 	"../pages/cosecha/cosecha.module": [
-		420,
-		14
+		434,
+		24
 	],
 	"../pages/cultivos/cultivos.module": [
-		421,
+		435,
 		1
 	],
 	"../pages/empleados/empleados.module": [
-		422,
-		13
+		436,
+		23
 	],
 	"../pages/gastos/gastos.module": [
-		426,
-		12
+		440,
+		22
 	],
 	"../pages/herramientas/herramientas.module": [
-		427,
-		11
+		441,
+		21
 	],
 	"../pages/login/login.module": [
-		428,
-		10
+		442,
+		20
 	],
 	"../pages/maquinaria/maquinaria.module": [
-		429,
-		9
+		443,
+		19
 	],
 	"../pages/pagos/pagos.module": [
-		430,
-		8
+		444,
+		18
 	],
 	"../pages/parcela/parcela.module": [
-		431,
-		7
+		445,
+		17
 	],
 	"../pages/productos/productos.module": [
-		432,
-		6
+		446,
+		16
 	],
 	"../pages/register/register.module": [
-		433,
+		447,
 		0
 	],
 	"../pages/siembra/siembra.module": [
-		434,
-		5
+		448,
+		15
 	],
 	"../pages/suplidor/suplidor.module": [
-		435,
-		4
+		449,
+		14
 	],
 	"../pages/tareas/tareas-empleados/tareas-empleados.module": [
-		436,
-		3
+		450,
+		13
 	],
 	"../pages/tareas/tareas.module": [
-		437,
-		2
+		451,
+		12
 	]
 };
 function webpackAsyncContext(req) {
@@ -957,22 +1061,22 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 202;
+webpackAsyncContext.id = 219;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 25:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__ = __webpack_require__(259);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1050,40 +1154,40 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="home" padding>\n\n  <!-- <h3>Welcome inside, {{email}}!</h3> -->\n\n  <!-- Your Email is: {{email}} -->\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__["a" /* MyApp */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__["a" /* MyApp */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_5__src_app_app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=home.js.map
 
 /***/ }),
 
-/***/ 258:
+/***/ 259:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_empleados_empleados__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_cosecha_cosecha__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_gastos_gastos__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_herramientas_herramientas__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_maquinaria_maquinaria__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_pagos_pagos__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_parcela_parcela__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_productos_productos__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_siembra_siembra__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_suplidor_suplidor__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_tareas_tareas__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_cosecha_cosecha__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_gastos_gastos__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_herramientas_herramientas__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_maquinaria_maquinaria__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_pagos_pagos__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_parcela_parcela__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_productos_productos__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_siembra_siembra__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_suplidor_suplidor__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1112,58 +1216,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */];
         this.tipo = '';
         this.initializeApp();
     }
     MyApp.prototype.administrador = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
-            { title: 'Listado', component: __WEBPACK_IMPORTED_MODULE_1__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */] },
-            { title: 'Registro Fincas', component: __WEBPACK_IMPORTED_MODULE_8__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */] },
-            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_9__pages_cosecha_cosecha__["a" /* CosechaPage */] },
-            { title: 'Gastos', component: __WEBPACK_IMPORTED_MODULE_10__pages_gastos_gastos__["a" /* GastosPage */] },
-            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_11__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
-            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_12__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
-            { title: 'Pagos', component: __WEBPACK_IMPORTED_MODULE_13__pages_pagos_pagos__["a" /* PagosPage */] },
-            { title: 'Parcela', component: __WEBPACK_IMPORTED_MODULE_14__pages_parcela_parcela__["a" /* ParcelaPage */] },
-            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_15__pages_productos_productos__["a" /* ProductosPage */] },
-            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_16__pages_siembra_siembra__["a" /* SiembraPage */] },
-            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_18__pages_tareas_tareas__["a" /* TareasPage */] },
-            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_17__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
-            { title: 'Registro Empleados', component: __WEBPACK_IMPORTED_MODULE_2__pages_empleados_empleados__["a" /* EmpleadosPage */] }
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
+            { title: 'Listado', component: __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */] },
+            { title: 'Registro Fincas', component: __WEBPACK_IMPORTED_MODULE_9__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */] },
+            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_10__pages_cosecha_cosecha__["a" /* CosechaPage */] },
+            { title: 'Gastos', component: __WEBPACK_IMPORTED_MODULE_11__pages_gastos_gastos__["a" /* GastosPage */] },
+            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_12__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
+            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_13__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
+            { title: 'Pagos', component: __WEBPACK_IMPORTED_MODULE_14__pages_pagos_pagos__["a" /* PagosPage */] },
+            { title: 'Parcela', component: __WEBPACK_IMPORTED_MODULE_15__pages_parcela_parcela__["a" /* ParcelaPage */] },
+            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_16__pages_productos_productos__["a" /* ProductosPage */] },
+            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_17__pages_siembra_siembra__["a" /* SiembraPage */] },
+            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_18__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
+            { title: 'Registro Empleados', component: __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__["a" /* EmpleadosPage */] },
+            { title: 'ConsultarCosechas', component: __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */] },
         ];
     };
     MyApp.prototype.supervisor = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
-            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_18__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
+            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__["a" /* TareasPage */] },
             // { title: 'Registro Fincas', component: FincasPage },
-            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_9__pages_cosecha_cosecha__["a" /* CosechaPage */] },
+            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_10__pages_cosecha_cosecha__["a" /* CosechaPage */] },
             // { title: 'Gastos', component: GastosPage },
-            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_11__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
-            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_12__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
+            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_12__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
+            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_13__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
             // { title: 'Pagos', component: PagosPage },
             // { title: 'Parcela', component: ParcelaPage },
-            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_15__pages_productos_productos__["a" /* ProductosPage */] },
-            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_16__pages_siembra_siembra__["a" /* SiembraPage */] },
-            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_18__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_16__pages_productos_productos__["a" /* ProductosPage */] },
+            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_17__pages_siembra_siembra__["a" /* SiembraPage */] },
+            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_19__pages_tareas_tareas__["a" /* TareasPage */] },
         ];
     };
     MyApp.prototype.empleado = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
-            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_0__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
+            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */] },
         ];
     };
     MyApp.prototype.suplidor = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */] },
             //  { title: 'Tareas', component: TareasPage },
             // { title: 'Registro Fincas', component: FincasPage },
             //  { title: 'Registro Cosecha', component: CosechaPage },
@@ -1175,7 +1281,7 @@ var MyApp = /** @class */ (function () {
             //  { title: 'Productos', component: ProductosPage },
             //  { title: 'Siembra', component: SiembraPage },
             //  { title: 'Registro Tareas', component: TareasPage },
-            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_17__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
+            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_18__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
         ];
     };
     MyApp.prototype.initializeApp = function () {
@@ -1193,29 +1299,29 @@ var MyApp = /** @class */ (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* Nav */]) === "function" && _a || Object)
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(271);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1223,47 +1329,49 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_edit_finca_edit_finca__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(418);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_cosecha_cosecha__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_gastos_gastos__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_herramientas_herramientas__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_maquinaria_maquinaria__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_pagos_pagos__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_parcela_parcela__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_productos_productos__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_siembra_siembra__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_suplidor_suplidor__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_tareas_tareas__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_login_login__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_sqlite__ = __webpack_require__(419);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__Service_Finca_Service__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Service_Tareas_Services__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_common_http__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_auth_service_auth_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Finca_Component_edit_finca_edit_finca__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_empleados_empleados__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_list_list__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_cosecha_cosecha__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_gastos_gastos__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_herramientas_herramientas__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_maquinaria_maquinaria__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_pagos_pagos__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_parcela_parcela__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_productos_productos__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_siembra_siembra__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_suplidor_suplidor__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_tareas_tareas__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_login_login__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_sqlite__ = __webpack_require__(420);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Service_Finca_Service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Service_Tareas_Services__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_common_http__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_auth_service_auth_service__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1298,28 +1406,46 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_6__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_cosecha_cosecha__["a" /* CosechaPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_gastos_gastos__["a" /* GastosPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_herramientas_herramientas__["a" /* HerramientasPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_pagos_pagos__["a" /* PagosPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_parcela_parcela__["a" /* ParcelaPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_productos_productos__["a" /* ProductosPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_siembra_siembra__["a" /* SiembraPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_suplidor_suplidor__["a" /* SuplidorPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_tareas_tareas__["a" /* TareasPage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_list_list__["a" /* ListPage */], __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__["a" /* EmpleadosPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_login_login__["a" /* LoginPage */], __WEBPACK_IMPORTED_MODULE_15__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */], __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */], __WEBPACK_IMPORTED_MODULE_0__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */]
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_cosecha_cosecha__["a" /* CosechaPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_gastos_gastos__["a" /* GastosPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_herramientas_herramientas__["a" /* HerramientasPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_pagos_pagos__["a" /* PagosPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_parcela_parcela__["a" /* ParcelaPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_productos_productos__["a" /* ProductosPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_siembra_siembra__["a" /* SiembraPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_suplidor_suplidor__["a" /* SuplidorPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_tareas_tareas__["a" /* TareasPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_empleados_empleados__["a" /* EmpleadosPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */],
+                __WEBPACK_IMPORTED_MODULE_3__pages_Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/consultar-cosechas/consultar-cosechas.module#ConsultarCosechasPageModule', name: 'ConsultarCosechasPage', segment: 'consultar-cosechas', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-cultivos/consultar-cultivos.module#ConsultarCultivosPageModule', name: 'ConsultarCultivosPage', segment: 'consultar-cultivos', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-empleados/consultar-empleados.module#ConsultarEmpleadosPageModule', name: 'ConsultarEmpleadosPage', segment: 'consultar-empleados', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-fincas/consultar-fincas.module#ConsultarFincasPageModule', name: 'ConsultarFincasPage', segment: 'consultar-fincas', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-gastos/consultar-gastos.module#ConsultarGastosPageModule', name: 'ConsultarGastosPage', segment: 'consultar-gastos', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-herramientas/consultar-herramientas.module#ConsultarHerramientasPageModule', name: 'ConsultarHerramientasPage', segment: 'consultar-herramientas', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-maquinaria/consultar-maquinaria.module#ConsultarMaquinariaPageModule', name: 'ConsultarMaquinariaPage', segment: 'consultar-maquinaria', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-pagos/consultar-pagos.module#ConsultarPagosPageModule', name: 'ConsultarPagosPage', segment: 'consultar-pagos', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-parcelas/consultar-parcelas.module#ConsultarParcelasPageModule', name: 'ConsultarParcelasPage', segment: 'consultar-parcelas', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-siembra/consultar-siembra.module#ConsultarSiembraPageModule', name: 'ConsultarSiembraPage', segment: 'consultar-siembra', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-siembras/consultar-siembras.module#ConsultarSiembrasPageModule', name: 'ConsultarSiembrasPage', segment: 'consultar-siembras', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-suplidor/consultar-suplidor.module#ConsultarSuplidorPageModule', name: 'ConsultarSuplidorPage', segment: 'consultar-suplidor', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/consultar-tareas/consultar-tareas.module#ConsultarTareasPageModule', name: 'ConsultarTareasPage', segment: 'consultar-tareas', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cosecha/cosecha.module#CosechaPageModule', name: 'CosechaPage', segment: 'cosecha', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cultivos/cultivos.module#CultivosPageModule', name: 'CultivosPage', segment: 'cultivos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/empleados/empleados.module#EmpleadosPageModule', name: 'EmpleadosPage', segment: 'empleados', priority: 'low', defaultHistory: [] },
@@ -1340,33 +1466,38 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/tareas/tareas.module#TareasPageModule', name: 'TareasPage', segment: 'tareas', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_28__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_29__angular_common_http__["b" /* HttpClientModule */],
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_list_list__["a" /* ListPage */], __WEBPACK_IMPORTED_MODULE_12__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */], __WEBPACK_IMPORTED_MODULE_13__pages_cosecha_cosecha__["a" /* CosechaPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_gastos_gastos__["a" /* GastosPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_herramientas_herramientas__["a" /* HerramientasPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_pagos_pagos__["a" /* PagosPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_parcela_parcela__["a" /* ParcelaPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_productos_productos__["a" /* ProductosPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_siembra_siembra__["a" /* SiembraPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_suplidor_suplidor__["a" /* SuplidorPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_tareas_tareas__["a" /* TareasPage */], __WEBPACK_IMPORTED_MODULE_3__pages_empleados_empleados__["a" /* EmpleadosPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_login_login__["a" /* LoginPage */], __WEBPACK_IMPORTED_MODULE_15__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */], __WEBPACK_IMPORTED_MODULE_2__pages_Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */], __WEBPACK_IMPORTED_MODULE_0__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */]
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_list_list__["a" /* ListPage */], __WEBPACK_IMPORTED_MODULE_13__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */], __WEBPACK_IMPORTED_MODULE_14__pages_cosecha_cosecha__["a" /* CosechaPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_gastos_gastos__["a" /* GastosPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_herramientas_herramientas__["a" /* HerramientasPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_pagos_pagos__["a" /* PagosPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_parcela_parcela__["a" /* ParcelaPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_productos_productos__["a" /* ProductosPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_siembra_siembra__["a" /* SiembraPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_suplidor_suplidor__["a" /* SuplidorPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_tareas_tareas__["a" /* TareasPage */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_empleados_empleados__["a" /* EmpleadosPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_Finca_Component_lista_fincas_lista_fincas__["a" /* ListaFincasPage */],
+                __WEBPACK_IMPORTED_MODULE_3__pages_Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_26__Service_Finca_Service__["a" /* FincaService */],
-                __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */],
-                __WEBPACK_IMPORTED_MODULE_27__Service_Tareas_Services__["a" /* TareasServices */],
-                { provide: __WEBPACK_IMPORTED_MODULE_5__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_29__providers_auth_service_auth_service__["a" /* AuthService */],
-                __WEBPACK_IMPORTED_MODULE_25__ionic_native_sqlite__["a" /* SQLite */]
+                __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_27__Service_Finca_Service__["a" /* FincaService */],
+                __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */],
+                __WEBPACK_IMPORTED_MODULE_28__Service_Tareas_Services__["a" /* TareasServices */],
+                { provide: __WEBPACK_IMPORTED_MODULE_6__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_30__providers_auth_service_auth_service__["a" /* AuthService */],
+                __WEBPACK_IMPORTED_MODULE_26__ionic_native_sqlite__["a" /* SQLite */]
             ]
         })
     ], AppModule);
@@ -1374,29 +1505,6 @@ var AppModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 294:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Finca; });
-var Finca = /** @class */ (function () {
-    function Finca(id, nombre, descripcion, idpersona) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.idpersona = idpersona;
-        this.id = (id) ? id : 0;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.idpersona = idpersona;
-    }
-    return Finca;
-}());
-
-//# sourceMappingURL=Finca.js.map
 
 /***/ }),
 
@@ -1408,7 +1516,7 @@ var Finca = /** @class */ (function () {
 /* unused harmony export Postloginn */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(394);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1475,23 +1583,45 @@ var AuthService = /** @class */ (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__Service_Usuario_Service__["a" /* UsuarioService */]])
     ], AuthService);
     return AuthService;
-    var _a;
 }());
 
 //# sourceMappingURL=auth-service.js.map
 
 /***/ }),
 
-/***/ 418:
+/***/ 393:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Finca; });
+var Finca = /** @class */ (function () {
+    function Finca(id, nombre, descripcion, idpersona) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.idpersona = idpersona;
+        this.id = (id) ? id : 0;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.idpersona = idpersona;
+    }
+    return Finca;
+}());
+
+//# sourceMappingURL=Finca.js.map
+
+/***/ }),
+
+/***/ 419:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1548,7 +1678,7 @@ var ListPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1634,27 +1764,26 @@ var UsuarioService = /** @class */ (function () {
     };
     UsuarioService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], UsuarioService);
     return UsuarioService;
-    var _a;
 }());
 
 //# sourceMappingURL=Usuario-Service.js.map
 
 /***/ }),
 
-/***/ 54:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(14);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FincaService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1668,90 +1797,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-var LoginPage = /** @class */ (function () {
-    function LoginPage(Usuario, toastCtrl, nav, auth, alertCtrl, loadingCtrl) {
-        this.Usuario = Usuario;
-        this.toastCtrl = toastCtrl;
-        this.nav = nav;
-        this.auth = auth;
-        this.alertCtrl = alertCtrl;
-        this.loadingCtrl = loadingCtrl;
-        if (localStorage.getItem("token")) {
-            nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
-        }
-        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["c" /* FormGroup */]({
-            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormControl */](),
-            password: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormControl */](),
-        });
+var httpOptions = { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json' }) };
+var FincaService = /** @class */ (function () {
+    function FincaService(http) {
+        this.http = http;
+        this.FincaUrl = "http://localhost:8000/finca";
+        this.FincaUrlapi = "http://localhost:8000/finca/api";
     }
-    LoginPage.prototype.createAccount = function () {
-        this.nav.push('RegisterPage');
-    };
-    LoginPage.prototype.login = function () {
+    FincaService.prototype.getFinca = function () {
         var _this = this;
-        this.showLoader();
-        this.Usuario.auth(this.form.value).subscribe(function (result) {
-            if (result[0] == undefined) {
-                _this.presentToast("error");
-                _this.loading.dismiss();
-            }
-            else {
-                _this.Usuario.getPassword(_this.form.value).subscribe(function (resulta) {
-                    if (resulta[0].password == _this.form.value.password) {
-                        _this.auth.asig(result);
-                        localStorage.setItem('token', result[0].email);
-                        setInterval(function () {
-                            _this.loading.dismiss();
-                            _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
-                        }, 3000);
-                    }
-                    else {
-                        _this.presentToast("error");
-                        _this.loading.dismiss();
-                    }
-                }, function (err) {
-                    _this.loading.dismiss();
-                    _this.presentToast(err);
-                });
-            }
-        }, function (err) {
-            _this.loading.dismiss();
-            _this.presentToast(err);
-        });
+        return this.http.get(this.FincaUrl)
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (heroes) { return _this.log('fetched Finca'); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('getFinca', [])));
     };
-    LoginPage.prototype.showLoader = function () {
-        this.loading = this.loadingCtrl.create({
-            content: 'Authenticating...',
-            duration: 10000
-        });
-        this.loading.present();
+    FincaService.prototype.getFincas = function (id) {
+        var _this = this;
+        var url = this.FincaUrlapi + "/" + id;
+        return this.http.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (_) { return _this.log("fetched hero id=" + id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError("getFinca id=" + id)));
     };
-    LoginPage.prototype.presentToast = function (msg) {
-        var toast = this.toastCtrl.create({
-            message: msg,
-            duration: 7000,
-            position: 'bottom',
-            dismissOnPageChange: true
-        });
-        toast.onDidDismiss(function () {
-            console.log('Dismissed toast');
-        });
-        toast.present();
+    FincaService.prototype.getFinc = function (nombre) {
+        var _this = this;
+        var url = this.FincaUrl + "/" + nombre;
+        return this.http.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (_) { return _this.log("fetched hero nombre=" + nombre); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError("getFinca nombre=" + nombre)));
     };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img src="http://placehold.it/300x200" />\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Email</ion-label>\n\n          <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Password</ion-label>\n\n          <ion-input name="passwordinput" id="passwordinput" formControlName="password"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit">Login</button>\n\n          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* ToastController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]) === "function" && _f || Object])
-    ], LoginPage);
-    return LoginPage;
-    var _a, _b, _c, _d, _e, _f;
+    FincaService.prototype.addFinca = function (finca) {
+        var _this = this;
+        return this.http.post(this.FincaUrl, finca, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (finca) { return _this.log("added Finca w/ id=" + finca.id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('finca')));
+    };
+    FincaService.prototype.AddUpdate = function (finca) {
+        var _this = this;
+        return this.http.put(this.FincaUrl, finca, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (finca) { return _this.log("added Finca w/ id=" + finca.id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('finca')));
+    };
+    FincaService.prototype.getDelete = function (id) {
+        var _this = this;
+        var url = this.FincaUrl + "/" + id;
+        return this.http.delete(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (_) { return _this.log("fetched hero id=" + id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError("Delete id=" + id)));
+    };
+    FincaService.prototype.handleError = function (operation, result) {
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            console.error(error);
+            return Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__["of"])(result);
+        };
+    };
+    FincaService.prototype.log = function (message) {
+        console.log('FincaService: ' + message);
+    };
+    FincaService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], FincaService);
+    return FincaService;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=Finca-Service.js.map
 
 /***/ }),
 
@@ -1760,12 +1858,12 @@ var LoginPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaFincasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Finca_Component_edit_finca_edit_finca__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Add_fincas_fincas__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1861,17 +1959,17 @@ var ListaFincasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 65:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FincaService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1885,59 +1983,89 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var httpOptions = { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json' }) };
-var FincaService = /** @class */ (function () {
-    function FincaService(http) {
-        this.http = http;
-        this.FincaUrl = "http://localhost:8000/finca";
-        this.FincaUrlapi = "http://localhost:8000/finca/api";
+
+
+
+var LoginPage = /** @class */ (function () {
+    function LoginPage(Usuario, toastCtrl, nav, auth, alertCtrl, loadingCtrl) {
+        this.Usuario = Usuario;
+        this.toastCtrl = toastCtrl;
+        this.nav = nav;
+        this.auth = auth;
+        this.alertCtrl = alertCtrl;
+        this.loadingCtrl = loadingCtrl;
+        if (localStorage.getItem("token")) {
+            nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
+        }
+        this.form = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["c" /* FormGroup */]({
+            email: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormControl */](),
+            password: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormControl */](),
+        });
     }
-    FincaService.prototype.getFinca = function () {
+    LoginPage.prototype.createAccount = function () {
+        this.nav.push('RegisterPage');
+    };
+    LoginPage.prototype.login = function () {
         var _this = this;
-        return this.http.get(this.FincaUrl)
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (heroes) { return _this.log('fetched Finca'); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('getFinca', [])));
+        this.showLoader();
+        this.Usuario.auth(this.form.value).subscribe(function (result) {
+            if (result[0] == undefined) {
+                _this.presentToast("error");
+                _this.loading.dismiss();
+            }
+            else {
+                _this.Usuario.getPassword(_this.form.value).subscribe(function (resulta) {
+                    if (resulta[0].password == _this.form.value.password) {
+                        _this.auth.asig(result);
+                        localStorage.setItem('token', result[0].email);
+                        setInterval(function () {
+                            _this.loading.dismiss();
+                            _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
+                        }, 3000);
+                    }
+                    else {
+                        _this.presentToast("error");
+                        _this.loading.dismiss();
+                    }
+                }, function (err) {
+                    _this.loading.dismiss();
+                    _this.presentToast(err);
+                });
+            }
+        }, function (err) {
+            _this.loading.dismiss();
+            _this.presentToast(err);
+        });
     };
-    FincaService.prototype.getFincas = function (id) {
-        var _this = this;
-        var url = this.FincaUrlapi + "/" + id;
-        return this.http.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (_) { return _this.log("fetched hero id=" + id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError("getFinca id=" + id)));
+    LoginPage.prototype.showLoader = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Authenticating...',
+            duration: 10000
+        });
+        this.loading.present();
     };
-    FincaService.prototype.getFinc = function (nombre) {
-        var _this = this;
-        var url = this.FincaUrl + "/" + nombre;
-        return this.http.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (_) { return _this.log("fetched hero nombre=" + nombre); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError("getFinca nombre=" + nombre)));
+    LoginPage.prototype.presentToast = function (msg) {
+        var toast = this.toastCtrl.create({
+            message: msg,
+            duration: 7000,
+            position: 'bottom',
+            dismissOnPageChange: true
+        });
+        toast.onDidDismiss(function () {
+            console.log('Dismissed toast');
+        });
+        toast.present();
     };
-    FincaService.prototype.addFinca = function (finca) {
-        var _this = this;
-        return this.http.post(this.FincaUrl, finca, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (finca) { return _this.log("added Finca w/ id=" + finca.id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('finca')));
-    };
-    FincaService.prototype.AddUpdate = function (finca) {
-        var _this = this;
-        return this.http.put(this.FincaUrl, finca, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (finca) { return _this.log("added Finca w/ id=" + finca.id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('finca')));
-    };
-    FincaService.prototype.getDelete = function (id) {
-        var _this = this;
-        var url = this.FincaUrl + "/" + id;
-        return this.http.delete(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (_) { return _this.log("fetched hero id=" + id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError("Delete id=" + id)));
-    };
-    FincaService.prototype.handleError = function (operation, result) {
-        if (operation === void 0) { operation = 'operation'; }
-        return function (error) {
-            console.error(error);
-            return Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_observable_of__["of"])(result);
-        };
-    };
-    FincaService.prototype.log = function (message) {
-        console.log('FincaService: ' + message);
-    };
-    FincaService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
-    ], FincaService);
-    return FincaService;
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img src="http://placehold.it/300x200" />\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Email</ion-label>\n\n          <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Password</ion-label>\n\n          <ion-input name="passwordinput" id="passwordinput" formControlName="password"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit">Login</button>\n\n          <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* LoadingController */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=Finca-Service.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ }),
 
@@ -1947,10 +2075,10 @@ var FincaService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FincasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_Clases_Finca__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Service_Finca_Service__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_Clases_Finca__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Service_Finca_Service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lista_fincas_lista_fincas__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2055,5 +2183,5 @@ var FincasPage = /** @class */ (function () {
 
 /***/ })
 
-},[262]);
+},[263]);
 //# sourceMappingURL=main.js.map

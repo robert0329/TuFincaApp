@@ -1,12 +1,13 @@
 {
   "name": "ionic2-app-base",
-  "app_id": "",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
   },
-  "proxies": [{
-    "path": "/api",
-    "proxyUrl": "http://localhost:8000/finca"
-  }]
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost:8000/finca"
+    }
+  ]
 }
