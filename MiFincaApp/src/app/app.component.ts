@@ -1,3 +1,11 @@
+import { ConsultarTareasPage } from './../pages/consultar-tareas/consultar-tareas';
+import { ConsultarSuplidorPage } from './../pages/consultar-suplidor/consultar-suplidor';
+import { ConsultarSiembrasPage } from './../pages/consultar-siembras/consultar-siembras';
+import { ConsultarProductosPage } from './../pages/consultar-productos/consultar-productos';
+import { ConsultarParcelasPage } from './../pages/consultar-parcelas/consultar-parcelas';
+import { ConsultarMaquinariaPage } from './../pages/consultar-maquinaria/consultar-maquinaria';
+import { ConsultarHerramientasPage } from './../pages/consultar-herramientas/consultar-herramientas';
+import { ConsultarGastosPage } from './../pages/consultar-gastos/consultar-gastos';
 import { ConsultarFincasPage } from './../pages/consultar-fincas/consultar-fincas';
 import { ConsultarEmpleadosPage } from './../pages/consultar-empleados/consultar-empleados';
 import { ConsultarCultivosPage } from './../pages/consultar-cultivos/consultar-cultivos';
@@ -35,59 +43,66 @@ export class MyApp {
 
   rootPage: any = HomePage;
   tipo = '';
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
   private auth: AuthService;
-  constructor(public platform: Platform, 
+  constructor(public platform: Platform,
     public statusBar: StatusBar, public splashScreen: SplashScreen) {
-      
+
     this.initializeApp();
 
   }
-  public administrador(){
+  public administrador() {
     this.pages = [
       { title: 'Home', component: HomePage },
-      {title:'Listado', component:ListaFincasPage}  ,
+
+      { title: 'Registro Finca', component: ListaFincasPage },
       { title: 'Registro Frutos', component: CultivosPage },
-      { title: 'Registro Fincas', component: FincasPage },
-       { title: 'Registro Cosecha', component: CosechaPage },
-       { title: 'Gastos', component: GastosPage },
-       { title: 'Registro Herramientas', component: HerramientasPage },
-       { title: 'Registro Maquinaria', component: MaquinariaPage },
-       { title: 'Parcela', component: ParcelaPage },
-       { title: 'Productos', component: ProductosPage },
-       { title: 'Siembra', component: SiembraPage },
-       { title: 'Registro Tareas', component: TareasPage },
-       {title:'Suplidor', component:SuplidorPage},
-        {title:'Registro Empleados', component:EmpleadosPage},
-        {title:'ConsultarCosechas', component:ConsultarCosechasPage},
-        {title:'ConsultarCultivos', component:ConsultarCultivosPage},
-        {title:'ConsultarEmpleados', component:ConsultarEmpleadosPage},
-        {title:'ConsultarFincas', component:ConsultarFincasPage},
+      { title: 'Registro Cosecha', component: CosechaPage },
+      { title: 'Registro Gastos', component: GastosPage },
+
+      { title: 'Registro Herramientas', component: HerramientasPage },
+      { title: 'Registro Maquinaria', component: MaquinariaPage },
+      { title: 'Registro Parcela', component: ParcelaPage },
+      { title: 'Registro Productos', component: ProductosPage },
+
+      { title: 'Registro Siembra', component: SiembraPage },
+      { title: 'Registro Tareas', component: TareasPage },
+      { title: 'Registro Suplidor', component: SuplidorPage },
+      { title: 'Registro Empleados', component: EmpleadosPage },
+
+      { title: 'Consultar Cosechas', component: ConsultarCosechasPage },
+      { title: 'Consultar Cultivos', component: ConsultarCultivosPage },
+      { title: 'Consultar Empleados', component: ConsultarEmpleadosPage },
+      { title: 'Consultar Fincas', component: ConsultarFincasPage },
+
+      { title: 'Consultar Gastos', component: ConsultarGastosPage },
+      { title: 'Consultar Herramientas', component: ConsultarHerramientasPage },
+      { title: 'Consultar Maquinaria', component: ConsultarMaquinariaPage },
+      { title: 'Consultar Parcelas', component: ConsultarParcelasPage },
+
+      { title: 'Consultar Productos', component: ConsultarProductosPage },
+      { title: 'Consultar Siembras', component: ConsultarSiembrasPage },
+      { title: 'Consultar Suplidor', component: ConsultarSuplidorPage },
+      { title: 'Consultar Tareas', component: ConsultarTareasPage },
     ];
   }
-  public supervisor(){
+  public supervisor() {
     this.pages = [
       { title: 'Home', component: HomePage },
-       { title: 'Tareas', component: TareasPage },
-      // { title: 'Registro Fincas', component: FincasPage },
-       { title: 'Registro Cosecha', component: CosechaPage },
-      // { title: 'Gastos', component: GastosPage },
-       { title: 'Registro Herramientas', component: HerramientasPage },
-       { title: 'Registro Maquinaria', component: MaquinariaPage },
-      // { title: 'Parcela', component: ParcelaPage },
-       { title: 'Productos', component: ProductosPage },
-       { title: 'Siembra', component: SiembraPage },
-       { title: 'Registro Tareas', component: TareasPage },
-      // {title:'Suplidor', component:SuplidorPage},
-      //  {title:'Registro Empleados', component:EmpleadosPage},
-      // {title:'Listado', component:ListaFincasPage}  
+      { title: 'Tareas', component: TareasPage },
+      { title: 'Registro Cosecha', component: CosechaPage },
+      { title: 'Registro Herramientas', component: HerramientasPage },
+      { title: 'Registro Maquinaria', component: MaquinariaPage },
+      { title: 'Productos', component: ProductosPage },
+      { title: 'Siembra', component: SiembraPage },
+      { title: 'Registro Tareas', component: TareasPage },
     ];
   }
-  
-  public empleado(){
+
+  public empleado() {
     this.pages = [
       { title: 'Home', component: HomePage },
-       { title: 'Tareas', component: TareasEmpleadosPage },
+      { title: 'Tareas', component: TareasEmpleadosPage },
       // { title: 'Registro Fincas', component: FincasPage },
       // { title: 'Registro Cosecha', component: CosechaPage },
       // { title: 'Gastos', component: GastosPage },
@@ -102,7 +117,7 @@ export class MyApp {
       // {title:'Listado', component:ListaFincasPage}   
     ];
   }
-  public suplidor(){
+  public suplidor() {
     this.pages = [
       { title: 'Home', component: HomePage },
       //  { title: 'Tareas', component: TareasPage },
@@ -115,15 +130,15 @@ export class MyApp {
       //  { title: 'Productos', component: ProductosPage },
       //  { title: 'Siembra', component: SiembraPage },
       //  { title: 'Registro Tareas', component: TareasPage },
-      {title:'Suplidor', component:SuplidorPage},
+      { title: 'Suplidor', component: SuplidorPage },
       //  {title:'Registro Empleados', component:EmpleadosPage},
       // {title:'Listado', component:ListaFincasPage}   
     ];
   }
   initializeApp() {
-    
+
     this.platform.ready().then(() => {
-      
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
@@ -134,7 +149,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    
+
     this.nav.setRoot(page.component);
   }
 }

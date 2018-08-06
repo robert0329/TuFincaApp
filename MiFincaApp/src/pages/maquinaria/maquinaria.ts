@@ -16,9 +16,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class MaquinariaPage {
   form: FormGroup;
-
+  Array: Array<any> = [];
   constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
+    this.Array = [
+      {title: 'Honda'}
+  ]
   }
 
   crearFormulario() {

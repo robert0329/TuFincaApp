@@ -37,8 +37,11 @@
         </ion-item>
         
         <ion-item>
-          <ion-label color="primary" floating>Inventario</ion-label>
-          <ion-select formControlName="inventario"></ion-select>
+          <ion-label>Inventario</ion-label>
+          <ion-select multiple="true" cancelText="cancel" okText="ok">
+            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" 
+            >{{sitio.title}}</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('inventario').errors && form.get('inventario').touched">
           <p *ngIf="form.get('inventario').hasError('required')">Es requerido</p>

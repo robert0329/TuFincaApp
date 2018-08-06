@@ -9,7 +9,7 @@
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="ConsultarCosechas()">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
@@ -31,8 +31,7 @@
 
         <ion-item>
           <ion-label color="primary" floating>Fecha</ion-label>
-          <ion-input formControlName="fecha"></ion-input>
-          <ion-item class=“listItem item-input id="dateSight"></ion-item>
+          <ion-datetime formControlName="fecha"></ion-datetime>
         </ion-item>
         <ion-item *ngIf="form.get('fecha').errors && form.get('fecha').touched">
           <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
@@ -47,8 +46,11 @@
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" floating>Siembra</ion-label>
-          <ion-select formControlName="siembra"></ion-select>
+          <ion-label>Siembra</ion-label>
+          <ion-select multiple="true" cancelText="cancel" okText="ok">
+            <ion-option #item *ngFor="let sitio of items ; let i = index" selected="false" 
+            >{{sitio.title}} </ion-option>
+          </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('siembra').errors && form.get('siembra').touched">
           <p *ngIf="form.get('siembra').hasError('required')">Es requerido</p>

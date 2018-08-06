@@ -26,6 +26,10 @@ export class UsuarioService {
     const url = `${this.UrlTareas}/${tipo}`;
     return this.http.get<Usuarios[]>(url).pipe();
   }
+  getempleadoId(tipo: string): Observable<Usuarios[]> {
+    const url = `${this.UrlTareas}/${tipo}`;
+    return this.http.get<Usuarios[]>(url).pipe();
+  }
   getFincas(id: number): Observable<Usuarios> {
     const url = `${this.Url}/${id}`;
     return this.http.get<Usuarios>(url).pipe();

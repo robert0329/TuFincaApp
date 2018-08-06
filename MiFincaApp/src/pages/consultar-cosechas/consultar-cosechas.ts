@@ -18,13 +18,18 @@ import { FormControl } from '@angular/forms';
 export class ConsultarCosechasPage {
   Array: Array<any> = [];
   searchTerm: string = '';
-  items: any = []
   searching: any = false;
   searchControl: FormControl;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public FincaService:FincaService) {
+  items: Array<any> = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+   
     this.searchControl = new FormControl();
+    this.items = [
+      {title: '01/05/2016'},
+      {title: '05/01/2017'},
+      {title: '06/06/2018'}
+  ]
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultarCosechasPage');
   }

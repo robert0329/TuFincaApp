@@ -17,12 +17,13 @@ import { HomePage } from '../home/home';
 export class ParcelaPage {
 
   form: FormGroup;
+  Array: Array<any> = [];
   constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
-    
-    
+    this.Array = [
+      {title: 'Don Juan'}
+  ]
   }
-  
   crearFormulario() {
     this.form = this.fb.group({
       descripcion: ['',Validators.required],

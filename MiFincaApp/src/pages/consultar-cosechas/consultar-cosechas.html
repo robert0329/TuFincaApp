@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Consultar las cosechas</ion-title>
+    <ion-title>Consultar cosechas</ion-title>
     <ion-buttons>
         <button ion-button icon-only (click)="OnGoBack()">
           <ion-icon name="md-arrow-back"></ion-icon>
@@ -18,9 +18,8 @@
       <ion-spinner></ion-spinner>
     </div>
   <ion-list>
-    <ion-item-sliding  *ngFor="let grocery of Array">
-      <!-- <ion-item> {{grocery.descripcion}}</ion-item>
-      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->
+    <ion-item-sliding  *ngFor="let grocery of items">
+      <ion-item> {{grocery.title}}</ion-item>
 
       <ion-item-options>
         <button ion-button icon-only light (click)="openModal()">

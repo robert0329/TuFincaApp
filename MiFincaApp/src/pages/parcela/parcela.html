@@ -30,8 +30,11 @@
           <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
         </ion-item>
         <ion-item>
-          <ion-label color="primary" floating>Finca</ion-label>
-          <ion-select formControlName="finca"></ion-select>
+          <ion-label>Finca</ion-label>
+          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">
+            <ion-option #item *ngFor="let lista of Array"  selected="false" 
+            >{{lista.title}}</ion-option>
+          </ion-select>
         </ion-item>
 
         <ion-item *ngIf="form.get('finca').errors && form.get('finca').touched">

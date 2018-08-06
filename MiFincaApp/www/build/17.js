@@ -5,10 +5,10 @@ webpackJsonp([17],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HerramientasPageModule", function() { return HerramientasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConsultarProductosPageModule", function() { return ConsultarProductosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__herramientas__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__consultar_productos__ = __webpack_require__(144);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HerramientasPageModule = /** @class */ (function () {
-    function HerramientasPageModule() {
+var ConsultarProductosPageModule = /** @class */ (function () {
+    function ConsultarProductosPageModule() {
     }
-    HerramientasPageModule = __decorate([
+    ConsultarProductosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__herramientas__["a" /* HerramientasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__consultar_productos__["a" /* ConsultarProductosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__herramientas__["a" /* HerramientasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__consultar_productos__["a" /* ConsultarProductosPage */]),
             ],
         })
-    ], HerramientasPageModule);
-    return HerramientasPageModule;
+    ], ConsultarProductosPageModule);
+    return ConsultarProductosPageModule;
 }());
 
-//# sourceMappingURL=herramientas.module.js.map
+//# sourceMappingURL=consultar-productos.module.js.map
 
 /***/ })
 

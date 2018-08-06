@@ -1,4 +1,16 @@
+import { ConsultarTareasPage } from './../pages/consultar-tareas/consultar-tareas';
+import { ConsultarSuplidorPage } from './../pages/consultar-suplidor/consultar-suplidor';
+import { ConsultarSiembrasPage } from './../pages/consultar-siembras/consultar-siembras';
+import { ConsultarProductosPage } from './../pages/consultar-productos/consultar-productos';
+import { ConsultarParcelasPage } from './../pages/consultar-parcelas/consultar-parcelas';
+import { ConsultarMaquinariaPage } from './../pages/consultar-maquinaria/consultar-maquinaria';
+import { ConsultarHerramientasPage } from './../pages/consultar-herramientas/consultar-herramientas';
+import { ConsultarGastosPage } from './../pages/consultar-gastos/consultar-gastos';
+import { ConsultarFincasPage } from './../pages/consultar-fincas/consultar-fincas';
+import { ConsultarEmpleadosPage } from './../pages/consultar-empleados/consultar-empleados';
+import { ConsultarCultivosPage } from './../pages/consultar-cultivos/consultar-cultivos';
 import { ConsultarCosechasPage } from './../pages/consultar-cosechas/consultar-cosechas';
+
 import { TareasEmpleadosPage } from './../pages/tareas/tareas-empleados/tareas-empleados';
 import { UsuarioService } from './../Service/Usuario-Service';
 
@@ -54,9 +66,21 @@ import { CultivosPage } from '../pages/cultivos/cultivos';
     ListaFincasPage,
     EditFincaPage,
     TareasEmpleadosPage,
-    ConsultarCosechasPage,
-    CultivosPage
+    CultivosPage,
 
+    ConsultarCosechasPage,
+    ConsultarTareasPage,
+    ConsultarSuplidorPage,
+    ConsultarSiembrasPage,
+    ConsultarProductosPage,
+    ConsultarParcelasPage,
+    ConsultarMaquinariaPage,
+    ConsultarHerramientasPage,
+    ConsultarGastosPage,
+    ConsultarFincasPage,
+    ConsultarEmpleadosPage,
+    ConsultarCultivosPage,
+    ConsultarCosechasPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +106,20 @@ import { CultivosPage } from '../pages/cultivos/cultivos';
     ListaFincasPage,
     EditFincaPage,
     TareasEmpleadosPage,
-    ConsultarCosechasPage,CultivosPage,
+    CultivosPage,
+    ConsultarCosechasPage,
+    ConsultarTareasPage,
+    ConsultarSuplidorPage,
+    ConsultarSiembrasPage,
+    ConsultarProductosPage,
+    ConsultarParcelasPage,
+    ConsultarMaquinariaPage,
+    ConsultarHerramientasPage,
+    ConsultarGastosPage,
+    ConsultarFincasPage,
+    ConsultarEmpleadosPage,
+    ConsultarCultivosPage,
+    ConsultarCosechasPage
   ],
   providers: [
     StatusBar,

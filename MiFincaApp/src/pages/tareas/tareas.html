@@ -18,34 +18,34 @@
 
 <ion-content>
   <ion-card-content>
-    <form [formGroup]="form" (ngSubmit)="guardar()">
+    <form [formGroup]="form" (ngSubmit)="guardar(form)">
       <ion-list>
         <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-textarea formControlName="descripcion"></ion-textarea>
         </ion-item>
 
-       
+
         <ion-item>
-          <ion-label>Fincas</ion-label>
-          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">
-            <ion-option #item *ngFor="let finca of ArrayTareas"  selected="false" 
-            >{{finca.nombre}}</ion-option>
+          <ion-label floating color="primary">Fincas</ion-label>
+          <ion-select  multiple ="false" (ionChange)="EmpleadoSeach($event)" formControlName="finca" cancelText="Cancel" okText="OK">
+            <ion-option *ngFor="let items of ArrayTareas; let i = index"  
+            [selected]="items" >{{items.nombre}} </ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" floating>Fecha</ion-label>
+          <ion-label color="primary" floating>Fecha</ion-label> 
           <ion-datetime formControlName="fecha"></ion-datetime>
-        </ion-item>
+        </ion-item> 
 
-        <ion-item>
-          <ion-label>empleados</ion-label>
-          <ion-select multiple="true" cancelText="cancel" okText="ok">
-            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" 
-            (ionSelect)="friendFun(sitio, form)">{{sitio.nombre}} (@{{sitio.idpersona}})</ion-option>
-          </ion-select>
-        </ion-item>
+          <ion-item>
+            <ion-label floating color="primary">Empleados</ion-label>
+            <ion-select  multiple ="true" #C (ionChange)="changeSelect(C.value)" formControlName="empleado" cancelText="Cancel" okText="OK">
+              <ion-option *ngFor="let items of Array; let i = index"  
+              [value]="items.idpersona" >{{items.nombre}} </ion-option>
+            </ion-select>
+          </ion-item>
 
       </ion-list>
       <button ion-button block type="submit">Asignar</button>

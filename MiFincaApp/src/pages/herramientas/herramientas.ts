@@ -16,11 +16,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class HerramientasPage {
 
-  form: FormGroup;q
+  form: FormGroup;
+  Array: Array<any> = [];
   constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
-    
-    
+    this.Array = [
+      {title: '01'}
+  ]
   }
   
   crearFormulario() {
