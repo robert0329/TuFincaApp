@@ -1,10 +1,9 @@
-import { UsuarioService } from './../../Service/Usuario-Service';
+
 
 import { Component } from '@angular/core';
-import { AlertController, IonicPage } from 'ionic-angular';
+import {IonicPage } from 'ionic-angular';
 import { FormGroup, FormControl } from '@angular/forms';
-import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service/auth-service'
+import { LoadingController, ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -16,7 +15,7 @@ export class RegisterPage {
   form: FormGroup;
   loading: any;
 
-  constructor(public loadingCtrl: LoadingController, private toastCtrl: ToastController, private auth: AuthService, private Usuarios: UsuarioService, private nav: NavController, private alertCtrl: AlertController) {
+  constructor(public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
     this.form = new FormGroup({
       idpersona: new FormControl(),
       email: new FormControl(),
@@ -31,18 +30,18 @@ export class RegisterPage {
     });
   }
   public register() {
-    this.Usuarios.getIdentity().subscribe((result) => {
-      let datos = {idpersona: result[0]}
+    // this.Usuarios.getIdentity().subscribe((result) => {
+    //   let datos = {idpersona: result[0]}
 
-      this.Usuarios.addEmpleado(this.form.value,datos.idpersona).then((result) => {
-        this.loading.dismiss();
-      }, (err) => {
-        this.loading.dismiss();
-        this.presentToast(err);
-      });
-    }, (err) => {
+    //   this.Usuarios.addEmpleado(this.form.value,datos.idpersona).then((result) => {
+    //     this.loading.dismiss();
+    //   }, (err) => {
+    //     this.loading.dismiss();
+    //     this.presentToast(err);
+    //   });
+    // }, (err) => {
 
-    });
+    // });
   }
 
   showLoader() {

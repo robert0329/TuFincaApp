@@ -28,24 +28,22 @@
 
         <ion-item>
           <ion-label floating color="primary">Fincas</ion-label>
-          <ion-select  multiple ="false" (ionChange)="EmpleadoSeach($event)" formControlName="finca" cancelText="Cancel" okText="OK">
-            <ion-option *ngFor="let items of ArrayTareas; let i = index"  
-            [selected]="items" >{{items.nombre}} </ion-option>
+          <ion-select multiple="false" (ionChange)="EmpleadoSeach($event)" formControlName="finca" cancelText="Cancel" okText="OK">
+            <ion-option *ngFor="let items of ArrayTareas; let i = index" [selected]="items">{{items.nombre}} </ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" floating>Fecha</ion-label> 
-          <ion-datetime formControlName="fecha"></ion-datetime>
-        </ion-item> 
+          <ion-label color="primary" floating>Fecha</ion-label>
+          <ion-datetime formControlName="fecha" displayFormat="DD, YYYY" min="2018" max="2100"></ion-datetime>
+        </ion-item>
 
-          <ion-item>
-            <ion-label floating color="primary">Empleados</ion-label>
-            <ion-select  multiple ="true" #C (ionChange)="changeSelect(C.value)" formControlName="empleado" cancelText="Cancel" okText="OK">
-              <ion-option *ngFor="let items of Array; let i = index"  
-              [value]="items.idpersona" >{{items.nombre}} </ion-option>
-            </ion-select>
-          </ion-item>
+        <ion-item>
+          <ion-label floating color="primary">Empleados</ion-label>
+          <ion-select multiple="true" #C (ionChange)="changeSelect(C.value)" formControlName="empleado" cancelText="Cancel" okText="OK">
+            <ion-option *ngFor="let items of Array; let i = index" [value]="items.idpersona">{{items.nombre}} </ion-option>
+          </ion-select>
+        </ion-item>
 
       </ion-list>
       <button ion-button block type="submit">Asignar</button>

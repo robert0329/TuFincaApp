@@ -5,13 +5,15 @@ import 'rxjs/add/operator/map';
 import { UsuarioService } from '../../Service/Usuario-Service';
 
 export class User {
+  idpostlogin: string;
   password: string;
   name: string;
   email: string;
   idpersona: string;
   tipo: string;
 
-  constructor(name: string, email: string, idpersona: string, tipo: string) {
+  constructor(idpostlogin:string,name: string, email: string, idpersona: string, tipo: string) {
+    this.idpostlogin = idpostlogin;
     this.email = email;
     this.name = name;
     this.idpersona = idpersona;
@@ -19,15 +21,15 @@ export class User {
   }
 }
 export class Postloginn {
+  idpostlogin: string;
   nombre: string;
-  idpersona: string;
   tipo: string;
   email:string;
   password:string;
 
-  constructor(nombre: string, idpersona: string, tipo: string, email:string,password:string) {
+  constructor(idpostlogin: string, nombre: string, tipo: string, email:string, password:string) {
+    this.idpostlogin = idpostlogin;
     this.nombre = nombre;
-    this.idpersona = idpersona;
     this.tipo = tipo;
     this.password = password;
     this.email = email;
@@ -38,33 +40,15 @@ export class AuthService {
   constructor(private Usuarios: UsuarioService) {
 
   }
-  login(credentials) {
-    // return new Promise((resolve, reject) => {
-    //   this.Usuarios.auth(credentials).subscribe(res => {
-    //     resolve(res);
-    //   }, (err) => {
-    //     reject(err);
-    //   });
-    // });
-  }
-
-  // register(data) {
-  //   return new Promise((resolve, reject) =>{
-  //       this.Usuarios.addEmpleado(data).subscribe(res => {
-  //           resolve(res.json());
-  //         }, (err) => {
-  //           reject(err);
-  //         });
-  //   });
-  // }
 
   currentUser: User;
   currentUserr: Postloginn;
 
 
 public asig(value){
-  // this.currentUser = new User(value[0].nombre, value[0].email, value[0].idpersona, value[0].tipo);
-  this.currentUserr = new Postloginn(value[0].nombre, value[0].idpersona, value[0].tipo, value[0].email, value[0].password);
+  
+  this.currentUserr = new Postloginn("1",value[0].nombre, value[0].tipo, value[0].email, value[0].password);
+  console.log(this.currentUserr);
   this.Usuarios.addPostLogin(this.currentUserr).subscribe(result =>{
   })
 
@@ -72,7 +56,7 @@ public asig(value){
   public getUserInfo(): User {
     this.Usuarios.getPostLogin().subscribe(valuee => {
       this.Usuarios.auth(valuee[0]).subscribe((value) => {
-        this.currentUser = new User(value[0].nombre, value[0].email, value[0].idpersona, value[0].tipo);
+        this.currentUser = new User("1", value[0].nombre, value[0].email, value[0].idpersona, value[0].tipo);
         
       })
     })

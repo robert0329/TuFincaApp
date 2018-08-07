@@ -1,14 +1,12 @@
-import { EmpleadosPage } from './../empleados/empleados';
-import { Tareas } from './../../app/Clases/Tareas';
+
 import { Finca } from './../../app/Clases/Finca';
 import { Usuarios } from './../../app/Clases/Usuarios';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Alert } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { UsuarioService } from '../../Service/Usuario-Service';
 import { TareasServices } from '../../Service/Tareas-Services';
-import { AuthService } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { Injectable } from '@angular/core';
 /**
@@ -33,21 +31,14 @@ export class TareasPage {
   Guardar: Array<any> = [];
   idpersona = '';
   isExists: boolean = false;
-  validations_form: FormGroup;
-  matching_passwords_group: FormGroup;
-  country_phone_group: FormGroup;
-  genders: Array<string>;
-  
+  myDate: String = new Date().toISOString();
 
-  constructor(public formBuilder: FormBuilder,private Tareas: TareasServices, private auth: AuthService, private Usuarios: UsuarioService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public formBuilder: FormBuilder,private Tareas: TareasServices, private Usuarios: UsuarioService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
     
     if (!localStorage.getItem("token")) {
       navCtrl.setRoot(LoginPage);
     }
     this.crearFormulario();
-    let info = this.auth.getUserInfo();
-    this.idpersona = info['idpersona'];
-   
   }
 
   
@@ -89,11 +80,11 @@ export class TareasPage {
   }
   ionViewDidLoad() {
     this.crearFormulario();
-    this.Tareas.getFincaTareasId(this.idpersona).subscribe(value => {
-      this.ArrayTareas = value;
-    });
+    this.Usuarios.authu().subscribe(result => {
+      this.Tareas.getFincaTareasId(result[0].idpersona).subscribe(value => {
+        this.ArrayTareas = value;
+      });
+    })
+    
   }
-
-  
-
 }

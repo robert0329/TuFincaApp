@@ -8,19 +8,16 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 @Injectable()
 export class UsuarioService {
   private Url = "http://localhost:8000/personas";
-  private identity = "http://localhost:8000/personas/identity";
   private UrlgetEmail = "http://localhost:8000/personas/email";
   private UrlTareas = "http://localhost:8000/personas/tareas";
   private Urlgetpassword = "http://localhost:8000/personas/password";
   private postlogin = "http://localhost:8000/postlogin";
-
+  private join = "http://localhost:8000/personass";
+  private DeleteLogin = "http://localhost:8000/deletelogin";
   constructor(private http: HttpClient) { }
 
   getempleado(): Observable<Usuarios[]> {
     return this.http.get<Usuarios[]>(this.Url).pipe();
-  }
-  getIdentity(): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(this.identity).pipe();
   }
   getempleadoTareas(tipo: string): Observable<Usuarios[]> {
     const url = `${this.UrlTareas}/${tipo}`;
@@ -61,10 +58,7 @@ export class UsuarioService {
       });
     })
   }
-  auth(persona: Usuarios): Observable<Usuarios> {
-    const url = `${this.UrlgetEmail}/${persona.email}`;
-    return this.http.get<Usuarios>(url).pipe()
-  }
+  
   
   AddUpdate(finca: Usuarios): Observable<any> {
     return this.http.put<Usuarios>(this.Url, finca, httpOptions).pipe();
@@ -75,14 +69,25 @@ export class UsuarioService {
     return this.http.delete<Usuarios>(url).pipe();
   }
 
+
+
   getPostLogin(): Observable<Usuarios[]> {
-    return this.http.get<Usuarios[]>(this.postlogin).pipe();
+    return this.http.get<Usuarios[]>(this.postlogin,httpOptions).pipe();
+  }
+  auth(persona: any): Observable<any> {
+    console.log(persona);
+    const url = `${this.UrlgetEmail}/${persona.email}`;
+    return this.http.get<any>(url).pipe()
+  }
+
+  authu(): Observable<any[]> {
+    return this.http.get<any[]>(this.join).pipe();
   }
   addPostLogin(usuario: postlogin): Observable<any> {
     return this.http.post<postlogin>(this.postlogin, usuario, httpOptions).pipe();
   }
   getPostLoginDelete(id): Observable<postlogin> {
-    const url = `${this.postlogin}/${id}`;
+    const url = `${this.DeleteLogin}/${id}`;
     return this.http.delete<postlogin>(url).pipe();
   }
 }

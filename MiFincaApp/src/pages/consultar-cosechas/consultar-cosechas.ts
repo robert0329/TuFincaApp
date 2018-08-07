@@ -1,4 +1,4 @@
-import { FincaService } from './../../Service/Finca-Service';
+
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
  * Ionic pages and navigation.
  */
 
-@IonicPage() 
+@IonicPage()
 @Component({
   selector: 'page-consultar-cosechas',
   templateUrl: 'consultar-cosechas.html',
@@ -22,20 +22,20 @@ export class ConsultarCosechasPage {
   searchControl: FormControl;
   items: Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-   
+
     this.searchControl = new FormControl();
     this.items = [
-      {title: '01/05/2016'},
-      {title: '05/01/2017'},
-      {title: '06/06/2018'}
-  ]
+      { title: '01/05/2016' },
+      { title: '05/01/2017' },
+      { title: '06/06/2018' }
+    ]
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultarCosechasPage');
   }
-  public openModal(){
-    
-    }
+  public openModal() {
+
+  }
 
   OnGoBack() {
     this.navCtrl.setRoot(HomePage);

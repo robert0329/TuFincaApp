@@ -1,10 +1,10 @@
-import { Finca } from './../../../app/Clases/Finca';
+import { UsuarioService } from './../../../Service/Usuario-Service';
 import { HomePage } from './../../home/home';
-import { Tareas } from './../../../app/Clases/Tareas';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TareasServices } from '../../../Service/Tareas-Services';
-import { AuthService } from '../../../providers/auth-service/auth-service';
+import { ViewChild } from '@angular/core';
+import { Content } from 'ionic-angular';
 /**
  * Generated class for the TareasEmpleadosPage page.
  *
@@ -19,36 +19,42 @@ import { AuthService } from '../../../providers/auth-service/auth-service';
 })
 export class TareasEmpleadosPage {
   Array: Array<any> = [];
-  idpersona ='';
-  
+  idpersona = '';
+  @ViewChild(Content) content: Content;
 
-  constructor(private Tareas: TareasServices,private auth: AuthService,public navCtrl: NavController, public navParams: NavParams) {
-    let info = this.auth.getUserInfo();
-    this.idpersona = info['idpersona'];
-
-    this.Tareas.getTareasId(this.idpersona).subscribe(value => {
-      value.forEach(element => {
-        if(element.activa == "true"){
-          this.Array.push(element);
-        }else
-        {
+  constructor(private Usuarios: UsuarioService, private Tareas: TareasServices, public navCtrl: NavController, public navParams: NavParams) {
+    this.Usuarios.authu().subscribe(result => {
+      this.idpersona = result[0].idpersona;
+      this.Tareas.getTareasId(result[0].idpersona).subscribe(value => {
+        value.forEach(element => {
+          if (element.activa == "Incompleta") {
+            this.Array.push(element);
+          } else {
   
-        }    
+          }
+        });
+  
       });
-      
+    })
+  }
+  public openModal(idtarea, finca, fecha, descripcion) {
+    this.Array = [];
+    var data = { idtarea: idtarea, finca: finca, descripcion: descripcion, fecha: fecha, idpersona: this.idpersona, activa: "Completa" };
+    this.Tareas.Update(data).subscribe(res => {
+      this.Tareas.getTareasId(this.idpersona).subscribe(value => {
+        value.forEach(element => {
+          if (element.activa == "Incompleta") {
+            this.Array.push(element);
+          }
+        });
+
+      });
     });
   }
-  public openModal(idtarea,finca,fecha,descripcion,idpersona){
-    var data = { idtarea:idtarea, finca:finca,descripcion:descripcion,fecha:fecha,idpersona:this.idpersona, activa:"false" };
-    this.Tareas.Update(data).subscribe(res => {
-     
-    });
-}
   OnGoBack() {
     this.navCtrl.setRoot(HomePage);
   }
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad TareasEmpleadosPage');
   }
 
 }
