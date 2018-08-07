@@ -1,3 +1,4 @@
+import { FincasPage } from './../pages/Finca-Component/Add-fincas/fincas';
 import { ConsultarTareasPage } from './../pages/consultar-tareas/consultar-tareas';
 import { ConsultarSuplidorPage } from './../pages/consultar-suplidor/consultar-suplidor';
 import { ConsultarSiembrasPage } from './../pages/consultar-siembras/consultar-siembras';
@@ -49,7 +50,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
 
-      { title: 'Registro Finca', component: ListaFincasPage },
+      { title: 'Registro Finca', component: FincasPage },
       { title: 'Registro Frutos', component: CultivosPage },
       { title: 'Registro Cosecha', component: CosechaPage },
       { title: 'Registro Gastos', component: GastosPage },

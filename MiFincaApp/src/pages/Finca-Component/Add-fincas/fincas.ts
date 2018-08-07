@@ -1,3 +1,6 @@
+import { HomePage } from './../../home/home';
+import { UsuarioService } from './../../../Service/Usuario-Service';
+import { Usuarios } from './../../../app/Clases/Usuarios';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -34,7 +37,7 @@ export class FincasPage {
   nombre = '';
   descripcion = '';
 
-  constructor(private auth: AuthService, private FincaServicio: FincaService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private Usuarios: UsuarioService,public auth: AuthService, private FincaServicio: FincaService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
     this.createMyForm();
     this.finca = new Finca();
 
@@ -42,8 +45,12 @@ export class FincasPage {
 
   }
   private createMyForm() {
-    let info = this.auth.getUserInfo();
-    this.idpersona = info['idpersona'];
+    // let info = this.auth.getUserInfo();
+    // this.idpersona = info['idpersona'];
+
+    this.Usuarios.authu().subscribe(result => {
+      this.idpersona = result[0].idpersona;
+    })
 
     return this.form = this.fb.group({
       id: ['0', Validators.required],
@@ -53,7 +60,7 @@ export class FincasPage {
   }
 
   OnGoBack() {
-    this.navCtrl.setRoot(ListaFincasPage);
+    this.navCtrl.setRoot(HomePage);
   }
 
   ionViewDidLoad() {
@@ -69,6 +76,9 @@ export class FincasPage {
      this.FincaServicio.addFinca(this.finca).subscribe(res => {
       this.navCtrl.setRoot(ListaFincasPage);
      });
+  }
+  listafinca(){
+    this.navCtrl.setRoot(ListaFincasPage);
   }
   // getVecino(id:number) {
   //   this.FincaServicio.getFincas(1).subscribe(res => {

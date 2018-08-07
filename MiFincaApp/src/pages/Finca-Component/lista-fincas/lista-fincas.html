@@ -14,13 +14,7 @@
   </ion-navbar>
 
 </ion-header>
-<!-- [formControl]="searchControl" -->
 <ion-content>
-  <ion-searchbar></ion-searchbar>
- 
-    <div class="spinner-container">
-      <ion-spinner></ion-spinner>
-    </div>
   <ion-list>
     <ion-item-sliding *ngFor="let grocery of notes">
       <ion-item> {{grocery.nombre}}</ion-item>

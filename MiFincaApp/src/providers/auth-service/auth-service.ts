@@ -54,12 +54,11 @@ public asig(value){
 
 }
   public getUserInfo(): User {
-    this.Usuarios.getPostLogin().subscribe(valuee => {
-      this.Usuarios.auth(valuee[0]).subscribe((value) => {
-        this.currentUser = new User("1", value[0].nombre, value[0].email, value[0].idpersona, value[0].tipo);
-        
-      })
+    this.Usuarios.authu().subscribe(value => {
+      console.log(value)
+      this.currentUser = new User("1", value[0].nombre, value[0].email, value[0].idpersona, value[0].tipo);
     })
+    console.log(this.currentUser)
     return this.currentUser;
   }
 

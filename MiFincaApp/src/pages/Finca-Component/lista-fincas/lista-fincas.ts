@@ -1,3 +1,4 @@
+import { Usuarios } from './../../../app/Clases/Usuarios';
 import { FincaService } from './../../../Service/Finca-Service';
 import { EditFincaPage } from './../../Finca-Component/edit-finca/edit-finca';
 import { FincasPage } from './../Add-fincas/fincas';
@@ -7,6 +8,7 @@ import { HomePage } from '../../home/home';
 import { Finca } from "../../../app/Clases/Finca";
 import { ModalController } from 'ionic-angular';
 import { AuthService } from '../../../providers/auth-service/auth-service';
+import { UsuarioService } from '../../../Service/Usuario-Service';
 /**
  * Generated class for the ListaFincasPage page.
  *
@@ -29,13 +31,16 @@ export class ListaFincasPage {
   FincaArray: Array<Finca> = [];
 
 
-  constructor( private auth: AuthService,public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
-    this.buscarSolicitud();
-
-    let info = this.auth.getUserInfo();
-    this.username = info['name'];
-    this.email = info['email'];
-    this.idpersona = info['idpersona'];
+  constructor(private Usuarios:UsuarioService, private auth: AuthService,public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
+   
+    this.Usuarios.authu().subscribe(value => {
+      this.email = value[0].email;
+    this.idpersona = value[0].idpersona;
+    })
+    // let info = this.auth.getUserInfo();
+    // console.log(info);
+    // this.email = info['email'];
+    // this.idpersona = info['idpersona'];
   }
  
   public openModal(id,nombre,descripcion){
@@ -67,10 +72,11 @@ export class ListaFincasPage {
     
   }
   ionViewDidLoad() {
-    this.FincaServicio.getFincas(this.idpersona).subscribe(res => {
-      this.notes = res;
+    this.Usuarios.authu().subscribe(value => {
+      this.FincaServicio.getFincas(value[0].idpersona).subscribe(res => {
+        this.notes = res;
+      })
     })
-
   }
 
   OnGoBack() {
