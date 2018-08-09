@@ -25,14 +25,10 @@ export class ListaFincasPage {
   username = '';
   email = '';
   idpersona='';
-  
-
   notes: any = [];
   FincaArray: Array<Finca> = [];
 
-
   constructor(private Usuarios:UsuarioService, private auth: AuthService,public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
-   
     this.Usuarios.authu().subscribe(value => {
       this.email = value[0].email;
     this.idpersona = value[0].idpersona;
@@ -60,16 +56,12 @@ export class ListaFincasPage {
     this.FincaServicio.getFincas(this.idpersona).subscribe(res => {
       this.notes = res;
     });
-    // this.FincaServicio.getFinca().subscribe(res => {
-    //   this.FincaArray = res;
-    // });
   }
 
   deleteNote(id) {
      this.FincaServicio.getDelete(id).subscribe(res => {
       this.navCtrl.setRoot(ListaFincasPage);
     });
-    
   }
   ionViewDidLoad() {
     this.Usuarios.authu().subscribe(value => {

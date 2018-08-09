@@ -31,7 +31,6 @@ export class ConsultarCosechasPage {
     ]
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConsultarCosechasPage');
   }
   public openModal() {
 

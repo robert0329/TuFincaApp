@@ -1,3 +1,4 @@
+import { HerramientasServices } from './../Service/Herramientas-Service';
 import { ConsultarTareasPage } from './../pages/consultar-tareas/consultar-tareas';
 import { ConsultarSuplidorPage } from './../pages/consultar-suplidor/consultar-suplidor';
 import { ConsultarSiembrasPage } from './../pages/consultar-siembras/consultar-siembras';
@@ -45,6 +46,8 @@ import {TareasServices} from '../Service/Tareas-Services';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService  } from '../providers/auth-service/auth-service';
 import { CultivosPage } from '../pages/cultivos/cultivos';
+import { CultivosServices } from '../Service/Cultivos-Service';
+import { InventarioServices } from '../Service/Inventario-Services';
 
 @NgModule({
   declarations: [
@@ -92,7 +95,9 @@ import { CultivosPage } from '../pages/cultivos/cultivos';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,FincasPage,CosechaPage,
+    ListPage,
+    FincasPage,
+    CosechaPage,
     GastosPage,
     HerramientasPage,
     MaquinariaPage,
@@ -127,6 +132,9 @@ import { CultivosPage } from '../pages/cultivos/cultivos';
     FincaService,
     UsuarioService,
     TareasServices,
+    CultivosServices,
+    HerramientasServices,
+    InventarioServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SQLite

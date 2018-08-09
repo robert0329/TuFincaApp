@@ -9,7 +9,7 @@
       </button>
     </ion-buttons>  
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="Consultar()">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
@@ -21,13 +21,15 @@
     <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
       <ion-list>
         <ion-item>
-          <ion-label color="primary" floating>Herramienta</ion-label>
-          <ion-input formControlName="herramientas"></ion-input>
+          <ion-label>Herramientas</ion-label>
+          <ion-select formControlName="herramientas" multiple="false" cancelText="cancel" okText="ok">
+            <ion-option  #item *ngFor="let data of h; let i = index" selected="false" 
+            >{{data.title}}</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('herramientas').errors && form.get('herramientas').touched">
           <p *ngIf="form.get('herramientas').hasError('required')">Es requerido</p>
         </ion-item>
-
         <ion-item>
           <ion-label color="primary" floating>Cantidad</ion-label>
           <ion-input formControlName="cantidad"></ion-input>
@@ -37,18 +39,17 @@
         </ion-item>
         
         <ion-item>
-          <ion-label>Inventario</ion-label>
-          <ion-select multiple="true" cancelText="cancel" okText="ok">
-            <ion-option #item *ngFor="let sitio of Array ; let i = index" selected="false" 
-            >{{sitio.title}}</ion-option>
+          <ion-label>Suplidor</ion-label>
+          <ion-select formControlName="suplidor" multiple="false" cancelText="cancel" okText="ok">
+            <ion-option  #item *ngFor="let data of s; let i = index" selected="false" 
+            >{{data.title}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item *ngIf="form.get('inventario').errors && form.get('inventario').touched">
-          <p *ngIf="form.get('inventario').hasError('required')">Es requerido</p>
+        <ion-item *ngIf="form.get('suplidor').errors && form.get('suplidor').touched">
+          <p *ngIf="form.get('suplidor').hasError('required')">Es requerido</p>
         </ion-item>
-
       </ion-list>
       <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
     </form>
   </ion-card-content>
-</ion-content>
+</ion-content> 

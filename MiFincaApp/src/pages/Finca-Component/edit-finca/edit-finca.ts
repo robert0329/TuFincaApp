@@ -27,7 +27,6 @@ export class EditFincaPage {
     public navCtrl: NavController, public navParams: NavParams,private fb: FormBuilder,) {
 
       this.Formulario();
-      console.log(this.navParams.data);
     this.nombre = this.navParams.data.nombre;
     this.descripcion = this.navParams.data.descripcion;
     this.id = this.navParams.data.id;
