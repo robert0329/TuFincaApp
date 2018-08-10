@@ -25678,8 +25678,8 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-home .home {
-  background: #56CA96;
+page-home .imagen {
+  background-image: -moz-element(src= "assets/imgs/list.png");
 }
 
 page-login .login-content {

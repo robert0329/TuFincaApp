@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 459:
+/***/ 458:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(466);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var RegisterPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 464:
+/***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108,7 +108,7 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\register\register.html"*/'<ion-header>\n\n  <ion-navbar color="dark">\n\n    <ion-title>Register</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="login-content" padding>\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="register()" #registerForm="ngForm">\n\n      <ion-row>\n\n        <ion-col>\n\n          <ion-list inset>\n\n            <ion-item>\n\n              <ion-input type="email" placeholder="Email" name="email" formControlName="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" formControlName="password" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Nombre" name="nombre" formControlName="nombre" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Apellido" name="apellido" formControlName="apellido" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Direccion" name="direccion" formControlName="direccion" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Ciudad" name="ciudad" formControlName="ciudad" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Cedula" name="cedula" formControlName="cedula" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Telefono" name="telefono" formControlName="telefono" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="tipo" name="tipo" formControlName="tipo" required></ion-input>\n\n            </ion-item>\n\n          </ion-list>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Yinet Jaquez\Desktop\GreenSun\MiFincaApp\src\pages\register\register.html"*/'<ion-header>\n\n  <ion-navbar color="dark">\n\n    <ion-title>Register</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="login-content" padding>\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="register()" #registerForm="ngForm">\n\n      <ion-row>\n\n        <ion-col>\n\n          <ion-list inset>\n\n            <ion-item>\n\n              <ion-input type="email" placeholder="Email" name="email" formControlName="email" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" formControlName="password" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Nombre" name="nombre" formControlName="nombre" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Apellido" name="apellido" formControlName="apellido" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Direccion" name="direccion" formControlName="direccion" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Ciudad" name="ciudad" formControlName="ciudad" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Cedula" name="cedula" formControlName="cedula" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Telefono" name="telefono" formControlName="telefono" required></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="tipo" name="tipo" formControlName="tipo" required></ion-input>\n\n            </ion-item>\n\n          </ion-list>\n\n        </ion-col>\n\n      </ion-row>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Yinet Jaquez\Desktop\GreenSun\MiFincaApp\src\pages\register\register.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */]])
     ], RegisterPage);
