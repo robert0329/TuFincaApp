@@ -1,13 +1,11 @@
+import { InventarioServices } from './../../Service/Inventario-Services';
+import { ProductosServices } from './../../Service/Productos-Service';
+import { ConsultarProductosPage } from './../consultar-productos/consultar-productos';
+import { Productos } from './../../app/Clases/Productos';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-/**
- * Generated class for the ProductosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,32 +13,43 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   templateUrl: 'productos.html',
 })
 export class ProductosPage {
-
+  producto: Array<any> = [];
   form: FormGroup;
-  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
-    this.crearFormulario();
-    
-    
-  }
-  
-  crearFormulario() {
+  productos: Productos;
+  constructor(public InventarioServices: InventarioServices, public ProductosServices: ProductosServices, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
     this.form = this.fb.group({
-      producto: ['',Validators.required],
+      productos: ['', Validators.required],
       descripcion: ['', Validators.required],
-      inventario: ['', Validators.required]
+      cantidad: ['', Validators.required]
     });
+    this.producto = [
+      { title: 'Fertilizantes ', value: 1 },
+      { title: 'Abono', value: 2 }]
   }
- 
+  Agregar(value) {
+    let data = { idHerramientas: 0, IdMaquinaria: 0, idProductos: value }
+    this.InventarioServices.add(data).subscribe(res => {
+      this.navCtrl.setRoot(ConsultarProductosPage);
+    })
+  }
   guardarProductos() {
-    
+    this.ProductosServices.add(this.form.value).subscribe(value => { //agrega una herramienta
+      this.ProductosServices.Identity().subscribe(value => { // ultimo id herramienta
+        this.ProductosServices.getId(value[0].idproductos).subscribe(valor => {
+          console.log(valor);
+          this.Agregar(valor[0].idproductos);
+        })
+      })
+    })
   }
-  OnGoBack(){
+  OnGoBack() {
     this.navCtrl.setRoot(HomePage);
-    //this.navCtrl.popToRoot();
   }
-
+  Consultar() {
+    this.navCtrl.setRoot(ConsultarProductosPage);
+  }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductosPage');
+
   }
 
 }

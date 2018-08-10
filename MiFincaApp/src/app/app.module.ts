@@ -48,6 +48,7 @@ import { AuthService  } from '../providers/auth-service/auth-service';
 import { CultivosPage } from '../pages/cultivos/cultivos';
 import { CultivosServices } from '../Service/Cultivos-Service';
 import { InventarioServices } from '../Service/Inventario-Services';
+import { ProductosServices } from '../Service/Productos-Service';
 
 @NgModule({
   declarations: [
@@ -135,6 +136,7 @@ import { InventarioServices } from '../Service/Inventario-Services';
     CultivosServices,
     HerramientasServices,
     InventarioServices,
+    ProductosServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SQLite
