@@ -9,26 +9,26 @@
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="Consultar()">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
   <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="guardarProductos()" novalidate>
       <ion-list>
-
         <ion-item>
-          <ion-label color="primary" floating>Producto</ion-label>
-          <ion-input formControlName="producto"></ion-input>
+          <ion-label>Productos</ion-label>
+          <ion-select formControlName="productos" multiple="false" cancelText="cancel" okText="ok">
+            <ion-option  #item *ngFor="let data of producto; let i = index" selected="false" 
+            >{{data.title}}</ion-option>
+          </ion-select>
         </ion-item>
-        <ion-item *ngIf="form.get('producto').errors && form.get('producto').touched">
-          <p *ngIf="form.get('producto').hasError('required')">Es requerido</p>
+        <ion-item *ngIf="form.get('productos').errors && form.get('productos').touched">
+          <p *ngIf="form.get('productos').hasError('required')">Es requerido</p>
         </ion-item>
-        
       <ion-item>
         <ion-label color="primary" floating>Descripcion</ion-label>
         <ion-input formControlName="descripcion"></ion-input>
@@ -36,16 +36,15 @@
       <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
         <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
       </ion-item>
-
       <ion-item>
-        <ion-label color="primary" floating>Inventario</ion-label>
-        <ion-select formControlName="inventario"></ion-select>
+        <ion-label color="primary" floating>Cantidad</ion-label>
+        <ion-input formControlName="cantidad"></ion-input>
       </ion-item>
-      <ion-item *ngIf="form.get('inventario').errors && form.get('inventario').touched">
-        <p *ngIf="form.get('inventario').hasError('required')">Es requerido</p>
+      <ion-item *ngIf="form.get('cantidad').errors && form.get('cantidad').touched">
+        <p *ngIf="form.get('cantidad').hasError('required')">Es requerido</p>
       </ion-item>
-
       </ion-list>
+
       <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
     </form>
   </ion-card-content>

@@ -64,7 +64,6 @@ export class ConsultarHerramientasPage {
     this.searching = true;
   }
   ionViewDidLoad() {
-    // this.Filtro();
     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
       this.searching = false;
       this.setFilteredItems();

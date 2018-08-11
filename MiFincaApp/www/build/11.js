@@ -1,6 +1,10 @@
 webpackJsonp([11],{
 
+<<<<<<< HEAD
 /***/ 450:
+=======
+/***/ 452:
+>>>>>>> 6b29a6a2d1449714c9190820d2f920d9eaceea2e
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +12,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmpleadosPageModule", function() { return EmpleadosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__empleados__ = __webpack_require__(150);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__empleados__ = __webpack_require__(154);
+>>>>>>> 6b29a6a2d1449714c9190820d2f920d9eaceea2e
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

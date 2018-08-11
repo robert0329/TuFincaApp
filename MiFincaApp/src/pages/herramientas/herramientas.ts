@@ -50,25 +50,12 @@ export class HerramientasPage {
       { title: 'Anazario lara', value: 4 }]
   }
 
-  herramient: Herramientas;
-  updateDate(form, valor) {
-    let data = {
-      idherramientas: valor[0].idherramientas,
-      herramientas: valor[0].herramientas,
-      suplidor: valor[0].suplidor,
-      cantidad: parseInt(form.cantidad) + (valor[0].cantidad)
-    }
-    this.HerramientasServices.add(data).subscribe(value => {
-      this.navCtrl.setRoot(ConsultarHerramientasPage);
-    })
-  }
   Agregar(value) {
     let data = {
       idHerramientas: value,
       IdMaquinaria: 0,
       IdProducto: 0
     }
-    console.log(data);
     this.InventarioServices.add(data).subscribe(res => {
       this.navCtrl.setRoot(ConsultarHerramientasPage);
     })
@@ -84,7 +71,6 @@ export class HerramientasPage {
   }
   OnGoBack() {
     this.navCtrl.setRoot(HomePage);
-    //this.navCtrl.popToRoot();
   }
   Consultar(){
     this.navCtrl.setRoot(ConsultarHerramientasPage);
