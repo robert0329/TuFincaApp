@@ -11,6 +11,6 @@ export class Parcela{
         this.idparcela= (idparcela) ? idparcela : 0;
         this.descripcion = descripcion;
         this.idfinca = idfinca;
-        this.siembra = idsiembra;
+        this.idsiembra = idsiembra;
     }
 }

@@ -1,13 +1,13 @@
 import { HomePage } from '../home/home';
-import { UsuarioService } from './../../../Service/Usuario-Service';
-import { Usuarios } from './../../../app/Clases/Usuarios';
+import {UsuarioService} from './../../Service/Usuario-Service'
+import { Usuarios } from './../../app/Clases/Usuarios'
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
-import { Parcela } from "../../../app/Clases/Parcela";
-import { ParcelaService } from '../../../Service/Finca-Service';
-import { AuthService } from '../../../providers/auth-service/auth-service';
+import { Parcela } from '../../app/Clases/Parcela'
+import { ParcelasServices } from '../../Service/Parcela-Service'
+import { AuthService } from '../../providers/auth-service/auth-service'
 import { ConsultarParcelasPage } from '../consultar-parcelas/consultar-parcelas';
 /**
  * Generated class for the ParcelaPage page.
@@ -25,7 +25,7 @@ export class ParcelaPage {
   parcela: Parcela;
   form: FormGroup;
   Array: Array<any> = [];
-  constructor(private Usuarios: UsuarioService,public auth: AuthService, private FincaServicio: ParcelaService, private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private Usuarios: UsuarioService,public auth: AuthService, private FincaServicio: ParcelasServices, private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
     this.parcela = new Parcela();
     this.Array = [
@@ -38,7 +38,7 @@ export class ParcelaPage {
     // this.idpersona = info['idpersona'];
 
     this.Usuarios.authu().subscribe(result => {
-      this.idpersona = result[0].idpersona;
+    //  this.idpersona = result[0].idpersona;
     })
   }
   crearFormulario() {
