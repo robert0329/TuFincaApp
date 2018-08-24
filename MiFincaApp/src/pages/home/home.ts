@@ -3,6 +3,10 @@ import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { MyApp } from '../../../src/app/app.component';
+import { TareasPage } from '../tareas/tareas';
+import { EmpleadosPage } from '../empleados/empleados';
+import { ProductosPage } from '../productos/productos';
+import { GastosPage } from '../gastos/gastos';
 
 @Component({
   selector: 'page-home',
@@ -28,6 +32,22 @@ export class HomePage {
       this.tipo = result[0].tipo;
       this.Metodos();
     })
+  }
+
+  TareasPage(){
+    this.nav.setRoot(TareasPage);
+  }
+
+  RegistroEmpleado(){
+    this.nav.setRoot(EmpleadosPage);
+  }
+
+ Productos(){
+    this.nav.setRoot(ProductosPage);
+  }
+
+  Gastos(){
+    this.nav.setRoot(GastosPage);
   }
 
   Metodos() {
