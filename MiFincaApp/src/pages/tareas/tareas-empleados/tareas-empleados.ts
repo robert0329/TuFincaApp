@@ -18,36 +18,44 @@ import { Content } from 'ionic-angular';
   templateUrl: 'tareas-empleados.html',
 })
 export class TareasEmpleadosPage {
-  Array: Array<any> = [];
+  incompleta: Array<any> = [];
+  completa: Array<any> = [];
   idpersona = '';
+  pet: string = "incompletas";
   @ViewChild(Content) content: Content;
 
   constructor(private Usuarios: UsuarioService, private Tareas: TareasServices, public navCtrl: NavController, public navParams: NavParams) {
+    this.ActualizarPage();
+  }
+  ActualizarPage(){
+    this.incompleta = [];
+    this.completa = [];
     this.Usuarios.authu().subscribe(result => {
       this.idpersona = result[0].idpersona;
       this.Tareas.getTareasId(result[0].idpersona).subscribe(value => {
         value.forEach(element => {
           if (element.activa == "Incompleta") {
-            this.Array.push(element);
-          } else {
-  
-          }
+            this.incompleta.push(element);
+           } else {
+            this.completa.push(element);
+           }
         });
-  
       });
     })
   }
-  public openModal(idtarea, finca, fecha, descripcion) {
-    this.Array = [];
+  public openModal(idtarea, finca, descripcion, fecha) {
+    this.incompleta = [];
+    this.completa = [];
     var data = { idtarea: idtarea, finca: finca, descripcion: descripcion, fecha: fecha, idpersona: this.idpersona, activa: "Completa" };
     this.Tareas.Update(data).subscribe(res => {
       this.Tareas.getTareasId(this.idpersona).subscribe(value => {
         value.forEach(element => {
-          // if (element.activa == "Incompleta") {
-            this.Array.push(element);
-          // }
+          if (element.activa == "Incompleta") {
+            this.incompleta.push(element);
+           }else {
+            this.completa.push(element);
+           }
         });
-
       });
     });
   }

@@ -1,22 +1,48 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Listado Tareas</ion-title>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      Listado Tareas
+    </ion-title>
     <ion-buttons>
       <button ion-button icon-only (click)="OnGoBack()">
         <ion-icon name="md-arrow-back"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="puppies">
+        Incompletas
+      </ion-segment-button>
+      <ion-segment-button value="kittens">
+        Completas
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <ion-list>
-    <ion-item-sliding *ngFor="let grocery of Array">
-      <ion-item> {{grocery.descripcion}}</ion-item>
-      <ion-item-options>
-        <button ion-button icon-only light (click)="openModal(grocery.idtarea,grocery.finca, grocery.descripcion,grocery.fecha)">
-          <ion-icon name="md-done-all"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+
+<ion-content>
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'puppies'">
+      <ion-item *ngFor="let grocery of incompleta">
+        <img style="width: 25%; height: 25%; " src="assets/imgs/tareas.jpg">
+        <h2> {{grocery.descripcion}}</h2>
+        <p>{{grocery.fecha}}</p>
+        <button ion-button clear item-end>Completar</button>
+
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'kittens'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <ion-item-sliding *ngFor="let grocery of completa">
+            <ion-item> {{grocery.descripcion}}</ion-item>
+          </ion-item-sliding>
+        </ion-thumbnail>
+        <h2></h2>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
