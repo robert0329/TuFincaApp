@@ -12,23 +12,90 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content  padding>
+<ion-content >
    <!-- <h3>Bienvenido, {{nombre}}!</h3>  -->
 
    <ion-slides>
 
-      <ion-slide style="background-color: rgba(233, 231, 231, 0.659)">
-      <!-- <ion-slide  style="background-image: url('assets/imgs/list.png') "> -->
-        <ion-img width="175" height="175" style=" margin-left: 10%; margin-bottom: 55%; "  src="assets/imgs/list.png"></ion-img>
-        <h2> Maneja las tareas !</h2>
+      <ion-slide>
+        <ion-card style="padding-bottom: 5%;">
+          <img style="width: 95%; height: 95%; padding-left: 6%; padding-top: 10%; " src="assets/imgs/logo.png"/>
+          <ion-card-content>
+            <ion-card-title style="color: rgb(33, 102, 63); padding-top: 7%;">
+              GreenSun
+              </ion-card-title>
+            <p style="color: rgba(87, 87, 87, 0.802); padding-top: 7%;">
+              Bienvenido !!, esta app esta diseñada en versión beta para ustedes, los usuarios 
+              con usos temporales...
+            </p>
+          </ion-card-content>
+        </ion-card>
       </ion-slide>
     
-      <ion-slide style="background-color: blue">
-        <h2>Slide 2</h2>
+      <ion-slide>
+        <ion-card>
+          <img src="assets/imgs/employee.png"/>
+          <ion-card-content>
+            <ion-card-title style="color: rgb(208, 109, 44);">
+              Organiza tu Finca!
+              </ion-card-title>
+            <p style="color: rgba(87, 87, 87, 0.802)">
+              Ten un control de los procesos relacionados a tu finca, como son los empleados...
+            </p>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small (click)="TareasPage" style="color: teal">
+                <ion-icon name="open"></ion-icon>
+                <div>Empezar</div>
+              </button>
+            </ion-col></ion-row>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img style="padding-left: 5%" src="assets/imgs/task.png"/>
+          <ion-card-content>
+            <ion-card-title style="color: rgb(44, 192, 208);">
+              Planifica tu Finca!
+              </ion-card-title>
+            <p style="color: rgba(87, 87, 87, 0.802)">
+              Planifica y Controla las tareas que quieres llevar en tu finca, mediante nuestros 
+              registros de Tareas a cada empleado...
+            </p>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small (click)="TareasPage" style="color: teal">
+                <ion-icon name="open"></ion-icon>
+                <div>Empezar</div>
+              </button>
+            </ion-col></ion-row>
+        </ion-card>
       </ion-slide>
     
-      <ion-slide style="background-color: red">
-        <h2>Slide 3</h2>
+      <ion-slide >
+        <ion-card>
+          <img src="assets/imgs/ingreso.png"/>
+          <ion-card-content>
+            <ion-card-title style="color: rgb(221, 210, 45);">
+              Registra tus Gastos !
+              </ion-card-title>
+            <p style="color: rgba(87, 87, 87, 0.802)">
+              Lleva registros de tus gastos, tanto los salarios de los empleados o gastos comunes...
+            </p>
+          </ion-card-content>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small style="color: teal">
+                <ion-icon name="open"></ion-icon>
+                <div>Empezar</div>
+              </button>
+            </ion-col></ion-row>
+        </ion-card>
       </ion-slide>
     
     </ion-slides>
