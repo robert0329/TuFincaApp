@@ -9,19 +9,16 @@
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="ConsultaParcela()">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
   <ion-card-content>
     <form [formGroup]="form" (ngSubmit)="guardarParcela()" novalidate>
       <ion-list>
-        
-
         <ion-item>
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-input formControlName="descripcion"></ion-input>
@@ -32,15 +29,12 @@
         <ion-item>
           <ion-label>Finca</ion-label>
           <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">
-            <ion-option #item *ngFor="let lista of Array"  selected="false" 
-            >{{lista.title}}</ion-option>
+            <ion-option #item *ngFor="let lista of Array" [value]="lista.idfinca" selected="false">{{lista.nombre}}</ion-option>
           </ion-select>
         </ion-item>
-
         <ion-item *ngIf="form.get('finca').errors && form.get('finca').touched">
           <p *ngIf="form.get('finca').hasError('required')">Es requerido</p>
         </ion-item>
-        
       </ion-list>
       <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
     </form>

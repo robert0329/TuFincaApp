@@ -1,3 +1,5 @@
+import { ParcelasServices } from './../Service/Parcela-Service';
+import { SiembraServices } from './../Service/Siembra-Services';
 import { HerramientasServices } from './../Service/Herramientas-Service';
 import { ConsultarTareasPage } from './../pages/consultar-tareas/consultar-tareas';
 import { ConsultarSuplidorPage } from './../pages/consultar-suplidor/consultar-suplidor';
@@ -137,6 +139,8 @@ import { ProductosServices } from '../Service/Productos-Service';
     HerramientasServices,
     InventarioServices,
     ProductosServices,
+    SiembraServices,
+    ParcelasServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SQLite

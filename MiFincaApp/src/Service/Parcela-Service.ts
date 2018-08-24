@@ -7,7 +7,8 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 
 @Injectable()
 export class ParcelasServices {
-  private Url = "http://localhost:8000/parcela";
+  private Url = "http://localhost:8000/parcelas";
+  private Urlidfinca = "http://localhost:8000/parcelasidfinca";
   constructor(private http: HttpClient) { }
 
   get(): Observable<Parcela[]> {
@@ -16,8 +17,11 @@ export class ParcelasServices {
   getId(idpersona: string): Observable<Parcela[]> { const url = `${this.Url}/${idpersona}`;
     return this.http.get<Parcela[]>(url).pipe();
   }
-  add(any: Parcela): Observable<Parcela> {
-    return this.http.post<Parcela>(this.Url, any, httpOptions).pipe();
+  getParcelaIdfinca(idpersona: string): Observable<Parcela[]> { const url = `${this.Urlidfinca}/${idpersona}`;
+    return this.http.get<Parcela[]>(url).pipe();
+  }
+  add(any: Parcela): Observable<any> {
+    return this.http.post<any>(this.Url, any, httpOptions).pipe();
   }
   Update (any: Parcela): Observable<any> {
     console.log(any);
