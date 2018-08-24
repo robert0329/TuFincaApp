@@ -26,9 +26,9 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'puppies'">
       <ion-item *ngFor="let grocery of incompleta">
-        <img style="width: 25%; height: 25%; " src="assets/imgs/tareas.jpg">
-        <h2> {{grocery.descripcion}}</h2>
-        <p>{{grocery.fecha}}</p>
+        <img style="width: 15%; height: 15%; display: inline;" src="assets/imgs/tareas.jpg">
+        <h2 style="font-weight: bold; display: inline;">{{grocery.fecha}}</h2>
+        <p style="margin-left: 17%;">{{grocery.descripcion}}</p>
         <button ion-button clear item-end>Completar</button>
 
       </ion-item>
