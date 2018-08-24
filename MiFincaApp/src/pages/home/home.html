@@ -17,36 +17,47 @@
 
    <ion-slides>
 
-      <ion-slide>
-        <ion-card style="padding-bottom: 5%;">
-          <img style="width: 95%; height: 95%; padding-left: 6%; padding-top: 10%; " src="assets/imgs/logo.png"/>
+      <ion-slide style="background-color: #276a2a">
+
+          <!-- <img style="width: 95%; height: 95%; padding-left: 0%; padding-bottom: 15% " src="assets/imgs/GreenSun.jpg"/>
+          <h1 style="color: white; padding-block-start: 35%;">Bienvenido !</h1> -->
+
+        <ion-card style="padding-bottom: 2%; background-color: #f9faf9">
+          <img style="width: 95%; height: 95%; padding-left: 6%; padding-top: 3%; " src="assets/imgs/logo.png"/>
           <ion-card-content>
-            <ion-card-title style="color: rgb(33, 102, 63); padding-top: 7%;">
-              GreenSun
+            <ion-card-title style="padding-top: 3%;">
+              <h1 style="color: #276a2a;"> GreenSun </h1>
               </ion-card-title>
-            <p style="color: rgba(87, 87, 87, 0.802); padding-top: 7%;">
+            <p style="color: rgba(87, 87, 87, 0.802); padding-top: 3%;">
               Bienvenido !!, esta app esta diseñada en versión beta para ustedes, los usuarios 
               con usos temporales...
             </p>
           </ion-card-content>
+          <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small style="color: rgb(33, 150, 57)">
+                  <ion-icon name="arrow-round-forward"></ion-icon>
+                  <div>Swipe</div>
+                </button>
+              </ion-col></ion-row>
         </ion-card>
       </ion-slide>
     
-      <ion-slide>
+      <ion-slide style="background-color: #276a2a">
         <ion-card>
-          <img src="assets/imgs/employee.png"/>
+          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/farm.png"/>
           <ion-card-content>
             <ion-card-title style="color: rgb(208, 109, 44);">
               Organiza tu Finca!
               </ion-card-title>
             <p style="color: rgba(87, 87, 87, 0.802)">
-              Ten un control de los procesos relacionados a tu finca, como son los empleados...
+              Manten tu finca organizada y controlada, sabiendo informaciones de tus empleados, parcelas, siembras y cosechas ...
             </p>
   
           </ion-card-content>
           <ion-row>
             <ion-col>
-              <button ion-button icon-start clear small (click)="TareasPage" style="color: teal">
+              <button ion-button icon-start clear small (click)="RegistroEmpleado()" style="color: teal">
                 <ion-icon name="open"></ion-icon>
                 <div>Empezar</div>
               </button>
@@ -54,9 +65,9 @@
         </ion-card>
       </ion-slide>
 
-      <ion-slide>
+      <ion-slide style="background-color: #276a2a">
         <ion-card>
-          <img style="padding-left: 5%" src="assets/imgs/task.png"/>
+          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/task.png"/>
           <ion-card-content>
             <ion-card-title style="color: rgb(44, 192, 208);">
               Planifica tu Finca!
@@ -69,28 +80,53 @@
           </ion-card-content>
           <ion-row>
             <ion-col>
-              <button ion-button icon-start clear small (click)="TareasPage" style="color: teal">
+              <button ion-button icon-start clear small (click)="TareasPage()" style="color: teal">
                 <ion-icon name="open"></ion-icon>
                 <div>Empezar</div>
               </button>
             </ion-col></ion-row>
         </ion-card>
       </ion-slide>
+
+
+      <ion-slide style="background-color: #276a2a">
+          <ion-card>
+            <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/wheat.png"/>
+            <ion-card-content>
+              <ion-card-title style="color: rgb(126, 36, 199);">
+                Manten un control de Inventario !
+                </ion-card-title>
+              <p style="color: rgba(87, 87, 87, 0.802)">
+                Registra todas tus Herramientas, maquinarias, productos y Frutos, en el inventario personal de tu finca...
+              </p>
     
-      <ion-slide >
+            </ion-card-content>
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small (click)="Productos()" style="color: teal">
+                  <ion-icon name="open"></ion-icon>
+                  <div>Empezar</div>
+                </button>
+              </ion-col></ion-row>
+          </ion-card>
+        </ion-slide>
+
+    
+      <ion-slide style="background-color: #276a2a" >
         <ion-card>
-          <img src="assets/imgs/ingreso.png"/>
+          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/salary.png"/>
           <ion-card-content>
-            <ion-card-title style="color: rgb(221, 210, 45);">
+            <ion-card-title style="color: rgb(53, 32, 9);">
               Registra tus Gastos !
               </ion-card-title>
             <p style="color: rgba(87, 87, 87, 0.802)">
-              Lleva registros de tus gastos, tanto los salarios de los empleados o gastos comunes...
+              Lleva registros de tus gastos, los salarios de los empleados o gastos comunes, 
+              almacenando tu información de manera segura...
             </p>
           </ion-card-content>
           <ion-row>
             <ion-col>
-              <button ion-button icon-start clear small style="color: teal">
+              <button ion-button icon-start clear small (click)="Gastos()" style="color: teal">
                 <ion-icon name="open"></ion-icon>
                 <div>Empezar</div>
               </button>
