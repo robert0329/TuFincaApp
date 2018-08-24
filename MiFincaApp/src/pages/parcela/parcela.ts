@@ -1,3 +1,5 @@
+import { FincaService } from './../../Service/Finca-Service';
+import { ParcelasServices } from './../../Service/Parcela-Service';
 import { HomePage } from '../home/home';
 import {UsuarioService} from './../../Service/Usuario-Service'
 import { Usuarios } from './../../app/Clases/Usuarios'
@@ -6,7 +8,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { Parcela } from '../../app/Clases/Parcela'
-import { ParcelasServices } from '../../Service/Parcela-Service'
 import { AuthService } from '../../providers/auth-service/auth-service'
 import { ConsultarParcelasPage } from '../consultar-parcelas/consultar-parcelas';
 /**
@@ -25,21 +26,16 @@ export class ParcelaPage {
   parcela: Parcela;
   form: FormGroup;
   Array: Array<any> = [];
-  constructor(private Usuarios: UsuarioService,public auth: AuthService, private FincaServicio: ParcelasServices, private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public FincaService: FincaService, private Usuarios: UsuarioService,public auth: AuthService, public ParcelasServices: ParcelasServices, private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
-    this.parcela = new Parcela();
-    this.Array = [
-      {title: 'Don Juan'}
-  ]
-  }
-
-  private createMyForm() {
-    // let info = this.auth.getUserInfo();
-    // this.idpersona = info['idpersona'];
-
+    
     this.Usuarios.authu().subscribe(result => {
-    //  this.idpersona = result[0].idpersona;
+    this.FincaService.getFincas(result[0].idpersona).subscribe(resultado =>{
+      resultado.forEach(element => {
+        this.Array.push(element);
+      });
     })
+  })
   }
   crearFormulario() {
     this.form = this.fb.group({
@@ -49,7 +45,9 @@ export class ParcelaPage {
   }
  
   guardarParcela() {
-    
+    let parcelas = {descripcion: this.form.value.descripcion, idfinca: this.form.value.finca}
+    this.ParcelasServices.add(parcelas).subscribe(result =>{
+    })
   }
   OnGoBack(){
     this.navCtrl.setRoot(HomePage);
@@ -59,7 +57,7 @@ export class ParcelaPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ParcelaPage');
+    
   }
 
   Limpiar() {

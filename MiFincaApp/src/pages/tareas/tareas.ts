@@ -40,8 +40,6 @@ export class TareasPage {
     }
     this.crearFormulario();
   }
-
-  
   crearFormulario() {
     this.form = this.fb.group({
       descripcion: ['', Validators.required],

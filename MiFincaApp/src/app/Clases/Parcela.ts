@@ -1,7 +1,4 @@
-
-
 export class Parcela{
-
     constructor(
         public idparcela?:number,  
         public descripcion?:String,

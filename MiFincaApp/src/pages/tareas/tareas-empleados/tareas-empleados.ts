@@ -43,9 +43,9 @@ export class TareasEmpleadosPage {
     this.Tareas.Update(data).subscribe(res => {
       this.Tareas.getTareasId(this.idpersona).subscribe(value => {
         value.forEach(element => {
-          if (element.activa == "Incompleta") {
+          // if (element.activa == "Incompleta") {
             this.Array.push(element);
-          }
+          // }
         });
 
       });

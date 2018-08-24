@@ -23,21 +23,15 @@ export class FincaService {
         catchError(this.handleError('getFinca', []))
       );
   }
-  getFincas(id: string): Observable<Finca> {
+  getFincas(id: string): Observable<any> {
     const url = `${this.FincaUrlapi}/${id}`;
 
-    return this.http.get<Finca>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Finca>(`getFinca id=${id}`))
-    );
+    return this.http.get<Finca>(url).pipe();
   }
   getFinc(nombre: string): Observable<Finca> {
     const url = `${this.FincaUrl}/${nombre}`;
 
-    return this.http.get<Finca>(url).pipe(
-      tap(_ => this.log(`fetched hero nombre=${nombre}`)),
-      catchError(this.handleError<Finca>(`getFinca nombre=${nombre}`))
-    );
+    return this.http.get<Finca>(url).pipe();
   }
 
   addFinca (finca: Finca): Observable<any> {
