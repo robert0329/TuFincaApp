@@ -57,7 +57,7 @@
           </ion-card-content>
           <ion-row>
             <ion-col>
-              <button ion-button icon-start clear small (click)="RegistroEmpleado()" style="color: teal">
+              <button ion-button icon-start clear small [disabled]="accion" (click)="RegistroEmpleado()" style="color: teal">
                 <ion-icon name="open"></ion-icon>
                 <div>Empezar</div>
               </button>
@@ -80,7 +80,7 @@
           </ion-card-content>
           <ion-row>
             <ion-col>
-              <button ion-button icon-start clear small (click)="TareasPage()" style="color: teal">
+              <button ion-button icon-start clear small [disabled]="accion" (click)="TareasPage()" style="color: teal">
                 <ion-icon name="open"></ion-icon>
                 <div>Empezar</div>
               </button>
@@ -103,7 +103,7 @@
             </ion-card-content>
             <ion-row>
               <ion-col>
-                <button ion-button icon-start clear small (click)="Productos()" style="color: teal">
+                <button ion-button icon-start clear small [disabled]="accion" (click)="Productos()" style="color: teal">
                   <ion-icon name="open"></ion-icon>
                   <div>Empezar</div>
                 </button>
@@ -126,7 +126,7 @@
           </ion-card-content>
           <ion-row>
             <ion-col>
-              <button ion-button icon-start clear small (click)="Gastos()" style="color: teal">
+              <button ion-button icon-start clear small [disabled]="accion" (click)="Gastos()" style="color: teal">
                 <ion-icon name="open"></ion-icon>
                 <div>Empezar</div>
               </button>

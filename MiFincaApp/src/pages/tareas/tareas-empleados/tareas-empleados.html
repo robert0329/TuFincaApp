@@ -29,19 +29,16 @@
         <img style="width: 15%; height: 15%; display: inline;" src="assets/imgs/tareas.jpg">
         <h2 style="font-weight: bold; display: inline;">{{grocery.fecha}}</h2>
         <p style="margin-left: 17%;">{{grocery.descripcion}}</p>
-        <button ion-button clear item-end>Completar</button>
+        <button ion-button clear item-end (click)="openModal(grocery.idtarea,grocery.finca, grocery.descripcion,grocery.fecha)">Completar</button>
 
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'kittens'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <ion-item-sliding *ngFor="let grocery of completa">
-            <ion-item> {{grocery.descripcion}}</ion-item>
-          </ion-item-sliding>
-        </ion-thumbnail>
-        <h2></h2>
+      <ion-item *ngFor="let grocery of completa">
+        <img style="width: 15%; height: 15%; display: inline;" src="assets/imgs/tareas.jpg">
+        <h2 style="font-weight: bold; display: inline;">{{grocery.fecha}}</h2>
+        <p style="margin-left: 17%;">{{grocery.descripcion}}</p>
       </ion-item>
     </ion-list>
   </div>

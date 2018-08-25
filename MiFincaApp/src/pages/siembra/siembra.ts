@@ -41,7 +41,7 @@ export class SiembraPage {
   guardarSiembra() {
     
     let siembra = { idparcela: this.form.value.idparcelas, idfrutos: this.form.value.idfrutos, fecha: this.form.value.fecha, descripcion: this.form.value.descripcion };
-    console.log(this.form)
+
     // this.SiembraService.add(siembra).subscribe(result => {
     // })
   }

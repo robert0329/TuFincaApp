@@ -24,7 +24,7 @@ export class ParcelasServices {
     return this.http.post<any>(this.Url, any, httpOptions).pipe();
   }
   Update (any: Parcela): Observable<any> {
-    console.log(any);
+  
     return this.http.put<Parcela>(this.Url, any, httpOptions).pipe();
   }
   Delete(id): Observable<Parcela> { const url = `${this.Url}/${id}`;

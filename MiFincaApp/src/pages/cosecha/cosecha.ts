@@ -50,7 +50,7 @@ export class CosechaPage {
     this.navCtrl.setRoot(ConsultarCosechasPage);
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CosechaPage');
+   
   }
 
 }

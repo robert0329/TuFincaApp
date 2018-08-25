@@ -49,7 +49,7 @@ export class SuplidorPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SuplidorPage');
+
   }
 
 }

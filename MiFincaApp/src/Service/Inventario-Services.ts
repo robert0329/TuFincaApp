@@ -21,7 +21,7 @@ export class InventarioServices {
     return this.http.get<Inventario[]>(url).pipe();
   }
   add(any: Inventario): Observable<Inventario> {
-    console.log(any);
+
     return this.http.post<Inventario>(this.Url, any, httpOptions).pipe();
   }
   Update (any: Inventario): Observable<any> {

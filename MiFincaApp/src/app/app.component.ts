@@ -65,20 +65,20 @@ export class MyApp {
       { title: 'Registro Suplidor', component: SuplidorPage },
       { title: 'Registro Empleados', component: EmpleadosPage },
 
-      { title: 'Consultar Cosechas', component: ConsultarCosechasPage },
-      { title: 'Consultar Cultivos', component: ConsultarCultivosPage },
-      { title: 'Consultar Empleados', component: ConsultarEmpleadosPage },
-      { title: 'Consultar Fincas', component: ConsultarFincasPage },
+      // { title: 'Consultar Cosechas', component: ConsultarCosechasPage },
+      // { title: 'Consultar Cultivos', component: ConsultarCultivosPage },
+      // { title: 'Consultar Empleados', component: ConsultarEmpleadosPage },
+      // { title: 'Consultar Fincas', component: ConsultarFincasPage },
 
-      { title: 'Consultar Gastos', component: ConsultarGastosPage },
-      { title: 'Consultar Herramientas', component: ConsultarHerramientasPage },
-      { title: 'Consultar Maquinaria', component: ConsultarMaquinariaPage },
-      { title: 'Consultar Parcelas', component: ConsultarParcelasPage },
+      // { title: 'Consultar Gastos', component: ConsultarGastosPage },
+      // { title: 'Consultar Herramientas', component: ConsultarHerramientasPage },
+      // { title: 'Consultar Maquinaria', component: ConsultarMaquinariaPage },
+      // { title: 'Consultar Parcelas', component: ConsultarParcelasPage },
 
-      { title: 'Consultar Productos', component: ConsultarProductosPage },
-      { title: 'Consultar Siembras', component: ConsultarSiembrasPage },
-      { title: 'Consultar Suplidor', component: ConsultarSuplidorPage },
-      { title: 'Consultar Tareas', component: ConsultarTareasPage },
+      // { title: 'Consultar Productos', component: ConsultarProductosPage },
+      // { title: 'Consultar Siembras', component: ConsultarSiembrasPage },
+      // { title: 'Consultar Suplidor', component: ConsultarSuplidorPage },
+      // { title: 'Consultar Tareas', component: ConsultarTareasPage },
     ];
   }
   public supervisor() {

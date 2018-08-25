@@ -16,16 +16,11 @@ export class LoginPage {
   loading: Loading;
   form: FormGroup;
   constructor(private Usuario: UsuarioService, private toastCtrl: ToastController, private nav: NavController, private auth: AuthService, private loadingCtrl: LoadingController) {
-    if(localStorage.getItem("token")) {
-      nav.setRoot(HomePage);
-    }
-    this.form = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl(),
-    });
+    if (localStorage.getItem("token")) {nav.setRoot(HomePage);}
+    this.form = new FormGroup({email: new FormControl(), password: new FormControl(),});
   }
   public createAccount() {
-    this.nav.push('RegisterPage');
+    // this.nav.push('RegisterPage');
   }
   public login() {
     this.showLoader();
@@ -34,19 +29,19 @@ export class LoginPage {
         this.presentToast("error");
         this.loading.dismiss();
       } else {
-          if (result[0].password == this.form.value.password) {
-            this.auth.asig(result);
-            localStorage.setItem('token', result[0].email);
-            var myTimer = setInterval(() => {
-              clearInterval(myTimer);
-              this.nav.setRoot(HomePage);
-              this.loading.dismiss();
-           }, 2000);
-              
-          } else {
-            this.presentToast("error");
+        if (result[0].password == this.form.value.password) {
+          this.auth.asig(result);
+          localStorage.setItem('token', result[0].email);
+          var myTimer = setInterval(() => {
+            clearInterval(myTimer);
+            this.nav.setRoot(HomePage);
             this.loading.dismiss();
-          }
+          }, 2000);
+
+        } else {
+          this.presentToast("error");
+          this.loading.dismiss();
+        }
       }
     }, (err) => {
       this.loading.dismiss();
@@ -61,7 +56,6 @@ export class LoginPage {
 
     this.loading.present();
   }
-
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
@@ -69,9 +63,8 @@ export class LoginPage {
       position: 'bottom',
       dismissOnPageChange: true
     });
-    toast.onDidDismiss(() => 
-    {
-      console.log('Dismissed toast');
+    toast.onDidDismiss(() => {
+
     });
 
     toast.present();

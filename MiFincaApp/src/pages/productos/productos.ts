@@ -36,7 +36,7 @@ export class ProductosPage {
     this.ProductosServices.add(this.form.value).subscribe(value => { //agrega una herramienta
       this.ProductosServices.Identity().subscribe(value => { // ultimo id herramienta
         this.ProductosServices.getId(value[0].idproductos).subscribe(valor => {
-          console.log(valor);
+     
           this.Agregar(valor[0].idproductos);
         })
       })

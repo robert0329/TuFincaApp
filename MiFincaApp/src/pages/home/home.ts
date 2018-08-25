@@ -20,6 +20,7 @@ export class HomePage {
   idpersona = '';
   tipo = '';
   isLoggedIn: boolean = false;
+  accion: boolean = true;
 
   constructor(private Usuarios: UsuarioService, private nav: NavController, public app: MyApp, private loadingCtrl: LoadingController) {
     if (!localStorage.getItem("token")) {
@@ -27,7 +28,8 @@ export class HomePage {
     }
 
     this.Usuarios.authu().subscribe(result => {
-      if(result == undefined || result == []){
+  
+      if(result.length < 1){
         this.showLoader();
       localStorage.clear();
       this.loading.dismiss();
@@ -60,9 +62,11 @@ export class HomePage {
 
   Metodos() {
     if (this.tipo == "administrador") {
+      this.accion = false;
       this.app.administrador();
     } else
       if (this.tipo == "supervisor") {
+        this.accion = false;
         this.app.supervisor();
       } else
         if (this.tipo == "empleado") {

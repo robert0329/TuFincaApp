@@ -43,7 +43,7 @@ export class MaquinariaPage {
     //this.navCtrl.popToRoot();
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MaquinariaPage');
+   
   }
 
 }

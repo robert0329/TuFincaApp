@@ -34,7 +34,7 @@ export class ListaFincasPage {
     this.idpersona = value[0].idpersona;
     })
     // let info = this.auth.getUserInfo();
-    // console.log(info);
+  
     // this.email = info['email'];
     // this.idpersona = info['idpersona'];
   }
@@ -47,7 +47,7 @@ export class ListaFincasPage {
 
   getVecino(id: number) {
     // this.FincaServicio.getFincas().subscribe(res => {
-    //   console.log(res.nombre);
+   
 
     // });
 

@@ -33,7 +33,7 @@ OnGoBack() {
   this.navCtrl.setRoot(HomePage);
 }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConsultarGastosPage');
+    
   }
 
 }

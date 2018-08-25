@@ -51,9 +51,9 @@ export class UsuarioService {
       this.http.post<Usuarios>(this.Url, data,httpOptions)
       .subscribe(res => {
         resolve(res);
-        console.log("paso");
+       
       }, (err) => {
-        console.log("no paso");
+      
         reject(err);
       });
     })
@@ -75,7 +75,7 @@ export class UsuarioService {
     return this.http.get<Usuarios[]>(this.postlogin,httpOptions).pipe();
   }
   auth(persona: any): Observable<any> {
-    console.log(persona);
+  
     const url = `${this.UrlgetEmail}/${persona.email}`;
     return this.http.get<any>(url).pipe()
   }

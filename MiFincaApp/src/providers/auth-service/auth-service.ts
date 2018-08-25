@@ -48,17 +48,17 @@ export class AuthService {
 public asig(value){
   
   this.currentUserr = new Postloginn("1",value[0].nombre, value[0].tipo, value[0].email, value[0].password);
-  console.log(this.currentUserr);
+ 
   this.Usuarios.addPostLogin(this.currentUserr).subscribe(result =>{
   })
 
 }
   public getUserInfo(): User {
     this.Usuarios.authu().subscribe(value => {
-      console.log(value)
+    
       this.currentUser = new User("1", value[0].nombre, value[0].email, value[0].idpersona, value[0].tipo);
     })
-    console.log(this.currentUser)
+    
     return this.currentUser;
   }
 

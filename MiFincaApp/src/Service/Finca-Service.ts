@@ -64,7 +64,7 @@ AddUpdate (finca: Finca): Observable<any> {
   }
 
   private log(message: string) {
-    console.log('FincaService: ' + message);
+   
   }
 }
 

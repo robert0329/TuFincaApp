@@ -33,7 +33,7 @@ OnGoBack() {
 }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ConsultarSiembrasPage');
+   
   }
 
 }

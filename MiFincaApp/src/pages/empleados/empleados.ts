@@ -45,7 +45,7 @@ export class EmpleadosPage {
     //this.navCtrl.popToRoot();
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EmpleadosPage');
+    
   }
 
 }

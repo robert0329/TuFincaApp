@@ -49,7 +49,7 @@ export class GastosPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GastosPage');
+  
   }
 
 }

@@ -61,7 +61,7 @@ export class RegisterPage {
     });
 
     toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+    
     });
 
     toast.present();

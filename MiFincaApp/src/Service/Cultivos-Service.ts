@@ -20,7 +20,7 @@ export class CultivosServices {
     return this.http.post<Cultivos>(this.Url, any, httpOptions).pipe();
   }
   Update (any: Cultivos): Observable<any> {
-    console.log(any);
+
     return this.http.put<Cultivos>(this.Url, any, httpOptions).pipe();
   }
   Delete(id): Observable<Cultivos> { const url = `${this.Url}/${id}`;

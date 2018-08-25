@@ -64,7 +64,7 @@ export class FincasPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FincasPage');
+    
   }
 
   addFinca() {
@@ -82,7 +82,7 @@ export class FincasPage {
   }
   // getVecino(id:number) {
   //   this.FincaServicio.getFincas(1).subscribe(res => {
-  //      console.log(res.nombre);
+  //    
 
   //    });    
 
@@ -98,7 +98,7 @@ export class FincasPage {
   //  filtrar()
   //  {
   //    this.FincaFilter = this.FincaArray.filter((veci:Finca)=>veci.nombre.includes(this.nombre));
-  //    console.log(this.FincaArray);
+  //   
 
   //  }
 
