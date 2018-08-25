@@ -3,6 +3,8 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CultivosServices } from '../../Service/Cultivos-Service';
+import { CosechaService } from '../../Service/Cosecha-Service';
 /**
  * Generated class for the CosechaPage page.
  *
@@ -18,7 +20,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CosechaPage {
   form: FormGroup;
   items: Array<any> = [];
-  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
+  cosecha: CosechaPage
+  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams, public CosechaService: CosechaService) {
     this.crearFormulario();
     this.items = [
       {title: 'one'},
@@ -40,7 +43,9 @@ export class CosechaPage {
   }
 
   guardarCosecha() {
-
+    this.CosechaService.add(this.form.value).subscribe(res => {
+      this.navCtrl.setRoot(ConsultarCosechasPage);
+     });
   }
 
   OnGoBack(){

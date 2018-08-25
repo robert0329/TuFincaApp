@@ -45,28 +45,30 @@
           <p *ngIf="form.get('direccion').hasError('required')">Es requerido</p>
         </ion-item>
         <ion-item>
-          <ion-label color="primary" floating>Celular</ion-label>
-          <ion-input formControlName="celular"></ion-input>
+          <ion-label color="primary" floating>Telefono</ion-label>
+          <ion-input formControlName="telefono"></ion-input>
         </ion-item>
-        <ion-item *ngIf="form.get('celular').errors && form.get('celular').touched">
-          <p *ngIf="form.get('celular').hasError('required')">Es requerido</p>
+        <ion-item *ngIf="form.get('telefono').errors && form.get('telefono').touched">
+          <p *ngIf="form.get('telefono').hasError('required')">Es requerido</p>
         </ion-item>
         <ion-item>
           <ion-label color="primary" floating>Ciudad</ion-label>
-          <ion-input formControlName="ciudad"></ion-input>
+          <ion-select multiple="false" cancelText="cancel" okText="ok">
+            <ion-option #item *ngFor="let sitio of ciudad ; let i = index" selected="false">{{sitio.title}} </ion-option>
+          </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('ciudad').errors && form.get('ciudad').touched">
           <p *ngIf="form.get('ciudad').hasError('required')">Es requerido</p>
         </ion-item>
         <ion-item>
-          <ion-label color="primary" floating>Cargo</ion-label>
-          <ion-select formControlName="cargo"></ion-select>
+          <ion-label color="primary" floating>Tipo</ion-label>
+          <ion-select multiple="false" cancelText="cancel" okText="ok">
+            <ion-option #item *ngFor="let sitio of tipo ; let i = index" selected="false">{{sitio.title}} </ion-option>
+          </ion-select>
         </ion-item>
-        <ion-item *ngIf="form.get('cargo').errors && form.get('cargo').touched">
-          <p *ngIf="form.get('cargo').hasError('required')">Es requerido</p>
+        <ion-item *ngIf="form.get('tipo').errors && form.get('tipo').touched">
+          <p *ngIf="form.get('tipo').hasError('required')">Es requerido</p>
         </ion-item>
-     
-
         <ion-item>
           <ion-label color="primary" floating>Cedula</ion-label>
           <ion-input formControlName="cedula"></ion-input>
@@ -74,22 +76,21 @@
         <ion-item *ngIf="form.get('cedula').errors && form.get('cedula').touched">
           <p *ngIf="form.get('cedula').hasError('required')">Es requerido</p>
         </ion-item>
-
-      <ion-item>
-        <ion-label color="primary" floating>Email</ion-label>
-        <ion-input formControlName="email"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="form.get('email').errors && form.get('email').touched">
-        <p *ngIf="form.get('email').hasError('required')">Es requerido</p>
-      </ion-item>
-      <ion-item>
-        <ion-label color="primary" floating>Contraseña</ion-label>
-        <ion-input formControlName="contraseña"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="form.get('contraseña').errors && form.get('contraseña').touched">
-        <p *ngIf="form.get('contraseña').hasError('required')">Es requerido</p>
-      </ion-item>
-    </ion-list>
+        <ion-item>
+          <ion-label color="primary" floating>Email</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('email').errors && form.get('email').touched">
+          <p *ngIf="form.get('email').hasError('required')">Es requerido</p>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" floating>Contraseña</ion-label>
+          <ion-input type="password" formControlName="contraseña"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.get('contraseña').errors && form.get('contraseña').touched">
+          <p *ngIf="form.get('contraseña').hasError('required')">Es requerido</p>
+        </ion-item>
+      </ion-list>
       <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>
     </form>
 

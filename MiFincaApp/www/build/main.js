@@ -45,14 +45,10 @@ var HomePage = /** @class */ (function () {
         this.idpersona = '';
         this.tipo = '';
         this.isLoggedIn = false;
-        if (!localStorage.getItem("token")) {
-            nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__login_login__["a" /* LoginPage */]);
-        }
+        this.accion = true;
         this.Usuarios.authu().subscribe(function (result) {
-            if (result == undefined || result == []) {
-                _this.showLoader();
+            if (!localStorage.getItem("token") || result.length < 1) {
                 localStorage.clear();
-                _this.loading.dismiss();
                 nav.setRoot(__WEBPACK_IMPORTED_MODULE_1__login_login__["a" /* LoginPage */]);
             }
             else {
@@ -78,9 +74,11 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.Metodos = function () {
         if (this.tipo == "administrador") {
+            this.accion = false;
             this.app.administrador();
         }
         else if (this.tipo == "supervisor") {
+            this.accion = false;
             this.app.supervisor();
         }
         else if (this.tipo == "empleado") {
@@ -109,9 +107,10 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title> Bienvenido {{nombre}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n   <!-- <h3>Bienvenido, {{nombre}}!</h3>  -->\n\n\n\n   <ion-slides>\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n\n\n          <!-- <img style="width: 95%; height: 95%; padding-left: 0%; padding-bottom: 15% " src="assets/imgs/GreenSun.jpg"/>\n\n          <h1 style="color: white; padding-block-start: 35%;">Bienvenido !</h1> -->\n\n\n\n        <ion-card style="padding-bottom: 2%; background-color: #f9faf9">\n\n          <img style="width: 95%; height: 95%; padding-left: 6%; padding-top: 3%; " src="assets/imgs/logo.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="padding-top: 3%;">\n\n              <h1 style="color: #276a2a;"> GreenSun </h1>\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802); padding-top: 3%;">\n\n              Bienvenido !!, esta app esta diseñada en versión beta para ustedes, los usuarios \n\n              con usos temporales...\n\n            </p>\n\n          </ion-card-content>\n\n          <ion-row>\n\n              <ion-col>\n\n                <button ion-button icon-start clear small style="color: rgb(33, 150, 57)">\n\n                  <ion-icon name="arrow-round-forward"></ion-icon>\n\n                  <div>Swipe</div>\n\n                </button>\n\n              </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n    \n\n      <ion-slide style="background-color: #276a2a">\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/farm.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(208, 109, 44);">\n\n              Organiza tu Finca!\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Manten tu finca organizada y controlada, sabiendo informaciones de tus empleados, parcelas, siembras y cosechas ...\n\n            </p>\n\n  \n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="RegistroEmpleado()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/task.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(44, 192, 208);">\n\n              Planifica tu Finca!\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Planifica y Controla las tareas que quieres llevar en tu finca, mediante nuestros \n\n              registros de Tareas a cada empleado...\n\n            </p>\n\n  \n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="TareasPage()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n          <ion-card>\n\n            <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/wheat.png"/>\n\n            <ion-card-content>\n\n              <ion-card-title style="color: rgb(126, 36, 199);">\n\n                Manten un control de Inventario !\n\n                </ion-card-title>\n\n              <p style="color: rgba(87, 87, 87, 0.802)">\n\n                Registra todas tus Herramientas, maquinarias, productos y Frutos, en el inventario personal de tu finca...\n\n              </p>\n\n    \n\n            </ion-card-content>\n\n            <ion-row>\n\n              <ion-col>\n\n                <button ion-button icon-start clear small [disabled]="accion" (click)="Productos()" style="color: teal">\n\n                  <ion-icon name="open"></ion-icon>\n\n                  <div>Empezar</div>\n\n                </button>\n\n              </ion-col></ion-row>\n\n          </ion-card>\n\n        </ion-slide>\n\n\n\n    \n\n      <ion-slide style="background-color: #276a2a" >\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/salary.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(53, 32, 9);">\n\n              Registra tus Gastos !\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Lleva registros de tus gastos, los salarios de los empleados o gastos comunes, \n\n              almacenando tu información de manera segura...\n\n            </p>\n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="Gastos()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n    \n\n    </ion-slides>\n\n   \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -587,10 +586,11 @@ var ConsultarMaquinariaPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarSiembrasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Siembra_Services__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -604,37 +604,111 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the ConsultarSiembrasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
+
 var ConsultarSiembrasPage = /** @class */ (function () {
-    function ConsultarSiembrasPage(navCtrl, navParams) {
+    function ConsultarSiembrasPage(alertCtrl, modalCtrl, SiembraServices, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
+        this.SiembraServices = SiembraServices;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.Array = [];
+        this.Lista = [];
         this.searchTerm = '';
         this.items = [];
         this.searching = false;
-        this.searchControl = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */]();
     }
-    ConsultarSiembrasPage.prototype.openModal = function () {
+    ConsultarSiembrasPage_1 = ConsultarSiembrasPage;
+    ConsultarSiembrasPage.prototype.openModal = function (idfrutos, descripcion) {
+    };
+    ConsultarSiembrasPage.prototype.delete = function (id) {
+        var _this = this;
+        this.SiembraServices.Delete(id).subscribe(function (RES) {
+            _this.SiembraServices.get().subscribe(function (res) {
+                _this.Lista = res;
+            });
+        });
     };
     ConsultarSiembrasPage.prototype.OnGoBack = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
     };
     ConsultarSiembrasPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ConsultarSiembrasPage');
+        var _this = this;
+        this.SiembraServices.get().subscribe(function (res) {
+            _this.Lista = res;
+            console.log(_this.Lista);
+        });
     };
-    ConsultarSiembrasPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-consultar-siembras',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar los frutos</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n    <ion-item-sliding  *ngFor="let grocery of Array">\n\n      <!-- <ion-item> {{grocery.descripcion}}</ion-item>\n\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="paper"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="delete"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/,
+    ConsultarSiembrasPage.prototype.Modificar = function (data) {
+        var _this = this;
+        this.SiembraServices.Update(data).subscribe(function (res) {
+            _this.navCtrl.setRoot(ConsultarSiembrasPage_1);
+        });
+    };
+    ConsultarSiembrasPage.prototype.presentPrompt = function (idsiembra, idparcela, idfrutos, fecha, descripcion) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea modificar esta siembra!?',
+            inputs: [
+                {
+                    placeholder: 'Descripcion',
+                    value: descripcion
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Modificar',
+                    handler: function (data) {
+                        var dat = { idsiembra: idsiembra, idparcela: idparcela, idfrutos: idfrutos, fecha: fecha, descripcion: data[0] };
+                        console.log(dat);
+                        _this.Modificar(dat);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ConsultarSiembrasPage.prototype.Eliminar = function (idfrutos) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea eliminar esta siembra!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function (data) {
+                        _this.SiembraServices.Delete(idfrutos).subscribe(function (RES) {
+                            _this.SiembraServices.get().subscribe(function (res) {
+                                _this.Lista = res;
+                            });
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ConsultarSiembrasPage = ConsultarSiembrasPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-consultar-siembras',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar siembras</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n  <div *ngIf="searching" class="spinner-container">\n\n    <ion-spinner></ion-spinner>\n\n  </div>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let Lista of Lista">\n\n      <ion-item>\n\n        <h2 style="font-weight: bold; display: inline;">{{Lista.descripcion}}</h2>\n\n        <p style="margin-left: 17%;">{{Lista.fecha}}</p>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="presentPrompt(Lista.idsiembra,Lista.idparcela, Lista.idfrutos, Lista.fecha, Lista.descripcion)">\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="Eliminar(Lista.idsiembra)">\n\n          <ion-icon name="md-close"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Siembra_Services__["a" /* SiembraServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Siembra_Services__["a" /* SiembraServices */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _e || Object])
     ], ConsultarSiembrasPage);
     return ConsultarSiembrasPage;
+    var ConsultarSiembrasPage_1, _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=consultar-siembras.js.map
@@ -710,6 +784,7 @@ var ConsultarSuplidorPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
+throw new Error("Cannot find module \"../../Service/Cosecha-Service\"");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -724,6 +799,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the CosechaPage page.
  *
@@ -731,10 +807,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var CosechaPage = /** @class */ (function () {
-    function CosechaPage(fb, navCtrl, navParams) {
+    function CosechaPage(fb, navCtrl, navParams, CosechaService) {
         this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.CosechaService = CosechaService;
         this.items = [];
         this.crearFormulario();
         this.items = [
@@ -755,6 +832,10 @@ var CosechaPage = /** @class */ (function () {
         });
     };
     CosechaPage.prototype.guardarCosecha = function () {
+        var _this = this;
+        this.CosechaService.add(this.form.value).subscribe(function (res) {
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */]);
+        });
     };
     CosechaPage.prototype.OnGoBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
@@ -763,15 +844,15 @@ var CosechaPage = /** @class */ (function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */]);
     };
     CosechaPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CosechaPage');
     };
     CosechaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-cosecha',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cosecha\cosecha.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Cosechas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="ConsultarCosechas()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarCosecha()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-textarea formControlName="cantidad"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label>Siembra</ion-label>\n\n          <ion-select multiple="true" cancelText="cancel" okText="ok">\n\n            <ion-option #item *ngFor="let sitio of items ; let i = index" selected="false" \n\n            >{{sitio.title}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'siembra\').errors && form.get(\'siembra\').touched">\n\n          <p *ngIf="form.get(\'siembra\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cosecha\cosecha.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__Service_Cosecha_Service__["CosechaService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__Service_Cosecha_Service__["CosechaService"]) === "function" && _d || Object])
     ], CosechaPage);
     return CosechaPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=cosecha.js.map
@@ -1366,15 +1447,16 @@ var TareasEmpleadosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SiembraPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Service_Parcela_Service__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Service_Siembra_Services__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Service_Cultivos_Service__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__consultar_siembras_consultar_siembras__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Service_Finca_Service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Parcela_Service__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Service_Siembra_Services__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Service_Usuario_Service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Service_Cultivos_Service__ = __webpack_require__(64);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1393,9 +1475,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var SiembraPage = /** @class */ (function () {
-    function SiembraPage(FrutosService, FincaService, ParcelasServices, Usuarios, SiembraService, fb, navCtrl, navParams) {
+    function SiembraPage(alertCtrl, FrutosService, FincaService, ParcelasServices, Usuarios, SiembraService, fb, navCtrl, navParams) {
         var _this = this;
+        this.alertCtrl = alertCtrl;
         this.FrutosService = FrutosService;
         this.FincaService = FincaService;
         this.ParcelasServices = ParcelasServices;
@@ -1406,7 +1491,7 @@ var SiembraPage = /** @class */ (function () {
         this.navParams = navParams;
         this.parcela = [];
         this.frutos = [];
-        this.form = this.fb.group({ fecha: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required], idfrutos: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required], idparcelas: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required], descripcion: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required] });
+        this.form = this.fb.group({ fecha: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required], idfrutos: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required], idparcelas: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required], descripcion: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required] });
         this.Usuarios.authu().subscribe(function (result) {
             _this.FincaService.getFincas(result[0].idpersona).subscribe(function (resultado) {
                 resultado.forEach(function (element) {
@@ -1425,23 +1510,45 @@ var SiembraPage = /** @class */ (function () {
         });
     }
     SiembraPage.prototype.guardarSiembra = function () {
-        var siembra = { idparcela: this.form.value.idparcelas, idfrutos: this.form.value.idfrutos, fecha: this.form.value.fecha, descripcion: this.form.value.descripcion };
-        console.log(this.form);
-        // this.SiembraService.add(siembra).subscribe(result => {
-        // })
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea guardar este registro!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Guardar',
+                    handler: function (data) {
+                        var siembra = { idparcela: _this.form.value.idparcelas, idfrutos: _this.form.value.idfrutos, fecha: _this.form.value.fecha, descripcion: _this.form.value.descripcion };
+                        _this.SiembraService.add(siembra).subscribe(function (result) {
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__consultar_siembras_consultar_siembras__["a" /* ConsultarSiembrasPage */]);
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    SiembraPage.prototype.ConsultaSiembra = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__consultar_siembras_consultar_siembras__["a" /* ConsultarSiembrasPage */]);
     };
     SiembraPage.prototype.OnGoBack = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__home_home__["a" /* HomePage */]);
     };
     SiembraPage.prototype.ionViewDidLoad = function () {
     };
     SiembraPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-siembra',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Siembra\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarSiembra(form)" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label floating color="primary">Parcelas</ion-label>\n\n          <ion-select multiple="false" formControlName="idparcelas" cancelText="Cancel" okText="OK">\n\n            <ion-option *ngFor="let items of parcela;" [value]="items.idparcelas">{{items.descripcion}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idparcelas\').errors && form.get(\'idparcelas\').touched">\n\n          <p *ngIf="form.get(\'idparcelas\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating color="primary">Frutos</ion-label>\n\n          <ion-select multiple="false" formControlName="idfrutos" cancelText="Cancel" okText="OK">\n\n            <ion-option *ngFor="let frut of frutos" [value]="frut.idfrutos">{{frut.descripcion}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idfrutos\').errors && form.get(\'idfrutos\').touched">\n\n          <p *ngIf="form.get(\'idfrutos\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Registrar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
+            selector: 'page-siembra',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Siembra\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="ConsultaSiembra()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarSiembra(form)" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label floating color="primary">Parcelas</ion-label>\n\n          <ion-select multiple="false" formControlName="idparcelas" cancelText="Cancel" okText="OK">\n\n            <ion-option *ngFor="let items of parcela;" [value]="items.idParcelas">{{items.descripcion}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idparcelas\').errors && form.get(\'idparcelas\').touched">\n\n          <p *ngIf="form.get(\'idparcelas\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating color="primary">Frutos</ion-label>\n\n          <ion-select multiple="false" formControlName="idfrutos" cancelText="Cancel" okText="OK">\n\n            <ion-option *ngFor="let frut of frutos" [value]="frut.idFrutos">{{frut.descripcion}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'idfrutos\').errors && form.get(\'idfrutos\').touched">\n\n          <p *ngIf="form.get(\'idfrutos\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Fecha</ion-label>\n\n          <ion-datetime formControlName="fecha"></ion-datetime>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'fecha\').errors && form.get(\'fecha\').touched">\n\n          <p *ngIf="form.get(\'fecha\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Registrar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\siembra\siembra.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_8__Service_Cultivos_Service__["a" /* CultivosServices */], __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_1__Service_Parcela_Service__["a" /* ParcelasServices */], __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_6__Service_Siembra_Services__["a" /* SiembraServices */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_9__Service_Cultivos_Service__["a" /* CultivosServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__Service_Cultivos_Service__["a" /* CultivosServices */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Service_Finca_Service__["a" /* FincaService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__Service_Parcela_Service__["a" /* ParcelasServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__Service_Parcela_Service__["a" /* ParcelasServices */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__Service_Siembra_Services__["a" /* SiembraServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__Service_Siembra_Services__["a" /* SiembraServices */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */]) === "function" && _j || Object])
     ], SiembraPage);
     return SiembraPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=siembra.js.map
@@ -1664,35 +1771,23 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_consultar_tareas_consultar_tareas__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_consultar_suplidor_consultar_suplidor__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_consultar_siembras_consultar_siembras__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_consultar_productos_consultar_productos__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_consultar_parcelas_consultar_parcelas__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_consultar_maquinaria_consultar_maquinaria__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_consultar_herramientas_consultar_herramientas__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_consultar_gastos_consultar_gastos__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_consultar_fincas_consultar_fincas__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_consultar_empleados_consultar_empleados__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_consultar_cultivos_consultar_cultivos__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_empleados_empleados__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_home_home__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_cosecha_cosecha__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_gastos_gastos__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_herramientas_herramientas__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_maquinaria_maquinaria__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_parcela_parcela__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_productos_productos__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_siembra_siembra__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_suplidor_suplidor__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_tareas_tareas__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_cultivos_cultivos__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_empleados_empleados__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_cosecha_cosecha__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_gastos_gastos__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_herramientas_herramientas__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_maquinaria_maquinaria__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_parcela_parcela__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_productos_productos__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_siembra_siembra__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suplidor_suplidor__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_tareas_tareas__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cultivos_cultivos__ = __webpack_require__(158);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1720,77 +1815,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_19__pages_home_home__["a" /* HomePage */];
-        this.tipo = '';
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */];
         this.initializeApp();
     }
     MyApp.prototype.administrador = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_19__pages_home_home__["a" /* HomePage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
             { title: 'Registro Finca', component: __WEBPACK_IMPORTED_MODULE_0__pages_Finca_Component_Add_fincas_fincas__["a" /* FincasPage */] },
-            { title: 'Registro Frutos', component: __WEBPACK_IMPORTED_MODULE_29__pages_cultivos_cultivos__["a" /* CultivosPage */] },
-            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_20__pages_cosecha_cosecha__["a" /* CosechaPage */] },
-            { title: 'Registro Gastos', component: __WEBPACK_IMPORTED_MODULE_21__pages_gastos_gastos__["a" /* GastosPage */] },
-            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_22__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
-            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_23__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
-            { title: 'Registro Parcela', component: __WEBPACK_IMPORTED_MODULE_24__pages_parcela_parcela__["a" /* ParcelaPage */] },
-            { title: 'Registro Productos', component: __WEBPACK_IMPORTED_MODULE_25__pages_productos_productos__["a" /* ProductosPage */] },
-            { title: 'Registro Siembra', component: __WEBPACK_IMPORTED_MODULE_26__pages_siembra_siembra__["a" /* SiembraPage */] },
-            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_28__pages_tareas_tareas__["a" /* TareasPage */] },
-            { title: 'Registro Suplidor', component: __WEBPACK_IMPORTED_MODULE_27__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
-            { title: 'Registro Empleados', component: __WEBPACK_IMPORTED_MODULE_14__pages_empleados_empleados__["a" /* EmpleadosPage */] },
-            { title: 'Consultar Cosechas', component: __WEBPACK_IMPORTED_MODULE_12__pages_consultar_cosechas_consultar_cosechas__["a" /* ConsultarCosechasPage */] },
-            { title: 'Consultar Cultivos', component: __WEBPACK_IMPORTED_MODULE_11__pages_consultar_cultivos_consultar_cultivos__["a" /* ConsultarCultivosPage */] },
-            { title: 'Consultar Empleados', component: __WEBPACK_IMPORTED_MODULE_10__pages_consultar_empleados_consultar_empleados__["a" /* ConsultarEmpleadosPage */] },
-            { title: 'Consultar Fincas', component: __WEBPACK_IMPORTED_MODULE_9__pages_consultar_fincas_consultar_fincas__["a" /* ConsultarFincasPage */] },
-            { title: 'Consultar Gastos', component: __WEBPACK_IMPORTED_MODULE_8__pages_consultar_gastos_consultar_gastos__["a" /* ConsultarGastosPage */] },
-            { title: 'Consultar Herramientas', component: __WEBPACK_IMPORTED_MODULE_7__pages_consultar_herramientas_consultar_herramientas__["a" /* ConsultarHerramientasPage */] },
-            { title: 'Consultar Maquinaria', component: __WEBPACK_IMPORTED_MODULE_6__pages_consultar_maquinaria_consultar_maquinaria__["a" /* ConsultarMaquinariaPage */] },
-            { title: 'Consultar Parcelas', component: __WEBPACK_IMPORTED_MODULE_5__pages_consultar_parcelas_consultar_parcelas__["a" /* ConsultarParcelasPage */] },
-            { title: 'Consultar Productos', component: __WEBPACK_IMPORTED_MODULE_4__pages_consultar_productos_consultar_productos__["a" /* ConsultarProductosPage */] },
-            { title: 'Consultar Siembras', component: __WEBPACK_IMPORTED_MODULE_3__pages_consultar_siembras_consultar_siembras__["a" /* ConsultarSiembrasPage */] },
-            { title: 'Consultar Suplidor', component: __WEBPACK_IMPORTED_MODULE_2__pages_consultar_suplidor_consultar_suplidor__["a" /* ConsultarSuplidorPage */] },
-            { title: 'Consultar Tareas', component: __WEBPACK_IMPORTED_MODULE_1__pages_consultar_tareas_consultar_tareas__["a" /* ConsultarTareasPage */] },
+            { title: 'Registro Frutos', component: __WEBPACK_IMPORTED_MODULE_17__pages_cultivos_cultivos__["a" /* CultivosPage */] },
+            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_8__pages_cosecha_cosecha__["a" /* CosechaPage */] },
+            { title: 'Registro Gastos', component: __WEBPACK_IMPORTED_MODULE_9__pages_gastos_gastos__["a" /* GastosPage */] },
+            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_10__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
+            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_11__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
+            { title: 'Registro Parcela', component: __WEBPACK_IMPORTED_MODULE_12__pages_parcela_parcela__["a" /* ParcelaPage */] },
+            { title: 'Registro Productos', component: __WEBPACK_IMPORTED_MODULE_13__pages_productos_productos__["a" /* ProductosPage */] },
+            { title: 'Registro Siembra', component: __WEBPACK_IMPORTED_MODULE_14__pages_siembra_siembra__["a" /* SiembraPage */] },
+            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_16__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Registro Suplidor', component: __WEBPACK_IMPORTED_MODULE_15__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
+            { title: 'Registro Empleados', component: __WEBPACK_IMPORTED_MODULE_2__pages_empleados_empleados__["a" /* EmpleadosPage */] },
         ];
     };
     MyApp.prototype.supervisor = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_19__pages_home_home__["a" /* HomePage */] },
-            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_28__pages_tareas_tareas__["a" /* TareasPage */] },
-            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_20__pages_cosecha_cosecha__["a" /* CosechaPage */] },
-            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_22__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
-            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_23__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
-            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_25__pages_productos_productos__["a" /* ProductosPage */] },
-            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_26__pages_siembra_siembra__["a" /* SiembraPage */] },
-            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_28__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
+            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_16__pages_tareas_tareas__["a" /* TareasPage */] },
+            { title: 'Registro Cosecha', component: __WEBPACK_IMPORTED_MODULE_8__pages_cosecha_cosecha__["a" /* CosechaPage */] },
+            { title: 'Registro Herramientas', component: __WEBPACK_IMPORTED_MODULE_10__pages_herramientas_herramientas__["a" /* HerramientasPage */] },
+            { title: 'Registro Maquinaria', component: __WEBPACK_IMPORTED_MODULE_11__pages_maquinaria_maquinaria__["a" /* MaquinariaPage */] },
+            { title: 'Productos', component: __WEBPACK_IMPORTED_MODULE_13__pages_productos_productos__["a" /* ProductosPage */] },
+            { title: 'Siembra', component: __WEBPACK_IMPORTED_MODULE_14__pages_siembra_siembra__["a" /* SiembraPage */] },
+            { title: 'Registro Tareas', component: __WEBPACK_IMPORTED_MODULE_16__pages_tareas_tareas__["a" /* TareasPage */] },
         ];
     };
     MyApp.prototype.empleado = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_19__pages_home_home__["a" /* HomePage */] },
-            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_13__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
+            { title: 'Tareas', component: __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__["a" /* TareasEmpleadosPage */] },
         ];
     };
     MyApp.prototype.suplidor = function () {
         this.pages = [
-            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_19__pages_home_home__["a" /* HomePage */] },
+            { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */] },
             //  { title: 'Tareas', component: TareasPage },
             // { title: 'Registro Fincas', component: FincasPage },
             //  { title: 'Registro Cosecha', component: CosechaPage },
@@ -1801,7 +1871,7 @@ var MyApp = /** @class */ (function () {
             //  { title: 'Productos', component: ProductosPage },
             //  { title: 'Siembra', component: SiembraPage },
             //  { title: 'Registro Tareas', component: TareasPage },
-            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_27__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
+            { title: 'Suplidor', component: __WEBPACK_IMPORTED_MODULE_15__pages_suplidor_suplidor__["a" /* SuplidorPage */] },
         ];
     };
     MyApp.prototype.initializeApp = function () {
@@ -1819,16 +1889,16 @@ var MyApp = /** @class */ (function () {
         this.nav.setRoot(page.component);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_15__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_16_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_16_ionic_angular__["i" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_15__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_16_ionic_angular__["l" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -1894,14 +1964,12 @@ var UsuarioService = /** @class */ (function () {
     UsuarioService.prototype.addEmpleado = function (persona, identity) {
         var _this = this;
         var identit = (identity + 1);
-        var data = { idpersona: identit, email: persona.email, password: persona.password, nombre: persona.nombre, apellido: persona.apellido, direccion: persona.direccion, ciudad: persona.ciudad, cedula: persona.cedula, telefono: persona.telefono, tipo: persona.tipo };
+        var data = { idpersona: identit, email: persona.email, password: persona.contraseña, nombre: persona.nombre, apellido: persona.apellido, direccion: persona.direccion, ciudad: persona.ciudad, cedula: persona.cedula, telefono: persona.telefono, tipo: persona.tipo };
         return new Promise(function (resolve, reject) {
             _this.http.post(_this.Url, data, httpOptions)
                 .subscribe(function (res) {
                 resolve(res);
-                console.log("paso");
             }, function (err) {
-                console.log("no paso");
                 reject(err);
             });
         });
@@ -1917,7 +1985,6 @@ var UsuarioService = /** @class */ (function () {
         return this.http.get(this.postlogin, httpOptions).pipe();
     };
     UsuarioService.prototype.auth = function (persona) {
-        console.log(persona);
         var url = this.UrlgetEmail + "/" + persona.email;
         return this.http.get(url).pipe();
     };
@@ -1933,9 +2000,10 @@ var UsuarioService = /** @class */ (function () {
     };
     UsuarioService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], UsuarioService);
     return UsuarioService;
+    var _a;
 }());
 
 //# sourceMappingURL=Usuario-Service.js.map
@@ -2575,7 +2643,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <!-- <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img src="http://placehold.it/300x200" />\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row> -->\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Email</ion-label>\n\n          <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Contraseña</ion-label>\n\n          <ion-input type="password" name="passwordinput" id="passwordinput" formControlName="password"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit">Iniciar sesion</button>\n\n          <!-- <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button> -->\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img style="width: 1000%; height: 1000%; display: inline;" src="assets/imgs/login.png" />\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Email</ion-label>\n\n          <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Contraseña</ion-label>\n\n          <ion-input type="password" name="passwordinput" id="passwordinput" formControlName="password"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit">Iniciar sesion</button>\n\n          <!-- <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button> -->\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]) === "function" && _e || Object])
     ], LoginPage);
@@ -2596,6 +2664,7 @@ var LoginPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(5);
+throw new Error("Cannot find module \"../../Service/Cosecha-Service\"");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2609,6 +2678,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ConsultarCosechasPage page.
  *
@@ -2616,23 +2686,100 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ConsultarCosechasPage = /** @class */ (function () {
-    function ConsultarCosechasPage(navCtrl, navParams) {
+    function ConsultarCosechasPage(alertCtrl, modalCtrl, CosechasService, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
+        this.modalCtrl = modalCtrl;
+        this.CosechasService = CosechasService;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.Array = [];
+        this.Lista = [];
         this.searchTerm = '';
         this.searching = false;
         this.items = [];
         this.searchControl = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
-        this.items = [
-            { title: '01/05/2016' },
-            { title: '05/01/2017' },
-            { title: '06/06/2018' }
-        ];
     }
     ConsultarCosechasPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.CosechasService.get().subscribe(function (res) {
+            _this.Lista = res;
+        });
     };
     ConsultarCosechasPage.prototype.openModal = function () {
+    };
+    ConsultarCosechasPage.prototype.delete = function (id) {
+        var _this = this;
+        this.CosechasService.Delete(id).subscribe(function (RES) {
+            _this.CosechasService.get().subscribe(function (res) {
+                _this.Lista = res;
+            });
+        });
+    };
+    ConsultarCosechasPage.prototype.Modificar = function (data) {
+        var _this = this;
+        this.CosechasService.Update(data).subscribe(function (res) {
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__Service_Cosecha_Service__["CosechaService"]);
+        });
+    };
+    ConsultarCosechasPage.prototype.presentPrompt = function (idCosecha, descripcion, fecha, cantidad) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea modificar este fruto!?',
+            inputs: [
+                {
+                    value: descripcion,
+                    placeholder: 'Descripcion'
+                },
+                {
+                    value: fecha,
+                    placeholder: fecha
+                },
+                {
+                    placeholder: cantidad,
+                    value: cantidad
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Modificar',
+                    handler: function (data) {
+                        var dat = { idfrutos: idCosecha, descripcion: data[0] };
+                        _this.Modificar(dat);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ConsultarCosechasPage.prototype.Eliminar = function (idCosecha) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea eliminar este fruto!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function (data) {
+                        _this.CosechasService.Delete(idCosecha).subscribe(function (RES) {
+                            _this.CosechasService.get().subscribe(function (res) {
+                                _this.Lista = res;
+                            });
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
     };
     ConsultarCosechasPage.prototype.OnGoBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
@@ -2641,9 +2788,10 @@ var ConsultarCosechasPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-consultar-cosechas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-cosechas\consultar-cosechas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Consultar cosechas</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n    <ion-item-sliding  *ngFor="let grocery of items">\n\n      <ion-item> {{grocery.title}}</ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="paper"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="delete"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-cosechas\consultar-cosechas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__Service_Cosecha_Service__["CosechaService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__Service_Cosecha_Service__["CosechaService"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */]) === "function" && _e || Object])
     ], ConsultarCosechasPage);
     return ConsultarCosechasPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=consultar-cosechas.js.map
@@ -3320,7 +3468,23 @@ var EmpleadosPage = /** @class */ (function () {
         this.fb = fb;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.ciudad = [];
+        this.tipo = [];
         this.crearFormulario();
+        this.ciudad = [
+            { title: 'Santiago de los caballeros' },
+            { title: 'Nagua' },
+            { title: 'San francisco de macoris' },
+            { title: 'Santo domingo' },
+            { title: 'Bonao' },
+            { title: 'Higuey' }
+        ];
+        this.tipo = [
+            { title: 'Administrador' },
+            { title: 'Encargado' },
+            { title: 'Empleado' },
+            { title: 'Suplidor' }
+        ];
     }
     EmpleadosPage.prototype.crearFormulario = function () {
         this.form = this.fb.group({
@@ -3329,8 +3493,8 @@ var EmpleadosPage = /** @class */ (function () {
             direccion: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             ciudad: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             cedula: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
-            celular: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
-            cargo: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            telefono: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
+            tipo: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
             contraseña: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["h" /* Validators */].required],
         });
@@ -3342,15 +3506,15 @@ var EmpleadosPage = /** @class */ (function () {
         //this.navCtrl.popToRoot();
     };
     EmpleadosPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EmpleadosPage');
     };
     EmpleadosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar empleado\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Apellido</ion-label>\n\n          <ion-input formControlName="apellido"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'apellido\').errors && form.get(\'apellido\').touched">\n\n          <p *ngIf="form.get(\'apellido\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Direccion</ion-label>\n\n          <ion-input formControlName="direccion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'direccion\').errors && form.get(\'direccion\').touched">\n\n          <p *ngIf="form.get(\'direccion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Celular</ion-label>\n\n          <ion-input formControlName="celular"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'celular\').errors && form.get(\'celular\').touched">\n\n          <p *ngIf="form.get(\'celular\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Ciudad</ion-label>\n\n          <ion-input formControlName="ciudad"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'ciudad\').errors && form.get(\'ciudad\').touched">\n\n          <p *ngIf="form.get(\'ciudad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cargo</ion-label>\n\n          <ion-select formControlName="cargo"></ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cargo\').errors && form.get(\'cargo\').touched">\n\n          <p *ngIf="form.get(\'cargo\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n     \n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cedula</ion-label>\n\n          <ion-input formControlName="cedula"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cedula\').errors && form.get(\'cedula\').touched">\n\n          <p *ngIf="form.get(\'cedula\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Email</ion-label>\n\n        <ion-input formControlName="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'email\').errors && form.get(\'email\').touched">\n\n        <p *ngIf="form.get(\'email\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label color="primary" floating>Contraseña</ion-label>\n\n        <ion-input formControlName="contraseña"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="form.get(\'contraseña\').errors && form.get(\'contraseña\').touched">\n\n        <p *ngIf="form.get(\'contraseña\').hasError(\'required\')">Es requerido</p>\n\n      </ion-item>\n\n    </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/,
+            selector: 'page-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar empleado\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button icon-only>\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Apellido</ion-label>\n\n          <ion-input formControlName="apellido"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'apellido\').errors && form.get(\'apellido\').touched">\n\n          <p *ngIf="form.get(\'apellido\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Direccion</ion-label>\n\n          <ion-input formControlName="direccion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'direccion\').errors && form.get(\'direccion\').touched">\n\n          <p *ngIf="form.get(\'direccion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Telefono</ion-label>\n\n          <ion-input formControlName="telefono"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'telefono\').errors && form.get(\'telefono\').touched">\n\n          <p *ngIf="form.get(\'telefono\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Ciudad</ion-label>\n\n          <ion-select multiple="false" cancelText="cancel" okText="ok">\n\n            <ion-option #item *ngFor="let sitio of ciudad ; let i = index" selected="false">{{sitio.title}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'ciudad\').errors && form.get(\'ciudad\').touched">\n\n          <p *ngIf="form.get(\'ciudad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Tipo</ion-label>\n\n          <ion-select multiple="false" cancelText="cancel" okText="ok">\n\n            <ion-option #item *ngFor="let sitio of tipo ; let i = index" selected="false">{{sitio.title}} </ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'tipo\').errors && form.get(\'tipo\').touched">\n\n          <p *ngIf="form.get(\'tipo\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cedula</ion-label>\n\n          <ion-input formControlName="cedula"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cedula\').errors && form.get(\'cedula\').touched">\n\n          <p *ngIf="form.get(\'cedula\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Email</ion-label>\n\n          <ion-input formControlName="email"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'email\').errors && form.get(\'email\').touched">\n\n          <p *ngIf="form.get(\'email\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Contraseña</ion-label>\n\n          <ion-input type="password" formControlName="contraseña"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'contraseña\').errors && form.get(\'contraseña\').touched">\n\n          <p *ngIf="form.get(\'contraseña\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\empleados\empleados.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object])
     ], EmpleadosPage);
     return EmpleadosPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=empleados.js.map

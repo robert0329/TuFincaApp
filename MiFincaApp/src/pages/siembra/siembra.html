@@ -9,7 +9,7 @@
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="ConsultaSiembra()">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
@@ -22,7 +22,7 @@
         <ion-item>
           <ion-label floating color="primary">Parcelas</ion-label>
           <ion-select multiple="false" formControlName="idparcelas" cancelText="Cancel" okText="OK">
-            <ion-option *ngFor="let items of parcela;" [value]="items.idparcelas">{{items.descripcion}} </ion-option>
+            <ion-option *ngFor="let items of parcela;" [value]="items.idParcelas">{{items.descripcion}} </ion-option>
           </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('idparcelas').errors && form.get('idparcelas').touched">
@@ -31,7 +31,7 @@
         <ion-item>
           <ion-label floating color="primary">Frutos</ion-label>
           <ion-select multiple="false" formControlName="idfrutos" cancelText="Cancel" okText="OK">
-            <ion-option *ngFor="let frut of frutos" [value]="frut.idfrutos">{{frut.descripcion}} </ion-option>
+            <ion-option *ngFor="let frut of frutos" [value]="frut.idFrutos">{{frut.descripcion}} </ion-option>
           </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('idfrutos').errors && form.get('idfrutos').touched">

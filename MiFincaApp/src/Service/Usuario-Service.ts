@@ -45,7 +45,7 @@ export class UsuarioService {
   }
   addEmpleado(persona: Usuarios, identity): Promise<any> {
     var identit = (identity + 1);
-    let data = {idpersona: identit, email: persona.email, password: persona.password, nombre:persona.nombre, apellido:persona.apellido, direccion:persona.direccion, ciudad: persona.ciudad, cedula:persona.cedula, telefono:persona.telefono,tipo:persona.tipo}
+    let data = {idpersona: identit, email: persona.email, password: persona.contraseña, nombre:persona.nombre, apellido:persona.apellido, direccion:persona.direccion, ciudad: persona.ciudad, cedula:persona.cedula, telefono:persona.telefono,tipo:persona.tipo}
     
     return new Promise((resolve, reject) => {
       this.http.post<Usuarios>(this.Url, data,httpOptions)

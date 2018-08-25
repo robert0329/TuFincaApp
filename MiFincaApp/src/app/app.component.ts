@@ -40,7 +40,6 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
-  tipo = '';
   pages: Array<{ title: string, component: any }>;
   constructor(public platform: Platform,
     public statusBar: StatusBar, public splashScreen: SplashScreen) {

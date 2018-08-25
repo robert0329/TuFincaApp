@@ -15,11 +15,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   templateUrl: 'empleados.html',
 })
 export class EmpleadosPage {
-
+  ciudad: Array<any> = [];
+  tipo: Array<any> = [];
   form: FormGroup;q
   constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
-    
+    this.ciudad = [
+      {title: 'Santiago de los caballeros'},
+      {title: 'Nagua'},
+      {title: 'San francisco de macoris'},
+      {title: 'Santo domingo'},
+      {title: 'Bonao'},
+      {title: 'Higuey'}
+  ]
+  this.tipo = [
+    {title: 'Administrador'},
+    {title: 'Encargado'},
+    {title: 'Empleado'},
+    {title: 'Suplidor'}
+]
     
   }
   
@@ -30,8 +44,8 @@ export class EmpleadosPage {
       direccion: ['', Validators.required],
       ciudad: ['', Validators.required],
       cedula: ['', Validators.required],
-      celular: ['', Validators.required],
-      cargo: ['', Validators.required],
+      telefono: ['', Validators.required],
+      tipo: ['', Validators.required],
       email: ['', Validators.required],
       contraseña: ['', Validators.required],
     });

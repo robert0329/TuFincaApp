@@ -1,3 +1,4 @@
+import { Usuarios } from './../../app/Clases/Usuarios';
 import { UsuarioService } from './../../Service/Usuario-Service';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
@@ -23,40 +24,34 @@ export class HomePage {
   accion: boolean = true;
 
   constructor(private Usuarios: UsuarioService, private nav: NavController, public app: MyApp, private loadingCtrl: LoadingController) {
-    if (!localStorage.getItem("token")) {
-      nav.setRoot(LoginPage);
-    }
-
     this.Usuarios.authu().subscribe(result => {
-  
-      if(result.length < 1){
-        this.showLoader();
-      localStorage.clear();
-      this.loading.dismiss();
+      if (!localStorage.getItem("token") || result.length < 1) {
+        localStorage.clear();
         nav.setRoot(LoginPage);
-      }else{
+      }
+      else {
         this.nombre = result[0].nombre;
-      this.email = result[0].email;
-      this.idpersona = result[0].idpersona;
-      this.tipo = result[0].tipo;
-      this.Metodos();
+        this.email = result[0].email;
+        this.idpersona = result[0].idpersona;
+        this.tipo = result[0].tipo;
+        this.Metodos();
       }
     })
   }
 
-  TareasPage(){
+  TareasPage() {
     this.nav.setRoot(TareasPage);
   }
 
-  RegistroEmpleado(){
+  RegistroEmpleado() {
     this.nav.setRoot(EmpleadosPage);
   }
 
- Productos(){
+  Productos() {
     this.nav.setRoot(ProductosPage);
   }
 
-  Gastos(){
+  Gastos() {
     this.nav.setRoot(GastosPage);
   }
 
