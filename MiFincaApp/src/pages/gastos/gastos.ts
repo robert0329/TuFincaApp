@@ -25,7 +25,7 @@ export class GastosPage {
   
   crearFormulario() {
     this.form = this.fb.group({
-      nombre: ['',Validators.required],
+      descripcion: ['',Validators.required],
       apellido: ['', Validators.required],
       direccion: ['', Validators.required],
       ciudad: ['', Validators.required],

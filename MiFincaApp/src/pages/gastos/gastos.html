@@ -25,9 +25,9 @@
           <ion-label color="primary" floating>Descripcion</ion-label>
           <ion-input formControlName="descripcion"></ion-input>
         </ion-item>
-        <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
+        <!-- <ion-item *ngIf="form.get('descripcion').errors && form.get('descripcion').touched">
           <p *ngIf="form.get('descripcion').hasError('required')">Es requerido</p>
-        </ion-item>
+        </ion-item> -->
 <!--(aqui va select item)
         <ion-item>
           <ion-label color="primary" floating>Fecha</ion-label>
@@ -38,13 +38,13 @@
           <p *ngIf="form.get('fecha').hasError('required')">Es requerido</p>
         </ion-item>
       -->
-        <ion-item>
+        <!-- <ion-item>
           <ion-label color="primary" floating>Id Finca</ion-label>
           <ion-textarea formControlName="idsiembra"></ion-textarea>
         </ion-item>
         <ion-item *ngIf="form.get('idfinca').errors && form.get('idfinca').touched">
           <p *ngIf="form.get('idfinca').hasError('required')">Es requerido</p>
-        </ion-item>
+        </ion-item> -->
 
       </ion-list>
       <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>

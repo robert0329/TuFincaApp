@@ -1,4 +1,4 @@
-#Tue Aug 07 00:38:36 PDT 2018
+#Fri Aug 24 15:23:49 PDT 2018
 base.0=C\:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=C\:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

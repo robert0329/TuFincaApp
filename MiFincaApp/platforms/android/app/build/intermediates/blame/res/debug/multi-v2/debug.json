@@ -145,16 +145,16 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-v18_values-v18.arsc.flat",
+            "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-sv_values-sv.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Robert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\860ed2eae27d6a13237185031605ac55\\res\\values-v18\\values-v18.xml",
+                    "source": "C:\\Users\\Robert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\860ed2eae27d6a13237185031605ac55\\res\\values-sv\\values-sv.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "48",
-                        "endOffsets": "99"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,161,269,392,495,606,691,793,906,982,1058,1138,1244,1344,1440,1545,1647,1749,1866,1968",
+                        "endColumns": "105,107,122,102,110,84,101,112,75,75,79,105,99,95,104,101,101,116,101,100",
+                        "endOffsets": "156,264,387,490,601,686,788,901,977,1053,1133,1239,1339,1435,1540,1642,1744,1861,1963,2064"
                     }
                 }
             ]
@@ -175,16 +175,16 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-sv_values-sv.arsc.flat",
+            "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-v18_values-v18.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Robert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\860ed2eae27d6a13237185031605ac55\\res\\values-sv\\values-sv.xml",
+                    "source": "C:\\Users\\Robert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\860ed2eae27d6a13237185031605ac55\\res\\values-v18\\values-v18.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,161,269,392,495,606,691,793,906,982,1058,1138,1244,1344,1440,1545,1647,1749,1866,1968",
-                        "endColumns": "105,107,122,102,110,84,101,112,75,75,79,105,99,95,104,101,101,116,101,100",
-                        "endOffsets": "156,264,387,490,601,686,788,901,977,1053,1133,1239,1339,1435,1540,1642,1744,1861,1963,2064"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
                     }
                 }
             ]
@@ -372,21 +372,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-zu_values-zu.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Robert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\860ed2eae27d6a13237185031605ac55\\res\\values-zu\\values-zu.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,163,271,394,501,615,703,806,933,1013,1093,1179,1283,1389,1487,1594,1700,1806,1926,2022",
-                        "endColumns": "107,107,122,106,113,87,102,126,79,79,85,103,105,97,106,105,105,119,95,100",
-                        "endOffsets": "158,266,389,496,610,698,801,928,1008,1088,1174,1278,1384,1482,1589,1695,1801,1921,2017,2118"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-h720dp-v13_values-h720dp-v13.arsc.flat",
             "map": [
                 {
@@ -397,6 +382,21 @@
                         "startOffsets": "55",
                         "endColumns": "66",
                         "endOffsets": "117"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Robert\\Documents\\GitHub\\TuFincaApp\\MiFincaApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-zu_values-zu.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Robert\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\860ed2eae27d6a13237185031605ac55\\res\\values-zu\\values-zu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,163,271,394,501,615,703,806,933,1013,1093,1179,1283,1389,1487,1594,1700,1806,1926,2022",
+                        "endColumns": "107,107,122,106,113,87,102,126,79,79,85,103,105,97,106,105,105,119,95,100",
+                        "endOffsets": "158,266,389,496,610,698,801,928,1008,1088,1174,1278,1384,1482,1589,1695,1801,1921,2017,2118"
                     }
                 }
             ]

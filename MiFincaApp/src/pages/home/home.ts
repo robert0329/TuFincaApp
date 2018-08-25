@@ -25,12 +25,20 @@ export class HomePage {
     if (!localStorage.getItem("token")) {
       nav.setRoot(LoginPage);
     }
+
     this.Usuarios.authu().subscribe(result => {
-      this.nombre = result[0].nombre;
+      if(result == undefined || result == []){
+        this.showLoader();
+      localStorage.clear();
+      this.loading.dismiss();
+        nav.setRoot(LoginPage);
+      }else{
+        this.nombre = result[0].nombre;
       this.email = result[0].email;
       this.idpersona = result[0].idpersona;
       this.tipo = result[0].tipo;
       this.Metodos();
+      }
     })
   }
 
