@@ -33,24 +33,15 @@ export class ListaFincasPage {
       this.email = value[0].email;
     this.idpersona = value[0].idpersona;
     })
-    // let info = this.auth.getUserInfo();
-  
-    // this.email = info['email'];
-    // this.idpersona = info['idpersona'];
   }
  
-  public openModal(id,nombre,descripcion){
-    var data = { id,nombre,descripcion };
+  public openModal(idfinca,nombre,descripcion, idpersona){
+    var data = { idfinca ,nombre, descripcion, idpersona};
     var modalPage = this.modalCtrl.create(EditFincaPage,data);
     modalPage.present();
 }
 
   getVecino(id: number) {
-    // this.FincaServicio.getFincas().subscribe(res => {
-   
-
-    // });
-
   }
   buscarSolicitud() {
     this.FincaServicio.getFincas(this.idpersona).subscribe(res => {

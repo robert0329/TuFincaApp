@@ -35,17 +35,11 @@ export class FincaService {
   }
 
   addFinca (finca: Finca): Observable<any> {
-    return this.http.post<Finca>(this.FincaUrl, finca, httpOptions).pipe(
-      tap((finca: Finca) => this.log(`added Finca w/ id=${finca.id}`)),
-      catchError(this.handleError<Finca>('finca'))
-    );
+    return this.http.post<Finca>(this.FincaUrl, finca, httpOptions).pipe();
   }
 
-AddUpdate (finca: Finca): Observable<any> {
-  return this.http.put<Finca>(this.FincaUrl, finca, httpOptions).pipe(
-    tap((finca: Finca) => this.log(`added Finca w/ id=${finca.id}`)),
-    catchError(this.handleError<Finca>('finca'))
-  );
+AddUpdate (finca: any): Observable<any> {
+  return this.http.put<any>(this.FincaUrl, finca, httpOptions).pipe();
 }
   getDelete(id): Observable<Finca> {
     const url = `${this.FincaUrl}/${id}`;

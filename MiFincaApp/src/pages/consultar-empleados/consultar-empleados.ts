@@ -31,6 +31,7 @@ export class ConsultarEmpleadosPage {
     this.UsuarioService.getempleado().subscribe(value =>{
       value.forEach(element => {
         this.Array.push(element);
+        console.log(element)
       });
       
     })

@@ -20,21 +20,23 @@ export class EditFincaPage {
 
   form: FormGroup;
   nombre: string;
-  id: string; 
+  idfinca: string; 
   descripcion: string;
-
+  idpersona: string;
   constructor(private FincaServicio: FincaService,public viewCtrl: ViewController, 
     public navCtrl: NavController, public navParams: NavParams,private fb: FormBuilder,) {
 
       this.Formulario();
+
     this.nombre = this.navParams.data.nombre;
     this.descripcion = this.navParams.data.descripcion;
-    this.id = this.navParams.data.id;
+    this.idfinca = this.navParams.data.idfinca;
+    this.idpersona = this.navParams.data.idpersona;
   }
 
   Formulario(){
     this.form = this.fb.group({
-      id: ['', Validators.required],
+      idfinca: ['', Validators.required],
         nombre: ['', Validators.required],
         descripcion: ['', Validators.required],
     });
@@ -46,7 +48,9 @@ export class EditFincaPage {
     
   }
   Modificar() {
-    this.FincaServicio.AddUpdate(this.form.value).subscribe(res => {
+    let data = {idfinca: this.idfinca, nombre: this.nombre, descripcion: this.descripcion, idpersona:this.idpersona}
+
+    this.FincaServicio.AddUpdate(data).subscribe(res => {
       this.viewCtrl.dismiss();
       this.navCtrl.setRoot(ListaFincasPage);
     });

@@ -77,15 +77,8 @@ var HomePage = /** @class */ (function () {
             this.accion = false;
             this.app.administrador();
         }
-        else if (this.tipo == "supervisor") {
-            this.accion = false;
-            this.app.supervisor();
-        }
-        else if (this.tipo == "empleado") {
+        else if (this.tipo == "Empleado") {
             this.app.empleado();
-        }
-        else if (this.tipo == "suplidor") {
-            this.app.suplidor();
         }
     };
     HomePage.prototype.logout = function () {
@@ -107,9 +100,10 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title> Bienvenido {{nombre}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n   <!-- <h3>Bienvenido, {{nombre}}!</h3>  -->\n\n\n\n   <ion-slides>\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n\n\n          <!-- <img style="width: 95%; height: 95%; padding-left: 0%; padding-bottom: 15% " src="assets/imgs/GreenSun.jpg"/>\n\n          <h1 style="color: white; padding-block-start: 35%;">Bienvenido !</h1> -->\n\n\n\n        <ion-card style="padding-bottom: 2%; background-color: #f9faf9">\n\n          <img style="width: 95%; height: 95%; padding-left: 6%; padding-top: 3%; " src="assets/imgs/logo.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="padding-top: 3%;">\n\n              <h1 style="color: #276a2a;"> GreenSun </h1>\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802); padding-top: 3%;">\n\n              Bienvenido !!, esta app esta diseñada en versión beta para ustedes, los usuarios \n\n              con usos temporales...\n\n            </p>\n\n          </ion-card-content>\n\n          <ion-row>\n\n              <ion-col>\n\n                <button ion-button icon-start clear small style="color: rgb(33, 150, 57)">\n\n                  <ion-icon name="arrow-round-forward"></ion-icon>\n\n                  <div>Swipe</div>\n\n                </button>\n\n              </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n    \n\n      <ion-slide style="background-color: #276a2a">\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/farm.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(208, 109, 44);">\n\n              Organiza tu Finca!\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Manten tu finca organizada y controlada, sabiendo informaciones de tus empleados, parcelas, siembras y cosechas ...\n\n            </p>\n\n  \n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="RegistroEmpleado()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/task.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(44, 192, 208);">\n\n              Planifica tu Finca!\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Planifica y Controla las tareas que quieres llevar en tu finca, mediante nuestros \n\n              registros de Tareas a cada empleado...\n\n            </p>\n\n  \n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="TareasPage()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n          <ion-card>\n\n            <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/wheat.png"/>\n\n            <ion-card-content>\n\n              <ion-card-title style="color: rgb(126, 36, 199);">\n\n                Manten un control de Inventario !\n\n                </ion-card-title>\n\n              <p style="color: rgba(87, 87, 87, 0.802)">\n\n                Registra todas tus Herramientas, maquinarias, productos y Frutos, en el inventario personal de tu finca...\n\n              </p>\n\n    \n\n            </ion-card-content>\n\n            <ion-row>\n\n              <ion-col>\n\n                <button ion-button icon-start clear small [disabled]="accion" (click)="Productos()" style="color: teal">\n\n                  <ion-icon name="open"></ion-icon>\n\n                  <div>Empezar</div>\n\n                </button>\n\n              </ion-col></ion-row>\n\n          </ion-card>\n\n        </ion-slide>\n\n\n\n    \n\n      <ion-slide style="background-color: #276a2a" >\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/salary.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(53, 32, 9);">\n\n              Registra tus Gastos !\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Lleva registros de tus gastos, los salarios de los empleados o gastos comunes, \n\n              almacenando tu información de manera segura...\n\n            </p>\n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="Gastos()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n    \n\n    </ion-slides>\n\n   \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -664,6 +658,7 @@ var ConsultarEmpleadosPage = /** @class */ (function () {
         this.UsuarioService.getempleado().subscribe(function (value) {
             value.forEach(function (element) {
                 _this.Array.push(element);
+                console.log(element);
             });
         });
     };
@@ -756,12 +751,11 @@ var ConsultarEmpleadosPage = /** @class */ (function () {
     };
     ConsultarEmpleadosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-consultar-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-empleados\consultar-empleados.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar empleados</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n      <ion-item-sliding *ngFor="let Lista of Array">\n\n          <ion-item>\n\n              <img style="width: 15%; height: 15%; display: inline;" src="assets/imgs/login.png">\n\n            <h2 style="font-weight: bold; display: inline;">{{Lista.nombre}} {{Lista.apellido}}</h2>\n\n            <p style="margin-left: 17%;">{{Lista.tipo}} {{Lista.email}}</p>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="presentPrompt(Lista.idpersona,Lista.nombre,Lista.apellido, Lista.direccion, Lista.cedula, Lista.telefono, Lista.email, Lista.password, Lista.ciudad, Lista.tipo)">\n\n              <ion-icon name="paper"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="Eliminar(Lista.idsiembra)">\n\n              <ion-icon name="md-close"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n    \n\n        </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-empleados\consultar-empleados.html"*/,
+            selector: 'page-consultar-empleados',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-empleados\consultar-empleados.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar empleados</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n      <ion-item-sliding *ngFor="let Lista of Array">\n\n          <ion-item>\n\n              <img style="width: 15%; height: 15%; display: inline;" src="assets/imgs/login.png">\n\n            <h2 style="font-weight: bold; display: inline;">{{Lista.nombre}} {{Lista.apellido}}</h2>\n\n            <p style="margin-left: 17%;">{{Lista.tipo}} {{Lista.email}}</p>\n\n          </ion-item>\n\n          <ion-item-options>\n\n            <button ion-button icon-only light (click)="presentPrompt(Lista.idpersona,Lista.nombre,Lista.apellido, Lista.direccion, Lista.cedula, Lista.telefono, Lista.email, Lista.password, Lista.ciudad, Lista.tipo)">\n\n              <ion-icon name="paper"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only light (click)="Eliminar(Lista.idpersona)">\n\n              <ion-icon name="md-close"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n    \n\n        </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-empleados\consultar-empleados.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
     ], ConsultarEmpleadosPage);
     return ConsultarEmpleadosPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=consultar-empleados.js.map
@@ -1375,11 +1369,12 @@ var EditFincaPage = /** @class */ (function () {
         this.Formulario();
         this.nombre = this.navParams.data.nombre;
         this.descripcion = this.navParams.data.descripcion;
-        this.id = this.navParams.data.id;
+        this.idfinca = this.navParams.data.idfinca;
+        this.idpersona = this.navParams.data.idpersona;
     }
     EditFincaPage.prototype.Formulario = function () {
         this.form = this.fb.group({
-            id: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            idfinca: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
             nombre: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
             descripcion: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
         });
@@ -1391,7 +1386,8 @@ var EditFincaPage = /** @class */ (function () {
     };
     EditFincaPage.prototype.Modificar = function () {
         var _this = this;
-        this.FincaServicio.AddUpdate(this.form.value).subscribe(function (res) {
+        var data = { idfinca: this.idfinca, nombre: this.nombre, descripcion: this.descripcion, idpersona: this.idpersona };
+        this.FincaServicio.AddUpdate(data).subscribe(function (res) {
             _this.viewCtrl.dismiss();
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
         });
@@ -1399,12 +1395,12 @@ var EditFincaPage = /** @class */ (function () {
     };
     EditFincaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-finca',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/'<ion-header>\n\n<ion-navbar>\n\n  <ion-title>ModalPage</ion-title>\n\n  <ion-buttons end>\n\n    <button ion-button (click)="closeModal()">Close</button>\n\n  </ion-buttons>\n\n</ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="Modificar()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input [(ngModel)]="id" formControlName="id"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input [(ngModel)]="nombre" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input [(ngModel)]="descripcion"formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Modificar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/,
+            selector: 'page-edit-finca',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/'<ion-header>\n\n<ion-navbar>\n\n  <ion-title>ModalPage</ion-title>\n\n  <ion-buttons end>\n\n    <button ion-button (click)="closeModal()">Close</button>\n\n  </ion-buttons>\n\n</ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="Modificar()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input [(ngModel)]="idfinca" formControlName="idfinca"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input [(ngModel)]="nombre" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input [(ngModel)]="descripcion"formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Modificar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__["a" /* FincaService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object])
     ], EditFincaPage);
     return EditFincaPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=edit-finca.js.map
@@ -2358,15 +2354,15 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -2929,12 +2925,12 @@ var AppModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Finca; });
 var Finca = /** @class */ (function () {
-    function Finca(id, nombre, descripcion, idpersona) {
-        this.id = id;
+    function Finca(idfinca, nombre, descripcion, idpersona) {
+        this.idfinca = idfinca;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.idpersona = idpersona;
-        this.id = (id) ? id : 0;
+        this.idfinca = (idfinca) ? idfinca : null;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.idpersona = idpersona;
@@ -3048,12 +3044,10 @@ var FincaService = /** @class */ (function () {
         return this.http.get(url).pipe();
     };
     FincaService.prototype.addFinca = function (finca) {
-        var _this = this;
-        return this.http.post(this.FincaUrl, finca, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (finca) { return _this.log("added Finca w/ id=" + finca.id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('finca')));
+        return this.http.post(this.FincaUrl, finca, httpOptions).pipe();
     };
     FincaService.prototype.AddUpdate = function (finca) {
-        var _this = this;
-        return this.http.put(this.FincaUrl, finca, httpOptions).pipe(Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["tap"])(function (finca) { return _this.log("added Finca w/ id=" + finca.id); }), Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_operators__["catchError"])(this.handleError('finca')));
+        return this.http.put(this.FincaUrl, finca, httpOptions).pipe();
     };
     FincaService.prototype.getDelete = function (id) {
         var _this = this;
@@ -3071,9 +3065,10 @@ var FincaService = /** @class */ (function () {
     };
     FincaService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], FincaService);
     return FincaService;
+    var _a;
 }());
 
 //# sourceMappingURL=Finca-Service.js.map
@@ -3352,10 +3347,9 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/'<ion-content class="login-content" padding>\n\n  <ion-row class="logo-row">\n\n    <ion-col></ion-col>\n\n    <ion-col width-67>\n\n      <img style="width: 1000%; height: 1000%; display: inline;" src="assets/imgs/login.png" />\n\n    </ion-col>\n\n    <ion-col></ion-col>\n\n  </ion-row>\n\n  <div class="login-box">\n\n    <form [formGroup]="form" (ngSubmit)="login()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Email</ion-label>\n\n          <ion-input name="emailinput" id="emailinput" formControlName="email"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Contraseña</ion-label>\n\n          <ion-input type="password" name="passwordinput" id="passwordinput" formControlName="contraseña"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <ion-row>\n\n        <ion-col class="signup-col">\n\n          <button ion-button class="submit-btn" full type="submit">Iniciar sesion</button>\n\n          <!-- <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button> -->\n\n        </ion-col>\n\n      </ion-row>\n\n    </form>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]])
     ], LoginPage);
     return LoginPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -3494,6 +3488,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the FincasPage page.
  *
@@ -3501,7 +3496,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var FincasPage = /** @class */ (function () {
-    function FincasPage(Usuarios, auth, FincaServicio, fb, navCtrl, navParams) {
+    function FincasPage(alertCtrl, Usuarios, auth, FincaServicio, fb, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
         this.Usuarios = Usuarios;
         this.auth = auth;
         this.FincaServicio = FincaServicio;
@@ -3521,8 +3517,6 @@ var FincasPage = /** @class */ (function () {
         this.finca = new __WEBPACK_IMPORTED_MODULE_5__app_Clases_Finca__["a" /* Finca */]();
     }
     FincasPage.prototype.createMyForm = function () {
-        // let info = this.auth.getUserInfo();
-        // this.idpersona = info['idpersona'];
         var _this = this;
         this.Usuarios.authu().subscribe(function (result) {
             _this.idpersona = result[0].idpersona;
@@ -3536,37 +3530,38 @@ var FincasPage = /** @class */ (function () {
     FincasPage.prototype.OnGoBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
     };
-    FincasPage.prototype.ionViewDidLoad = function () {
-    };
     FincasPage.prototype.addFinca = function () {
         var _this = this;
-        this.finca.id = null;
-        this.finca.nombre = this.form.value.nombre;
-        this.finca.descripcion = this.form.value.descripcion;
-        this.finca.idpersona = this.idpersona;
-        this.FincaServicio.addFinca(this.finca).subscribe(function (res) {
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
+        var alert = this.alertCtrl.create({
+            title: '¿Desea guardar esta finca?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Guardar',
+                    handler: function (data) {
+                        _this.finca.nombre = _this.form.value.nombre;
+                        _this.finca.descripcion = _this.form.value.descripcion;
+                        _this.finca.idpersona = _this.idpersona;
+                        console.log(_this.finca);
+                        _this.FincaServicio.addFinca(_this.finca).subscribe(function (res) {
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
+                        });
+                    }
+                }
+            ]
         });
+        alert.present();
     };
     FincasPage.prototype.listafinca = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
     };
-    // getVecino(id:number) {
-    //   this.FincaServicio.getFincas(1).subscribe(res => {
-    //    
-    //    });    
-    //  }
     FincasPage.prototype.buscarSolicitud = function () {
-        // this.FincaServicio.getFinca().subscribe(find => {
-        //   this.FincaArray = find;
-        //   this.FincaFilter = this.FincaArray;
-        // });
     };
-    //  filtrar()
-    //  {
-    //    this.FincaFilter = this.FincaArray.filter((veci:Finca)=>veci.nombre.includes(this.nombre));
-    //   
-    //  }
     FincasPage.prototype.limpiar = function () {
         return this.form = this.fb.group({
             id: ['0', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required],
@@ -3578,9 +3573,10 @@ var FincasPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\Add-fincas\fincas.html"*/'<ion-header Access-Control-Allow-Origin>\n\n  <ion-navbar>\n\n      <ion-title>Registrar finca</ion-title>\n\n   \n\n     <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="listafinca()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="addFinca()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input name="nombreinput" id="nombreinput" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n          <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input name="descripcioninput" id="descripcioninput" formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\Add-fincas\fincas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_6__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__Service_Finca_Service__["a" /* FincaService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _g || Object])
     ], FincasPage);
     return FincasPage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=fincas.js.map
@@ -3643,19 +3639,14 @@ var ListaFincasPage = /** @class */ (function () {
             _this.email = value[0].email;
             _this.idpersona = value[0].idpersona;
         });
-        // let info = this.auth.getUserInfo();
-        // this.email = info['email'];
-        // this.idpersona = info['idpersona'];
     }
     ListaFincasPage_1 = ListaFincasPage;
-    ListaFincasPage.prototype.openModal = function (id, nombre, descripcion) {
-        var data = { id: id, nombre: nombre, descripcion: descripcion };
+    ListaFincasPage.prototype.openModal = function (idfinca, nombre, descripcion, idpersona) {
+        var data = { idfinca: idfinca, nombre: nombre, descripcion: descripcion, idpersona: idpersona };
         var modalPage = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_1__Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */], data);
         modalPage.present();
     };
     ListaFincasPage.prototype.getVecino = function (id) {
-        // this.FincaServicio.getFincas().subscribe(res => {
-        // });
     };
     ListaFincasPage.prototype.buscarSolicitud = function () {
         var _this = this;
@@ -3685,12 +3676,12 @@ var ListaFincasPage = /** @class */ (function () {
     };
     ListaFincasPage = ListaFincasPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-lista-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Listado Fincas</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addFinca()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let grocery of notes">\n\n      <ion-item> {{grocery.nombre}}</ion-item>\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only (click)="openModal(grocery.id,grocery.nombre,grocery.descripcion)" light>\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only danger (click)="deleteNote(grocery.id)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/,
+            selector: 'page-lista-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Listado Fincas</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addFinca()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let grocery of notes">\n\n      <ion-item> {{grocery.nombre}}</ion-item>\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only (click)="openModal(grocery.idfinca ,grocery.nombre,grocery.descripcion, grocery.idpersona)" light>\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only danger (click)="deleteNote(grocery.id)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */]) === "function" && _g || Object])
     ], ListaFincasPage);
     return ListaFincasPage;
-    var ListaFincasPage_1;
+    var ListaFincasPage_1, _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=lista-fincas.js.map

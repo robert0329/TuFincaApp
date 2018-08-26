@@ -9,6 +9,7 @@ import { Finca } from "../../../app/Clases/Finca";
 import { FincaService } from '../../../Service/Finca-Service';
 import { ListaFincasPage } from '../lista-fincas/lista-fincas';
 import { AuthService } from '../../../providers/auth-service/auth-service';
+import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the FincasPage page.
  *
@@ -37,7 +38,7 @@ export class FincasPage {
   nombre = '';
   descripcion = '';
 
-  constructor(private Usuarios: UsuarioService,public auth: AuthService, private FincaServicio: FincaService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController,private Usuarios: UsuarioService, public auth: AuthService, private FincaServicio: FincaService, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
     this.createMyForm();
     this.finca = new Finca();
 
@@ -45,9 +46,6 @@ export class FincasPage {
 
   }
   private createMyForm() {
-    // let info = this.auth.getUserInfo();
-    // this.idpersona = info['idpersona'];
-
     this.Usuarios.authu().subscribe(result => {
       this.idpersona = result[0].idpersona;
     })
@@ -63,45 +61,38 @@ export class FincasPage {
     this.navCtrl.setRoot(HomePage);
   }
 
-  ionViewDidLoad() {
-    
-  }
-
   addFinca() {
-    this.finca.id = null;
-    this.finca.nombre = this.form.value.nombre;
-    this.finca.descripcion = this.form.value.descripcion;
-    this.finca.idpersona = this.idpersona;
+    let alert = this.alertCtrl.create({
+      title: '¿Desea guardar esta finca?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Guardar',
+          handler: data => {
+            this.finca.nombre = this.form.value.nombre;
+            this.finca.descripcion = this.form.value.descripcion;
+            this.finca.idpersona = this.idpersona;
+            console.log(this.finca)
+            this.FincaServicio.addFinca(this.finca).subscribe(res => {
+              this.navCtrl.setRoot(ListaFincasPage);
+            });
+          }
+        }
+      ]
+    });
+    alert.present();
 
-     this.FincaServicio.addFinca(this.finca).subscribe(res => {
-      this.navCtrl.setRoot(ListaFincasPage);
-     });
   }
-  listafinca(){
+  listafinca() {
     this.navCtrl.setRoot(ListaFincasPage);
   }
-  // getVecino(id:number) {
-  //   this.FincaServicio.getFincas(1).subscribe(res => {
-  //    
-
-  //    });    
-
-  //  }
-
   buscarSolicitud() {
-    // this.FincaServicio.getFinca().subscribe(find => {
-    //   this.FincaArray = find;
-    //   this.FincaFilter = this.FincaArray;
-    // });
   }
-
-  //  filtrar()
-  //  {
-  //    this.FincaFilter = this.FincaArray.filter((veci:Finca)=>veci.nombre.includes(this.nombre));
-  //   
-
-  //  }
-
   limpiar() {
     return this.form = this.fb.group({
       id: ['0', Validators.required],

@@ -1,12 +1,12 @@
 export class Finca{
 
     constructor(
-        public id?:number,  
+        public idfinca?:number,  
         public nombre?:String,
         public descripcion?: string,
         public idpersona?: string
     ){
-        this.id= (id) ? id : 0;
+        this.idfinca= (idfinca) ? idfinca : null;
         this.nombre =  nombre;
         this.descripcion = descripcion;
         this.idpersona = idpersona;

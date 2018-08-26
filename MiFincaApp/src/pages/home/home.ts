@@ -60,16 +60,9 @@ export class HomePage {
       this.accion = false;
       this.app.administrador();
     } else
-      if (this.tipo == "supervisor") {
-        this.accion = false;
-        this.app.supervisor();
-      } else
-        if (this.tipo == "empleado") {
-          this.app.empleado();
-        } else
-          if (this.tipo == "suplidor") {
-            this.app.suplidor();
-          }
+      if (this.tipo == "Empleado") {
+        this.app.empleado();
+      }
   }
   logout() {
     this.Usuarios.getPostLoginDelete(this.email).subscribe((result) => {

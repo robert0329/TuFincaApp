@@ -20,7 +20,7 @@
       <ion-item> {{grocery.nombre}}</ion-item>
 
       <ion-item-options>
-        <button ion-button icon-only (click)="openModal(grocery.id,grocery.nombre,grocery.descripcion)" light>
+        <button ion-button icon-only (click)="openModal(grocery.idfinca ,grocery.nombre,grocery.descripcion, grocery.idpersona)" light>
           <ion-icon name="paper"></ion-icon>
         </button>
         <button ion-button icon-only danger (click)="deleteNote(grocery.id)">
