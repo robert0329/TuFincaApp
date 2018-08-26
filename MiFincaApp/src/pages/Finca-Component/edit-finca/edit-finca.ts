@@ -49,7 +49,7 @@ export class EditFincaPage {
   }
   Modificar() {
     let data = {idfinca: this.idfinca, nombre: this.nombre, descripcion: this.descripcion, idpersona:this.idpersona}
-
+console.log(data)
     this.FincaServicio.AddUpdate(data).subscribe(res => {
       this.viewCtrl.dismiss();
       this.navCtrl.setRoot(ListaFincasPage);

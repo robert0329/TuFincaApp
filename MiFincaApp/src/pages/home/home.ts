@@ -56,7 +56,7 @@ export class HomePage {
   }
 
   Metodos() {
-    if (this.tipo == "administrador") {
+    if (this.tipo == "administrador" ||this.tipo == "Administrador") {
       this.accion = false;
       this.app.administrador();
     } else

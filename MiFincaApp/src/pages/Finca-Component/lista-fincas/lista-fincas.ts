@@ -9,6 +9,7 @@ import { Finca } from "../../../app/Clases/Finca";
 import { ModalController } from 'ionic-angular';
 import { AuthService } from '../../../providers/auth-service/auth-service';
 import { UsuarioService } from '../../../Service/Usuario-Service';
+import { FormControl } from '@angular/forms';
 /**
  * Generated class for the ListaFincasPage page.
  *
@@ -27,41 +28,90 @@ export class ListaFincasPage {
   idpersona='';
   notes: any = [];
   FincaArray: Array<Finca> = [];
-
-  constructor(private Usuarios:UsuarioService, private auth: AuthService,public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
+  searchTerm: string = '';
+  searching: any = false;
+  searchControl: FormControl;
+  constructor(public FincaService:FincaService,private Usuarios:UsuarioService, private auth: AuthService,public modalCtrl: ModalController,public alertCtrl: AlertController, private FincaServicio: FincaService, public navCtrl: NavController, public navParams: NavParams) {
+    this.searchControl = new FormControl();
     this.Usuarios.authu().subscribe(value => {
       this.email = value[0].email;
     this.idpersona = value[0].idpersona;
     })
-  }
- 
-  public openModal(idfinca,nombre,descripcion, idpersona){
-    var data = { idfinca ,nombre, descripcion, idpersona};
-    var modalPage = this.modalCtrl.create(EditFincaPage,data);
-    modalPage.present();
-}
-
-  getVecino(id: number) {
-  }
-  buscarSolicitud() {
-    this.FincaServicio.getFincas(this.idpersona).subscribe(res => {
-      this.notes = res;
-    });
-  }
-
-  deleteNote(id) {
-     this.FincaServicio.getDelete(id).subscribe(res => {
-      this.navCtrl.setRoot(ListaFincasPage);
-    });
-  }
-  ionViewDidLoad() {
     this.Usuarios.authu().subscribe(value => {
       this.FincaServicio.getFincas(value[0].idpersona).subscribe(res => {
-        this.notes = res;
+       
+          this.notes = res;
+        
+        
       })
     })
   }
+  openModal(){
 
+  }
+Modificar(data) {
+  this.FincaService.AddUpdate(data).subscribe(res => {
+    this.navCtrl.setRoot(ListaFincasPage);
+  });
+}
+presentPrompt(idfinca,nombre, descripcion, idpersona) {
+  let alert = this.alertCtrl.create({
+    title: '¿Desea modificar esta finca!?',
+    inputs: [
+      {
+        placeholder: 'Nombre',
+        value:nombre
+      },
+      {
+        placeholder: 'Descripcion',
+        value:descripcion
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+        }
+      },
+      {
+        text: 'Modificar',
+        handler: data => {
+          let dat = {idfinca: idfinca, nombre: data[0], descripcion: data[1], idpersona: idpersona}
+          console.log(dat);
+          this.Modificar(dat);
+        }
+      }
+    ]
+  });
+  alert.present();
+}
+Eliminar(id) {
+  let alert = this.alertCtrl.create({
+    title: '¿Desea eliminar esta finca!?',
+    
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+        handler: data => {
+        }
+      },
+      {
+        text: 'Eliminar',
+        handler: data => {
+          this.FincaService.getDelete(id).subscribe(RES => {
+            this.FincaService.getFinca().subscribe(res => {
+              this.notes = res;
+              this.navCtrl.setRoot(ListaFincasPage);
+            });
+          })
+        }
+      }
+    ]
+  });
+  alert.present();
+}
   OnGoBack() {
     this.navCtrl.setRoot(HomePage);
   }

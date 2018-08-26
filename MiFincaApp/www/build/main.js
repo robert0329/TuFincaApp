@@ -9,7 +9,7 @@ webpackJsonp([29],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tareas_tareas__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__empleados_empleados__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__productos_productos__ = __webpack_require__(78);
@@ -73,7 +73,7 @@ var HomePage = /** @class */ (function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_8__gastos_gastos__["a" /* GastosPage */]);
     };
     HomePage.prototype.Metodos = function () {
-        if (this.tipo == "administrador") {
+        if (this.tipo == "administrador" || this.tipo == "Administrador") {
             this.accion = false;
             this.app.administrador();
         }
@@ -100,10 +100,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title> Bienvenido {{nombre}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n   <!-- <h3>Bienvenido, {{nombre}}!</h3>  -->\n\n\n\n   <ion-slides>\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n\n\n          <!-- <img style="width: 95%; height: 95%; padding-left: 0%; padding-bottom: 15% " src="assets/imgs/GreenSun.jpg"/>\n\n          <h1 style="color: white; padding-block-start: 35%;">Bienvenido !</h1> -->\n\n\n\n        <ion-card style="padding-bottom: 2%; background-color: #f9faf9">\n\n          <img style="width: 95%; height: 95%; padding-left: 6%; padding-top: 3%; " src="assets/imgs/logo.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="padding-top: 3%;">\n\n              <h1 style="color: #276a2a;"> GreenSun </h1>\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802); padding-top: 3%;">\n\n              Bienvenido !!, esta app esta diseñada en versión beta para ustedes, los usuarios \n\n              con usos temporales...\n\n            </p>\n\n          </ion-card-content>\n\n          <ion-row>\n\n              <ion-col>\n\n                <button ion-button icon-start clear small style="color: rgb(33, 150, 57)">\n\n                  <ion-icon name="arrow-round-forward"></ion-icon>\n\n                  <div>Swipe</div>\n\n                </button>\n\n              </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n    \n\n      <ion-slide style="background-color: #276a2a">\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/farm.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(208, 109, 44);">\n\n              Organiza tu Finca!\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Manten tu finca organizada y controlada, sabiendo informaciones de tus empleados, parcelas, siembras y cosechas ...\n\n            </p>\n\n  \n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="RegistroEmpleado()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/task.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(44, 192, 208);">\n\n              Planifica tu Finca!\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Planifica y Controla las tareas que quieres llevar en tu finca, mediante nuestros \n\n              registros de Tareas a cada empleado...\n\n            </p>\n\n  \n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="TareasPage()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n\n\n\n\n      <ion-slide style="background-color: #276a2a">\n\n          <ion-card>\n\n            <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/wheat.png"/>\n\n            <ion-card-content>\n\n              <ion-card-title style="color: rgb(126, 36, 199);">\n\n                Manten un control de Inventario !\n\n                </ion-card-title>\n\n              <p style="color: rgba(87, 87, 87, 0.802)">\n\n                Registra todas tus Herramientas, maquinarias, productos y Frutos, en el inventario personal de tu finca...\n\n              </p>\n\n    \n\n            </ion-card-content>\n\n            <ion-row>\n\n              <ion-col>\n\n                <button ion-button icon-start clear small [disabled]="accion" (click)="Productos()" style="color: teal">\n\n                  <ion-icon name="open"></ion-icon>\n\n                  <div>Empezar</div>\n\n                </button>\n\n              </ion-col></ion-row>\n\n          </ion-card>\n\n        </ion-slide>\n\n\n\n    \n\n      <ion-slide style="background-color: #276a2a" >\n\n        <ion-card>\n\n          <img style="width: 95%; height: 95%; padding-left: 5%; padding-top: 2%;" src="assets/imgs/salary.png"/>\n\n          <ion-card-content>\n\n            <ion-card-title style="color: rgb(53, 32, 9);">\n\n              Registra tus Gastos !\n\n              </ion-card-title>\n\n            <p style="color: rgba(87, 87, 87, 0.802)">\n\n              Lleva registros de tus gastos, los salarios de los empleados o gastos comunes, \n\n              almacenando tu información de manera segura...\n\n            </p>\n\n          </ion-card-content>\n\n          <ion-row>\n\n            <ion-col>\n\n              <button ion-button icon-start clear small [disabled]="accion" (click)="Gastos()" style="color: teal">\n\n                <ion-icon name="open"></ion-icon>\n\n                <div>Empezar</div>\n\n              </button>\n\n            </ion-col></ion-row>\n\n        </ion-card>\n\n      </ion-slide>\n\n    \n\n    </ion-slides>\n\n   \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__src_app_app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -772,7 +771,7 @@ var ConsultarEmpleadosPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -937,7 +936,7 @@ var ConsultarParcelasPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1293,8 +1292,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CultivosPage = /** @class */ (function () {
-    function CultivosPage(CultivosServices, fb, navCtrl, navParams) {
+    function CultivosPage(alertCtrl, CultivosServices, fb, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
         this.CultivosServices = CultivosServices;
         this.fb = fb;
         this.navCtrl = navCtrl;
@@ -1303,9 +1304,26 @@ var CultivosPage = /** @class */ (function () {
     }
     CultivosPage.prototype.guardar = function () {
         var _this = this;
-        this.CultivosServices.add(this.form.value).subscribe(function (res) {
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__consultar_cultivos_consultar_cultivos__["a" /* ConsultarCultivosPage */]);
+        var alert = this.alertCtrl.create({
+            title: '¿Desea guardar este fruto?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Guardar',
+                    handler: function (data) {
+                        _this.CultivosServices.add(_this.form.value).subscribe(function (res) {
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__consultar_cultivos_consultar_cultivos__["a" /* ConsultarCultivosPage */]);
+                        });
+                    }
+                }
+            ]
         });
+        alert.present();
     };
     CultivosPage.prototype.OnGoBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
@@ -1319,9 +1337,10 @@ var CultivosPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-cultivos',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cultivos\cultivos.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar frutos\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="Consultar()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-textarea formControlName="descripcion"></ion-textarea>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\cultivos\cultivos.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__Service_Cultivos_Service__["a" /* CultivosServices */], __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__Service_Cultivos_Service__["a" /* CultivosServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Service_Cultivos_Service__["a" /* CultivosServices */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */]) === "function" && _e || Object])
     ], CultivosPage);
     return CultivosPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=cultivos.js.map
@@ -1329,85 +1348,6 @@ var CultivosPage = /** @class */ (function () {
 /***/ }),
 
 /***/ 156:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditFincaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__ = __webpack_require__(76);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-/**
- * Generated class for the EditFincaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var EditFincaPage = /** @class */ (function () {
-    function EditFincaPage(FincaServicio, viewCtrl, navCtrl, navParams, fb) {
-        this.FincaServicio = FincaServicio;
-        this.viewCtrl = viewCtrl;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.fb = fb;
-        this.Formulario();
-        this.nombre = this.navParams.data.nombre;
-        this.descripcion = this.navParams.data.descripcion;
-        this.idfinca = this.navParams.data.idfinca;
-        this.idpersona = this.navParams.data.idpersona;
-    }
-    EditFincaPage.prototype.Formulario = function () {
-        this.form = this.fb.group({
-            idfinca: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
-            nombre: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
-            descripcion: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
-        });
-    };
-    EditFincaPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
-    };
-    EditFincaPage.prototype.ionViewDidLoad = function () {
-    };
-    EditFincaPage.prototype.Modificar = function () {
-        var _this = this;
-        var data = { idfinca: this.idfinca, nombre: this.nombre, descripcion: this.descripcion, idpersona: this.idpersona };
-        this.FincaServicio.AddUpdate(data).subscribe(function (res) {
-            _this.viewCtrl.dismiss();
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
-        });
-        //this.limpiar();
-    };
-    EditFincaPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-finca',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/'<ion-header>\n\n<ion-navbar>\n\n  <ion-title>ModalPage</ion-title>\n\n  <ion-buttons end>\n\n    <button ion-button (click)="closeModal()">Close</button>\n\n  </ion-buttons>\n\n</ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="Modificar()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input [(ngModel)]="idfinca" formControlName="idfinca"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input [(ngModel)]="nombre" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input [(ngModel)]="descripcion"formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Modificar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__["a" /* FincaService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object])
-    ], EditFincaPage);
-    return EditFincaPage;
-    var _a, _b, _c, _d, _e;
-}());
-
-//# sourceMappingURL=edit-finca.js.map
-
-/***/ }),
-
-/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1510,7 +1450,7 @@ var HerramientasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 158:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1580,7 +1520,7 @@ var MaquinariaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1676,7 +1616,7 @@ var ParcelaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1788,7 +1728,7 @@ var SiembraPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 161:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1860,7 +1800,7 @@ var SuplidorPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 162:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1981,7 +1921,7 @@ var TareasEmpleadosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 173:
+/***/ 172:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1994,11 +1934,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 173;
+webpackEmptyAsyncContext.id = 172;
 
 /***/ }),
 
-/***/ 216:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -2130,7 +2070,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 216;
+webpackAsyncContext.id = 215;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -2229,27 +2169,27 @@ var UsuarioService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 274:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_empleados_empleados__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_cosecha_cosecha__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_gastos_gastos__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_herramientas_herramientas__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_maquinaria_maquinaria__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_parcela_parcela__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_herramientas_herramientas__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_maquinaria_maquinaria__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_parcela_parcela__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_productos_productos__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_siembra_siembra__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suplidor_suplidor__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_siembra_siembra__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_suplidor_suplidor__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_tareas_tareas__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cultivos_cultivos__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2354,22 +2294,22 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 278:
+/***/ 277:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2427,7 +2367,7 @@ var ConsultarTareasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 279:
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2485,7 +2425,7 @@ var ConsultarFincasPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 280:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2543,7 +2483,7 @@ var ConsultarGastosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 281:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2601,7 +2541,7 @@ var ConsultarMaquinariaPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 282:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2659,6 +2599,86 @@ var ConsultarSuplidorPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 282:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditFincaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__ = __webpack_require__(76);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the EditFincaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EditFincaPage = /** @class */ (function () {
+    function EditFincaPage(FincaServicio, viewCtrl, navCtrl, navParams, fb) {
+        this.FincaServicio = FincaServicio;
+        this.viewCtrl = viewCtrl;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.fb = fb;
+        this.Formulario();
+        this.nombre = this.navParams.data.nombre;
+        this.descripcion = this.navParams.data.descripcion;
+        this.idfinca = this.navParams.data.idfinca;
+        this.idpersona = this.navParams.data.idpersona;
+    }
+    EditFincaPage.prototype.Formulario = function () {
+        this.form = this.fb.group({
+            idfinca: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            nombre: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+            descripcion: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required],
+        });
+    };
+    EditFincaPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
+    };
+    EditFincaPage.prototype.ionViewDidLoad = function () {
+    };
+    EditFincaPage.prototype.Modificar = function () {
+        var _this = this;
+        var data = { idfinca: this.idfinca, nombre: this.nombre, descripcion: this.descripcion, idpersona: this.idpersona };
+        console.log(data);
+        this.FincaServicio.AddUpdate(data).subscribe(function (res) {
+            _this.viewCtrl.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__lista_fincas_lista_fincas__["a" /* ListaFincasPage */]);
+        });
+        //this.limpiar();
+    };
+    EditFincaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-finca',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/'<ion-header>\n\n<ion-navbar>\n\n  <ion-title>ModalPage</ion-title>\n\n  <ion-buttons end>\n\n    <button ion-button (click)="closeModal()">Close</button>\n\n  </ion-buttons>\n\n</ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="Modificar()" novalidate>\n\n      <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Id</ion-label>\n\n          <ion-input [(ngModel)]="idfinca" formControlName="idfinca"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input [(ngModel)]="nombre" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input [(ngModel)]="descripcion"formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Modificar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\edit-finca\edit-finca.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+    ], EditFincaPage);
+    return EditFincaPage;
+}());
+
+//# sourceMappingURL=edit-finca.js.map
+
+/***/ }),
+
 /***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2681,40 +2701,40 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Parcela_Service__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Service_Siembra_Services__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Service_Herramientas_Service__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_consultar_tareas_consultar_tareas__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_consultar_suplidor_consultar_suplidor__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_consultar_tareas_consultar_tareas__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_consultar_suplidor_consultar_suplidor__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_consultar_siembras_consultar_siembras__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_consultar_productos_consultar_productos__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_consultar_parcelas_consultar_parcelas__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_consultar_maquinaria_consultar_maquinaria__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_consultar_maquinaria_consultar_maquinaria__ = __webpack_require__(280);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_consultar_herramientas_consultar_herramientas__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_consultar_gastos_consultar_gastos__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_consultar_fincas_consultar_fincas__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_consultar_gastos_consultar_gastos__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_consultar_fincas_consultar_fincas__ = __webpack_require__(278);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_consultar_empleados_consultar_empleados__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_consultar_cultivos_consultar_cultivos__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_consultar_cosechas_consultar_cosechas__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_tareas_tareas_empleados_tareas_empleados__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__Service_Usuario_Service__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_Finca_Component_edit_finca_edit_finca__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_Finca_Component_edit_finca_edit_finca__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_empleados_empleados__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__app_component__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__app_component__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_home_home__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_list_list__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_status_bar__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_splash_screen__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_status_bar__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_splash_screen__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_Finca_Component_Add_fincas_fincas__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_cosecha_cosecha__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_gastos_gastos__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_Finca_Component_lista_fincas_lista_fincas__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_herramientas_herramientas__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_maquinaria_maquinaria__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_parcela_parcela__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_herramientas_herramientas__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_maquinaria_maquinaria__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_parcela_parcela__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_productos_productos__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_siembra_siembra__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_suplidor_suplidor__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_siembra_siembra__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_suplidor_suplidor__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_tareas_tareas__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_login_login__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__ionic_native_sqlite__ = __webpack_require__(440);
@@ -3065,10 +3085,9 @@ var FincaService = /** @class */ (function () {
     };
     FincaService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], FincaService);
     return FincaService;
-    var _a;
 }());
 
 //# sourceMappingURL=Finca-Service.js.map
@@ -3573,10 +3592,9 @@ var FincasPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\Add-fincas\fincas.html"*/'<ion-header Access-Control-Allow-Origin>\n\n  <ion-navbar>\n\n      <ion-title>Registrar finca</ion-title>\n\n   \n\n     <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="listafinca()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="addFinca()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Nombre</ion-label>\n\n          <ion-input name="nombreinput" id="nombreinput" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'nombre\').errors && form.get(\'nombre\').touched">\n\n          <p *ngIf="form.get(\'nombre\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n          <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input name="descripcioninput" id="descripcioninput" formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n\n\n      </ion-list>\n\n      <button ion-button block type="submit">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\Add-fincas\fincas.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__Service_Finca_Service__["a" /* FincaService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_8__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_6__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
     ], FincasPage);
     return FincasPage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=fincas.js.map
@@ -3589,13 +3607,13 @@ var FincasPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaFincasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Finca_Component_edit_finca_edit_finca__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Add_fincas_fincas__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Add_fincas_fincas__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_auth_service_auth_service__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Service_Usuario_Service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3621,8 +3639,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ListaFincasPage = /** @class */ (function () {
-    function ListaFincasPage(Usuarios, auth, modalCtrl, alertCtrl, FincaServicio, navCtrl, navParams) {
+    function ListaFincasPage(FincaService, Usuarios, auth, modalCtrl, alertCtrl, FincaServicio, navCtrl, navParams) {
         var _this = this;
+        this.FincaService = FincaService;
         this.Usuarios = Usuarios;
         this.auth = auth;
         this.modalCtrl = modalCtrl;
@@ -3635,53 +3654,101 @@ var ListaFincasPage = /** @class */ (function () {
         this.idpersona = '';
         this.notes = [];
         this.FincaArray = [];
+        this.searchTerm = '';
+        this.searching = false;
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_7__angular_forms__["b" /* FormControl */]();
         this.Usuarios.authu().subscribe(function (value) {
             _this.email = value[0].email;
             _this.idpersona = value[0].idpersona;
         });
-    }
-    ListaFincasPage_1 = ListaFincasPage;
-    ListaFincasPage.prototype.openModal = function (idfinca, nombre, descripcion, idpersona) {
-        var data = { idfinca: idfinca, nombre: nombre, descripcion: descripcion, idpersona: idpersona };
-        var modalPage = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_1__Finca_Component_edit_finca_edit_finca__["a" /* EditFincaPage */], data);
-        modalPage.present();
-    };
-    ListaFincasPage.prototype.getVecino = function (id) {
-    };
-    ListaFincasPage.prototype.buscarSolicitud = function () {
-        var _this = this;
-        this.FincaServicio.getFincas(this.idpersona).subscribe(function (res) {
-            _this.notes = res;
-        });
-    };
-    ListaFincasPage.prototype.deleteNote = function (id) {
-        var _this = this;
-        this.FincaServicio.getDelete(id).subscribe(function (res) {
-            _this.navCtrl.setRoot(ListaFincasPage_1);
-        });
-    };
-    ListaFincasPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
         this.Usuarios.authu().subscribe(function (value) {
             _this.FincaServicio.getFincas(value[0].idpersona).subscribe(function (res) {
                 _this.notes = res;
             });
         });
+    }
+    ListaFincasPage_1 = ListaFincasPage;
+    ListaFincasPage.prototype.openModal = function () {
+    };
+    ListaFincasPage.prototype.Modificar = function (data) {
+        var _this = this;
+        this.FincaService.AddUpdate(data).subscribe(function (res) {
+            _this.navCtrl.setRoot(ListaFincasPage_1);
+        });
+    };
+    ListaFincasPage.prototype.presentPrompt = function (idfinca, nombre, descripcion, idpersona) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea modificar esta finca!?',
+            inputs: [
+                {
+                    placeholder: 'Nombre',
+                    value: nombre
+                },
+                {
+                    placeholder: 'Descripcion',
+                    value: descripcion
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Modificar',
+                    handler: function (data) {
+                        var dat = { idfinca: idfinca, nombre: data[0], descripcion: data[1], idpersona: idpersona };
+                        console.log(dat);
+                        _this.Modificar(dat);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ListaFincasPage.prototype.Eliminar = function (id) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea eliminar esta finca!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function (data) {
+                        _this.FincaService.getDelete(id).subscribe(function (RES) {
+                            _this.FincaService.getFinca().subscribe(function (res) {
+                                _this.notes = res;
+                                _this.navCtrl.setRoot(ListaFincasPage_1);
+                            });
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
     };
     ListaFincasPage.prototype.OnGoBack = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
     };
     ListaFincasPage.prototype.addFinca = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__Add_fincas_fincas__["a" /* FincasPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__Add_fincas_fincas__["a" /* FincasPage */]);
     };
     ListaFincasPage = ListaFincasPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-lista-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Listado Fincas</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addFinca()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let grocery of notes">\n\n      <ion-item> {{grocery.nombre}}</ion-item>\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only (click)="openModal(grocery.idfinca ,grocery.nombre,grocery.descripcion, grocery.idpersona)" light>\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only danger (click)="deleteNote(grocery.id)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-lista-fincas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Listado Fincas</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addFinca()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let grocery of notes">\n\n      <ion-item> {{grocery.nombre}}</ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only (click)="presentPrompt(grocery.idfinca ,grocery.nombre,grocery.descripcion, grocery.idpersona)" light>\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only danger (click)="Eliminar(grocery.idfinca)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\Finca-Component\lista-fincas\lista-fincas.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavParams */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _h || Object])
     ], ListaFincasPage);
     return ListaFincasPage;
-    var ListaFincasPage_1, _a, _b, _c, _d, _e, _f, _g;
+    var ListaFincasPage_1, _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=lista-fincas.js.map

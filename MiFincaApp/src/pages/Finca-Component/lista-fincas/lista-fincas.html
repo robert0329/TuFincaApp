@@ -15,15 +15,19 @@
 
 </ion-header>
 <ion-content>
+    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+
   <ion-list>
     <ion-item-sliding *ngFor="let grocery of notes">
       <ion-item> {{grocery.nombre}}</ion-item>
-
       <ion-item-options>
-        <button ion-button icon-only (click)="openModal(grocery.idfinca ,grocery.nombre,grocery.descripcion, grocery.idpersona)" light>
+        <button ion-button icon-only (click)="presentPrompt(grocery.idfinca ,grocery.nombre,grocery.descripcion, grocery.idpersona)" light>
           <ion-icon name="paper"></ion-icon>
         </button>
-        <button ion-button icon-only danger (click)="deleteNote(grocery.id)">
+        <button ion-button icon-only danger (click)="Eliminar(grocery.idfinca)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
