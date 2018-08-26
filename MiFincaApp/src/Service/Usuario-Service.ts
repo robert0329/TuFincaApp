@@ -43,20 +43,9 @@ export class UsuarioService {
     const url = `${this.Urlgetpassword}/${persona.email}`;
     return this.http.get<Usuarios>(url).pipe();
   }
-  addEmpleado(persona: Usuarios, identity): Promise<any> {
-    var identit = (identity + 1);
-    let data = {idpersona: identit, email: persona.email, password: persona.contraseña, nombre:persona.nombre, apellido:persona.apellido, direccion:persona.direccion, ciudad: persona.ciudad, cedula:persona.cedula, telefono:persona.telefono,tipo:persona.tipo}
-    
-    return new Promise((resolve, reject) => {
-      this.http.post<Usuarios>(this.Url, data,httpOptions)
-      .subscribe(res => {
-        resolve(res);
-       
-      }, (err) => {
-      
-        reject(err);
-      });
-    })
+  addEmpleado(tarea: Usuarios): Observable<any> {
+    return this.http.post<Usuarios>(this.Url, tarea, httpOptions).pipe();
+  
   }
   
   

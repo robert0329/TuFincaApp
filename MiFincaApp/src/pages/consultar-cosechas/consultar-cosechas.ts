@@ -21,11 +21,11 @@ export class ConsultarCosechasPage {
   searching: any = false;
   searchControl: FormControl;
   items: Array<any> = [];
-  constructor(private alertCtrl: AlertController,public modalCtrl: ModalController, public CosechasService: CosechaService, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController,public modalCtrl: ModalController, public CosechaService: CosechaService, public navCtrl: NavController, public navParams: NavParams) {
     this.searchControl = new FormControl();
   }
   ionViewDidLoad() {
-    this.CosechasService.get().subscribe(res => {
+    this.CosechaService.get().subscribe(res => {
       res.forEach(element => {
         console.log(element)
         this.Lista.push(element);
@@ -38,15 +38,15 @@ export class ConsultarCosechasPage {
   }
 
   delete(id) {
-    this.CosechasService.Delete(id).subscribe(RES => {
-      this.CosechasService.get().subscribe(res => {
+    this.CosechaService.Delete(id).subscribe(RES => {
+      this.CosechaService.get().subscribe(res => {
         this.Lista = res;
       });
     })
   }
 
   Modificar(data) {
-    this.CosechasService.Update(data).subscribe(res => {
+    this.CosechaService.Update(data).subscribe(res => {
       this.navCtrl.setRoot(CosechaService);
     });
   }
@@ -101,8 +101,8 @@ export class ConsultarCosechasPage {
         {
           text: 'Eliminar',
           handler: data => {
-            this.CosechasService.Delete(idCosecha).subscribe(RES => {
-              this.CosechasService.get().subscribe(res => {
+            this.CosechaService.Delete(idCosecha).subscribe(RES => {
+              this.CosechaService.get().subscribe(res => {
                 this.Lista = res;
               });
             })

@@ -1,7 +1,10 @@
+import { ConsultarEmpleadosPage } from './../consultar-empleados/consultar-empleados';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Usuarios } from '../../app/Clases/Usuarios';
+import { UsuarioService } from '../../Service/Usuario-Service';
 /**
  * Generated class for the EmpleadosPage page.
  *
@@ -18,7 +21,7 @@ export class EmpleadosPage {
   ciudad: Array<any> = [];
   tipo: Array<any> = [];
   form: FormGroup;q
-  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public UsuarioService:UsuarioService ,private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
     this.crearFormulario();
     this.ciudad = [
       {title: 'Santiago de los caballeros'},
@@ -52,11 +55,20 @@ export class EmpleadosPage {
   }
  
   guardar() {
-    
+    let data = {email: this.form.value.email, contraseña: this.form.value.contraseña, nombre: this.form.value.nombre
+      , apellido: this.form.value.apellido, direccion: this.form.value.direccion, 
+      ciudad: this.form.value.ciudad, cedula: this.form.value.cedula, telefono: this.form.value.telefono, tipo:this.form.value.tipo}
+
+      this.UsuarioService.addEmpleado(data).subscribe(value =>{
+        this.navCtrl.setRoot(ConsultarEmpleadosPage);
+    })
   }
   OnGoBack(){
     this.navCtrl.setRoot(HomePage);
     //this.navCtrl.popToRoot();
+  }
+  Consulta(){
+    this.navCtrl.setRoot(ConsultarEmpleadosPage);
   }
   ionViewDidLoad() {
     

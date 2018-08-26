@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Consultar los frutos</ion-title>
+    <ion-title>Consultar empleados</ion-title>
     <ion-buttons>
         <button ion-button icon-only (click)="OnGoBack()">
           <ion-icon name="md-arrow-back"></ion-icon>
@@ -18,22 +18,22 @@
       <ion-spinner></ion-spinner>
     </div>
   <ion-list>
-    <ion-item-sliding  *ngFor="let grocery of Array">
-      <!-- <ion-item> {{grocery.descripcion}}</ion-item>
-      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->
-
-      <ion-item-options>
-        <button ion-button icon-only light (click)="openModal()">
-          <ion-icon name="paper"></ion-icon>
-          <ion-icon name="md-done-all"></ion-icon>
-        </button>
-        <button ion-button icon-only light (click)="openModal()">
-          <ion-icon name="delete"></ion-icon>
-          <ion-icon name="md-done-all"></ion-icon>
-        </button>
-      </ion-item-options>
-
-    </ion-item-sliding>
+      <ion-item-sliding *ngFor="let Lista of Array">
+          <ion-item>
+              <img style="width: 15%; height: 15%; display: inline;" src="assets/imgs/login.png">
+            <h2 style="font-weight: bold; display: inline;">{{Lista.nombre}} {{Lista.apellido}}</h2>
+            <p style="margin-left: 17%;">{{Lista.tipo}} {{Lista.email}}</p>
+          </ion-item>
+          <ion-item-options>
+            <button ion-button icon-only light (click)="presentPrompt(Lista.idpersona,Lista.nombre,Lista.apellido, Lista.direccion, Lista.cedula, Lista.telefono, Lista.email, Lista.password, Lista.ciudad, Lista.tipo)">
+              <ion-icon name="paper"></ion-icon>
+            </button>
+            <button ion-button icon-only light (click)="Eliminar(Lista.idsiembra)">
+              <ion-icon name="md-close"></ion-icon>
+            </button>
+          </ion-item-options>
+    
+        </ion-item-sliding>
 
   </ion-list>
   

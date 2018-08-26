@@ -6,7 +6,7 @@ import { UsuarioService } from '../../Service/Usuario-Service';
 
 export class User {
   idpostlogin: string;
-  password: string;
+  contraseña: string;
   name: string;
   email: string;
   idpersona: string;
@@ -25,13 +25,13 @@ export class Postloginn {
   nombre: string;
   tipo: string;
   email:string;
-  password:string;
+  contraseña:string;
 
-  constructor(idpostlogin: string, nombre: string, tipo: string, email:string, password:string) {
+  constructor(idpostlogin: string, nombre: string, tipo: string, email:string, contraseña:string) {
     this.idpostlogin = idpostlogin;
     this.nombre = nombre;
     this.tipo = tipo;
-    this.password = password;
+    this.contraseña = contraseña;
     this.email = email;
   }
 }
@@ -47,7 +47,7 @@ export class AuthService {
 
 public asig(value){
   
-  this.currentUserr = new Postloginn("1",value[0].nombre, value[0].tipo, value[0].email, value[0].password);
+  this.currentUserr = new Postloginn("1",value[0].nombre, value[0].tipo, value[0].email, value[0].contraseña);
  
   this.Usuarios.addPostLogin(this.currentUserr).subscribe(result =>{
   })

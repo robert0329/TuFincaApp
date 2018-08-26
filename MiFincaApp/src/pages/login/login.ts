@@ -17,7 +17,7 @@ export class LoginPage {
   form: FormGroup;
   constructor(private Usuario: UsuarioService, private toastCtrl: ToastController, private nav: NavController, private auth: AuthService, private loadingCtrl: LoadingController) {
     if (localStorage.getItem("token")) {nav.setRoot(HomePage);}
-    this.form = new FormGroup({email: new FormControl(), password: new FormControl(),});
+    this.form = new FormGroup({email: new FormControl(), contraseña: new FormControl(),});
   }
   public createAccount() {
     // this.nav.push('RegisterPage');
@@ -29,7 +29,7 @@ export class LoginPage {
         this.presentToast("error");
         this.loading.dismiss();
       } else {
-        if (result[0].password == this.form.value.password) {
+        if (result[0].contraseña == this.form.value.contraseña) {
           this.auth.asig(result);
           localStorage.setItem('token', result[0].email);
           var myTimer = setInterval(() => {
@@ -50,7 +50,7 @@ export class LoginPage {
   }
   showLoader() {
     this.loading = this.loadingCtrl.create({
-      content: 'Authenticating...',
+      content: 'Verificando datos...',
       duration: 10000
     });
 

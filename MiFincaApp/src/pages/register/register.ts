@@ -19,7 +19,7 @@ export class RegisterPage {
     this.form = new FormGroup({
       idpersona: new FormControl(),
       email: new FormControl(),
-      password: new FormControl(),
+      contraseña: new FormControl(),
       nombre: new FormControl(),
       apellido: new FormControl(),
       direccion: new FormControl(),
