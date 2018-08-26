@@ -13,7 +13,7 @@ export class CosechaService {
   get(): Observable<Cosecha[]> {
     return this.http.get<Cosecha[]>(this.Url).pipe();
   }
-  getId(idpersona: string): Observable<Cosecha[]> { const url = `${this.Url}/${idpersona}`;
+  getId(idcosecha: string): Observable<Cosecha[]> { const url = `${this.Url}/${idcosecha}`;
     return this.http.get<Cosecha[]>(url).pipe();
   }
   add(any: Cosecha): Observable<Cosecha> {

@@ -1,7 +1,11 @@
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { GastoService } from '../../Service/Gastos-Service';
+import { FincaService } from '../../Service/Finca-Service';
+import { UsuarioService } from '../../Service/Usuario-Service';
+import { Gasto } from '../../app/Clases/gasto';
 /**
  * Generated class for the GastosPage page.
  *
@@ -16,40 +20,59 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class GastosPage {
 
-  form: FormGroup;q
-  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams) {
+  form: FormGroup;
+  items: Array<any> = [];
+  gasto: GastosPage;
+  constructor(public gastos: Gasto, private alertCtrl: AlertController, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams, public GastosService: GastoService, public FincaService: FincaService, public UsuarioService: UsuarioService) {
     this.crearFormulario();
-    
-    
+    this.FincaService.getFinca().subscribe(result => {
+      result.forEach(element => {
+        this.items.push(element)
+      });
+
+    })
+
   }
-  
+
   crearFormulario() {
     this.form = this.fb.group({
-      descripcion: ['',Validators.required],
-      apellido: ['', Validators.required],
-      direccion: ['', Validators.required],
-      ciudad: ['', Validators.required],
-      sector: ['', Validators.required],
-      cedula: ['', Validators.required],
-      telefono: ['', Validators.required],
-      celular: ['', Validators.required],
-      cargo: ['', Validators.required],
-      salario: ['', Validators.required],
-      email: ['', Validators.required],
-      contraseña: ['', Validators.required],
+      fecha: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      Finca: ['', Validators.required],
+      Beneficiario: ['', Validators.required],
+      TipoGasto: ['', Validators.required],
     });
   }
- 
   guardarGastos() {
-    
+    let alert = this.alertCtrl.create({
+      title: '¿Desea guardar este registro!?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Guardar',
+          handler: data => {
+            let cosecha = { descripcion: this.form.value.descripcion, tipoGastoId: this.form.value.tipoGastoId, fincaId: this.form.value.fincaId, usuarioId: this.form.value.usuarioId };
+            this.GastosService.add(this.gastos).subscribe(result => {
+              this.navCtrl.setRoot(GastoService);
+            })
+          }
+        }
+      ]
+    });
+    alert.present();
   }
-  OnGoBack(){
+  OnGoBack() {
     this.navCtrl.setRoot(HomePage);
     //this.navCtrl.popToRoot();
   }
 
   ionViewDidLoad() {
-  
+
   }
 
 }
