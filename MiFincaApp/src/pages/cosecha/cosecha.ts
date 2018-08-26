@@ -1,3 +1,4 @@
+import { SiembraServices } from './../../Service/Siembra-Services';
 import { ConsultarCosechasPage } from './../consultar-cosechas/consultar-cosechas';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -5,6 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CultivosServices } from '../../Service/Cultivos-Service';
 import { CosechaService } from '../../Service/Cosecha-Service';
+import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the CosechaPage page.
  *
@@ -21,16 +23,14 @@ export class CosechaPage {
   form: FormGroup;
   items: Array<any> = [];
   cosecha: CosechaPage
-  constructor(private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams, public CosechaService: CosechaService) {
+  constructor(public SiembraServices:SiembraServices, private alertCtrl: AlertController,private fb: FormBuilder,public navCtrl: NavController, public navParams: NavParams, public CosechaService: CosechaService) {
     this.crearFormulario();
-    this.items = [
-      {title: 'one'},
-      {title: 'two'},
-      {title: 'three'},
-      {title: 'four'},
-      {title: 'five'},
-      {title: 'six'}
-  ]
+    this.SiembraServices.get().subscribe(result =>{
+      result.forEach(element => {
+        this.items.push(element) 
+      });
+      
+    })
   }
 
   crearFormulario() {
@@ -43,9 +43,27 @@ export class CosechaPage {
   }
 
   guardarCosecha() {
-    this.CosechaService.add(this.form.value).subscribe(res => {
-      this.navCtrl.setRoot(ConsultarCosechasPage);
-     });
+    let alert = this.alertCtrl.create({
+      title: '¿Desea guardar este registro!?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Guardar',
+          handler: data => {
+            let cosecha = { descripcion: this.form.value.descripcion, fecha: this.form.value.fecha, cantidad: this.form.value.cantidad, idsiembra: this.form.value.siembra };
+            this.CosechaService.add(cosecha).subscribe(result => {
+              this.navCtrl.setRoot(ConsultarCosechasPage);
+            })
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   OnGoBack(){

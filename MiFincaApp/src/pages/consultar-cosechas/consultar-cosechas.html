@@ -14,16 +14,14 @@
       <ion-spinner></ion-spinner>
     </div>
   <ion-list>
-    <ion-item-sliding  *ngFor="let grocery of items">
-      <ion-item> {{grocery.title}}</ion-item>
+    <ion-item-sliding  *ngFor="let grocery of Lista">
+      <ion-item> {{grocery.Descripcion}}</ion-item>
       <ion-item-options>
-        <button ion-button icon-only light (click)="openModal()">
+        <button ion-button icon-only light (click)="presentPrompt(grocery.idCosecha, grocery.Descripcion, grocery.Fecha, grocery.Cantidad, grocery.idsiembra)">
           <ion-icon name="paper"></ion-icon>
-          <ion-icon name="md-done-all"></ion-icon>
         </button>
         <button ion-button icon-only light (click)="openModal()">
           <ion-icon name="delete"></ion-icon>
-          <ion-icon name="md-done-all"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>

@@ -47,9 +47,9 @@
 
         <ion-item>
           <ion-label>Siembra</ion-label>
-          <ion-select multiple="true" cancelText="cancel" okText="ok">
-            <ion-option #item *ngFor="let sitio of items ; let i = index" selected="false" 
-            >{{sitio.title}} </ion-option>
+          <ion-select multiple="false" formControlName="siembra" cancelText="cancel" okText="ok">
+            <ion-option #item *ngFor="let sitio of items ; let i = index" [value]="sitio.idsiembra" selected="false" 
+            >{{sitio.descripcion}} </ion-option>
           </ion-select>
         </ion-item>
         <ion-item *ngIf="form.get('siembra').errors && form.get('siembra').touched">

@@ -26,7 +26,11 @@ export class ConsultarCosechasPage {
   }
   ionViewDidLoad() {
     this.CosechasService.get().subscribe(res => {
-      this.Lista = res;
+      res.forEach(element => {
+        console.log(element)
+        this.Lista.push(element);
+      });
+      
     });
   }
   public openModal() {
@@ -46,7 +50,7 @@ export class ConsultarCosechasPage {
       this.navCtrl.setRoot(CosechaService);
     });
   }
-  presentPrompt(idCosecha, descripcion, fecha, cantidad) {
+  presentPrompt(idCosecha, descripcion, fecha, cantidad, idsiembra) {
     let alert = this.alertCtrl.create({
       title: '¿Desea modificar este fruto!?',
       inputs: [
@@ -73,7 +77,9 @@ export class ConsultarCosechasPage {
         {
           text: 'Modificar',
           handler: data => {
-            let dat = {idfrutos:idCosecha, descripcion: data[0]}
+            console.log(data)
+            let dat = {idCosecha:idCosecha, Descripcion: data[0], idsiembra: idsiembra, Fecha: data[1], Cantidad: data[2]}
+            console.log(dat);
             this.Modificar(dat);
           }
         }
