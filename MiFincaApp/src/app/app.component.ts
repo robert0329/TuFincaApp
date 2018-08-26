@@ -1,20 +1,6 @@
 import { FincasPage } from './../pages/Finca-Component/Add-fincas/fincas';
-import { ConsultarTareasPage } from './../pages/consultar-tareas/consultar-tareas';
-import { ConsultarSuplidorPage } from './../pages/consultar-suplidor/consultar-suplidor';
-import { ConsultarSiembrasPage } from './../pages/consultar-siembras/consultar-siembras';
-import { ConsultarProductosPage } from './../pages/consultar-productos/consultar-productos';
-import { ConsultarParcelasPage } from './../pages/consultar-parcelas/consultar-parcelas';
-import { ConsultarMaquinariaPage } from './../pages/consultar-maquinaria/consultar-maquinaria';
-import { ConsultarHerramientasPage } from './../pages/consultar-herramientas/consultar-herramientas';
-import { ConsultarGastosPage } from './../pages/consultar-gastos/consultar-gastos';
-import { ConsultarFincasPage } from './../pages/consultar-fincas/consultar-fincas';
-import { ConsultarEmpleadosPage } from './../pages/consultar-empleados/consultar-empleados';
-import { ConsultarCultivosPage } from './../pages/consultar-cultivos/consultar-cultivos';
-import { ConsultarCosechasPage } from './../pages/consultar-cosechas/consultar-cosechas';
+
 import { TareasEmpleadosPage } from './../pages/tareas/tareas-empleados/tareas-empleados';
-
-import { ListaFincasPage } from './../pages/Finca-Component/lista-fincas/lista-fincas';
-
 import { EmpleadosPage } from './../pages/empleados/empleados';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -52,16 +38,15 @@ export class MyApp {
       { title: 'Registro Finca', component: FincasPage },
       { title: 'Registro Frutos', component: CultivosPage },
       { title: 'Registro Cosecha', component: CosechaPage },
-      { title: 'Registro Gastos', component: GastosPage },
 
       { title: 'Registro Herramientas', component: HerramientasPage },
-      { title: 'Registro Maquinaria', component: MaquinariaPage },
+      // { title: 'Registro Maquinaria', component: MaquinariaPage },
       { title: 'Registro Parcela', component: ParcelaPage },
       { title: 'Registro Productos', component: ProductosPage },
 
       { title: 'Registro Siembra', component: SiembraPage },
       { title: 'Registro Tareas', component: TareasPage },
-      { title: 'Registro Suplidor', component: SuplidorPage },
+      // { title: 'Registro Suplidor', component: SuplidorPage },
       { title: 'Registro Empleados', component: EmpleadosPage },
 
       // { title: 'Consultar Cosechas', component: ConsultarCosechasPage },
