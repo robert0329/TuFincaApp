@@ -51,6 +51,8 @@ import { CultivosPage } from '../pages/cultivos/cultivos';
 import { CultivosServices } from '../Service/Cultivos-Service';
 import { InventarioServices } from '../Service/Inventario-Services';
 import { ProductosServices } from '../Service/Productos-Service';
+import { CosechaService } from '../Service/Cosecha-Service';
+
 
 @NgModule({
   declarations: [
@@ -141,6 +143,7 @@ import { ProductosServices } from '../Service/Productos-Service';
     ProductosServices,
     SiembraServices,
     ParcelasServices,
+    CosechaService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     SQLite
