@@ -788,6 +788,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ConsultarHerramientasPage page.
  *
@@ -795,7 +796,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ConsultarHerramientasPage = /** @class */ (function () {
-    function ConsultarHerramientasPage(HerramientasServices, navCtrl, navParams) {
+    function ConsultarHerramientasPage(alertCtrl, HerramientasServices, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
         this.HerramientasServices = HerramientasServices;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -806,6 +808,7 @@ var ConsultarHerramientasPage = /** @class */ (function () {
         this.searching = false;
         this.searchControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */]();
     }
+    ConsultarHerramientasPage_1 = ConsultarHerramientasPage;
     ConsultarHerramientasPage.prototype.Filtro = function () {
         var _this = this;
         this.HerramientasServices.get().subscribe(function (value) {
@@ -820,6 +823,7 @@ var ConsultarHerramientasPage = /** @class */ (function () {
                 _this.HerramientasServices.getherra(_this.Array[index].herramientas).subscribe(function (value2) {
                     for (var index_1 = 0; index_1 < value2.length; index_1++) {
                         _this.Lista.push(value2[index_1]);
+                        console.log(_this.Lista);
                     }
                 });
             }
@@ -844,6 +848,71 @@ var ConsultarHerramientasPage = /** @class */ (function () {
             this.Filtro();
         }
     };
+    ConsultarHerramientasPage.prototype.Modificar = function (data) {
+        var _this = this;
+        this.HerramientasServices.Update(data).subscribe(function (res) {
+            _this.navCtrl.setRoot(ConsultarHerramientasPage_1);
+        });
+    };
+    ConsultarHerramientasPage.prototype.presentPrompt = function (idherramientas, herramientas, cantidad, suplidor) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea modificar esta herramienta!?',
+            inputs: [
+                {
+                    placeholder: 'Herramienta',
+                    value: herramientas,
+                    disabled: true
+                },
+                {
+                    placeholder: 'Cantidad',
+                    value: cantidad
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Modificar',
+                    handler: function (data) {
+                        var dat = { idherramientas: idherramientas, herramientas: data[0], cantidad: data[1], suplidor: suplidor };
+                        console.log(dat);
+                        _this.Modificar(dat);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ConsultarHerramientasPage.prototype.Eliminar = function (idfrutos) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea eliminar esta herramienta!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function (data) {
+                        _this.HerramientasServices.Delete(idfrutos).subscribe(function (RES) {
+                            _this.HerramientasServices.get().subscribe(function (res) {
+                                _this.Lista = res;
+                            });
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
     ConsultarHerramientasPage.prototype.onSearchInput = function () {
         this.searching = true;
     };
@@ -855,13 +924,14 @@ var ConsultarHerramientasPage = /** @class */ (function () {
         });
         this.Filtro();
     };
-    ConsultarHerramientasPage = __decorate([
+    ConsultarHerramientasPage = ConsultarHerramientasPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-consultar-herramientas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-herramientas\consultar-herramientas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Consultar Herramientas</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n    <ion-item-sliding  *ngFor="let grocery of Lista">\n\n      <ion-item> {{grocery.herramientas}} Existencia: {{grocery.cantidad}}</ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-herramientas\consultar-herramientas.html"*/,
+            selector: 'page-consultar-herramientas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-herramientas\consultar-herramientas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Consultar Herramientas</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n    <ion-item-sliding  *ngFor="let grocery of Lista">\n\n      <ion-item> {{grocery.herramientas}} Existencia: {{grocery.cantidad}}</ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="presentPrompt(grocery.idherramientas, grocery.herramientas, grocery.cantidad, grocery.suplidor)">\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="Eliminar(grocery.idherramientas)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-herramientas\consultar-herramientas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Herramientas_Service__["a" /* HerramientasServices */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Herramientas_Service__["a" /* HerramientasServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Herramientas_Service__["a" /* HerramientasServices */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _d || Object])
     ], ConsultarHerramientasPage);
     return ConsultarHerramientasPage;
+    var ConsultarHerramientasPage_1, _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=consultar-herramientas.js.map
@@ -873,10 +943,11 @@ var ConsultarHerramientasPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConsultarParcelasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Parcela_Service__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -890,6 +961,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the ConsultarParcelasPage page.
  *
@@ -897,29 +970,96 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ConsultarParcelasPage = /** @class */ (function () {
-    function ConsultarParcelasPage(navCtrl, navParams) {
+    function ConsultarParcelasPage(alertCtrl, ParcelasServices, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
+        this.ParcelasServices = ParcelasServices;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.array = [];
+        this.Lista = [];
         this.searchTerm = '';
-        this.items = [];
         this.searching = false;
-        this.searchControl = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]();
+        this.searchControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */]();
     }
+    ConsultarParcelasPage_1 = ConsultarParcelasPage;
     ConsultarParcelasPage.prototype.openModal = function () {
     };
     ConsultarParcelasPage.prototype.OnGoBack = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__home_home__["a" /* HomePage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
     };
     ConsultarParcelasPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.ParcelasServices.get().subscribe(function (res) {
+            _this.Lista = res;
+        });
     };
-    ConsultarParcelasPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-consultar-parcelas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-parcelas\consultar-parcelas.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar los frutos</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n    <ion-item-sliding  *ngFor="let grocery of array">\n\n      <!-- <ion-item> {{grocery.descripcion}}</ion-item>\n\n      <ion-item> {{grocery.descripcion}} {{grocery.fecha}}</ion-item> -->\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="paper"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="openModal()">\n\n          <ion-icon name="delete"></ion-icon>\n\n          <ion-icon name="md-done-all"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-parcelas\consultar-parcelas.html"*/,
+    ConsultarParcelasPage.prototype.Modificar = function (data) {
+        var _this = this;
+        this.ParcelasServices.Update(data).subscribe(function (res) {
+            _this.navCtrl.setRoot(ConsultarParcelasPage_1);
+        });
+    };
+    ConsultarParcelasPage.prototype.presentPrompt = function (idparcela, descripcion, idfinca) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea modificar esta parcela!?',
+            inputs: [
+                {
+                    placeholder: 'Descripcion',
+                    value: descripcion
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Modificar',
+                    handler: function (data) {
+                        var dat = { idparcelas: idparcela, descripcion: data[0], idfinca: idfinca };
+                        console.log(dat);
+                        _this.Modificar(dat);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ConsultarParcelasPage.prototype.Eliminar = function (idparcela) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea eliminar esta parcela!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function (data) {
+                        _this.ParcelasServices.Delete(idparcela).subscribe(function (RES) {
+                            _this.ParcelasServices.get().subscribe(function (res) {
+                                _this.Lista = res;
+                            });
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ConsultarParcelasPage = ConsultarParcelasPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-consultar-parcelas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-parcelas\consultar-parcelas.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar los frutos</ion-title>\n\n    <ion-buttons>\n\n        <button ion-button icon-only (click)="OnGoBack()">\n\n          <ion-icon name="md-arrow-back"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n    <div *ngIf="searching" class="spinner-container">\n\n      <ion-spinner></ion-spinner>\n\n    </div>\n\n  <ion-list>\n\n    <ion-item-sliding  *ngFor="let grocery of Lista">\n\n      <ion-item> {{grocery.descripcion}}</ion-item>\n\n\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="presentPrompt(grocery.idParcelas, grocery.descripcion, grocery.idfinca)">\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="Eliminar(grocery.idParcelas)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n  \n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-parcelas\consultar-parcelas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Parcela_Service__["a" /* ParcelasServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Parcela_Service__["a" /* ParcelasServices */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _d || Object])
     ], ConsultarParcelasPage);
     return ConsultarParcelasPage;
+    var ConsultarParcelasPage_1, _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=consultar-parcelas.js.map
@@ -1062,20 +1202,11 @@ var ConsultarSiembrasPage = /** @class */ (function () {
         this.navParams = navParams;
         this.Lista = [];
         this.searchTerm = '';
-        this.items = [];
         this.searching = false;
         this.searchControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormControl */]();
     }
     ConsultarSiembrasPage_1 = ConsultarSiembrasPage;
     ConsultarSiembrasPage.prototype.openModal = function (idfrutos, descripcion) {
-    };
-    ConsultarSiembrasPage.prototype.delete = function (id) {
-        var _this = this;
-        this.SiembraServices.Delete(id).subscribe(function (RES) {
-            _this.SiembraServices.get().subscribe(function (res) {
-                _this.Lista = res;
-            });
-        });
     };
     ConsultarSiembrasPage.prototype.OnGoBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
@@ -1084,7 +1215,6 @@ var ConsultarSiembrasPage = /** @class */ (function () {
         var _this = this;
         this.SiembraServices.get().subscribe(function (res) {
             _this.Lista = res;
-            console.log(_this.Lista);
         });
     };
     ConsultarSiembrasPage.prototype.Modificar = function (data) {
@@ -1149,12 +1279,12 @@ var ConsultarSiembrasPage = /** @class */ (function () {
     };
     ConsultarSiembrasPage = ConsultarSiembrasPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-consultar-siembras',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar siembras</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n  <div *ngIf="searching" class="spinner-container">\n\n    <ion-spinner></ion-spinner>\n\n  </div>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let Lista of Lista">\n\n      <ion-item>\n\n        <h2 style="font-weight: bold; display: inline;">{{Lista.descripcion}}</h2>\n\n        <p style="margin-left: 17%;">{{Lista.fecha}}</p>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="presentPrompt(Lista.idsiembra,Lista.idparcela, Lista.idfrutos, Lista.fecha, Lista.descripcion)">\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="Eliminar(Lista.idsiembra)">\n\n          <ion-icon name="md-close"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/,
+            selector: 'page-consultar-siembras',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Consultar siembras</ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="openModal()"></ion-searchbar>\n\n  <div *ngIf="searching" class="spinner-container">\n\n    <ion-spinner></ion-spinner>\n\n  </div>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let Lista of Lista">\n\n      <ion-item>\n\n        <h2 style="font-weight: bold; display: inline;">{{Lista.descripcion}}</h2>\n\n        <p style="margin-left: 17%;">{{Lista.fecha}}</p>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button icon-only light (click)="presentPrompt(Lista.idsiembra,Lista.idparcela, Lista.idfrutos, Lista.fecha, Lista.descripcion)">\n\n          <ion-icon name="paper"></ion-icon>\n\n        </button>\n\n        <button ion-button icon-only light (click)="Eliminar(Lista.idsiembra)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n\n\n  </ion-list>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\consultar-siembras\consultar-siembras.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */], __WEBPACK_IMPORTED_MODULE_0__Service_Siembra_Services__["a" /* SiembraServices */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Siembra_Services__["a" /* SiembraServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Siembra_Services__["a" /* SiembraServices */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]) === "function" && _e || Object])
     ], ConsultarSiembrasPage);
     return ConsultarSiembrasPage;
-    var ConsultarSiembrasPage_1;
+    var ConsultarSiembrasPage_1, _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=consultar-siembras.js.map
@@ -1352,10 +1482,10 @@ var CultivosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HerramientasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Service_Herramientas_Service__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Service_Herramientas_Service__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__consultar_herramientas_consultar_herramientas__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Service_Inventario_Services__ = __webpack_require__(122);
@@ -1375,6 +1505,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the HerramientasPage page.
  *
@@ -1382,7 +1513,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var HerramientasPage = /** @class */ (function () {
-    function HerramientasPage(InventarioServices, HerramientasServices, fb, navCtrl, navParams) {
+    function HerramientasPage(alertCtrl, InventarioServices, HerramientasServices, fb, navCtrl, navParams) {
+        this.alertCtrl = alertCtrl;
         this.InventarioServices = InventarioServices;
         this.HerramientasServices = HerramientasServices;
         this.fb = fb;
@@ -1421,16 +1553,33 @@ var HerramientasPage = /** @class */ (function () {
     };
     HerramientasPage.prototype.guardar = function () {
         var _this = this;
-        this.HerramientasServices.add(this.form.value).subscribe(function (value) {
-            _this.HerramientasServices.Identity().subscribe(function (value) {
-                _this.HerramientasServices.getId(value[0].idherramientas).subscribe(function (valor) {
-                    _this.Agregar(valor[0].idherramientas);
-                });
-            });
+        var alert = this.alertCtrl.create({
+            title: '¿Desea guardar este registro!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Guardar',
+                    handler: function (data) {
+                        _this.HerramientasServices.add(_this.form.value).subscribe(function (value) {
+                            _this.HerramientasServices.Identity().subscribe(function (value) {
+                                _this.HerramientasServices.getId(value[0].idherramientas).subscribe(function (valor) {
+                                    _this.Agregar(valor[0].idherramientas);
+                                });
+                            });
+                        });
+                    }
+                }
+            ]
         });
+        alert.present();
     };
     HerramientasPage.prototype.OnGoBack = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
     };
     HerramientasPage.prototype.Consultar = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__consultar_herramientas_consultar_herramientas__["a" /* ConsultarHerramientasPage */]);
@@ -1438,12 +1587,13 @@ var HerramientasPage = /** @class */ (function () {
     HerramientasPage.prototype.ionViewDidLoad = function () {
     };
     HerramientasPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-herramientas',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\herramientas\herramientas.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Herramientas\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>  \n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="Consultar()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label>Herramientas</ion-label>\n\n          <ion-select formControlName="herramientas" multiple="false" cancelText="cancel" okText="ok">\n\n            <ion-option  #item *ngFor="let data of h; let i = index" selected="false" \n\n            >{{data.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'herramientas\').errors && form.get(\'herramientas\').touched">\n\n          <p *ngIf="form.get(\'herramientas\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Cantidad</ion-label>\n\n          <ion-input formControlName="cantidad"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'cantidad\').errors && form.get(\'cantidad\').touched">\n\n          <p *ngIf="form.get(\'cantidad\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        \n\n        <ion-item>\n\n          <ion-label>Suplidor</ion-label>\n\n          <ion-select formControlName="suplidor" multiple="false" cancelText="cancel" okText="ok">\n\n            <ion-option  #item *ngFor="let data of s; let i = index" selected="false" \n\n            >{{data.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'suplidor\').errors && form.get(\'suplidor\').touched">\n\n          <p *ngIf="form.get(\'suplidor\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content> '/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\herramientas\herramientas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__Service_Inventario_Services__["a" /* InventarioServices */], __WEBPACK_IMPORTED_MODULE_0__Service_Herramientas_Service__["a" /* HerramientasServices */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__Service_Inventario_Services__["a" /* InventarioServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__Service_Inventario_Services__["a" /* InventarioServices */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__Service_Herramientas_Service__["a" /* HerramientasServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Service_Herramientas_Service__["a" /* HerramientasServices */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */]) === "function" && _f || Object])
     ], HerramientasPage);
     return HerramientasPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=herramientas.js.map
@@ -1552,6 +1702,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ParcelaPage page.
  *
@@ -1559,8 +1710,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ParcelaPage = /** @class */ (function () {
-    function ParcelaPage(FincaService, Usuarios, auth, ParcelasServices, fb, navCtrl, navParams) {
+    function ParcelaPage(alertCtrl, FincaService, Usuarios, auth, ParcelasServices, fb, navCtrl, navParams) {
         var _this = this;
+        this.alertCtrl = alertCtrl;
         this.FincaService = FincaService;
         this.Usuarios = Usuarios;
         this.auth = auth;
@@ -1585,9 +1737,28 @@ var ParcelaPage = /** @class */ (function () {
         });
     };
     ParcelaPage.prototype.guardarParcela = function () {
-        var parcelas = { descripcion: this.form.value.descripcion, idfinca: this.form.value.finca };
-        this.ParcelasServices.add(parcelas).subscribe(function (result) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '¿Desea guardar este registro!?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function (data) {
+                    }
+                },
+                {
+                    text: 'Guardar',
+                    handler: function (data) {
+                        var parcelas = { descripcion: _this.form.value.descripcion, idfinca: _this.form.value.finca };
+                        _this.ParcelasServices.add(parcelas).subscribe(function (result) {
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__consultar_parcelas_consultar_parcelas__["a" /* ConsultarParcelasPage */]);
+                        });
+                    }
+                }
+            ]
         });
+        alert.present();
     };
     ParcelaPage.prototype.OnGoBack = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
@@ -1607,9 +1778,10 @@ var ParcelaPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
             selector: 'page-parcela',template:/*ion-inline-start:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\parcela\parcela.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Agregar Parcela\n\n    </ion-title>\n\n    <ion-buttons>\n\n      <button ion-button icon-only (click)="OnGoBack()">\n\n        <ion-icon name="md-arrow-back"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="ConsultaParcela()">\n\n        <ion-icon name="search"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-card-content>\n\n    <form [formGroup]="form" (ngSubmit)="guardarParcela()" novalidate>\n\n      <ion-list>\n\n        <ion-item>\n\n          <ion-label color="primary" floating>Descripcion</ion-label>\n\n          <ion-input formControlName="descripcion"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'descripcion\').errors && form.get(\'descripcion\').touched">\n\n          <p *ngIf="form.get(\'descripcion\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label>Finca</ion-label>\n\n          <ion-select multiple="false" cancelText="cancel" okText="ok" formControlName="finca">\n\n            <ion-option #item *ngFor="let lista of Array" [value]="lista.idfinca" selected="false">{{lista.nombre}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n        <ion-item *ngIf="form.get(\'finca\').errors && form.get(\'finca\').touched">\n\n          <p *ngIf="form.get(\'finca\').hasError(\'required\')">Es requerido</p>\n\n        </ion-item>\n\n      </ion-list>\n\n      <button ion-button block type="submit" [disabled]="form.invalid">Guardar</button>\n\n    </form>\n\n  </ion-card-content>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Robert\Documents\GitHub\TuFincaApp\MiFincaApp\src\pages\parcela\parcela.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */], __WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__["a" /* UsuarioService */], __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_1__Service_Parcela_Service__["a" /* ParcelasServices */], __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__Service_Finca_Service__["a" /* FincaService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__["a" /* UsuarioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__Service_Usuario_Service__["a" /* UsuarioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__Service_Parcela_Service__["a" /* ParcelasServices */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Service_Parcela_Service__["a" /* ParcelasServices */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["j" /* NavController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["k" /* NavParams */]) === "function" && _h || Object])
     ], ParcelaPage);
     return ParcelaPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=parcela.js.map

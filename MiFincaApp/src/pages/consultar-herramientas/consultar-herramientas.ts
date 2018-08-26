@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
+import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the ConsultarHerramientasPage page.
  *
@@ -23,7 +24,7 @@ export class ConsultarHerramientasPage {
   items: any = []
   searching: any = false;
   searchControl: FormControl;
-  constructor(public HerramientasServices: HerramientasServices, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController, public HerramientasServices: HerramientasServices, public navCtrl: NavController, public navParams: NavParams) {
     this.searchControl = new FormControl();
   }
   Filtro() {
@@ -34,7 +35,10 @@ export class ConsultarHerramientasPage {
       for (var key in arr) this.Array.push(arr[key]);
       for (let index = 0; index < this.Array.length; index++) {
         this.HerramientasServices.getherra(this.Array[index].herramientas).subscribe(value2 => {
-          for (let index = 0; index < value2.length; index++) { this.Lista.push(value2[index]); }
+          for (let index = 0; index < value2.length; index++) { 
+            this.Lista.push(value2[index]); 
+            console.log(this.Lista)
+          }
         })
       }
     })
@@ -53,12 +57,75 @@ export class ConsultarHerramientasPage {
   }
 
   setFilteredItems() {
-    if(this.searchTerm.length > 0){
-       this.Lista = this.filterItems(this.searchTerm);
-    }else{
+    if (this.searchTerm.length > 0) {
+      this.Lista = this.filterItems(this.searchTerm);
+    } else {
       this.Lista = [];
       this.Filtro();
     }
+  }
+  Modificar(data) {
+    this.HerramientasServices.Update(data).subscribe(res => {
+      this.navCtrl.setRoot(ConsultarHerramientasPage);
+    });
+  }
+  presentPrompt(idherramientas, herramientas, cantidad, suplidor) {
+    let alert = this.alertCtrl.create({
+      title: '¿Desea modificar esta herramienta!?',
+      inputs: [
+        {
+          placeholder: 'Herramienta',
+          value: herramientas,
+          disabled:true
+        },
+        {
+          placeholder: 'Cantidad',
+          value: cantidad
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Modificar',
+          handler: data => {
+            let dat = { idherramientas: idherramientas, herramientas: data[0], cantidad: data[1], suplidor: suplidor }
+           console.log(dat);
+            this.Modificar(dat);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  Eliminar(idfrutos) {
+    let alert = this.alertCtrl.create({
+      title: '¿Desea eliminar esta herramienta!?',
+
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Eliminar',
+          handler: data => {
+            this.HerramientasServices.Delete(idfrutos).subscribe(RES => {
+              this.HerramientasServices.get().subscribe(res => {
+                this.Lista = res;
+              });
+            })
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   onSearchInput() {
     this.searching = true;

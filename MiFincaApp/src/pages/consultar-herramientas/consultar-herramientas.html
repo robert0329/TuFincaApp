@@ -17,11 +17,11 @@
     <ion-item-sliding  *ngFor="let grocery of Lista">
       <ion-item> {{grocery.herramientas}} Existencia: {{grocery.cantidad}}</ion-item>
       <ion-item-options>
-        <button ion-button icon-only light (click)="openModal()">
+        <button ion-button icon-only light (click)="presentPrompt(grocery.idherramientas, grocery.herramientas, grocery.cantidad, grocery.suplidor)">
           <ion-icon name="paper"></ion-icon>
         </button>
-        <button ion-button icon-only light (click)="openModal()">
-          <ion-icon name="md-done-all"></ion-icon>
+        <button ion-button icon-only light (click)="Eliminar(grocery.idherramientas)">
+          <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>

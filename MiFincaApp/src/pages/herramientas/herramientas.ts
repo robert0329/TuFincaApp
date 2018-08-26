@@ -1,5 +1,5 @@
 import { Herramientas } from './../../app/Clases/Herramientas';
-
+import { AlertController } from 'ionic-angular';
 import { HerramientasServices } from './../../Service/Herramientas-Service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -30,7 +30,7 @@ export class HerramientasPage {
   Suplidor: Array<Usuarios> = [];
   h: any;
   s: any;
-  constructor(public InventarioServices: InventarioServices, public HerramientasServices: HerramientasServices, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController, public InventarioServices: InventarioServices, public HerramientasServices: HerramientasServices, private fb: FormBuilder, public navCtrl: NavController, public navParams: NavParams) {
     this.form = this.fb.group({
       herramientas: ['', Validators.required],
       cantidad: ['', Validators.required],
@@ -61,22 +61,39 @@ export class HerramientasPage {
     })
   }
   guardar() {
-      this.HerramientasServices.add(this.form.value).subscribe(value => { //agrega una herramienta
-        this.HerramientasServices.Identity().subscribe(value => { // ultimo id herramienta
-          this.HerramientasServices.getId(value[0].idherramientas).subscribe(valor => {
-            this.Agregar(valor[0].idherramientas);
-          })
-        })
-    })
+    let alert = this.alertCtrl.create({
+      title: '¿Desea guardar este registro!?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Guardar',
+          handler: data => {
+            this.HerramientasServices.add(this.form.value).subscribe(value => { //agrega una herramienta
+              this.HerramientasServices.Identity().subscribe(value => { // ultimo id herramienta
+                this.HerramientasServices.getId(value[0].idherramientas).subscribe(valor => {
+                  this.Agregar(valor[0].idherramientas);
+                })
+              })
+            })
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   OnGoBack() {
     this.navCtrl.setRoot(HomePage);
   }
-  Consultar(){
+  Consultar() {
     this.navCtrl.setRoot(ConsultarHerramientasPage);
   }
   ionViewDidLoad() {
-  
+
   }
 
 }

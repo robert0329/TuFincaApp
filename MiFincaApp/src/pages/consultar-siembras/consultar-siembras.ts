@@ -15,7 +15,6 @@ export class ConsultarSiembrasPage {
 
   Lista: Array<any> = [];
   searchTerm: string = '';
-  items: any = []
   searching: any = false;
   searchControl: FormControl;
 
@@ -25,13 +24,6 @@ export class ConsultarSiembrasPage {
   public openModal(idfrutos, descripcion) {
     
   }
-  delete(id) {
-    this.SiembraServices.Delete(id).subscribe(RES => {
-      this.SiembraServices.get().subscribe(res => {
-        this.Lista = res;
-      });
-    })
-  }
   OnGoBack() {
     this.navCtrl.setRoot(HomePage);
   }
@@ -39,7 +31,6 @@ export class ConsultarSiembrasPage {
   ionViewDidLoad() {
     this.SiembraServices.get().subscribe(res => {
       this.Lista = res;
-      console.log(this.Lista)
     });
   }
   Modificar(data) {
